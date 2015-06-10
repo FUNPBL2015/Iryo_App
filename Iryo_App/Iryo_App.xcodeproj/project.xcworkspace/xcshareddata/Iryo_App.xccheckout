@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DCCC8568-ABD3-43C5-8C6E-0EE6B73EF21F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>194FAE3674E26546BE7A856A680514753421D766</key>
+		<string>https://github.com/FUNPBL2015/Iryo_App.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Iryo_App/Iryo_App.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>194FAE3674E26546BE7A856A680514753421D766</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/FUNPBL2015/Iryo_App.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>194FAE3674E26546BE7A856A680514753421D766</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>194FAE3674E26546BE7A856A680514753421D766</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Iryo_App</string>
+		</dict>
+	</array>
+</dict>
+</plist>

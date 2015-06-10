@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5EB9E3141B2832A9005B7951 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9E3131B2832A9005B7951 /* AppDelegate.swift */; };
+		5EB9E3161B2832A9005B7951 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9E3151B2832A9005B7951 /* ViewController.swift */; };
+		5EB9E3191B2832A9005B7951 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9E3171B2832A9005B7951 /* Main.storyboard */; };
+		5EB9E31B1B2832A9005B7951 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9E31A1B2832A9005B7951 /* Images.xcassets */; };
+		5EB9E31E1B2832A9005B7951 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9E31C1B2832A9005B7951 /* LaunchScreen.xib */; };
+		5EB9E32A1B2832A9005B7951 /* Iryo_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9E3291B2832A9005B7951 /* Iryo_AppTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5EB9E3241B2832A9005B7951 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EB9E3061B2832A9005B7951 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EB9E30D1B2832A9005B7951;
+			remoteInfo = Iryo_App;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5EB9E30E1B2832A9005B7951 /* Iryo_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iryo_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EB9E3121B2832A9005B7951 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EB9E3131B2832A9005B7951 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5EB9E3151B2832A9005B7951 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5EB9E3181B2832A9005B7951 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5EB9E31A1B2832A9005B7951 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5EB9E31D1B2832A9005B7951 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		5EB9E3231B2832A9005B7951 /* Iryo_AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Iryo_AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EB9E3281B2832A9005B7951 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EB9E3291B2832A9005B7951 /* Iryo_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iryo_AppTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5EB9E30B1B2832A9005B7951 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EB9E3201B2832A9005B7951 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5EB9E3051B2832A9005B7951 = {
+			isa = PBXGroup;
+			children = (
+				5EB9E3101B2832A9005B7951 /* Iryo_App */,
+				5EB9E3261B2832A9005B7951 /* Iryo_AppTests */,
+				5EB9E30F1B2832A9005B7951 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5EB9E30F1B2832A9005B7951 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5EB9E30E1B2832A9005B7951 /* Iryo_App.app */,
+				5EB9E3231B2832A9005B7951 /* Iryo_AppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5EB9E3101B2832A9005B7951 /* Iryo_App */ = {
+			isa = PBXGroup;
+			children = (
+				5EB9E3131B2832A9005B7951 /* AppDelegate.swift */,
+				5EB9E3151B2832A9005B7951 /* ViewController.swift */,
+				5EB9E3171B2832A9005B7951 /* Main.storyboard */,
+				5EB9E31A1B2832A9005B7951 /* Images.xcassets */,
+				5EB9E31C1B2832A9005B7951 /* LaunchScreen.xib */,
+				5EB9E3111B2832A9005B7951 /* Supporting Files */,
+			);
+			path = Iryo_App;
+			sourceTree = "<group>";
+		};
+		5EB9E3111B2832A9005B7951 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5EB9E3121B2832A9005B7951 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5EB9E3261B2832A9005B7951 /* Iryo_AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				5EB9E3291B2832A9005B7951 /* Iryo_AppTests.swift */,
+				5EB9E3271B2832A9005B7951 /* Supporting Files */,
+			);
+			path = Iryo_AppTests;
+			sourceTree = "<group>";
+		};
+		5EB9E3271B2832A9005B7951 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5EB9E3281B2832A9005B7951 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5EB9E30D1B2832A9005B7951 /* Iryo_App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EB9E32D1B2832A9005B7951 /* Build configuration list for PBXNativeTarget "Iryo_App" */;
+			buildPhases = (
+				5EB9E30A1B2832A9005B7951 /* Sources */,
+				5EB9E30B1B2832A9005B7951 /* Frameworks */,
+				5EB9E30C1B2832A9005B7951 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Iryo_App;
+			productName = Iryo_App;
+			productReference = 5EB9E30E1B2832A9005B7951 /* Iryo_App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5EB9E3221B2832A9005B7951 /* Iryo_AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EB9E3301B2832A9005B7951 /* Build configuration list for PBXNativeTarget "Iryo_AppTests" */;
+			buildPhases = (
+				5EB9E31F1B2832A9005B7951 /* Sources */,
+				5EB9E3201B2832A9005B7951 /* Frameworks */,
+				5EB9E3211B2832A9005B7951 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EB9E3251B2832A9005B7951 /* PBXTargetDependency */,
+			);
+			name = Iryo_AppTests;
+			productName = Iryo_AppTests;
+			productReference = 5EB9E3231B2832A9005B7951 /* Iryo_AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5EB9E3061B2832A9005B7951 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "伊藤恵研究室メンバ";
+				TargetAttributes = {
+					5EB9E30D1B2832A9005B7951 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					5EB9E3221B2832A9005B7951 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 5EB9E30D1B2832A9005B7951;
+					};
+				};
+			};
+			buildConfigurationList = 5EB9E3091B2832A9005B7951 /* Build configuration list for PBXProject "Iryo_App" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5EB9E3051B2832A9005B7951;
+			productRefGroup = 5EB9E30F1B2832A9005B7951 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5EB9E30D1B2832A9005B7951 /* Iryo_App */,
+				5EB9E3221B2832A9005B7951 /* Iryo_AppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5EB9E30C1B2832A9005B7951 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EB9E3191B2832A9005B7951 /* Main.storyboard in Resources */,
+				5EB9E31E1B2832A9005B7951 /* LaunchScreen.xib in Resources */,
+				5EB9E31B1B2832A9005B7951 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EB9E3211B2832A9005B7951 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5EB9E30A1B2832A9005B7951 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EB9E3161B2832A9005B7951 /* ViewController.swift in Sources */,
+				5EB9E3141B2832A9005B7951 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EB9E31F1B2832A9005B7951 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EB9E32A1B2832A9005B7951 /* Iryo_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5EB9E3251B2832A9005B7951 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EB9E30D1B2832A9005B7951 /* Iryo_App */;
+			targetProxy = 5EB9E3241B2832A9005B7951 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5EB9E3171B2832A9005B7951 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EB9E3181B2832A9005B7951 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5EB9E31C1B2832A9005B7951 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EB9E31D1B2832A9005B7951 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5EB9E32B1B2832A9005B7951 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		5EB9E32C1B2832A9005B7951 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5EB9E32E1B2832A9005B7951 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Iryo_App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5EB9E32F1B2832A9005B7951 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Iryo_App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5EB9E3311B2832A9005B7951 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Iryo_AppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Iryo_App.app/Iryo_App";
+			};
+			name = Debug;
+		};
+		5EB9E3321B2832A9005B7951 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Iryo_AppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Iryo_App.app/Iryo_App";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5EB9E3091B2832A9005B7951 /* Build configuration list for PBXProject "Iryo_App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EB9E32B1B2832A9005B7951 /* Debug */,
+				5EB9E32C1B2832A9005B7951 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EB9E32D1B2832A9005B7951 /* Build configuration list for PBXNativeTarget "Iryo_App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EB9E32E1B2832A9005B7951 /* Debug */,
+				5EB9E32F1B2832A9005B7951 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5EB9E3301B2832A9005B7951 /* Build configuration list for PBXNativeTarget "Iryo_AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EB9E3311B2832A9005B7951 /* Debug */,
+				5EB9E3321B2832A9005B7951 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5EB9E3061B2832A9005B7951 /* Project object */;
+}
