@@ -13,6 +13,8 @@
 		5EB9E31B1B2832A9005B7951 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9E31A1B2832A9005B7951 /* Images.xcassets */; };
 		5EB9E31E1B2832A9005B7951 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9E31C1B2832A9005B7951 /* LaunchScreen.xib */; };
 		5EB9E32A1B2832A9005B7951 /* Iryo_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9E3291B2832A9005B7951 /* Iryo_AppTests.swift */; };
+		5EE35E261B312088004CC19C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE35E251B312088004CC19C /* Menu.swift */; };
+		5EE35E281B313259004CC19C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE35E271B313259004CC19C /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		5EB9E3231B2832A9005B7951 /* Iryo_AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Iryo_AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB9E3281B2832A9005B7951 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EB9E3291B2832A9005B7951 /* Iryo_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iryo_AppTests.swift; sourceTree = "<group>"; };
+		5EE35E251B312088004CC19C /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		5EE35E271B313259004CC19C /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			children = (
 				5EB9E3131B2832A9005B7951 /* AppDelegate.swift */,
 				5EB9E3151B2832A9005B7951 /* ViewController.swift */,
+				5EE35E251B312088004CC19C /* Menu.swift */,
+				5EE35E271B313259004CC19C /* Item.swift */,
 				5EB9E3171B2832A9005B7951 /* Main.storyboard */,
 				5EB9E31A1B2832A9005B7951 /* Images.xcassets */,
 				5EB9E31C1B2832A9005B7951 /* LaunchScreen.xib */,
@@ -212,6 +218,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EE35E261B312088004CC19C /* Menu.swift in Sources */,
+				5EE35E281B313259004CC19C /* Item.swift in Sources */,
 				5EB9E3161B2832A9005B7951 /* ViewController.swift in Sources */,
 				5EB9E3141B2832A9005B7951 /* AppDelegate.swift in Sources */,
 			);
@@ -411,6 +419,7 @@
 				5EB9E32F1B2832A9005B7951 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5EB9E3301B2832A9005B7951 /* Build configuration list for PBXNativeTarget "Iryo_AppTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +428,7 @@
 				5EB9E3321B2832A9005B7951 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
