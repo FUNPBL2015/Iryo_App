@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhx-Ed-Itt">
-                                <rect key="frame" x="277" y="346" width="46" height="30"/>
+                                <rect key="frame" x="301" y="346" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -43,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="-2899"/>
+            <point key="canvasLocation" x="851" y="-2895"/>
         </scene>
         <!--Menu-->
         <scene sceneID="5Dz-Fq-XVE">
@@ -184,7 +184,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gna-kf-3hY">
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="217"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <mutableString key="text">医療行為への同意は、法律的には一身専属的行為＊とみなされており、まずは本人に希望を聞くことが一番です。しかし、ご本人から十分な希望を聞くことが難しい場合、ご本人の意思を推測できる立場として家族の意見も意思決定に重要な役割を果たします。分からないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになります。ご家族の立場で決断することはとても難しいことがあります。高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。 医療行為への同意は、法律的には一身専属的行為＊とみなされており、まずは本人に希望を聞くことが一番です。しかし、ご本人から十分な希望を聞くことが難しい場合、ご本人の意思を推測できる立場として家族の意見も意思決定に重要な役割を果たします。分からないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになります。ご家族の立場で決断することはとても難しいことがあります。高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。</mutableString>
+                                        <string key="text">医療行為への同意は、法律的には一身専属的行為＊とみなされており、まずは本人に希望を聞くことが一番です。しかし、ご本人から十分な希望を聞くことが難しい場合、ご本人の意思を推測できる立場として家族の意見も意思決定に重要な役割を果たします。分からないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになります。ご家族の立場で決断することはとても難しいことがあります。高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。 医療行為への同意は、法律的には一身専属的行為＊とみなされており、まずは本人に希望を聞くことが一番です。しかし、ご本人から十分な希望を聞くことが難しい場合、ご本人の意思を推測できる立場として家族の意見も意思決定に重要な役割を果たします。分からないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになります。ご家族の立場で決断することはとても難しいことがあります。高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <userDefinedRuntimeAttributes>
