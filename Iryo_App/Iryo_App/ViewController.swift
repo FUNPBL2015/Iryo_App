@@ -9,12 +9,27 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    override func viewWillAppear(animated: Bool) {
+        //画面が表示される直前
+        
+        // NavigationBarを非表示にする
+            self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        //別の画面に遷移する直前
+
+        // NavigationBarを表示する
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+        // NavigationBarの高さを設定する
+            self.navigationController?.navigationBar.frame.size.height = 60
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
