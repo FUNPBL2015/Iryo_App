@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5E40CCD21B32E325007DE681 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E40CCD01B32E2B4007DE681 /* Menu.swift */; };
+		5E88AD411B3523BD007679A7 /* homeImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E88AD401B3523BD007679A7 /* homeImg.png */; };
+		5E88AD431B352B66007679A7 /* pic_family.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E88AD421B352B66007679A7 /* pic_family.png */; };
 		5EAC1F3D1B33162400473C38 /* testFont1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAC1F3B1B33132400473C38 /* testFont1.ttf */; };
 		5EAC1F3F1B3316C700473C38 /* ipaexm.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */; };
 		5EAC1F421B3339A500473C38 /* Article1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC1F411B3339A500473C38 /* Article1.swift */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		5E40CCD01B32E2B4007DE681 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		5E88AD401B3523BD007679A7 /* homeImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeImg.png; sourceTree = "<group>"; };
+		5E88AD421B352B66007679A7 /* pic_family.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic_family.png; sourceTree = "<group>"; };
 		5EAC1F3B1B33132400473C38 /* testFont1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = testFont1.ttf; sourceTree = "<group>"; };
 		5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ipaexm.ttf; sourceTree = "<group>"; };
 		5EAC1F411B3339A500473C38 /* Article1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article1.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 		5EB9E3111B2832A9005B7951 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5E88AD421B352B66007679A7 /* pic_family.png */,
+				5E88AD401B3523BD007679A7 /* homeImg.png */,
 				5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */,
 				5EAC1F3B1B33132400473C38 /* testFont1.ttf */,
 				5EB9E3121B2832A9005B7951 /* Info.plist */,
@@ -212,8 +218,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E88AD431B352B66007679A7 /* pic_family.png in Resources */,
 				5EB9E3191B2832A9005B7951 /* Main.storyboard in Resources */,
 				5EB9E31E1B2832A9005B7951 /* LaunchScreen.xib in Resources */,
+				5E88AD411B3523BD007679A7 /* homeImg.png in Resources */,
 				5EAC1F3F1B3316C700473C38 /* ipaexm.ttf in Resources */,
 				5EAC1F3D1B33162400473C38 /* testFont1.ttf in Resources */,
 				5EB9E31B1B2832A9005B7951 /* Images.xcassets in Resources */,
