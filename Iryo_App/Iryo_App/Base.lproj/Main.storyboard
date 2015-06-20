@@ -41,14 +41,14 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMs-Kb-bXB">
-                                <rect key="frame" x="174" y="650" width="420" height="60"/>
+                                <rect key="frame" x="174" y="660" width="420" height="60"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="1" green="0.38775994108765532" blue="0.0655859161637522" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIP-Ow-AzM">
-                                <rect key="frame" x="174" y="745" width="420" height="60"/>
+                                <rect key="frame" x="174" y="755" width="420" height="60"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.38673120682976292" green="1" blue="0.96220101962225435" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
