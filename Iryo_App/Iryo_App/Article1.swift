@@ -24,6 +24,7 @@ class Article1:UIViewController, AVSpeechSynthesizerDelegate{
     override func viewDidLayoutSubviews() {
         //ScrollViewのContentSizeを設定
         self.scrollview.contentSize = self.mytext.frame.size
+        
     }
     
     override func viewDidLoad() {
