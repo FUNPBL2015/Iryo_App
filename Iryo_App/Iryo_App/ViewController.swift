@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         subtitleLabel.font = UIFont(name: "HiraKakuProN-W6", size: 40)
         
         //家族向けボタン
-        familyBtn.setTitle("家族向け", forState: UIControlState.Normal)
+        familyBtn.setTitle("家族", forState: UIControlState.Normal)
         familyBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 30)
         familyBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         familyBtn.backgroundColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.7)
@@ -68,14 +68,14 @@ class ViewController: UIViewController {
         familyBtn.addTarget(self, action: "UpButton1:", forControlEvents: .TouchUpOutside)
         
         //支援者向け
-        supporterBtn.setTitle("在宅スタッフ向け", forState: UIControlState.Normal)
+        supporterBtn.setTitle("在宅スタッフ", forState: UIControlState.Normal)
         supporterBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 30)
         supporterBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         supporterBtn.backgroundColor = UIColor(red: 0, green: 0.8, blue: 0.3, alpha: 0.7)
         supporterBtn.layer.cornerRadius = 5
         
         //医療従業者向け
-        healthproBtn.setTitle("医療従業者向け", forState: UIControlState.Normal)
+        healthproBtn.setTitle("医療従業者", forState: UIControlState.Normal)
         healthproBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 30)
         healthproBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         healthproBtn.backgroundColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 0.7)
