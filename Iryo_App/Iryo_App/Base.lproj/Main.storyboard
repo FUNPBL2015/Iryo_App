@@ -179,12 +179,12 @@
                                 <rect key="frame" x="253" y="226" width="263" height="31"/>
                             </slider>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TB3-7c-Cvq">
-                                <rect key="frame" x="141" y="429" width="500" height="200"/>
+                                <rect key="frame" x="141" y="429" width="479" height="432"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gna-kf-3hY">
-                                        <rect key="frame" x="0.0" y="0.0" width="500" height="217"/>
+                                        <rect key="frame" x="-11" y="0.0" width="500" height="424"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <mutableString key="text">医療行為への同意は、法律的には一身専属的行為＊とみなされており、まずは本人に希望を聞くことが一番です。しかし、ご本人から十分な希望を聞くことが難しい場合、ご本人の意思を推測できる立場として家族の意見も意思決定に重要な役割を果たします。分からないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになります。ご家族の立場で決断することはとても難しいことがあります。高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。 医療行為への同意は、法律的には一身専属的行為＊とみなされており、まずは本人に希望を聞くことが一番です。しかし、ご本人から十分な希望を聞くことが難しい場合、ご本人の意思を推測できる立場として家族の意見も意思決定に重要な役割を果たします。分からないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになります。ご家族の立場で決断することはとても難しいことがあります。高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。</mutableString>
+                                        <mutableString key="text">もし認知症のおじいちゃん、おばあちゃんが急に入院して検査や手術を受けることになったら…  ・本人の同意が得られない ・本人の意思が不明瞭 ・家族の合意のみで医療行為が進む 　　　　　　　　　　　　　ということもある　  最悪の場合… 　本人の合意が得られないから必要な医療行為が受けられないなんてことも！！  そのため、医療行為の決定において家族と病院の連携は重要 　健康なときから本人の意向を確認しておこう！ 　　→病院で治療となったら情報を確実に伝える  　　このアプリはそのためのアプリです！！  ＜このマニュアルでは本人と家族へ向けて、納得のいく医療が受けられるように＞ ・受診前にどんな準備が必要か ・元気なうちから家族で考える ・認知症になっても本人の希望に沿った医療行為を受ける 　　ことができるようにお手伝いしていきます。</mutableString>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <userDefinedRuntimeAttributes>
@@ -234,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wag-WF-3no" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-961" y="-501.00000000000006"/>
+            <point key="canvasLocation" x="-961" y="-501"/>
         </scene>
         <!--Article2-->
         <scene sceneID="7Md-Ls-pWj">
@@ -248,12 +248,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="article2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPV-Kt-kBC">
-                                <rect key="frame" x="356" y="502" width="56" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Bd-Jq-c6Q">
+                                <rect key="frame" x="126" y="360" width="566" height="428"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PxP-pb-06E">
+                                        <rect key="frame" x="18" y="17" width="528" height="620"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <mutableString key="text">医療行為への同意はご本人に希望を聞くことが一番です。しかし、ご本人から希望を聞くことが難しい場合「家族の意見が重要な役割」を果たします。  　そのために、ご本人について深く知る必要があります。  　＜例えば病院では次のような相談をされます＞ ○急変時、救命措置（心臓マッサージ、血圧を上げる薬、人工呼吸）をしますか？
+ ○口から物が食べられない時に、胃ろう、経鼻経管栄養、中心静脈栄養、点滴をしますか？
+ ○腎臓の働きが悪くなったときに透析をしますか？  　何かわからないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。  　最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになるため、決断することはとても難しいことです。なので高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </scrollView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="d4v-p3-FPZ">
+                                <rect key="frame" x="325" y="109" width="118" height="31"/>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IHf-Nh-n4X">
+                                <rect key="frame" x="325" y="206" width="118" height="31"/>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -262,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tme-Nb-15y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-77" y="-501.00000000000011"/>
+            <point key="canvasLocation" x="-77" y="-501"/>
         </scene>
         <!--Article3-->
         <scene sceneID="VSB-LF-JQs">
