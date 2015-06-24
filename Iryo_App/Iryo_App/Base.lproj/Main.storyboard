@@ -71,7 +71,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="gQP-tH-whj" kind="show" id="sF6-nt-0Hl"/>
+                                            <segue destination="gQP-tH-whj" kind="show" identifier="" id="sF6-nt-0Hl"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="0gN-tB-o1R">
@@ -130,9 +130,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="btE-nL-3vX" id="6Dx-gN-6WM">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="記事５記事５記事５記事５記事５記事５記事５記事５記事５記事５記事５記事５記事５記事５記事５記事５" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHn-Lc-Tyb">
-                                                    <rect key="frame" x="16" y="24" width="816" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="さいごに　〜悩んでいる方へ〜" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHn-Lc-Tyb">
+                                                    <rect key="frame" x="16" y="24" width="476" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -158,7 +158,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBM-rz-erx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="-1719.0000000000005"/>
+            <point key="canvasLocation" x="809" y="-1720"/>
         </scene>
         <!--Article1-->
         <scene sceneID="6V6-qt-cHN">
@@ -184,7 +184,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gna-kf-3hY">
                                         <rect key="frame" x="-11" y="0.0" width="500" height="424"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <mutableString key="text">もし認知症のおじいちゃん、おばあちゃんが急に入院して検査や手術を受けることになったら…  ・本人の同意が得られない ・本人の意思が不明瞭 ・家族の合意のみで医療行為が進む 　　　　　　　　　　　　　ということもある　  最悪の場合… 　本人の合意が得られないから必要な医療行為が受けられないなんてことも！！  そのため、医療行為の決定において家族と病院の連携は重要 　健康なときから本人の意向を確認しておこう！ 　　→病院で治療となったら情報を確実に伝える  　　このアプリはそのためのアプリです！！  ＜このマニュアルでは本人と家族へ向けて、納得のいく医療が受けられるように＞ ・受診前にどんな準備が必要か ・元気なうちから家族で考える ・認知症になっても本人の希望に沿った医療行為を受ける 　　ことができるようにお手伝いしていきます。</mutableString>
+                                        <string key="text">もし認知症のおじいちゃん、おばあちゃんが急に入院して検査や手術を受けることになったら…  ・本人の同意が得られない ・本人の意思が不明瞭 ・家族の合意のみで医療行為が進む 　　　　　　　　　　　　　ということもある　  最悪の場合… 　本人の合意が得られないから必要な医療行為が受けられないなんてことも！！  そのため、医療行為の決定において家族と病院の連携は重要 　健康なときから本人の意向を確認しておこう！ 　　→病院で治療となったら情報を確実に伝える  　　このアプリはそのためのアプリです！！  ＜このマニュアルでは本人と家族へ向けて、納得のいく医療が受けられるように＞ ・受診前にどんな準備が必要か ・元気なうちから家族で考える ・認知症になっても本人の希望に沿った医療行為を受ける 　　ことができるようにお手伝いしていきます。</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <userDefinedRuntimeAttributes>
@@ -202,34 +202,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="XKy-0B-OaG">
-                        <barButtonItem key="rightBarButtonItem" id="hwB-Ii-AY7">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="32p-cb-5x1">
-                                <rect key="frame" x="689" y="7" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.11764705882352941" green="0.78431372549019607" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Speak">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="mybtn:" destination="gQP-tH-whj" eventType="touchUpInside" id="Btx-0D-t3m"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="XKy-0B-OaG"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="mytext" destination="Gna-kf-3hY" id="zhT-Vz-Gje"/>
                         <outlet property="scrollview" destination="TB3-7c-Cvq" id="cTi-ba-65w"/>
-                        <outlet property="speakbtn" destination="32p-cb-5x1" id="4et-nr-oWf"/>
-                        <outlet property="voicepitch" destination="nGY-3a-9hF" id="xSG-xI-Cip"/>
-                        <outlet property="voicevolume" destination="t0q-a4-Hp1" id="LOr-Te-wCy"/>
+                        <outlet property="voicePitchSlider" destination="nGY-3a-9hF" id="KBN-wP-lxQ"/>
+                        <outlet property="voiceRateSlider" destination="t0q-a4-Hp1" id="JPV-Nh-QrI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wag-WF-3no" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -254,9 +233,9 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PxP-pb-06E">
                                         <rect key="frame" x="18" y="17" width="528" height="620"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <mutableString key="text">医療行為への同意はご本人に希望を聞くことが一番です。しかし、ご本人から希望を聞くことが難しい場合「家族の意見が重要な役割」を果たします。  　そのために、ご本人について深く知る必要があります。  　＜例えば病院では次のような相談をされます＞ ○急変時、救命措置（心臓マッサージ、血圧を上げる薬、人工呼吸）をしますか？
+                                        <string key="text">医療行為への同意はご本人に希望を聞くことが一番です。しかし、ご本人から希望を聞くことが難しい場合「家族の意見が重要な役割」を果たします。  　そのために、ご本人について深く知る必要があります。  　＜例えば病院では次のような相談をされます＞ ○急変時、救命措置（心臓マッサージ、血圧を上げる薬、人工呼吸）をしますか？
  ○口から物が食べられない時に、胃ろう、経鼻経管栄養、中心静脈栄養、点滴をしますか？
- ○腎臓の働きが悪くなったときに透析をしますか？  　何かわからないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。  　最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになるため、決断することはとても難しいことです。なので高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。</mutableString>
+ ○腎臓の働きが悪くなったときに透析をしますか？  　何かわからないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。  　最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになるため、決断することはとても難しいことです。なので高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -337,7 +316,7 @@
         <!--Article5-->
         <scene sceneID="dCJ-8V-ml6">
             <objects>
-                <viewController id="RnS-H7-1FJ" userLabel="Article5" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="RnS-H7-1FJ" userLabel="Article5" customClass="Article5" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nnk-y1-Hk3"/>
                         <viewControllerLayoutGuide type="bottom" id="sq5-qZ-ied"/>
@@ -346,21 +325,119 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="article5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTS-ws-ntj">
-                                <rect key="frame" x="356" y="502" width="56" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hn2-fG-yDb">
+                                <rect key="frame" x="0.0" y="64" width="768" height="1024"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7X-mK-Fsr" userLabel="SubTitle1">
+                                        <rect key="frame" x="8" y="34" width="752" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="　悩み" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dno-8e-Qjb">
+                                                <rect key="frame" x="0.0" y="0.0" width="752" height="31"/>
+                                                <color key="backgroundColor" red="1" green="0.99326646687957609" blue="0.83426605212489169" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KK9-KB-AfC">
+                                                <rect key="frame" x="0.0" y="26" width="752" height="5"/>
+                                                <color key="backgroundColor" red="0.114804619" green="0.53080792659999998" blue="0.73596722150000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ご本人が亡くなられたあと、後に残されたご家族はさまざまな思いに悩まれます。積極的治療をしてもしなくても、医療行為に対する自分たちの判断によって「苦しみをなびかせたのではないか…」、「死を早めてしまったのではないかなど。" translatesAutoresizingMaskIntoConstraints="NO" id="zcY-41-maC">
+                                        <rect key="frame" x="8" y="64" width="752" height="144"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQn-ky-UHM" userLabel="SubTitle2">
+                                        <rect key="frame" x="8" y="206" width="768" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="　つらいときには" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOn-vA-ioV">
+                                                <rect key="frame" x="0.0" y="0.0" width="752" height="31"/>
+                                                <color key="backgroundColor" red="1" green="0.99326646689999998" blue="0.83426605210000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1x7-L8-2fz">
+                                                <rect key="frame" x="0.0" y="26" width="752" height="5"/>
+                                                <color key="backgroundColor" red="0.114804619" green="0.53080792659999998" blue="0.73596722150000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIG-XT-7d4">
+                                        <rect key="frame" x="199" y="444" width="371" height="352"/>
+                                        <string key="text"> 　公益社団法人 認知症の人と家族の会
+　〒602-8143 京都府京都市上京区堀川通
+　丸太町下ル 京都社会福祉会館内
+　Tel: 0120-294-456（無料）
+　　　　　　　　　（月～金 10:00～15:00）
+　*携帯、PHS から075-811-8418（有料）
+　　HP: http://www.alzheimer.or.jp/
+　　全国に支部があり、支部でも電話相談を実施 　　しています。
+　　詳しくは上記お問い合わせ先まで。</string>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="「家族の会」の相談窓口もあります" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia5-2I-uNN">
+                                        <rect key="frame" x="234" y="421" width="300" height="40"/>
+                                        <color key="backgroundColor" red="0.11372549019607843" green="0.52941176470588236" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="「穏やかな最期を迎えられた」、「本人の希望に沿うことができた」と、肯定的に捉え直してみましょう。 それでも悲しい気持ちが続き、生活に支障がでるようであれば、お住いの相談機関や精神保健センターなど、気軽に相談できる機関があります。" translatesAutoresizingMaskIntoConstraints="NO" id="r10-i6-Smp">
+                                        <rect key="frame" x="8" y="238" width="752" height="144"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="PCn-wS-eXg"/>
+                    <navigationItem key="navigationItem" title="さいごに" id="PCn-wS-eXg"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="myScrollView" destination="Hn2-fG-yDb" id="PV9-IA-fBZ"/>
+                        <outlet property="myTextView" destination="zcY-41-maC" id="5bz-3k-w8q"/>
+                        <outlet property="subTextView" destination="YIG-XT-7d4" id="DkF-Ya-NzV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxo-gO-D1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2607" y="-501.00000000000011"/>
+            <point key="canvasLocation" x="2607" y="-501"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tgW-tL-kbo">

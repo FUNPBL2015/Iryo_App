@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    let speechSynthesizer = AVSpeechSynthesizer()
+    var toggle:Bool = true //speakBtnトグル true=Speak,false=Pause
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
