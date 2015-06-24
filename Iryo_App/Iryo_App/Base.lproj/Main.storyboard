@@ -184,7 +184,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gna-kf-3hY">
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="217"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <mutableString key="text">医療行為への同意は、法律的には一身専属的行為＊とみなされており、まずは本人に希望を聞くことが一番です。しかし、ご本人から十分な希望を聞くことが難しい場合、ご本人の意思を推測できる立場として家族の意見も意思決定に重要な役割を果たします。分からないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになります。ご家族の立場で決断することはとても難しいことがあります。高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。 医療行為への同意は、法律的には一身専属的行為＊とみなされており、まずは本人に希望を聞くことが一番です。しかし、ご本人から十分な希望を聞くことが難しい場合、ご本人の意思を推測できる立場として家族の意見も意思決定に重要な役割を果たします。分からないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになります。ご家族の立場で決断することはとても難しいことがあります。高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。</mutableString>
+                                        <string key="text">医療行為への同意は、法律的には一身専属的行為＊とみなされており、まずは本人に希望を聞くことが一番です。しかし、ご本人から十分な希望を聞くことが難しい場合、ご本人の意思を推測できる立場として家族の意見も意思決定に重要な役割を果たします。分からないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになります。ご家族の立場で決断することはとても難しいことがあります。高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。 医療行為への同意は、法律的には一身専属的行為＊とみなされており、まずは本人に希望を聞くことが一番です。しかし、ご本人から十分な希望を聞くことが難しい場合、ご本人の意思を推測できる立場として家族の意見も意思決定に重要な役割を果たします。分からないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになります。ご家族の立場で決断することはとても難しいことがあります。高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <userDefinedRuntimeAttributes>
@@ -202,34 +202,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="XKy-0B-OaG">
-                        <barButtonItem key="rightBarButtonItem" id="hwB-Ii-AY7">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="32p-cb-5x1">
-                                <rect key="frame" x="689" y="7" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.11764705882352941" green="0.78431372549019607" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Speak">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="mybtn:" destination="gQP-tH-whj" eventType="touchUpInside" id="Btx-0D-t3m"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="XKy-0B-OaG"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="mytext" destination="Gna-kf-3hY" id="zhT-Vz-Gje"/>
                         <outlet property="scrollview" destination="TB3-7c-Cvq" id="cTi-ba-65w"/>
-                        <outlet property="speakbtn" destination="32p-cb-5x1" id="4et-nr-oWf"/>
-                        <outlet property="voicepitch" destination="nGY-3a-9hF" id="xSG-xI-Cip"/>
-                        <outlet property="voicevolume" destination="t0q-a4-Hp1" id="LOr-Te-wCy"/>
+                        <outlet property="voicePitchSlider" destination="nGY-3a-9hF" id="Pzg-x8-c8h"/>
+                        <outlet property="voiceRateSlider" destination="t0q-a4-Hp1" id="Yvu-EE-qlx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wag-WF-3no" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -257,7 +236,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="Ysr-Hk-VkX"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tme-Nb-15y" userLabel="First Responder" sceneMemberID="firstResponder"/>
