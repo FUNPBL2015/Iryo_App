@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5E40CCD21B32E325007DE681 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E40CCD01B32E2B4007DE681 /* Menu.swift */; };
 		5E69F2C71B3A6A82005877DC /* BaseArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */; };
+		5E69F2C91B3A85C6005877DC /* Article5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69F2C81B3A85C6005877DC /* Article5.swift */; };
 		5EAC1F3D1B33162400473C38 /* testFont1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAC1F3B1B33132400473C38 /* testFont1.ttf */; };
 		5EAC1F3F1B3316C700473C38 /* ipaexm.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */; };
 		5EAC1F421B3339A500473C38 /* Article1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC1F411B3339A500473C38 /* Article1.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		5E40CCD01B32E2B4007DE681 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseArticleViewController.swift; sourceTree = "<group>"; };
+		5E69F2C81B3A85C6005877DC /* Article5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article5.swift; sourceTree = "<group>"; };
 		5EAC1F3B1B33132400473C38 /* testFont1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = testFont1.ttf; sourceTree = "<group>"; };
 		5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ipaexm.ttf; sourceTree = "<group>"; };
 		5EAC1F411B3339A500473C38 /* Article1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article1.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				5EAC1F411B3339A500473C38 /* Article1.swift */,
+				5E69F2C81B3A85C6005877DC /* Article5.swift */,
 			);
 			name = "Articles for ...";
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			files = (
 				5E40CCD21B32E325007DE681 /* Menu.swift in Sources */,
 				5EB9E3161B2832A9005B7951 /* ViewController.swift in Sources */,
+				5E69F2C91B3A85C6005877DC /* Article5.swift in Sources */,
 				5E69F2C71B3A6A82005877DC /* BaseArticleViewController.swift in Sources */,
 				5EAC1F421B3339A500473C38 /* Article1.swift in Sources */,
 				5EB9E3141B2832A9005B7951 /* AppDelegate.swift in Sources */,
