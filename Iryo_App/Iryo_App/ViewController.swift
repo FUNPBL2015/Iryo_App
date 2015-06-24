@@ -73,13 +73,29 @@ class ViewController: UIViewController {
         supporterBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         supporterBtn.backgroundColor = UIColor(red: 0, green: 0.8, blue: 0.3, alpha: 0.7)
         supporterBtn.layer.cornerRadius = 5
+        supporterBtn.addTarget(self, action: "DownButton2:", forControlEvents: .TouchDown)
+        supporterBtn.addTarget(self, action: "UpButton2:", forControlEvents: .TouchUpInside)
+        supporterBtn.addTarget(self, action: "UpButton2:", forControlEvents: .TouchUpOutside)
         
         //医療従業者向け
-        healthproBtn.setTitle("医療従業者", forState: UIControlState.Normal)
+        let attributedText = NSMutableAttributedString(string: "医療従業者",
+            attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
+        
+        //文字間の値
+        let customLetterSpacing = 10
+        //文字間(NSKernAttributeName)を設定する
+        attributedText.addAttribute(NSKernAttributeName, value: customLetterSpacing, range: NSMakeRange(0, attributedText.length))
+        
+        healthproBtn.setAttributedTitle(attributedText, forState: .Normal)
+        
+        //healthproBtn.setTitle("医療従業者", forState: UIControlState.Normal)
         healthproBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 30)
         healthproBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         healthproBtn.backgroundColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 0.7)
         healthproBtn.layer.cornerRadius = 5
+        healthproBtn.addTarget(self, action: "DownButton3:", forControlEvents: .TouchDown)
+        healthproBtn.addTarget(self, action: "UpButton3:", forControlEvents: .TouchUpInside)
+        healthproBtn.addTarget(self, action: "UpButton3:", forControlEvents: .TouchUpOutside)
         
         //info
         infoBtn.setTitle("このアプリについて", forState: UIControlState.Normal)
@@ -103,6 +119,22 @@ class ViewController: UIViewController {
     }
     internal func UpButton1(sender: UIButton){
         familyBtn.backgroundColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.7)
+    }
+    
+    //支援者ボタンの押したときのアクション
+    internal func DownButton2(sender: UIButton){
+        supporterBtn.backgroundColor = UIColor(red: 0, green: 0.8, blue: 0.3, alpha: 0.5)
+    }
+    internal func UpButton2(sender: UIButton){
+        supporterBtn.backgroundColor = UIColor(red: 0, green: 0.8, blue: 0.3, alpha: 0.7)
+    }
+    
+    //医療従業者ボタンの押したときのアクション
+    internal func DownButton3(sender: UIButton){
+        healthproBtn.backgroundColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 0.5)
+    }
+    internal func UpButton3(sender: UIButton){
+        healthproBtn.backgroundColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 0.7)
     }
 
 
