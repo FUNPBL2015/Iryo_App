@@ -257,10 +257,276 @@
             </objects>
             <point key="canvasLocation" x="-77" y="-501"/>
         </scene>
+        <!--Com3-->
+        <scene sceneID="M1C-Nc-ejQ">
+            <objects>
+                <viewController id="8sC-fp-DfU" customClass="com3" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WFB-td-rd1"/>
+                        <viewControllerLayoutGuide type="bottom" id="G1R-r5-TAY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Try-Se-ndp">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzA-nL-qFt">
+                                <rect key="frame" x="309" y="28" width="150" height="58"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vPq-Ik-3Ya" kind="unwind" unwindAction="unWindows:" id="FSa-Uj-SCU"/>
+                                </connections>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="奥さん2.png" translatesAutoresizingMaskIntoConstraints="NO" id="15Q-TB-8i7">
+                                <rect key="frame" x="8" y="242" width="74" height="100"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DnA-DX-uFm">
+                                <rect key="frame" x="99" y="109" width="653" height="219"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e5v-FO-faC">
+                                <rect key="frame" x="16" y="379" width="644" height="118"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="おじいさん２.png" translatesAutoresizingMaskIntoConstraints="NO" id="n28-3z-jiF">
+                                <rect key="frame" x="630" y="279" width="166" height="243"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNr-ra-sh9">
+                                <rect key="frame" x="99" y="546" width="653" height="85"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="奥さん2.png" translatesAutoresizingMaskIntoConstraints="NO" id="EUe-87-5F1">
+                                <rect key="frame" x="8" y="546" width="74" height="100"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="deP-vE-tlJ">
+                                <rect key="frame" x="16" y="683" width="644" height="115"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="おじいさん２.png" translatesAutoresizingMaskIntoConstraints="NO" id="6ej-TF-U9W">
+                                <rect key="frame" x="639" y="613" width="166" height="243"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jam-KV-dh9">
+                                <rect key="frame" x="99" y="853" width="653" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="奥さん2.png" translatesAutoresizingMaskIntoConstraints="NO" id="LAf-Xb-spT">
+                                <rect key="frame" x="8" y="863" width="74" height="100"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="myBtn" destination="gzA-nL-qFt" id="3EQ-Ug-B9H"/>
+                        <outlet property="myText1" destination="DnA-DX-uFm" id="68V-OE-eFF"/>
+                        <outlet property="myText2" destination="e5v-FO-faC" id="ym2-Wm-pXX"/>
+                        <outlet property="myText3" destination="xNr-ra-sh9" id="QS3-x0-V4b"/>
+                        <outlet property="myText4" destination="deP-vE-tlJ" id="v4w-9p-owb"/>
+                        <outlet property="myText5" destination="jam-KV-dh9" id="sB9-lZ-qMs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UO1-Jm-jQY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vPq-Ik-3Ya" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="844"/>
+        </scene>
+        <!--Checklist-->
+        <scene sceneID="ZSF-8E-P0z">
+            <objects>
+                <viewController id="Sox-F7-im9" customClass="checklist" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J9C-0V-jCW"/>
+                        <viewControllerLayoutGuide type="bottom" id="SPB-i9-cVp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bte-Bm-dbS">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVI-2K-be8">
+                                <rect key="frame" x="335" y="28" width="99" height="44"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="L3Y-lv-VhQ" kind="unwind" unwindAction="unWindows:" id="Uv0-ww-QRl"/>
+                                </connections>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="sIe-AX-9Ss">
+                                <rect key="frame" x="-263" y="117" width="1098" height="11"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDA-TL-awO">
+                                <rect key="frame" x="56" y="144" width="657" height="77"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ige-kt-lb9">
+                                <rect key="frame" x="507" y="249" width="100" height="49"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QlF-ff-j0m">
+                                <rect key="frame" x="175" y="249" width="100" height="50"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="Upt-yr-km0">
+                                <rect key="frame" x="-96" y="322" width="1098" height="11"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iq-UA-9zp">
+                                <rect key="frame" x="56" y="354" width="657" height="85"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4G3-E3-W3G">
+                                <rect key="frame" x="507" y="458" width="100" height="50"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJD-6n-iKB">
+                                <rect key="frame" x="175" y="458" width="100" height="50"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="lAl-W3-VGf">
+                                <rect key="frame" x="-108" y="540" width="1098" height="11"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="NiS-CD-2hS">
+                                <rect key="frame" x="-143" y="108" width="1098" height="9"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="myBtn" destination="IVI-2K-be8" id="XyY-ar-Kis"/>
+                        <outlet property="myBtnn1" destination="ige-kt-lb9" id="WZ4-f9-71P"/>
+                        <outlet property="myBtnn2" destination="4G3-E3-W3G" id="PVx-EL-TcW"/>
+                        <outlet property="myBtny1" destination="QlF-ff-j0m" id="LO1-Um-J9e"/>
+                        <outlet property="myBtny2" destination="hJD-6n-iKB" id="ED5-40-nsA"/>
+                        <outlet property="myLabel1" destination="wDA-TL-awO" id="wXU-e8-DdE"/>
+                        <outlet property="myLabel2" destination="4iq-UA-9zp" id="aNn-4N-JfC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L3B-Ry-ZRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="L3Y-lv-VhQ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1049" y="832"/>
+        </scene>
+        <!--Com5-->
+        <scene sceneID="fVe-wI-VgW">
+            <objects>
+                <viewController id="Arg-9q-fik" customClass="com5" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HyY-Z9-NIC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kga-bb-ZPD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CFi-SY-nb2">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMH-mi-JUR">
+                                <rect key="frame" x="293" y="28" width="182" height="53"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3Zj-B9-Ib9" kind="unwind" unwindAction="unWindows:" id="ERn-za-5ZU"/>
+                                </connections>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="医師.png" translatesAutoresizingMaskIntoConstraints="NO" id="QO7-jO-Gls">
+                                <rect key="frame" x="16" y="94" width="90" height="101"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="医師.png" translatesAutoresizingMaskIntoConstraints="NO" id="dHb-cM-wtd">
+                                <rect key="frame" x="16" y="461" width="90" height="101"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="医師.png" translatesAutoresizingMaskIntoConstraints="NO" id="VRh-ef-GJH">
+                                <rect key="frame" x="16" y="863" width="90" height="101"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="奥さん1.png" translatesAutoresizingMaskIntoConstraints="NO" id="2JJ-hU-hqL">
+                                <rect key="frame" x="672" y="313" width="74" height="100"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="奥さん1.png" translatesAutoresizingMaskIntoConstraints="NO" id="0U6-LB-gW5">
+                                <rect key="frame" x="672" y="722" width="74" height="100"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2sQ-KG-UaO">
+                                <rect key="frame" x="126" y="115" width="626" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CgW-9L-a0v">
+                                <rect key="frame" x="126" y="456" width="626" height="112"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RQv-L3-DPZ">
+                                <rect key="frame" x="16" y="607" width="631" height="210"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tzg-I5-Vq2">
+                                <rect key="frame" x="126" y="857" width="626" height="114"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uop-Ur-YRs">
+                                <rect key="frame" x="16" y="228" width="631" height="185"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="myBtn" destination="YMH-mi-JUR" id="ncj-MR-4gh"/>
+                        <outlet property="myText1" destination="2sQ-KG-UaO" id="ubm-eb-S1W"/>
+                        <outlet property="myText2" destination="uop-Ur-YRs" id="lcD-G9-P6H"/>
+                        <outlet property="myText3" destination="CgW-9L-a0v" id="mIB-TQ-GcU"/>
+                        <outlet property="myText4" destination="RQv-L3-DPZ" id="0ef-zg-bZl"/>
+                        <outlet property="myText5" destination="Tzg-I5-Vq2" id="Ivc-xx-jeS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3xq-xG-6ep" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3Zj-B9-Ib9" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1977" y="844"/>
+        </scene>
         <!--Article3-->
         <scene sceneID="VSB-LF-JQs">
             <objects>
-                <viewController id="j05-07-yPZ" userLabel="Article3" sceneMemberID="viewController">
+                <viewController id="j05-07-yPZ" userLabel="Article3" customClass="Article3" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KSV-E3-MWv"/>
                         <viewControllerLayoutGuide type="bottom" id="7Ve-Xv-7FA"/>
@@ -269,26 +535,106 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="article3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgk-EG-hpp">
-                                <rect key="frame" x="356" y="502" width="56" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06E-BQ-hrn">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1533"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dE9-R9-i2A">
+                                        <rect key="frame" x="99" y="20" width="570" height="255"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H04-5o-ZJd">
+                                        <rect key="frame" x="126" y="407" width="517" height="115"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6WN-wZ-jIw">
+                                        <rect key="frame" x="64" y="530" width="641" height="272"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="finger-icon05_r1_c4.png" translatesAutoresizingMaskIntoConstraints="NO" id="FPc-LI-70u">
+                                        <rect key="frame" x="180" y="467" width="48" height="48"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="finger-icon05_r1_c42.png" translatesAutoresizingMaskIntoConstraints="NO" id="5cq-0W-GjC">
+                                        <rect key="frame" x="530" y="467" width="48" height="48"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efx-cv-fKO">
+                                        <rect key="frame" x="191" y="799" width="387" height="65"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="8sC-fp-DfU" kind="presentation" id="SKO-Ke-ewz"/>
+                                        </connections>
+                                    </button>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="Sgy-fu-dDj">
+                                        <rect key="frame" x="-169" y="890" width="1098" height="11"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="QDn-xB-Edb">
+                                        <rect key="frame" x="-182" y="880" width="1098" height="11"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0P-DX-k4F">
+                                        <rect key="frame" x="155" y="909" width="458" height="63"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ac-nO-dhz">
+                                        <rect key="frame" x="132" y="994" width="504" height="201"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1w-DZ-8OQ">
+                                        <rect key="frame" x="191" y="1203" width="387" height="56"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Sox-F7-im9" kind="presentation" id="YAZ-cm-BBy"/>
+                                        </connections>
+                                    </button>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="j3E-zc-pcO">
+                                        <rect key="frame" x="-169" y="1289" width="1098" height="11"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="jC3-he-hFF">
+                                        <rect key="frame" x="-177" y="1281" width="1098" height="11"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="矢印２.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Wr-e3-8E8">
+                                        <rect key="frame" x="331" y="264" width="106" height="129"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="T8r-hh-DWO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="cheBtn" destination="Y1w-DZ-8OQ" id="Iks-wL-ltk"/>
+                        <outlet property="comBtn" destination="efx-cv-fKO" id="zff-pp-tNG"/>
+                        <outlet property="myLabel1" destination="dE9-R9-i2A" id="ixq-9h-iHd"/>
+                        <outlet property="myLabel2" destination="H04-5o-ZJd" id="5Es-gR-cGs"/>
+                        <outlet property="myLabel3" destination="c0P-DX-k4F" id="NWp-C3-Dck"/>
+                        <outlet property="myScroll" destination="06E-BQ-hrn" id="v7W-GZ-R9r"/>
+                        <outlet property="myText" destination="6WN-wZ-jIw" id="21j-I4-Iui"/>
+                        <outlet property="myText2" destination="1ac-nO-dhz" id="RhH-nY-qpE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnP-Ti-iqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="-501.00000000000011"/>
+            <point key="canvasLocation" x="809" y="-501"/>
         </scene>
         <!--Article4-->
         <scene sceneID="Y1D-YY-sXC">
             <objects>
-                <viewController id="UBg-Da-vrK" userLabel="Article4" sceneMemberID="viewController">
+                <viewController id="UBg-Da-vrK" userLabel="Article4" customClass="Article4" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ypF-sM-BOt"/>
                         <viewControllerLayoutGuide type="bottom" id="ZwE-cu-ffS"/>
@@ -297,21 +643,105 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="article4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkp-Ok-2Mt">
-                                <rect key="frame" x="356" y="502" width="56" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pmo-Jw-JgK">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1509"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ixq-No-0J5">
+                                        <rect key="frame" x="-127" y="37" width="1098" height="11"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="dhc-PS-mpb">
+                                        <rect key="frame" x="-137" y="45" width="1098" height="11"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3S-O3-0tA">
+                                        <rect key="frame" x="78" y="78" width="612" height="108"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzW-wN-Yk4">
+                                        <rect key="frame" x="88" y="497" width="592" height="110"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fpH-iF-UGY">
+                                        <rect key="frame" x="46" y="194" width="677" height="255"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="p9P-Sr-JIE">
+                                        <rect key="frame" x="-150" y="468" width="1098" height="11"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0w7-19-phx">
+                                        <rect key="frame" x="46" y="615" width="677" height="237"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="MAw-it-RU3">
+                                        <rect key="frame" x="-85" y="875" width="1098" height="11"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Yl-QM-1AN">
+                                        <rect key="frame" x="-127" y="884" width="1098" height="11"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="XnE-Pa-HPg">
+                                        <rect key="frame" x="-95" y="457" width="1098" height="11"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="矢印２.png" translatesAutoresizingMaskIntoConstraints="NO" id="CKM-Pv-phE">
+                                        <rect key="frame" x="331" y="894" width="106" height="129"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BmW-xh-c1b">
+                                        <rect key="frame" x="51" y="1031" width="666" height="92"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NrG-pc-mN0">
+                                        <rect key="frame" x="49" y="1149" width="671" height="251"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="finger-icon05_r1_c42.png" translatesAutoresizingMaskIntoConstraints="NO" id="HT9-ar-ghR">
+                                        <rect key="frame" x="523" y="1082" width="48" height="48"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="finger-icon05_r1_c4.png" translatesAutoresizingMaskIntoConstraints="NO" id="IA6-uO-c9T">
+                                        <rect key="frame" x="185" y="1082" width="48" height="48"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wy4-lH-nam">
+                                        <rect key="frame" x="157" y="1414" width="455" height="63"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Arg-9q-fik" kind="presentation" id="gt0-S1-Alv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qat-Sa-S4C"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="case1Label" destination="J3S-O3-0tA" id="3vl-wu-ObC"/>
+                        <outlet property="case1Text" destination="fpH-iF-UGY" id="Mhb-W5-slP"/>
+                        <outlet property="case2Label" destination="tzW-wN-Yk4" id="UBo-HO-FTT"/>
+                        <outlet property="case2Text" destination="0w7-19-phx" id="pZB-w4-3Es"/>
+                        <outlet property="myBtn" destination="wy4-lH-nam" id="xlw-6g-NDm"/>
+                        <outlet property="myLabel" destination="BmW-xh-c1b" id="qiO-pe-EGZ"/>
+                        <outlet property="myScroll" destination="Pmo-Jw-JgK" id="hij-uS-hmi"/>
+                        <outlet property="myText" destination="NrG-pc-mN0" id="SUw-Am-I9i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pE-hu-qxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1709" y="-501.00000000000011"/>
+            <point key="canvasLocation" x="1709" y="-501"/>
         </scene>
         <!--Article5-->
         <scene sceneID="dCJ-8V-ml6">
@@ -466,4 +896,14 @@
             <point key="canvasLocation" x="809" y="-3817.0000000000009"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="b_simple_124_2L.png" width="1098" height="11"/>
+        <image name="finger-icon05_r1_c4.png" width="48" height="48"/>
+        <image name="finger-icon05_r1_c42.png" width="48" height="48"/>
+        <image name="おじいさん２.png" width="166" height="243"/>
+        <image name="医師.png" width="90" height="101"/>
+        <image name="奥さん1.png" width="74" height="100"/>
+        <image name="奥さん2.png" width="74" height="100"/>
+        <image name="矢印２.png" width="106" height="129"/>
+    </resources>
 </document>
