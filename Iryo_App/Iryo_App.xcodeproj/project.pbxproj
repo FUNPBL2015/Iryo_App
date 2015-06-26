@@ -19,6 +19,19 @@
 		5EB9E31B1B2832A9005B7951 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9E31A1B2832A9005B7951 /* Images.xcassets */; };
 		5EB9E31E1B2832A9005B7951 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9E31C1B2832A9005B7951 /* LaunchScreen.xib */; };
 		5EB9E32A1B2832A9005B7951 /* Iryo_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9E3291B2832A9005B7951 /* Iryo_AppTests.swift */; };
+		713327801B3D577300FC5CBE /* Article3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133277F1B3D577300FC5CBE /* Article3.swift */; };
+		713327B01B3D59E200FC5CBE /* 矢印２.png in Resources */ = {isa = PBXBuildFile; fileRef = 713327AF1B3D59E200FC5CBE /* 矢印２.png */; };
+		713327B21B3D59EA00FC5CBE /* finger-icon05_r1_c4.png in Resources */ = {isa = PBXBuildFile; fileRef = 713327B11B3D59EA00FC5CBE /* finger-icon05_r1_c4.png */; };
+		713327B41B3D59EE00FC5CBE /* finger-icon05_r1_c42.png in Resources */ = {isa = PBXBuildFile; fileRef = 713327B31B3D59EE00FC5CBE /* finger-icon05_r1_c42.png */; };
+		713327B61B3D59F600FC5CBE /* b_simple_124_2L.png in Resources */ = {isa = PBXBuildFile; fileRef = 713327B51B3D59F600FC5CBE /* b_simple_124_2L.png */; };
+		713327B81B3D59FA00FC5CBE /* おじいさん２.png in Resources */ = {isa = PBXBuildFile; fileRef = 713327B71B3D59FA00FC5CBE /* おじいさん２.png */; };
+		713327BA1B3D59FD00FC5CBE /* 医師.png in Resources */ = {isa = PBXBuildFile; fileRef = 713327B91B3D59FD00FC5CBE /* 医師.png */; };
+		713327BC1B3D5A0100FC5CBE /* 奥さん2.png in Resources */ = {isa = PBXBuildFile; fileRef = 713327BB1B3D5A0100FC5CBE /* 奥さん2.png */; };
+		713327BE1B3D5E3700FC5CBE /* com3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713327BD1B3D5E3700FC5CBE /* com3.swift */; };
+		713327F01B3D5FEA00FC5CBE /* 奥さん1.png in Resources */ = {isa = PBXBuildFile; fileRef = 713327EF1B3D5FEA00FC5CBE /* 奥さん1.png */; };
+		713327F21B3D61CF00FC5CBE /* Article4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713327F11B3D61CF00FC5CBE /* Article4.swift */; };
+		713327F41B3D671C00FC5CBE /* com5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713327F31B3D671C00FC5CBE /* com5.swift */; };
+		713327F61B3D6A3B00FC5CBE /* checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713327F51B3D6A3B00FC5CBE /* checklist.swift */; };
 		9CE41DF91B3920CE00FEC8D4 /* Article2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE41DF81B3920CE00FEC8D4 /* Article2.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +62,19 @@
 		5EB9E3231B2832A9005B7951 /* Iryo_AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Iryo_AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB9E3281B2832A9005B7951 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EB9E3291B2832A9005B7951 /* Iryo_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iryo_AppTests.swift; sourceTree = "<group>"; };
+		7133277F1B3D577300FC5CBE /* Article3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article3.swift; sourceTree = "<group>"; };
+		713327AF1B3D59E200FC5CBE /* 矢印２.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "矢印２.png"; sourceTree = "<group>"; };
+		713327B11B3D59EA00FC5CBE /* finger-icon05_r1_c4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finger-icon05_r1_c4.png"; sourceTree = "<group>"; };
+		713327B31B3D59EE00FC5CBE /* finger-icon05_r1_c42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finger-icon05_r1_c42.png"; sourceTree = "<group>"; };
+		713327B51B3D59F600FC5CBE /* b_simple_124_2L.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_simple_124_2L.png; sourceTree = "<group>"; };
+		713327B71B3D59FA00FC5CBE /* おじいさん２.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "おじいさん２.png"; sourceTree = "<group>"; };
+		713327B91B3D59FD00FC5CBE /* 医師.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "医師.png"; sourceTree = "<group>"; };
+		713327BB1B3D5A0100FC5CBE /* 奥さん2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "奥さん2.png"; sourceTree = "<group>"; };
+		713327BD1B3D5E3700FC5CBE /* com3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = com3.swift; sourceTree = "<group>"; };
+		713327EF1B3D5FEA00FC5CBE /* 奥さん1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "奥さん1.png"; sourceTree = "<group>"; };
+		713327F11B3D61CF00FC5CBE /* Article4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article4.swift; sourceTree = "<group>"; };
+		713327F31B3D671C00FC5CBE /* com5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = com5.swift; sourceTree = "<group>"; };
+		713327F51B3D6A3B00FC5CBE /* checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = checklist.swift; sourceTree = "<group>"; };
 		9CE41DF81B3920CE00FEC8D4 /* Article2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,7 +101,12 @@
 			children = (
 				5EAC1F411B3339A500473C38 /* Article1.swift */,
 				9CE41DF81B3920CE00FEC8D4 /* Article2.swift */,
+				7133277F1B3D577300FC5CBE /* Article3.swift */,
+				713327BD1B3D5E3700FC5CBE /* com3.swift */,
+				713327F11B3D61CF00FC5CBE /* Article4.swift */,
 				5E69F2C81B3A85C6005877DC /* Article5.swift */,
+				713327F31B3D671C00FC5CBE /* com5.swift */,
+				713327F51B3D6A3B00FC5CBE /* checklist.swift */,
 			);
 			name = "Articles for ...";
 			sourceTree = "<group>";
@@ -117,6 +148,14 @@
 		5EB9E3111B2832A9005B7951 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				713327AF1B3D59E200FC5CBE /* 矢印２.png */,
+				713327B11B3D59EA00FC5CBE /* finger-icon05_r1_c4.png */,
+				713327B31B3D59EE00FC5CBE /* finger-icon05_r1_c42.png */,
+				713327B51B3D59F600FC5CBE /* b_simple_124_2L.png */,
+				713327B71B3D59FA00FC5CBE /* おじいさん２.png */,
+				713327B91B3D59FD00FC5CBE /* 医師.png */,
+				713327EF1B3D5FEA00FC5CBE /* 奥さん1.png */,
+				713327BB1B3D5A0100FC5CBE /* 奥さん2.png */,
 				5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */,
 				5EAC1F3B1B33132400473C38 /* testFont1.ttf */,
 				5EB9E3121B2832A9005B7951 /* Info.plist */,
@@ -221,11 +260,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				713327B01B3D59E200FC5CBE /* 矢印２.png in Resources */,
 				5EB9E3191B2832A9005B7951 /* Main.storyboard in Resources */,
+				713327F01B3D5FEA00FC5CBE /* 奥さん1.png in Resources */,
 				5EB9E31E1B2832A9005B7951 /* LaunchScreen.xib in Resources */,
+				713327B41B3D59EE00FC5CBE /* finger-icon05_r1_c42.png in Resources */,
+				713327B81B3D59FA00FC5CBE /* おじいさん２.png in Resources */,
+				713327B21B3D59EA00FC5CBE /* finger-icon05_r1_c4.png in Resources */,
 				5EAC1F3F1B3316C700473C38 /* ipaexm.ttf in Resources */,
+				713327B61B3D59F600FC5CBE /* b_simple_124_2L.png in Resources */,
 				5EAC1F3D1B33162400473C38 /* testFont1.ttf in Resources */,
 				5EB9E31B1B2832A9005B7951 /* Images.xcassets in Resources */,
+				713327BC1B3D5A0100FC5CBE /* 奥さん2.png in Resources */,
+				713327BA1B3D59FD00FC5CBE /* 医師.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,13 +290,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				713327801B3D577300FC5CBE /* Article3.swift in Sources */,
 				5E40CCD21B32E325007DE681 /* Menu.swift in Sources */,
+				713327BE1B3D5E3700FC5CBE /* com3.swift in Sources */,
 				5EB9E3161B2832A9005B7951 /* ViewController.swift in Sources */,
 				9CE41DF91B3920CE00FEC8D4 /* Article2.swift in Sources */,
-
 				5E69F2C91B3A85C6005877DC /* Article5.swift in Sources */,
+				713327F41B3D671C00FC5CBE /* com5.swift in Sources */,
 				5E69F2C71B3A6A82005877DC /* BaseArticleViewController.swift in Sources */,
-
+				713327F61B3D6A3B00FC5CBE /* checklist.swift in Sources */,
+				713327F21B3D61CF00FC5CBE /* Article4.swift in Sources */,
 				5EAC1F421B3339A500473C38 /* Article1.swift in Sources */,
 				5EB9E3141B2832A9005B7951 /* AppDelegate.swift in Sources */,
 			);
