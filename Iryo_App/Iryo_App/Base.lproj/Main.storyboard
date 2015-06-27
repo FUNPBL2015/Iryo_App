@@ -377,7 +377,7 @@
         <!--Article2-->
         <scene sceneID="7Md-Ls-pWj">
             <objects>
-                <viewController id="QjT-Iz-vjA" userLabel="Article2" sceneMemberID="viewController">
+                <viewController id="QjT-Iz-vjA" userLabel="Article2" customClass="Article2" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Aap-xe-I5K"/>
                         <viewControllerLayoutGuide type="bottom" id="Kqe-Wb-YTb"/>
@@ -411,6 +411,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ysr-Hk-VkX"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="mytext2" destination="PxP-pb-06E" id="pjw-9P-2ec"/>
+                        <outlet property="scrollview2" destination="5Bd-Jq-c6Q" id="J6v-Be-x7C"/>
+                        <outlet property="voicepitch2" destination="IHf-Nh-n4X" id="EeJ-xi-0Uf"/>
+                        <outlet property="voicevolume2" destination="d4v-p3-FPZ" id="m9l-gA-BEm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tme-Nb-15y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
