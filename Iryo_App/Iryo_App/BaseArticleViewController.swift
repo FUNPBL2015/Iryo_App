@@ -78,6 +78,12 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
         }
     }
     
+    /** 再生終了時 */
+    func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, didFinishSpeechUtterance utterance: AVSpeechUtterance!)
+    {
+        animateActionButtonAppearance(false)
+    }
+    
 
     
 }

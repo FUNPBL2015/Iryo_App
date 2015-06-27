@@ -18,15 +18,23 @@ class Article1:BaseArticleViewController{
     
     override func viewDidLayoutSubviews() {
         //ScrollViewのContentSizeを設定
-        self.scrollview.contentSize = self.mytext.frame.size
-        self.speaktext = mytext.text
-        self.voicerate = voiceRateSlider.value
-        self.voicepitch = voicePitchSlider.value
+        self.scrollview.contentSize = self.mytext.frame.size //contentSizeをtextViewに合わせる
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.speaktext = mytext.text //読み上げるテキスト
+    }
+    
+    /** Sliderの値が変化したときに実行 */
+    @IBAction func voiceRateChanged(sender: UISlider) {
+        self.voicerate = voiceRateSlider.value //声の速さ
+    }
+    
+    @IBAction func voicePitchChanged(sender: UISlider) {
+        self.voicepitch = voicePitchSlider.value //声の高さ
     }
     
     override func didReceiveMemoryWarning() {

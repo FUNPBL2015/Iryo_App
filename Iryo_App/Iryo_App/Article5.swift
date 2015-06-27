@@ -10,27 +10,24 @@ import UIKit
 
 class Article5 : BaseArticleViewController{
 
-    @IBOutlet weak var myScrollView: UIScrollView!
-    @IBOutlet weak var myTextView: UITextView!
+    @IBOutlet weak var troubleLabel: UILabel!
+    @IBOutlet weak var troubleText: UITextView!
+    @IBOutlet weak var tryingLabel: UILabel!
+    @IBOutlet weak var tryingText: UITextView!
     @IBOutlet weak var subTextView: UITextView!
-    
-    override func viewDidLayoutSubviews() {
-        //ScrollViewのContentSizeを設定
-        self.myScrollView?.contentSize = CGSizeMake(768.0, 3340)
-        self.speaktext = myTextView.text
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        //読み上げるテキスト
+        self.speaktext = troubleLabel.text! + troubleText.text + tryingLabel.text! + tryingText.text
+        
+        //相談窓口 border設定
         subTextView.layer.borderColor = UIColor(red: 29/255, green: 135/255, blue: 188/255, alpha: 1.0).CGColor
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
         
     }
     
