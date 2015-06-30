@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Article3: UIViewController {
+class Article3: BaseArticleViewController {
 
     @IBOutlet weak var myScroll: UIScrollView!
     @IBOutlet weak var myLabel1: UILabel!
@@ -26,6 +26,8 @@ class Article3: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.speaktext = "テキスト" //読み上げるテキスト
         
         myLabel1.text="🔵 病院で医療をうけるとき\n\n  ・ご本人のふだんの様子\n\n  ・ご本人の医療行為に関する希望や意思\n\n  に関する情報がたいへん役に立ちます!"
         myLabel1.numberOfLines=20

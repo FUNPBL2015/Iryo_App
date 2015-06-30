@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Article4: UIViewController {
+class Article4: BaseArticleViewController {
     
     @IBOutlet weak var myScroll: UIScrollView!
     @IBOutlet weak var case1Label: UILabel!
@@ -26,6 +26,8 @@ class Article4: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+         self.speaktext = "テキスト" //読み上げるテキスト
         
         case1Label.text="ケース１: ６０代男性、若年性認知症\n\n【足の切断の決定】"
         case1Label.numberOfLines = 20
