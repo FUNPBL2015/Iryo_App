@@ -11,9 +11,9 @@ import UIKit
 class Article1:BaseArticleViewController{
     
     @IBOutlet weak var scrollview: UIScrollView!
-    @IBOutlet weak var speakbtn: UIButton!
-    @IBOutlet weak var voiceRateSlider: UISlider!
-    @IBOutlet weak var voicePitchSlider: UISlider!
+    //@IBOutlet weak var speakbtn: UIButton!
+    //@IBOutlet weak var voiceRateSlider: UISlider!
+    //@IBOutlet weak var voicePitchSlider: UISlider!
     @IBOutlet weak var mytext: UITextView!
     
     override func viewDidLayoutSubviews() {
@@ -25,17 +25,20 @@ class Article1:BaseArticleViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //mytext.text = "test"
+        mytext.layer.borderWidth = 0
         self.speaktext = mytext.text //読み上げるテキスト
     }
     
     /** Sliderの値が変化したときに実行 */
+    /*
     @IBAction func voiceRateChanged(sender: UISlider) {
         self.voicerate = voiceRateSlider.value //声の速さ
     }
     
     @IBAction func voicePitchChanged(sender: UISlider) {
         self.voicepitch = voicePitchSlider.value //声の高さ
-    }
+    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
