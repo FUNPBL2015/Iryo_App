@@ -11,7 +11,6 @@ import UIKit
 class Article1:BaseArticleViewController{
     
     @IBOutlet weak var scrollview: UIScrollView!
-    //@IBOutlet weak var speakbtn: UIButton!
     //@IBOutlet weak var voiceRateSlider: UISlider!
     //@IBOutlet weak var voicePitchSlider: UISlider!
     @IBOutlet weak var mytext: UITextView!
