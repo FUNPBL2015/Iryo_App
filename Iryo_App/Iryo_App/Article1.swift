@@ -26,6 +26,7 @@ class Article1:BaseArticleViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.title = "はじめに"
         
         //textview生成
         let mytext: UITextView = UITextView(frame: CGRectMake(16, 16, self.view.frame.width - 32, 500))
