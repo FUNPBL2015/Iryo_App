@@ -388,57 +388,26 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TGf-EH-qod">
                                 <rect key="frame" x="0.0" y="64" width="768" height="1372"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8U-UC-TCh">
-                                        <rect key="frame" x="115" y="-47" width="554" height="264"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8U-UC-TCh">
+                                        <rect key="frame" x="8" y="-18" width="748" height="58"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="矢印２.png" translatesAutoresizingMaskIntoConstraints="NO" id="6XU-zT-9Qj">
-                                        <rect key="frame" x="339" y="188" width="106" height="129"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQU-QA-p0K">
-                                        <rect key="frame" x="115" y="333" width="554" height="97"/>
+                                        <rect key="frame" x="8" y="19" width="752" height="268"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="finger-icon05_r1_c4.png" translatesAutoresizingMaskIntoConstraints="NO" id="nZ9-N2-u3j">
-                                        <rect key="frame" x="196" y="378" width="48" height="48"/>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="finger-icon05_r1_c42.png" translatesAutoresizingMaskIntoConstraints="NO" id="0lS-oW-xhM">
-                                        <rect key="frame" x="535" y="378" width="48" height="48"/>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBh-5t-YrG">
-                                        <rect key="frame" x="72" y="451" width="640" height="270"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PrV-wr-qFX">
-                                        <rect key="frame" x="174" y="717" width="437" height="53"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="2as-ts-lUA" kind="modal" id="QmO-od-W96"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejY-dv-n3h">
-                                        <rect key="frame" x="72" y="831" width="640" height="87"/>
+                                        <rect key="frame" x="12" y="295" width="744" height="150"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2M.png" translatesAutoresizingMaskIntoConstraints="NO" id="6bW-NW-MLu">
-                                        <rect key="frame" x="12" y="802" width="760" height="8"/>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2M.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Ul-ms-lsj">
-                                        <rect key="frame" x="12" y="810" width="760" height="8"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vb-wR-yjX">
-                                        <rect key="frame" x="196" y="1200" width="393" height="55"/>
+                                        <rect key="frame" x="186" y="498" width="393" height="55"/>
                                         <state key="normal" title="Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -446,19 +415,6 @@
                                             <segue destination="TKG-GK-Bp8" kind="show" id="3Qy-Xh-vXH"/>
                                         </connections>
                                     </button>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2M.png" translatesAutoresizingMaskIntoConstraints="NO" id="GHR-VG-5iW">
-                                        <rect key="frame" x="12" y="1280" width="760" height="8"/>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2M.png" translatesAutoresizingMaskIntoConstraints="NO" id="6xd-5v-UAA">
-                                        <rect key="frame" x="12" y="1288" width="760" height="8"/>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gw5-L0-QMA">
-                                        <rect key="frame" x="144" y="913" width="497" height="249"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -469,13 +425,10 @@
                     <size key="freeformSize" width="768" height="1500"/>
                     <connections>
                         <outlet property="cheBtn" destination="3Vb-wR-yjX" id="6f3-kl-Ouw"/>
-                        <outlet property="comBtn" destination="PrV-wr-qFX" id="0BC-fw-6RO"/>
                         <outlet property="myLabel1" destination="P8U-UC-TCh" id="b3X-ew-JhU"/>
                         <outlet property="myLabel2" destination="tQU-QA-p0K" id="Plw-s6-ngt"/>
                         <outlet property="myLabel3" destination="ejY-dv-n3h" id="QQm-El-fVo"/>
                         <outlet property="myScroll" destination="TGf-EH-qod" id="1KN-8E-kEC"/>
-                        <outlet property="myText" destination="iBh-5t-YrG" id="TxH-pc-9hp"/>
-                        <outlet property="myText2" destination="gw5-L0-QMA" id="uLE-DX-e6M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2X-w9-T3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
