@@ -324,37 +324,10 @@
                     <view key="view" contentMode="scaleToFill" id="fJv-Mm-0Ni">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TB3-7c-Cvq">
-                                <rect key="frame" x="16" y="72" width="736" height="932"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gna-kf-3hY">
-                                        <rect key="frame" x="0.0" y="0.0" width="736" height="740"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">もし認知症のおじいちゃん、おばあちゃんが急に入院して検査や手術を受けることになったら…  ・本人の同意が得られない ・本人の意思が不明瞭 ・家族の合意のみで医療行為が進む 　　　　　　　　　　　　　ということもある　  最悪の場合… 　本人の合意が得られないから必要な医療行為が受けられないなんてことも！！  そのため、医療行為の決定において家族と病院の連携は重要 　健康なときから本人の意向を確認しておこう！ 　　→病院で治療となったら情報を確実に伝える  　　このアプリはそのためのアプリです！！  ＜このマニュアルでは本人と家族へ向けて、納得のいく医療が受けられるように＞ ・受診前にどんな準備が必要か ・元気なうちから家族で考える ・認知症になっても本人の希望に沿った医療行為を受ける 　　ことができるようにお手伝いしていきます。</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="3"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <real key="value" value="0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </textView>
-                                </subviews>
-                            </scrollView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="XKy-0B-OaG"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
-                    <connections>
-                        <outlet property="mytext" destination="Gna-kf-3hY" id="zhT-Vz-Gje"/>
-                        <outlet property="scrollview" destination="TB3-7c-Cvq" id="cTi-ba-65w"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wag-WF-3no" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
