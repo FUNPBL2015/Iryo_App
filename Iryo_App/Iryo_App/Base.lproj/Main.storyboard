@@ -232,8 +232,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0gN-tB-o1R" id="3Kx-Ko-IBr">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="普段の生活や症状の様子" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="660" translatesAutoresizingMaskIntoConstraints="NO" id="F7r-Cn-f7e">
-                                                    <rect key="frame" x="50" y="9" width="660" height="51"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ふだんの生活や症状の共有方法" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="660" translatesAutoresizingMaskIntoConstraints="NO" id="F7r-Cn-f7e">
+                                                    <rect key="frame" x="50" y="14" width="660" height="51"/>
                                                     <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -266,7 +266,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BpR-13-7yW" id="fCY-Ft-SsA">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="家族が経験すること" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rn-yb-XY4">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="医師と家族の話し合い" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rn-yb-XY4">
                                                     <rect key="frame" x="50" y="19" width="602" height="32"/>
                                                     <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -283,8 +283,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="btE-nL-3vX" id="6Dx-gN-6WM">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="さいごに" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHn-Lc-Tyb">
-                                                    <rect key="frame" x="50" y="22" width="130" height="36"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="家族の今後の生活" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHn-Lc-Tyb">
+                                                    <rect key="frame" x="50" y="22" width="622" height="36"/>
                                                     <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -311,7 +311,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBM-rz-erx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="790" y="-1745"/>
+            <point key="canvasLocation" x="851" y="-1691"/>
         </scene>
         <!--Article1-->
         <scene sceneID="6V6-qt-cHN">
@@ -336,42 +336,77 @@
         <!--Article2-->
         <scene sceneID="7Md-Ls-pWj">
             <objects>
-                <viewController id="QjT-Iz-vjA" userLabel="Article2" customClass="Article2" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="QjT-Iz-vjA" userLabel="Article2" customClass="Article2" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Aap-xe-I5K"/>
                         <viewControllerLayoutGuide type="bottom" id="Kqe-Wb-YTb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e36-VV-h2U">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="2048"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Bd-Jq-c6Q">
-                                <rect key="frame" x="16" y="72" width="736" height="932"/>
+                                <rect key="frame" x="0.0" y="80" width="768" height="2048"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PxP-pb-06E">
-                                        <rect key="frame" x="0.0" y="0.0" width="736" height="620"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ub6-tL-cov">
+                                        <rect key="frame" x="16" y="16" width="736" height="525"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">医療行為への同意はご本人に希望を聞くことが一番です。しかし、ご本人から希望を聞くことが難しい場合「家族の意見が重要な役割」を果たします。  　そのために、ご本人について深く知る必要があります。  　＜例えば病院では次のような相談をされます＞ ○急変時、救命措置（心臓マッサージ、血圧を上げる薬、人工呼吸）をしますか？
- ○口から物が食べられない時に、胃ろう、経鼻経管栄養、中心静脈栄養、点滴をしますか？
- ○腎臓の働きが悪くなったときに透析をしますか？  　何かわからないことがあれば医師や看護師、ソーシャルワーカーに説明を求めましょう。  　最終的には医療者と一緒に治療の結果、生活がどう変わるかや、ご本人の苦痛などを考慮して判断していくことになるため、決断することはとても難しいことです。なので高齢者の方々ご自身も自分の希望について、あらかじめご家族に伝えて皆で共有しておくことが大切です。</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <string key="text">病院で医療を受けるとき
+
+・本人のふだんの様子
+・医療行為に関する本人の意思や希望
+に関する情報がとても重要です！
+
+ふだんから家族で話し合いましょう！
+話し合いのポイント
+・テレビや身近な話題をきっかけにして、本人の意思や希望を確認する
+・本人の意思や希望は、そのつど記録しておく
+・家族みんなで情報を共有する</string>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyw-gK-5z5">
+                                        <rect key="frame" x="188" y="549" width="393" height="55"/>
+                                        <state key="normal" title="例えば...">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="2as-ts-lUA" kind="presentation" id="LMB-8B-IuP"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="話し合い内容や、患者のふだんの生活や症状を記録しておくと、変化を確認したり、家族と情報を共有することができます。チェックリストを活用してください。" translatesAutoresizingMaskIntoConstraints="NO" id="8VO-Xq-XfK">
+                                        <rect key="frame" x="16" y="633" width="768" height="152"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhL-ad-Ftp">
+                                        <rect key="frame" x="188" y="793" width="393" height="55"/>
+                                        <state key="normal" title="チェックリスト">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="TKG-GK-Bp8" kind="show" id="ZQ5-3l-p6A"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ysr-Hk-VkX"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <navigationItem key="navigationItem" title="ふだんの生活や症状の共有方法" id="Ysr-Hk-VkX"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="2048"/>
                     <connections>
-                        <outlet property="mytext2" destination="PxP-pb-06E" id="pjw-9P-2ec"/>
-                        <outlet property="scrollview2" destination="5Bd-Jq-c6Q" id="J6v-Be-x7C"/>
+                        <outlet property="checkBtn" destination="nhL-ad-Ftp" id="PCI-Qg-HX8"/>
+                        <outlet property="exampleBtn" destination="fyw-gK-5z5" id="sbz-bV-qan"/>
+                        <outlet property="scrollview" destination="5Bd-Jq-c6Q" id="gMP-Wn-8it"/>
+                        <outlet property="text1" destination="Ub6-tL-cov" id="cie-IT-5HK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tme-Nb-15y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-77" y="-501"/>
+            <point key="canvasLocation" x="-93" y="11"/>
         </scene>
         <!--Article3-->
         <scene sceneID="Qqz-AE-zBs">
@@ -433,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2X-w9-T3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="790" y="-263"/>
+            <point key="canvasLocation" x="851" y="-257"/>
         </scene>
         <!--Com3-->
         <scene sceneID="v6C-gX-eL9">
@@ -453,7 +488,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QaF-E3-HBx" kind="unwind" unwindAction="unWindows:" id="Swl-Gn-0AW"/>
+                                    <segue destination="QaF-E3-HBx" kind="unwind" unwindAction="unwindToTop:" id="sQE-Vu-ndB"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b8B-FC-dsP">
@@ -522,120 +557,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2b5-D9-3le" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QaF-E3-HBx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-21" y="1161"/>
+            <point key="canvasLocation" x="-93" y="1865"/>
         </scene>
         <!--Article4-->
         <scene sceneID="MoV-6y-5bT">
             <objects>
-                <viewController id="bXz-LU-gku" userLabel="Article4" customClass="Article4" customModule="Iryo_App" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="bXz-LU-gku" userLabel="Article4" customClass="Article4" customModule="Iryo_App" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Ig-iI-03p"/>
                         <viewControllerLayoutGuide type="bottom" id="oHA-Sv-ZD7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zn2-l8-ilE">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rD0-4T-fuT">
-                                <rect key="frame" x="0.0" y="64" width="768" height="1613"/>
+                                <rect key="frame" x="0.0" y="80" width="768" height="1620"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JN7-nb-NTn">
-                                        <rect key="frame" x="72" y="-27" width="624" height="100"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vYW-Cj-gVM">
-                                        <rect key="frame" x="72" y="81" width="624" height="259"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLT-6e-X5E">
+                                        <rect key="frame" x="16" y="16" width="736" height="1372"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <mutableString key="text">認知症の方の家族で、次のような経験をされた方がいます。
+
+
+【足の切断の決定】
+糖尿病で左足を切断する必要が出てきました。
+本人は若年性認知症で意思確認ができないため、医師は妻に切断するか、切断する場合どこから切断するかを相談しました。
+「先生の家族だったどうしますか？」と質問したりして、切断後のことも十分説明を受けながら膝上から切断することを決めました。 
+→医師に質問をし、十分な説明を受けて医療行為を決断した
+ 
+【食事の楽しみか窒息の危険か】
+飲み込みが悪くなり、胃ろうを作るかどうかを検討しました。家族からは、本人がもともと食事を楽しみにしているところがあったため、できるだけ口から食べる楽しみを残してほしいという希望を出しました。
+医師は言語聴覚士と相談し、胃ろうはせず食事を継続することにしました。 
+→家族から医師に希望を出し、医療行為を決断した
+ 医師とよく話し合うことは、納得のいく医療につながります！
+話し合いのポイント
+・家族や本人の気持ちを伝える。
+・退院後の生活も視野に入れて話す。</mutableString>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PtU-qD-gy2">
-                                        <rect key="frame" x="72" y="472" width="624" height="281"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="矢印２.png" translatesAutoresizingMaskIntoConstraints="NO" id="N8C-QL-xxU">
-                                        <rect key="frame" x="331" y="781" width="106" height="129"/>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2M.png" translatesAutoresizingMaskIntoConstraints="NO" id="JFc-bt-PkR">
-                                        <rect key="frame" x="4" y="348" width="760" height="8"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8N8-zE-pzh">
-                                        <rect key="frame" x="72" y="364" width="624" height="100"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2M.png" translatesAutoresizingMaskIntoConstraints="NO" id="oa2-GX-3XP">
-                                        <rect key="frame" x="4" y="765" width="760" height="8"/>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2M.png" translatesAutoresizingMaskIntoConstraints="NO" id="CaL-dA-0GI">
-                                        <rect key="frame" x="4" y="-43" width="760" height="8"/>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2M.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mbu-UX-NGe">
-                                        <rect key="frame" x="4" y="-51" width="760" height="8"/>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2M.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jck-XD-CcS">
-                                        <rect key="frame" x="4" y="756" width="760" height="8"/>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2M.png" translatesAutoresizingMaskIntoConstraints="NO" id="cUO-4y-taa">
-                                        <rect key="frame" x="4" y="341" width="760" height="8"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jis-es-kFc">
-                                        <rect key="frame" x="72" y="923" width="624" height="95"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="finger-icon05_r1_c4.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Py-Gc-1Cs">
-                                        <rect key="frame" x="175" y="970" width="48" height="48"/>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="finger-icon05_r1_c42.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Hj-Pi-hek">
-                                        <rect key="frame" x="530" y="970" width="48" height="48"/>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="akr-gS-yNC">
-                                        <rect key="frame" x="72" y="1036" width="624" height="288"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DD-8w-Eiz">
-                                        <rect key="frame" x="166" y="1323" width="437" height="70"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUq-Jp-qbo">
+                                        <rect key="frame" x="188" y="1396" width="393" height="55"/>
                                         <state key="normal" title="Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="zJY-jh-7ZQ" kind="modal" id="RWp-k5-pSl"/>
+                                            <segue destination="zJY-jh-7ZQ" kind="presentation" id="oYw-3P-Xoz"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ケース１: ６０代男性、若年性認知症" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLS-YM-ks7">
+                                        <rect key="frame" x="16" y="139" width="736" height="47"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ケース２: ９０代女性、アルツハイマー症" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZrB-18-1Nf">
+                                        <rect key="frame" x="16" y="688" width="736" height="47"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="J66-hy-Zjb"/>
+                    <navigationItem key="navigationItem" title="医師と家族の話し合い" id="J66-hy-Zjb"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="768" height="1500"/>
+                    <size key="freeformSize" width="768" height="1700"/>
                     <connections>
-                        <outlet property="case1Label" destination="JN7-nb-NTn" id="e0i-cN-0Kd"/>
-                        <outlet property="case1Text" destination="vYW-Cj-gVM" id="ZLT-Dx-uIN"/>
-                        <outlet property="case2Label" destination="8N8-zE-pzh" id="Emx-T6-Jdw"/>
-                        <outlet property="case2Text" destination="PtU-qD-gy2" id="xlh-sP-QlK"/>
-                        <outlet property="myBtn" destination="6DD-8w-Eiz" id="5m5-bv-mZU"/>
-                        <outlet property="myLabel" destination="jis-es-kFc" id="gtD-hG-al4"/>
-                        <outlet property="myScroll" destination="rD0-4T-fuT" id="wsU-Fp-RCg"/>
-                        <outlet property="myText" destination="akr-gS-yNC" id="RTe-88-Y1R"/>
+                        <outlet property="myBtn" destination="hUq-Jp-qbo" id="JyC-eb-Gv4"/>
+                        <outlet property="myScroll" destination="rD0-4T-fuT" id="ZCa-8F-ECM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75M-DA-CnZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1709" y="-268"/>
+            <point key="canvasLocation" x="1709" y="-163"/>
         </scene>
         <!--Com4-->
         <scene sceneID="TwP-66-Cdt">
@@ -705,7 +703,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Gxh-nC-2DR" kind="unwind" unwindAction="unWindows:" id="yTG-WJ-7VW"/>
+                                    <segue destination="Gxh-nC-2DR" kind="unwind" unwindAction="unwindToTop:" id="fXq-xk-ebb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -724,7 +722,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGL-81-HIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Gxh-nC-2DR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1709" y="1175"/>
+            <point key="canvasLocation" x="1709" y="1587"/>
         </scene>
         <!--Checklist-->
         <scene sceneID="g84-jJ-4yt">
@@ -798,7 +796,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrs-6C-y5M" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="790" y="1161"/>
+            <point key="canvasLocation" x="790" y="1467"/>
         </scene>
         <!--Article5-->
         <scene sceneID="dCJ-8V-ml6">
@@ -813,59 +811,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hn2-fG-yDb">
-                                <rect key="frame" x="0.0" y="64" width="768" height="1024"/>
+                                <rect key="frame" x="0.0" y="80" width="768" height="1024"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7X-mK-Fsr" userLabel="SubTitle1">
-                                        <rect key="frame" x="8" y="34" width="752" height="31"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="　悩み" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dno-8e-Qjb">
-                                                <rect key="frame" x="0.0" y="0.0" width="752" height="31"/>
-                                                <color key="backgroundColor" red="1" green="0.99326646687957609" blue="0.83426605212489169" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KK9-KB-AfC">
-                                                <rect key="frame" x="0.0" y="26" width="752" height="5"/>
-                                                <color key="backgroundColor" red="0.114804619" green="0.53080792659999998" blue="0.73596722150000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcY-41-maC">
+                                        <rect key="frame" x="16" y="16" width="736" height="407"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ご本人が亡くなられたあと、後に残されたご家族はさまざまな思いに悩まれます。積極的治療をしてもしなくても、医療行為に対する自分たちの判断によって「苦しみをなびかせたのではないか…」、「死を早めてしまったのではないかなど。" translatesAutoresizingMaskIntoConstraints="NO" id="zcY-41-maC">
-                                        <rect key="frame" x="8" y="64" width="752" height="144"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="20"/>
+                                        <string key="text">家族は本人が亡くなられた後…
+・「死を早めてしまったのではないか」
+・「苦しみをなびかせたのではないか」
+と悩むことが多くあります
+
+そんなときは…
+・「穏やかな最期を迎えられた」
+・「本人の希望に沿うことができた」
+と肯定的に考えましょう！
+
+それでも悲しい気持ちのときは、
+相談機関や精神保健センターに相談しましょう！</string>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQn-ky-UHM" userLabel="SubTitle2">
-                                        <rect key="frame" x="8" y="206" width="768" height="31"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="　つらいときには" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOn-vA-ioV">
-                                                <rect key="frame" x="0.0" y="0.0" width="752" height="31"/>
-                                                <color key="backgroundColor" red="1" green="0.99326646689999998" blue="0.83426605210000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1x7-L8-2fz">
-                                                <rect key="frame" x="0.0" y="26" width="752" height="5"/>
-                                                <color key="backgroundColor" red="0.114804619" green="0.53080792659999998" blue="0.73596722150000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIG-XT-7d4">
-                                        <rect key="frame" x="199" y="444" width="371" height="352"/>
+                                        <rect key="frame" x="199" y="454" width="371" height="352"/>
                                         <string key="text"> 　公益社団法人 認知症の人と家族の会
 　〒602-8143 京都府京都市上京区堀川通
 　丸太町下ル 京都社会福祉会館内
@@ -888,7 +858,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="「家族の会」の相談窓口もあります" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia5-2I-uNN">
-                                        <rect key="frame" x="234" y="421" width="300" height="40"/>
+                                        <rect key="frame" x="234" y="431" width="300" height="40"/>
                                         <color key="backgroundColor" red="0.11372549019607843" green="0.52941176470588236" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -900,28 +870,20 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="「穏やかな最期を迎えられた」、「本人の希望に沿うことができた」と、肯定的に捉え直してみましょう。 それでも悲しい気持ちが続き、生活に支障がでるようであれば、お住いの相談機関や精神保健センターなど、気軽に相談できる機関があります。" translatesAutoresizingMaskIntoConstraints="NO" id="r10-i6-Smp">
-                                        <rect key="frame" x="8" y="238" width="752" height="144"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </textView>
                                 </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="さいごに" id="PCn-wS-eXg"/>
+                    <navigationItem key="navigationItem" id="PCn-wS-eXg">
+                        <string key="title" base64-UTF8="YES">
+5a625peP44GuCOS7iuW+jOOBrueUn+a0uw
+</string>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="subTextView" destination="YIG-XT-7d4" id="DkF-Ya-NzV"/>
-                        <outlet property="troubleLabel" destination="dno-8e-Qjb" id="6GW-xY-H8T"/>
                         <outlet property="troubleText" destination="zcY-41-maC" id="v5W-pt-l1k"/>
-                        <outlet property="tryingLabel" destination="VOn-vA-ioV" id="rnE-j5-krq"/>
-                        <outlet property="tryingText" destination="r10-i6-Smp" id="he2-Te-Ex9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxo-gO-D1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -957,14 +919,13 @@
     </scenes>
     <resources>
         <image name="b_simple_124_2L.png" width="1098" height="11"/>
-        <image name="b_simple_124_2M.png" width="760" height="8"/>
-        <image name="finger-icon05_r1_c4.png" width="48" height="48"/>
-        <image name="finger-icon05_r1_c42.png" width="48" height="48"/>
         <image name="pic_family.png" width="1154" height="448"/>
         <image name="おじいさん２.png" width="166" height="243"/>
         <image name="医師.png" width="90" height="101"/>
         <image name="奥さん.png" width="74" height="100"/>
         <image name="奥さん2.png" width="74" height="100"/>
-        <image name="矢印２.png" width="106" height="129"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="3Qy-Xh-vXH"/>
+    </inferredMetricsTieBreakers>
 </document>

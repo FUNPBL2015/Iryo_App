@@ -36,7 +36,7 @@ class Article1:BaseArticleViewController{
         mytext.textColor = UIColor.blackColor()             //文字色
         mytext.textAlignment = NSTextAlignment.Left         //左詰め
         mytext.editable = false         //編集禁止
-        mytext.scrollEnabled = false;   //スクロール禁止（;は必要みたい？）
+        mytext.scrollEnabled = false   //スクロール禁止（;は必要みたい？）
         self.view.addSubview(mytext)    //viewに追加
         
         

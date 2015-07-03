@@ -10,27 +10,40 @@ import UIKit
 
 class Article2 :BaseArticleViewController{
     
-    @IBOutlet weak var scrollview2: UIScrollView!
-    @IBOutlet weak var voicevolume2: UISlider!
-    @IBOutlet weak var voicepitch2: UISlider!
-    @IBOutlet weak var mytext2: UITextView!
+    @IBOutlet weak var scrollview: UIScrollView!
+    @IBOutlet weak var text1: UITextView!
+    @IBOutlet weak var exampleBtn: UIButton!
+    @IBOutlet weak var checkBtn: UIButton!
     
     override func viewDidLayoutSubviews() {
         //ScrollViewのContentSizeを設定
-        self.scrollview2.contentSize = self.mytext2.frame.size
+        //self.scrollview.contentSize = CGSizeMake(768,1500)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.speaktext = mytext2.text //読み上げるテキスト
+        self.speaktext = text1.text //読み上げるテキスト
+        
+        exampleBtn.setTitle("例えば...", forState: UIControlState.Normal)
+        exampleBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 28)
+        exampleBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        exampleBtn.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 0.5)
+        
+        checkBtn.setTitle("チェックリスト", forState: UIControlState.Normal)
+        checkBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 28)
+        checkBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        checkBtn.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 0.5)
         
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func unwindToTop(segue: UIStoryboardSegue) {
     }
 
 }
