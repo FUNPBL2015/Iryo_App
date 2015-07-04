@@ -417,58 +417,17 @@
                         <viewControllerLayoutGuide type="bottom" id="siZ-yL-tsD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dVU-4Y-hcl">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TGf-EH-qod">
-                                <rect key="frame" x="0.0" y="64" width="768" height="1372"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8U-UC-TCh">
-                                        <rect key="frame" x="8" y="-18" width="748" height="58"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQU-QA-p0K">
-                                        <rect key="frame" x="8" y="19" width="752" height="268"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejY-dv-n3h">
-                                        <rect key="frame" x="12" y="295" width="744" height="150"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vb-wR-yjX">
-                                        <rect key="frame" x="186" y="498" width="393" height="55"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="TKG-GK-Bp8" kind="show" id="3Qy-Xh-vXH"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </scrollView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="5kI-Kn-fGp"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="768" height="1500"/>
-                    <connections>
-                        <outlet property="cheBtn" destination="3Vb-wR-yjX" id="6f3-kl-Ouw"/>
-                        <outlet property="myLabel1" destination="P8U-UC-TCh" id="b3X-ew-JhU"/>
-                        <outlet property="myLabel2" destination="tQU-QA-p0K" id="Plw-s6-ngt"/>
-                        <outlet property="myLabel3" destination="ejY-dv-n3h" id="QQm-El-fVo"/>
-                        <outlet property="myScroll" destination="TGf-EH-qod" id="1KN-8E-kEC"/>
-                    </connections>
+                    <size key="freeformSize" width="768" height="1024"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2X-w9-T3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="851" y="-257"/>
+            <point key="canvasLocation" x="851" y="-501"/>
         </scene>
         <!--Com3-->
         <scene sceneID="v6C-gX-eL9">
@@ -925,7 +884,4 @@
         <image name="奥さん.png" width="74" height="100"/>
         <image name="奥さん2.png" width="74" height="100"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="ZQ5-3l-p6A"/>
-    </inferredMetricsTieBreakers>
 </document>

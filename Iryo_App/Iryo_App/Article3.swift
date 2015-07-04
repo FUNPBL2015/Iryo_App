@@ -10,40 +10,62 @@ import UIKit
 
 class Article3: BaseArticleViewController {
 
-    @IBOutlet weak var myScroll: UIScrollView!
+    //@IBOutlet weak var myScroll: UIScrollView!
     @IBOutlet weak var myLabel1: UILabel!
     @IBOutlet weak var myLabel2: UILabel!
     @IBOutlet weak var myLabel3: UILabel!
-    @IBOutlet weak var cheBtn: UIButton!
     
+    /*
     override func viewDidLayoutSubviews() {
-        myScroll.contentSize = CGSizeMake(768,1740)
-    }
+        //myScroll.contentSize = CGSizeMake(768,1740)
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         self.title = "病院で家族が聞かれること"
+
+        let navBarHeight = self.navigationController?.navigationBar.frame.size.height
         
-        self.speaktext = "テキスト" //読み上げるテキスト
+        let text1: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32, self.view.frame.width - 32, 0))
+        text1.text = "例えばこのようなとき、家族だけで判断できますか？"
+        text1.font = UIFont(name:"HiraKakuProN-W3", size:28)
+        text1.textColor = UIColor.blackColor()
+        text1.editable = false         //編集禁止
+        text1.scrollEnabled = false
+        text1.sizeToFit()
+        self.view.addSubview(text1)
+        var maxSize: CGSize = CGSizeMake(self.view.bounds.width,self.view.bounds.height)
+        var text1s: CGSize = text1.sizeThatFits(maxSize)
         
-        myLabel1.font=UIFont(name:"HiraKakuProN-W3",size: 28)
-        myLabel1.text="例えばこのようなとき、家族だけで判断できますか？"
+        let text2: UITextView = UITextView(frame: CGRectMake(32, navBarHeight!+32+text1s.height, self.view.frame.width - 32, 0))
+        text2.text = "⚫︎急変したら，心臓マッサージ／血圧をあげる薬の投与／\n   人工呼吸などの救命措置をしますか？\n⚫︎口からものを食べられないときに，胃ろう／\n   経鼻経管栄養／中心静脈栄養／点滴をしますか？\n⚫︎腎臓の働きが悪くなったときに，人工透析をしますか？"
+        text2.font = UIFont(name:"HiraKakuProN-W3", size:28)           //フォント・サイズ設定
+        text2.textColor = UIColor.blackColor()
+        text2.textAlignment = NSTextAlignment.Left         //左詰め
+        text2.editable = false         //編集禁止
+        text2.scrollEnabled = false   //スクロール禁止
+        text2.sizeToFit()
+        self.view.addSubview(text2)    //viewに追加
+        var text2s: CGSize = text2.sizeThatFits(maxSize)
         
-        myLabel2.text="・急変したら，心臓マッサージ／血圧をあげる薬の投与／人工呼吸などの救命措置をしますか？\n・口からものを食べられないときに，胃ろう／経鼻経管栄養／中心静脈栄養／点滴をしますか？\n・腎臓の働きが悪くなったときに，人工透析をしますか？"
-        myLabel2.numberOfLines=30
-        myLabel2.font=UIFont(name: "HiraKakuProN-W3", size: 28)
         
-        myLabel3.text="家族だけで重大な医療行為を決めるのはとても難しいです。\nふだんからよく話し合い、本人の意思や希望を確認しておくとよいでしょう。"
-        myLabel3.numberOfLines=30
-        myLabel3.font=UIFont(name: "HiraKakuProN-W3", size: 28)
+        let text3: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+48+text1s.height+text2s.height, self.view.frame.width - 32, 300))
+        text3.text = "家族だけで重大な医療行為を決めるのはとても難しいです。ふだんからよく話し合い、本人の意思や希望を確認しておくとよいでしょう。"
+        text3.font = UIFont(name:"HiraKakuProN-W6", size:30)           //フォント・サイズ設定
+        text3.textColor = UIColor.whiteColor() /*UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.7)*/
+        text3.textAlignment = NSTextAlignment.Left         //左詰め
+        text3.editable = false         //編集禁止
+        text3.scrollEnabled = false   //スクロール禁止
+        text3.sizeToFit()
+        text3.layer.cornerRadius = 5
+        text3.backgroundColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.5)
+
+        self.view.addSubview(text3)    //viewに追加
         
-        cheBtn.setTitle("チェックリストをやる", forState: UIControlState.Normal)
-        cheBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 28)
-        cheBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        cheBtn.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 0.5)
-        
+        let t: String = "。"
+        self.speaktext = text1.text + t + text2.text + t + text3.text
     }
     
     override func didReceiveMemoryWarning() {
