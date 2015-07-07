@@ -16,8 +16,8 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
     let speakBtn:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
     
     /* 音声設定 */
-    var voicerate :Float = 0.5 //速さ 0.1~1.0
-    var voicepitch :Float = 0.5 //高さ 0.5~2.0
+    var voicerate :Float = 0.2 //速さ 0.1~1.0
+    var voicepitch :Float = 1.1 //高さ 0.5~2.0
     var speaktext :String = "テキスト"; //読み上げるテキスト
     
     override func viewDidLoad() {

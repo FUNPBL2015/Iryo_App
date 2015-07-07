@@ -316,7 +316,7 @@
         <!--Article1-->
         <scene sceneID="6V6-qt-cHN">
             <objects>
-                <viewController id="gQP-tH-whj" userLabel="Article1" customClass="Article1" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="gQP-tH-whj" userLabel="Article1" customClass="Article1" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dMf-ZD-KtL"/>
                         <viewControllerLayoutGuide type="bottom" id="pHN-3e-Ovj"/>
@@ -449,7 +449,7 @@
         <!--Article3-->
         <scene sceneID="Qqz-AE-zBs">
             <objects>
-                <viewController id="9Ml-AF-l5j" userLabel="Article3" customClass="Article3" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="9Ml-AF-l5j" userLabel="Article3" customClass="Article3" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OiQ-yX-i4c"/>
                         <viewControllerLayoutGuide type="bottom" id="siZ-yL-tsD"/>

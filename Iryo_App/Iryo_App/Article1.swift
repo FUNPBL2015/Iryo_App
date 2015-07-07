@@ -44,7 +44,7 @@ class Article1:BaseArticleViewController{
         var text1s: CGSize = text1.sizeThatFits(maxSize)
         
         let text2: UITextView = UITextView(frame: CGRectMake(48, navBarHeight!+32+text1s.height, self.view.frame.width - 32, 0))
-        text2.text = "⚫︎本人の　同意　が得られない\n⚫︎本人の　意思　がわからない\n⚫︎家族の　同意　だけで医療行為が進められる\n⚫︎場合によっては、本人の同意が得られないために、\n   必要な医療行為が受けられない"
+        text2.text = "⚫︎本人の　同意　が得られない　\n⚫︎本人の　意思　がわからない　\n⚫︎家族の　同意　だけで医療行為が進められる　\n⚫︎場合によっては、本人の同意が得られないために、\n   必要な医療行為が受けられない　"
         text2.font = UIFont(name:"HiraKakuProN-W3", size:28)           //フォント・サイズ設定
         text2.textColor = UIColor.blackColor()
         text2.textAlignment = NSTextAlignment.Left         //左詰め
@@ -69,7 +69,7 @@ class Article1:BaseArticleViewController{
         let text4: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height+text3s.height, self.view.frame.width - 32, 0))
         text4.text = "ふだんから本人の意思や希望、気持ちを確認しておくことが大切です！"
         text4.font = UIFont(name:"HiraKakuProN-W6", size:30)           //フォント・サイズ設定
-        text4.textColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.7)
+        text4.textColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 1)
         text4.textAlignment = NSTextAlignment.Left         //左詰め
         text4.editable = false         //編集禁止
         text4.scrollEnabled = false   //スクロール禁止
@@ -88,7 +88,7 @@ class Article1:BaseArticleViewController{
         var text5s: CGSize = text5.sizeThatFits(maxSize)
         
         let text6: UITextView = UITextView(frame: CGRectMake(48, navBarHeight!+32+text1s.height+text2s.height+text3s.height+text4s.height+text5s.height, self.view.frame.width - 32, 0))
-        text6.text = "⚫︎ふだんの生活や症状の共有方法\n⚫︎病院で家族が聞かれること\n⚫︎医師と家族の話し合い\n⚫︎家族の今後の生活"
+        text6.text = "⚫︎ふだんの生活や症状の共有方法　\n⚫︎病院で家族が聞かれること　\n⚫︎医師と家族の話し合い　\n⚫︎家族の今後の生活　"
         text6.font = UIFont(name:"HiraKakuProN-W3", size:28)           //フォント・サイズ設定
         text6.textColor = UIColor.blackColor()
         text6.textAlignment = NSTextAlignment.Left         //左詰め
@@ -109,7 +109,7 @@ class Article1:BaseArticleViewController{
         
         
         text2.layer.borderWidth = 0
-        let t: String = "。"
+        let t: String = "　"
         self.speaktext = text1.text + t + text2.text + t + text3.text + t + text4.text + t + text5.text + t + text6.text + t + text7.text //読み上げるテキスト
     }
     
