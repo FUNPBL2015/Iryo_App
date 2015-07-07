@@ -32,14 +32,14 @@ class ViewController: UIViewController {
 
         // NavigationBarを表示する
             self.navigationController?.setNavigationBarHidden(false, animated: false)
-        // NavigationBarの高さを設定する
-            self.navigationController?.navigationBar.frame.size.height = 60
-
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //ボタンの同時押しを禁止する
+        self.exclusiveAllTouches()
         
         //背景画像表示
         let backImage: UIImage = UIImage(named: "homeImg.png")!

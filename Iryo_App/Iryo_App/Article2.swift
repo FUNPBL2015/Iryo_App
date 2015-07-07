@@ -12,20 +12,32 @@ class Article2 :BaseArticleViewController{
     
     @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var text1: UITextView!
+    @IBOutlet weak var talkingPoints: UILabel!
+    @IBOutlet weak var talkingPointsView: UIView!
+    @IBOutlet weak var text2: UITextView!
     @IBOutlet weak var exampleBtn: UIButton!
+    @IBOutlet weak var text3: UITextView!
     @IBOutlet weak var checkBtn: UIButton!
+    
     
     override func viewDidLayoutSubviews() {
         //ScrollViewのContentSizeを設定
-        //self.scrollview.contentSize = CGSizeMake(768,1500)
+        //self.scrollview.contentSize = CGSizeMake(768,1096)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.speaktext = text1.text //読み上げるテキスト
+        self.speaktext = text1.text + talkingPoints.text! + text2.text + text3.text //読み上げるテキスト
         
+        //ボタンの同時押しを禁止する
+        self.exclusiveAllTouches()
+        
+        //border設定
+        talkingPointsView.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.5).CGColor
+        
+        /* Button layout */
         exampleBtn.setTitle("例えば...", forState: UIControlState.Normal)
         exampleBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 28)
         exampleBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)

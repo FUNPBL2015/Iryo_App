@@ -342,31 +342,57 @@
                         <viewControllerLayoutGuide type="bottom" id="Kqe-Wb-YTb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e36-VV-h2U">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="2048"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1096"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Bd-Jq-c6Q">
-                                <rect key="frame" x="0.0" y="60" width="768" height="2048"/>
+                                <rect key="frame" x="0.0" y="60" width="768" height="1036"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ub6-tL-cov">
-                                        <rect key="frame" x="16" y="36" width="736" height="525"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ub6-tL-cov">
+                                        <rect key="frame" x="16" y="36" width="736" height="352"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">病院で医療を受けるとき
 
-・本人のふだんの様子
-・医療行為に関する本人の意思や希望
-に関する情報がとても重要です！
+ ⚫︎本人のふだんの様子
+ ⚫︎医療行為に関する本人の意思や希望
+　 に関する情報がとても重要です！
 
-ふだんから家族で話し合いましょう！
-話し合いのポイント
-・テレビや身近な話題をきっかけにして、本人の意思や希望を確認する
-・本人の意思や希望は、そのつど記録しておく
-・家族みんなで情報を共有する</string>
+ふだんから家族で話し合いましょう！</string>
                                         <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JkG-f6-oCo">
+                                        <rect key="frame" x="16" y="363" width="736" height="220"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPg-4c-9wa">
+                                                <rect key="frame" x="10" y="30" width="726" height="220"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <string key="text"> ⚫︎テレビや身近な話題をきっかけにして、本人の意思や 　 希望を確認する
+ ⚫︎本人の意思や希望は、そのつど記録しておく
+ ⚫︎家族みんなで情報を共有する</string>
+                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="話し合いのポイント" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYt-pr-GWm">
+                                        <rect key="frame" x="60" y="350" width="260" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyw-gK-5z5">
-                                        <rect key="frame" x="188" y="569" width="393" height="55"/>
+                                        <rect key="frame" x="188" y="613" width="393" height="55"/>
                                         <state key="normal" title="例えば...">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -374,14 +400,8 @@
                                             <segue destination="2as-ts-lUA" kind="presentation" id="LMB-8B-IuP"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="話し合い内容や、患者のふだんの生活や症状を記録しておくと、変化を確認したり、家族と情報を共有することができます。チェックリストを活用してください。" translatesAutoresizingMaskIntoConstraints="NO" id="8VO-Xq-XfK">
-                                        <rect key="frame" x="16" y="653" width="736" height="152"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhL-ad-Ftp">
-                                        <rect key="frame" x="188" y="813" width="393" height="55"/>
+                                        <rect key="frame" x="188" y="870" width="393" height="55"/>
                                         <state key="normal" title="チェックリスト">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -389,6 +409,20 @@
                                             <segue destination="TKG-GK-Bp8" kind="show" id="ZQ5-3l-p6A"/>
                                         </connections>
                                     </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8VO-Xq-XfK">
+                                        <rect key="frame" x="16" y="700" width="736" height="150"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="話し合い内容や、患者のふだんの生活や症状を記録して おくと、変化を確認したり、家族と情報を共有することができます。チェックリストを活用してください。">
+                                                <attributes>
+                                                    <font key="NSFont" size="28" name="HiraKakuProN-W3"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    <integer key="NSUnderline" value="1"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -396,17 +430,21 @@
                     </view>
                     <navigationItem key="navigationItem" title="ふだんの生活や症状の共有方法" id="Ysr-Hk-VkX"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="768" height="2048"/>
+                    <size key="freeformSize" width="768" height="1096"/>
                     <connections>
                         <outlet property="checkBtn" destination="nhL-ad-Ftp" id="PCI-Qg-HX8"/>
                         <outlet property="exampleBtn" destination="fyw-gK-5z5" id="sbz-bV-qan"/>
-                        <outlet property="scrollview" destination="5Bd-Jq-c6Q" id="gMP-Wn-8it"/>
+                        <outlet property="scrollview" destination="5Bd-Jq-c6Q" id="jx7-IK-iua"/>
+                        <outlet property="talkingPoints" destination="GYt-pr-GWm" id="IwX-Zt-w9N"/>
+                        <outlet property="talkingPointsView" destination="JkG-f6-oCo" id="FyX-vT-IHd"/>
                         <outlet property="text1" destination="Ub6-tL-cov" id="cie-IT-5HK"/>
+                        <outlet property="text2" destination="aPg-4c-9wa" id="e2I-wr-zwl"/>
+                        <outlet property="text3" destination="8VO-Xq-XfK" id="gF7-WD-AoY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tme-Nb-15y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-93" y="11"/>
+            <point key="canvasLocation" x="-93" y="-465"/>
         </scene>
         <!--Article3-->
         <scene sceneID="Qqz-AE-zBs">
@@ -450,7 +488,7 @@
                                     <segue destination="QaF-E3-HBx" kind="unwind" unwindAction="unwindToTop:" id="sQE-Vu-ndB"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8B-FC-dsP">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8B-FC-dsP">
                                 <rect key="frame" x="98" y="97" width="654" height="214"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -463,15 +501,15 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="おじいさん２.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Vr-9u-BxE">
                                 <rect key="frame" x="633" y="278" width="166" height="243"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xh2-mk-Wbm">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xh2-mk-Wbm">
                                 <rect key="frame" x="16" y="352" width="644" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtx-0e-fAm">
-                                <rect key="frame" x="98" y="529" width="654" height="79"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtx-0e-fAm">
+                                <rect key="frame" x="98" y="529" width="654" height="89"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -480,8 +518,8 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="奥さん2.png" translatesAutoresizingMaskIntoConstraints="NO" id="q70-LI-1FZ">
                                 <rect key="frame" x="16" y="508" width="74" height="100"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kJ-9V-kCq">
-                                <rect key="frame" x="16" y="659" width="644" height="114"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kJ-9V-kCq">
+                                <rect key="frame" x="16" y="659" width="644" height="124"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -494,7 +532,7 @@
                                 <rect key="frame" x="16" y="828" width="74" height="100"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stZ-UB-c97">
-                                <rect key="frame" x="98" y="814" width="654" height="114"/>
+                                <rect key="frame" x="98" y="814" width="654" height="124"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -516,7 +554,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2b5-D9-3le" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QaF-E3-HBx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-93" y="1865"/>
+            <point key="canvasLocation" x="-93" y="1033"/>
         </scene>
         <!--Article4-->
         <scene sceneID="MoV-6y-5bT">
@@ -531,52 +569,128 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rD0-4T-fuT">
-                                <rect key="frame" x="0.0" y="60" width="768" height="1620"/>
+                                <rect key="frame" x="0.0" y="60" width="768" height="1700"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLT-6e-X5E">
-                                        <rect key="frame" x="16" y="36" width="736" height="1372"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="認知症の方の家族で、次のような経験をされた方がいます。" translatesAutoresizingMaskIntoConstraints="NO" id="oLT-6e-X5E">
+                                        <rect key="frame" x="16" y="36" width="736" height="101"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">認知症の方の家族で、次のような経験をされた方がいます。
-
-
-【足の切断の決定】
-糖尿病で左足を切断する必要が出てきました。
-本人は若年性認知症で意思確認ができないため、医師は妻に切断するか、切断する場合どこから切断するかを相談しました。
-「先生の家族だったどうしますか？」と質問したりして、切断後のことも十分説明を受けながら膝上から切断することを決めました。 
-→医師に質問をし、十分な説明を受けて医療行為を決断した
- 
-【食事の楽しみか窒息の危険か】
-飲み込みが悪くなり、胃ろうを作るかどうかを検討しました。家族からは、本人がもともと食事を楽しみにしているところがあったため、できるだけ口から食べる楽しみを残してほしいという希望を出しました。
-医師は言語聴覚士と相談し、胃ろうはせず食事を継続することにしました。 
-→家族から医師に希望を出し、医療行為を決断した
- 医師とよく話し合うことは、納得のいく医療につながります！
-話し合いのポイント
-・家族や本人の気持ちを伝える。
-・退院後の生活も視野に入れて話す。</string>
                                         <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mwg-YN-qnw" userLabel="Case1">
+                                        <rect key="frame" x="16" y="163" width="736" height="400"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y94-KH-MBI">
+                                                <rect key="frame" x="10" y="30" width="726" height="353"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <string key="text">【足の切断の決定】
+糖尿病で左足を切断する必要が出てきました。
+本人は若年性認知症で意思確認ができないため、医師は妻に切断するか、切断する場合どこから切断するかを相談しました。
+「先生の家族だったどうしますか？」と質問したりして、切断後のことも十分説明を受けながら膝上から切断することを決めました。</string>
+                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="→医師に質問をし、十分な説明を受けて医療行為を 　決断した" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="690" translatesAutoresizingMaskIntoConstraints="NO" id="jPH-gP-vHr">
+                                        <rect key="frame" x="62" y="571" width="690" height="70"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ケース１: ６０代男性、若年性認知症" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLS-YM-ks7">
+                                        <rect key="frame" x="62" y="139" width="504" height="47"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="saW-xf-qB2" userLabel="Case2">
+                                        <rect key="frame" x="16" y="697" width="736" height="363"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYf-Qc-9aq">
+                                                <rect key="frame" x="10" y="30" width="726" height="313"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <string key="text">【食事の楽しみか窒息の危険か】
+飲み込みが悪くなり、胃ろうを作るかどうかを検討しました。家族からは、本人がもともと食事を楽しみにしているところがあったため、できるだけ口から食べる楽しみを残してほしいという希望を出しました。
+医師は言語聴覚士と相談し、胃ろうはせず食事を継続することにしました。</string>
+                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="→家族から医師に希望を出し、医療行為を決断した" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="690" translatesAutoresizingMaskIntoConstraints="NO" id="WPb-rV-za6">
+                                        <rect key="frame" x="62" y="1068" width="690" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ケース２: ９０代女性、アルツハイマー症" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZrB-18-1Nf">
+                                        <rect key="frame" x="62" y="671" width="554" height="47"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="医師とよく話し合うことは、納得のいく医療につながります！" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="732" translatesAutoresizingMaskIntoConstraints="NO" id="DJc-pT-TlE" userLabel="医師とよく話し合うことは、納得のいく医療につながります！">
+                                        <rect key="frame" x="16" y="1146" width="732" height="70"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aUk-eV-a73" userLabel="talkingPoints">
+                                        <rect key="frame" x="16" y="1273" width="736" height="140"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9D-eo-jS4">
+                                                <rect key="frame" x="10" y="30" width="726" height="120"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <string key="text"> ⚫︎家族や本人の気持ちを伝える。
+ ⚫︎退院後の生活も視野に入れて話す。</string>
+                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="話し合いのポイント" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S17-hW-eRF">
+                                        <rect key="frame" x="48" y="1260" width="260" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUq-Jp-qbo">
-                                        <rect key="frame" x="188" y="1396" width="393" height="55"/>
-                                        <state key="normal" title="Button">
+                                        <rect key="frame" x="180" y="1433" width="393" height="55"/>
+                                        <state key="normal" title="例えば...">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <segue destination="zJY-jh-7ZQ" kind="presentation" id="oYw-3P-Xoz"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ケース１: ６０代男性、若年性認知症" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLS-YM-ks7">
-                                        <rect key="frame" x="16" y="139" width="736" height="47"/>
-                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="30"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ケース２: ９０代女性、アルツハイマー症" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZrB-18-1Nf">
-                                        <rect key="frame" x="16" y="688" width="736" height="47"/>
-                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="30"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -586,8 +700,21 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="1700"/>
                     <connections>
+                        <outlet property="case1headline" destination="nLS-YM-ks7" id="W3N-DS-6lF"/>
+                        <outlet property="case1result" destination="jPH-gP-vHr" id="VyY-xb-kFt"/>
+                        <outlet property="case1text" destination="y94-KH-MBI" id="uBY-13-Jnd"/>
+                        <outlet property="case1view" destination="Mwg-YN-qnw" id="pBd-ao-NHU"/>
+                        <outlet property="case2headline" destination="ZrB-18-1Nf" id="Phe-Ix-A0K"/>
+                        <outlet property="case2result" destination="ZrB-18-1Nf" id="B1d-25-rjL"/>
+                        <outlet property="case2text" destination="UYf-Qc-9aq" id="WbC-oO-Cej"/>
+                        <outlet property="case2view" destination="saW-xf-qB2" id="8qM-YD-ICt"/>
+                        <outlet property="conclusion" destination="DJc-pT-TlE" id="FpG-aC-YRl"/>
+                        <outlet property="intro" destination="oLT-6e-X5E" id="Wam-eo-oxg"/>
                         <outlet property="myBtn" destination="hUq-Jp-qbo" id="JyC-eb-Gv4"/>
                         <outlet property="myScroll" destination="rD0-4T-fuT" id="ZCa-8F-ECM"/>
+                        <outlet property="talkingPoints" destination="S17-hW-eRF" id="j84-gB-WS0"/>
+                        <outlet property="talkingPointsText" destination="l9D-eo-jS4" id="f0w-wd-AYU"/>
+                        <outlet property="talkingPointsView" destination="aUk-eV-a73" id="cjc-u5-Qbj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75M-DA-CnZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -609,15 +736,15 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="医師.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Cn-8n-l9t">
                                 <rect key="frame" x="16" y="125" width="90" height="101"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsx-RM-0dh">
-                                <rect key="frame" x="114" y="147" width="638" height="79"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsx-RM-0dh">
+                                <rect key="frame" x="114" y="147" width="638" height="89"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yC8-LF-7pc">
-                                <rect key="frame" x="16" y="254" width="654" height="182"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yC8-LF-7pc">
+                                <rect key="frame" x="16" y="254" width="654" height="192"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -629,14 +756,14 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="医師.png" translatesAutoresizingMaskIntoConstraints="NO" id="nfS-7F-HQp">
                                 <rect key="frame" x="16" y="486" width="90" height="101"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhx-hD-zz4">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhx-hD-zz4">
                                 <rect key="frame" x="114" y="470" width="638" height="117"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuE-Lw-viY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuE-Lw-viY">
                                 <rect key="frame" x="16" y="626" width="654" height="217"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -649,8 +776,8 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="医師.png" translatesAutoresizingMaskIntoConstraints="NO" id="h6a-cC-fQS">
                                 <rect key="frame" x="16" y="891" width="90" height="101"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZH-su-gBz">
-                                <rect key="frame" x="114" y="877" width="638" height="115"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZH-su-gBz">
+                                <rect key="frame" x="114" y="877" width="638" height="125"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -683,7 +810,7 @@
             </objects>
             <point key="canvasLocation" x="1709" y="1587"/>
         </scene>
-        <!--Checklist-->
+        <!--チェックリスト-->
         <scene sceneID="g84-jJ-4yt">
             <objects>
                 <viewController id="TKG-GK-Bp8" customClass="Checklist" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -696,53 +823,54 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BY-Pg-hUf">
-                                <rect key="frame" x="488" y="144" width="101" height="52"/>
+                                <rect key="frame" x="488" y="193" width="101" height="52"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1W6-8v-rzi">
-                                <rect key="frame" x="145" y="73" width="478" height="63"/>
+                                <rect key="frame" x="145" y="122" width="478" height="63"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtY-OU-m2d">
-                                <rect key="frame" x="140" y="144" width="88" height="52"/>
+                                <rect key="frame" x="140" y="193" width="88" height="52"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="He3-7t-D28">
-                                <rect key="frame" x="104" y="259" width="560" height="63"/>
+                                <rect key="frame" x="104" y="308" width="560" height="63"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gx-mK-nDr">
-                                <rect key="frame" x="140" y="339" width="88" height="52"/>
+                                <rect key="frame" x="140" y="388" width="88" height="52"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fk3-LU-vvc">
-                                <rect key="frame" x="488" y="339" width="101" height="52"/>
+                                <rect key="frame" x="488" y="388" width="101" height="52"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="cG0-yb-gku">
-                                <rect key="frame" x="-270" y="421" width="1098" height="11"/>
+                                <rect key="frame" x="-270" y="470" width="1098" height="11"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="wCm-bM-xxe">
-                                <rect key="frame" x="-51" y="38" width="1098" height="11"/>
+                                <rect key="frame" x="0.0" y="87" width="1098" height="11"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="4C8-g3-KxY">
-                                <rect key="frame" x="-181" y="221" width="1098" height="11"/>
+                                <rect key="frame" x="-181" y="270" width="1098" height="11"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="チェックリスト" id="D7f-kM-c2r"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="myBtnn1" destination="2BY-Pg-hUf" id="N9x-KD-vcT"/>
@@ -755,7 +883,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrs-6C-y5M" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="790" y="1467"/>
+            <point key="canvasLocation" x="851" y="1033"/>
         </scene>
         <!--Article5-->
         <scene sceneID="dCJ-8V-ml6">
@@ -772,21 +900,18 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hn2-fG-yDb">
                                 <rect key="frame" x="0.0" y="60" width="768" height="1024"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcY-41-maC">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcY-41-maC">
                                         <rect key="frame" x="16" y="36" width="736" height="407"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">家族は本人が亡くなられた後…
-・「死を早めてしまったのではないか」
-・「苦しみをなびかせたのではないか」
-と悩むことが多くあります
+ ⚫︎「死を早めてしまったのではないか」
+ ⚫︎「苦しみをなびかせたのではないか」
+　 と悩むことが多くあります
 
 そんなときは…
-・「穏やかな最期を迎えられた」
-・「本人の希望に沿うことができた」
-と肯定的に考えましょう！
-
-それでも悲しい気持ちのときは、
-相談機関や精神保健センターに相談しましょう！</string>
+ ⚫︎「穏やかな最期を迎えられた」
+ ⚫︎「本人の希望に沿うことができた」
+　 と肯定的に考えましょう！</string>
                                         <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <userDefinedRuntimeAttributes>
@@ -794,7 +919,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIG-XT-7d4">
-                                        <rect key="frame" x="199" y="474" width="371" height="352"/>
+                                        <rect key="frame" x="199" y="596" width="371" height="300"/>
                                         <string key="text"> 　公益社団法人 認知症の人と家族の会
 　〒602-8143 京都府京都市上京区堀川通
 　丸太町下ル 京都社会福祉会館内
@@ -817,7 +942,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="「家族の会」の相談窓口もあります" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia5-2I-uNN">
-                                        <rect key="frame" x="234" y="451" width="300" height="40"/>
+                                        <rect key="frame" x="234" y="577" width="300" height="40"/>
                                         <color key="backgroundColor" red="0.11372549019607843" green="0.52941176470588236" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -829,6 +954,20 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHq-6Z-wfj">
+                                        <rect key="frame" x="16" y="445" width="736" height="107"/>
+                                        <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <string key="text">それでも悲しい気持ちのときは、
+相談機関や精神保健センターに相談しましょう！</string>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -841,8 +980,10 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="headline1" destination="ia5-2I-uNN" id="5UP-Jb-pYD"/>
                         <outlet property="subTextView" destination="YIG-XT-7d4" id="DkF-Ya-NzV"/>
-                        <outlet property="troubleText" destination="zcY-41-maC" id="v5W-pt-l1k"/>
+                        <outlet property="text1" destination="zcY-41-maC" id="o9H-Ay-ShW"/>
+                        <outlet property="text2" destination="NHq-6Z-wfj" id="XQm-qR-9d4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxo-gO-D1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -854,7 +995,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GYb-JK-McM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bfI-wW-9Ue">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bfI-wW-9Ue" customClass="CustomNavigationBar" customModule="Iryo_App" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

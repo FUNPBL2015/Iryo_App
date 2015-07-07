@@ -10,16 +10,17 @@ import UIKit
 
 class Article5 : BaseArticleViewController{
 
-    @IBOutlet weak var troubleText: UITextView!
+    @IBOutlet weak var text1: UITextView!
+    @IBOutlet weak var text2: UITextView!
+    @IBOutlet weak var headline1: UILabel!
     @IBOutlet weak var subTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //読み上げるテキスト
-        self.speaktext = troubleText.text
+        self.speaktext = text1.text + text2.text + headline1.text! + subTextView.text //読み上げるテキスト
         
-        //相談窓口 border設定
+        //border設定
         subTextView.layer.borderColor = UIColor(red: 29/255, green: 135/255, blue: 188/255, alpha: 1.0).CGColor
     }
     
