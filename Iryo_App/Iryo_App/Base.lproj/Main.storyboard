@@ -348,8 +348,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Bd-Jq-c6Q">
                                 <rect key="frame" x="0.0" y="60" width="768" height="1036"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ub6-tL-cov">
-                                        <rect key="frame" x="16" y="36" width="736" height="352"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ub6-tL-cov">
+                                        <rect key="frame" x="16" y="36" width="736" height="319"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">病院で医療を受けるとき
 
@@ -470,7 +470,7 @@
         <!--Com3-->
         <scene sceneID="v6C-gX-eL9">
             <objects>
-                <viewController id="2as-ts-lUA" customClass="com3" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="2as-ts-lUA" customClass="com3" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nl5-dn-yLv"/>
                         <viewControllerLayoutGuide type="bottom" id="xJo-RL-z9i"/>
@@ -724,7 +724,7 @@
         <!--Com4-->
         <scene sceneID="TwP-66-Cdt">
             <objects>
-                <viewController id="zJY-jh-7ZQ" customClass="com4" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="zJY-jh-7ZQ" customClass="com4" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NHU-JW-K4X"/>
                         <viewControllerLayoutGuide type="bottom" id="l5M-BJ-11h"/>
@@ -813,7 +813,7 @@
         <!--チェックリスト-->
         <scene sceneID="g84-jJ-4yt">
             <objects>
-                <viewController id="TKG-GK-Bp8" customClass="Checklist" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="TKG-GK-Bp8" customClass="Checklist" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IAr-XX-H4T"/>
                         <viewControllerLayoutGuide type="bottom" id="pfr-qj-ZPi"/>
@@ -859,13 +859,13 @@
                                 </state>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="cG0-yb-gku">
-                                <rect key="frame" x="-270" y="470" width="1098" height="11"/>
+                                <rect key="frame" x="0.0" y="470" width="1098" height="11"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="wCm-bM-xxe">
                                 <rect key="frame" x="0.0" y="87" width="1098" height="11"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="b_simple_124_2L.png" translatesAutoresizingMaskIntoConstraints="NO" id="4C8-g3-KxY">
-                                <rect key="frame" x="-181" y="270" width="1098" height="11"/>
+                                <rect key="frame" x="0.0" y="270" width="1098" height="11"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -900,8 +900,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hn2-fG-yDb">
                                 <rect key="frame" x="0.0" y="60" width="768" height="1024"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcY-41-maC">
-                                        <rect key="frame" x="16" y="36" width="736" height="407"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcY-41-maC">
+                                        <rect key="frame" x="16" y="36" width="736" height="406"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">家族は本人が亡くなられた後…
  ⚫︎「死を早めてしまったのではないか」
@@ -918,7 +918,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIG-XT-7d4">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIG-XT-7d4">
                                         <rect key="frame" x="199" y="596" width="371" height="300"/>
                                         <string key="text"> 　公益社団法人 認知症の人と家族の会
 　〒602-8143 京都府京都市上京区堀川通
@@ -954,8 +954,8 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHq-6Z-wfj">
-                                        <rect key="frame" x="16" y="445" width="736" height="107"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHq-6Z-wfj">
+                                        <rect key="frame" x="16" y="445" width="736" height="109"/>
                                         <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <string key="text">それでも悲しい気持ちのときは、
 相談機関や精神保健センターに相談しましょう！</string>
