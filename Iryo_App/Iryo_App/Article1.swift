@@ -44,7 +44,7 @@ class Article1:BaseArticleViewController{
         var text1s: CGSize = text1.sizeThatFits(maxSize)
         
         let text2: UITextView = UITextView(frame: CGRectMake(48, navBarHeight!+32+text1s.height, self.view.frame.width - 32, 0))
-        text2.text = "⚫︎本人の　同意　が得られない　\n⚫︎本人の　意思　がわからない　\n⚫︎家族の　同意　だけで医療行為が進められる　\n⚫︎場合によっては、本人の同意が得られないために、\n   必要な医療行為が受けられない　"
+        text2.text = "⚫︎本人の 同意 が得られない　\n⚫︎本人の 意思 がわからない　\n⚫︎家族の 同意 だけで医療行為が進められる　\n⚫︎場合によっては、本人の 同意 が得られないために、\n   必要な医療行為が受けられない　"
         text2.font = UIFont(name:"HiraKakuProN-W3", size:28)           //フォント・サイズ設定
         text2.textColor = UIColor.blackColor()
         text2.textAlignment = NSTextAlignment.Left         //左詰め
@@ -88,7 +88,7 @@ class Article1:BaseArticleViewController{
         var text5s: CGSize = text5.sizeThatFits(maxSize)
         
         let text6: UITextView = UITextView(frame: CGRectMake(48, navBarHeight!+32+text1s.height+text2s.height+text3s.height+text4s.height+text5s.height, self.view.frame.width - 32, 0))
-        text6.text = "⚫︎ふだんの生活や症状の共有方法　\n⚫︎病院で家族が聞かれること　\n⚫︎医師と家族の話し合い　\n⚫︎家族の今後の生活　"
+        text6.text = "⚫︎病院で役に立つ情報　\n⚫︎病院できかれること　\n⚫︎医師との話し合いのコツ　\n⚫︎家族のそれから　"
         text6.font = UIFont(name:"HiraKakuProN-W3", size:28)           //フォント・サイズ設定
         text6.textColor = UIColor.blackColor()
         text6.textAlignment = NSTextAlignment.Left         //左詰め
@@ -99,7 +99,7 @@ class Article1:BaseArticleViewController{
         var text6s: CGSize = text6.sizeThatFits(maxSize)
         
         let text7: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height+text3s.height+text4s.height+text5s.height+text6s.height, self.view.frame.width - 32, 0))
-        text7.text = "について、アドバイスします！"
+        text7.text = "について、ご説明します！"
         text7.font = UIFont(name:"HiraKakuProN-W3", size:28)
         text7.textColor = UIColor.blackColor()
         text7.editable = false         //編集禁止
