@@ -16,11 +16,11 @@ class Article4: BaseArticleViewController {
     @IBOutlet weak var case1headline: UILabel!
     @IBOutlet weak var case1view: UIView!
     @IBOutlet weak var case1text: UITextView!
-    @IBOutlet weak var case1result: UILabel!
+    @IBOutlet weak var case1result: UITextView!
     @IBOutlet weak var case2headline: UILabel!
     @IBOutlet weak var case2view: UIView!
     @IBOutlet weak var case2text: UITextView!
-    @IBOutlet weak var case2result: UILabel!
+    @IBOutlet weak var case2result: UITextView!
     @IBOutlet weak var conclusion: UILabel!
     @IBOutlet weak var talkingPoints: UILabel!
     @IBOutlet weak var talkingPointsView: UIView!
@@ -38,9 +38,20 @@ class Article4: BaseArticleViewController {
          self.speaktext = intro.text + case1headline.text! + case1text.text + case1result.text! + case2headline.text! + case2text.text + case2result.text! + conclusion.text! + talkingPoints.text! + talkingPointsText.text //読み上げるテキスト
         
         //border設定
+        case1view.layer.borderWidth = 0
         case1view.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 1.0).CGColor
+        case2view.layer.borderWidth = 0
         case2view.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 1.0).CGColor
         talkingPointsView.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.5).CGColor
+        
+        case1result.layer.borderWidth = 3
+        case1result.layer.cornerRadius = 10
+        case1result.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.7).CGColor
+        case1result.textContainerInset = UIEdgeInsetsMake(15, 10, 0, 10)
+        case2result.layer.borderWidth = 3
+        case2result.layer.cornerRadius = 10
+        case2result.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.7).CGColor
+        case2result.textContainerInset = UIEdgeInsetsMake(15, 10, 0, 10)
         
         /* Button layout */
         myBtn.setTitle("例えば...", forState: UIControlState.Normal)

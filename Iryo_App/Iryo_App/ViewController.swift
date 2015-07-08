@@ -49,9 +49,9 @@ class ViewController: UIViewController {
         self.view.addSubview(myImageView)
         self.view.sendSubviewToBack(myImageView)//最背面に表示
         
-        titleLabel.text = "医療サポーターガイドブック"
+        titleLabel.text = "認知症サポーターガイドブック"
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.font = UIFont(name: "HiraKakuProN-W6", size: 55)
+        titleLabel.font = UIFont(name: "HiraKakuProN-W6", size: 53)
         
         subtitleLabel.text = "よりよい医療のために"
         subtitleLabel.textColor = UIColor.whiteColor()

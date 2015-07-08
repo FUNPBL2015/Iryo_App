@@ -10,10 +10,16 @@ import UIKit
 
 class Article5 : BaseArticleViewController{
 
+    @IBOutlet weak var myScroll: UIScrollView!
     @IBOutlet weak var text1: UITextView!
     @IBOutlet weak var text2: UITextView!
     @IBOutlet weak var headline1: UILabel!
     @IBOutlet weak var subTextView: UITextView!
+    
+    override func viewDidLayoutSubviews() {
+        //ScrollViewのContentSizeを設定
+        self.myScroll?.contentSize = CGSizeMake(768,1250)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +28,8 @@ class Article5 : BaseArticleViewController{
         
         //border設定
         subTextView.layer.borderColor = UIColor(red: 29/255, green: 135/255, blue: 188/255, alpha: 1.0).CGColor
+        
+        text2.textContainerInset = UIEdgeInsetsMake(15, 10, 0, 10)
     }
     
     override func didReceiveMemoryWarning() {

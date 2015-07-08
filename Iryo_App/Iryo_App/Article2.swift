@@ -19,10 +19,9 @@ class Article2 :BaseArticleViewController{
     @IBOutlet weak var text3: UITextView!
     @IBOutlet weak var checkBtn: UIButton!
     
-    
     override func viewDidLayoutSubviews() {
         //ScrollViewのContentSizeを設定
-        //self.scrollview.contentSize = CGSizeMake(768,1096)
+        self.scrollview.contentSize = CGSizeMake(768,1350)
     }
     
     override func viewDidLoad() {

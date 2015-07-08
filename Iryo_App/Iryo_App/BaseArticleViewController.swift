@@ -33,12 +33,12 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
         speakBtn.addTarget(self, action: "onClickSpeakBtn", forControlEvents: UIControlEvents.TouchUpInside)
         
         /* speakBtnレイアウト設定 */
-        speakBtn.frame = CGRectMake(0, 0, 60, 30)
+        speakBtn.frame = CGRectMake(0, 0, 140, 30)
         speakBtn.layer.cornerRadius = 5
         speakBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         
         if speakDelegate.toggle{
-            speakBtn.setTitle("再生", forState: .Normal )
+            speakBtn.setTitle("文章の読み上げ", forState: .Normal )
             speakBtn.layer.backgroundColor = UIColor(red: 0.12, green: 0.78, blue: 0, alpha: 1.0).CGColor
         }else{
             speakBtn.layer.backgroundColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1.0).CGColor
@@ -61,7 +61,7 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
         }else{
             UIView.animateWithDuration(0.25, animations: { () -> Void in
                 self.speakBtn.layer.backgroundColor = UIColor(red: 0.12, green: 0.78, blue: 0, alpha: 1.0).CGColor
-                self.speakBtn.setTitle("再生", forState: UIControlState.Normal)
+                self.speakBtn.setTitle("文章の読み上げ", forState: UIControlState.Normal)
             })
             speakDelegate.toggle = true
         }

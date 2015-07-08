@@ -99,7 +99,7 @@ class Article1:BaseArticleViewController{
         var text6s: CGSize = text6.sizeThatFits(maxSize)
         
         let text7: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height+text3s.height+text4s.height+text5s.height+text6s.height, self.view.frame.width - 32, 0))
-        text7.text = "について、ご説明します！"
+        text7.text = "の4つについて、ご説明します！"
         text7.font = UIFont(name:"HiraKakuProN-W3", size:28)
         text7.textColor = UIColor.blackColor()
         text7.editable = false         //編集禁止
