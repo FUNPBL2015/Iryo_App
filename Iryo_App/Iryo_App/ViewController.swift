@@ -32,11 +32,6 @@ class ViewController: UIViewController {
 
         // NavigationBarを表示する
             self.navigationController?.setNavigationBarHidden(false, animated: false)
-        
-        familyBtn.exclusiveTouch = true
-        supporterBtn.exclusiveTouch = true
-        healthproBtn.exclusiveTouch = true
-        
     }
 
     override func viewDidLoad() {
