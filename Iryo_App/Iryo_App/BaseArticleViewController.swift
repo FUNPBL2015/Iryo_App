@@ -20,6 +20,11 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
     var voicepitch :Float = 1.1 //高さ 0.5~2.0
     var speaktext :String = "テキスト"; //読み上げるテキスト
     
+    override func viewWillDisappear(animated: Bool) {
+        speakDelegate.speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
+        animateActionButtonAppearance(false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,10 +75,14 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
             utterance.rate = voicerate
             utterance.pitchMultiplier = voicepitch
 
+            if !speakDelegate.speechSynthesizer.speaking{
             speakDelegate.speechSynthesizer.speakUtterance(utterance)
+            }else{
+                speakDelegate.speechSynthesizer.continueSpeaking()
+            }
             animateActionButtonAppearance(true)
         }else{
-            speakDelegate.speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
+            speakDelegate.speechSynthesizer.pauseSpeakingAtBoundary(AVSpeechBoundary.Immediate)
             animateActionButtonAppearance(false)
         }
     }
