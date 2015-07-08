@@ -38,11 +38,11 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
         speakBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         
         if speakDelegate.toggle{
-            speakBtn.setTitle("Speak", forState: .Normal )
+            speakBtn.setTitle("再生", forState: .Normal )
             speakBtn.layer.backgroundColor = UIColor(red: 0.12, green: 0.78, blue: 0, alpha: 1.0).CGColor
         }else{
             speakBtn.layer.backgroundColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1.0).CGColor
-            speakBtn.setTitle("Pause", forState: UIControlState.Normal)
+            speakBtn.setTitle("一時停止", forState: UIControlState.Normal)
         }
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: speakBtn)
@@ -55,13 +55,13 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
         if shouldHideSpeakButton {
             UIView.animateWithDuration(0.25, animations: { () -> Void in
                 self.speakBtn.layer.backgroundColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1.0).CGColor
-                self.speakBtn.setTitle("Pause", forState: UIControlState.Normal)
+                self.speakBtn.setTitle("一時停止", forState: UIControlState.Normal)
             })
             speakDelegate.toggle = false
         }else{
             UIView.animateWithDuration(0.25, animations: { () -> Void in
                 self.speakBtn.layer.backgroundColor = UIColor(red: 0.12, green: 0.78, blue: 0, alpha: 1.0).CGColor
-                self.speakBtn.setTitle("Speak", forState: UIControlState.Normal)
+                self.speakBtn.setTitle("再生", forState: UIControlState.Normal)
             })
             speakDelegate.toggle = true
         }
