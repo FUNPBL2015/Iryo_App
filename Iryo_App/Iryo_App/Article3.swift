@@ -67,9 +67,9 @@ class Article3: BaseArticleViewController {
         self.view.addSubview(text3)    //viewに追加
         */
         
-        text3.textContainerInset = UIEdgeInsetsMake(15, 10, 0, 10)
+        text3.textContainerInset = UIEdgeInsetsMake(15, 22, 0, 10)
         //text3.sizeToFit()
-        text3.layer.cornerRadius = 5
+        text3.layer.cornerRadius = 10
         //text3.backgroundColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.5)
         
         let t: String = "。"

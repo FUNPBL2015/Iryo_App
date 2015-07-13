@@ -46,11 +46,11 @@ class Article4: BaseArticleViewController {
         
         case1result.layer.borderWidth = 3
         case1result.layer.cornerRadius = 10
-        case1result.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.7).CGColor
+        case1result.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.5).CGColor
         case1result.textContainerInset = UIEdgeInsetsMake(15, 10, 0, 10)
         case2result.layer.borderWidth = 3
         case2result.layer.cornerRadius = 10
-        case2result.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.7).CGColor
+        case2result.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.5).CGColor
         case2result.textContainerInset = UIEdgeInsetsMake(15, 10, 0, 10)
         
         /* Button layout */

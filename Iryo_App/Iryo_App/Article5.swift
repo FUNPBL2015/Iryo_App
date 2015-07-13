@@ -29,7 +29,9 @@ class Article5 : BaseArticleViewController{
         //border設定
         subTextView.layer.borderColor = UIColor(red: 29/255, green: 135/255, blue: 188/255, alpha: 1.0).CGColor
         
-        text2.textContainerInset = UIEdgeInsetsMake(15, 10, 0, 10)
+        text2.textContainerInset = UIEdgeInsetsMake(15, 22, 0, 10)
+        text2.layer.cornerRadius = 10
+
     }
     
     override func didReceiveMemoryWarning() {
