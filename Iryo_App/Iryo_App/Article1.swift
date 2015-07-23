@@ -33,7 +33,7 @@ class Article1:BaseArticleViewController{
         let navBarHeight = self.navigationController?.navigationBar.frame.size.height
         
         let text1: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32, self.view.frame.width - 32, 0))
-        text1.text = "もし認知症のおじいちゃん、おばあちゃんが急に入院して検査や手術を受けることになったら…"
+        text1.text = "例えば、認知症のおじいちゃん、おばあちゃんが急に入院して検査や手術を受けることになったとき…"
         text1.font = UIFont(name:"HiraKakuProN-W3", size:28)
         text1.textColor = UIColor.blackColor()
         text1.editable = false         //編集禁止
@@ -56,7 +56,7 @@ class Article1:BaseArticleViewController{
 
         
         let text3: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height, self.view.frame.width - 32, 0))
-        text3.text = "ということもありえます"
+        text3.text = "ということがあります"
         text3.font = UIFont(name:"HiraKakuProN-W3", size:28)           //フォント・サイズ設定
         text3.textColor = UIColor.blackColor()
         text3.textAlignment = NSTextAlignment.Left         //左詰め
@@ -78,12 +78,18 @@ class Article1:BaseArticleViewController{
         var text4s: CGSize = text4.sizeThatFits(maxSize)
         
         let text5: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height+text3s.height+text4s.height, self.view.frame.width - 32, 0))
-        text5.text = "このアプリは、本人と家族が納得のいく医療を受けられるように…"
+        
+        /* 文字列装飾 */
+        let attrText = NSMutableAttributedString(string: "このアプリは、本人と家族が納得のいく医療を受けられるように…")
+        attrText.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: (attrText.string as NSString).rangeOfString("納得のいく医療"))
+        text5.attributedText = attrText
+
         text5.font = UIFont(name:"HiraKakuProN-W3", size:28)
         text5.textColor = UIColor.blackColor()
         text5.editable = false         //編集禁止
         text5.scrollEnabled = false
         text5.sizeToFit()
+
         self.view.addSubview(text5)
         var text5s: CGSize = text5.sizeThatFits(maxSize)
         
@@ -99,7 +105,7 @@ class Article1:BaseArticleViewController{
         var text6s: CGSize = text6.sizeThatFits(maxSize)
         
         let text7: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height+text3s.height+text4s.height+text5s.height+text6s.height, self.view.frame.width - 32, 0))
-        text7.text = "の4つについて、ご説明します！"
+        text7.text = "の4つについて、ご説明します"
         text7.font = UIFont(name:"HiraKakuProN-W3", size:28)
         text7.textColor = UIColor.blackColor()
         text7.editable = false         //編集禁止
