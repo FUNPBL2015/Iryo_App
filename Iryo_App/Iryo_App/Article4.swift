@@ -28,7 +28,7 @@ class Article4: BaseArticleViewController {
     
     override func viewDidLayoutSubviews() {
         //ScrollViewのContentSizeを設定
-        self.myScroll?.contentSize = CGSizeMake(768,2300)
+        self.myScroll?.contentSize = CGSizeMake(768,2550)
     }
     
     override func viewDidLoad() {

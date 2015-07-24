@@ -16,6 +16,8 @@ class Article1:BaseArticleViewController{
     //@IBOutlet weak var voicePitchSlider: UISlider!
     //@IBOutlet weak var text2: UITextView!
     
+    @IBOutlet weak var nextBtn: UIButton!
+    
     /*
     override func viewDidLayoutSubviews() {
         //ScrollViewのContentSizeを設定
@@ -125,6 +127,10 @@ class Article1:BaseArticleViewController{
         text7.scrollEnabled = false
         text7.sizeToFit()
         self.view.addSubview(text7)
+        
+        nextBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 28)
+        nextBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        nextBtn.backgroundColor = UIColor(red: 0.2, green: 0.6, blue: 1.0, alpha: 0.8)
         
         
         text2.layer.borderWidth = 0

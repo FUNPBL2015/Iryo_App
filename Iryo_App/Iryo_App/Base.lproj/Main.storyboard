@@ -324,10 +324,48 @@
                     <view key="view" contentMode="scaleToFill" id="fJv-Mm-0Ni">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LPS-kg-UDx">
+                                <rect key="frame" x="453" y="922" width="299" height="82"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="次のページ">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="23" name="HiraKakuProN-W3"/>
+                                                <font key="NSOriginalFont" size="28" name="HiraKakuProN-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="28" name="HiraKakuProN-W3"/>
+                                                <font key="NSOriginalFont" size="28" name="HiraKakuProN-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="病院で役に立つ情報">
+                                            <attributes>
+                                                <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="28" name="HiraKakuProN-W3"/>
+                                                <font key="NSOriginalFont" size="28" name="HiraKakuProN-W3"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="XKy-0B-OaG"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="nextBtn" destination="LPS-kg-UDx" id="PxS-dB-N8a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wag-WF-3no" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -342,11 +380,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Kqe-Wb-YTb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e36-VV-h2U">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1280"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Bd-Jq-c6Q">
-                                <rect key="frame" x="0.0" y="64" width="768" height="1150"/>
+                                <rect key="frame" x="0.0" y="64" width="768" height="1208"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ub6-tL-cov">
                                         <rect key="frame" x="16" y="36" width="736" height="396"/>
@@ -487,6 +525,38 @@
                                             <segue destination="2as-ts-lUA" kind="presentation" id="LMB-8B-IuP"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xiv-Yn-sAN">
+                                        <rect key="frame" x="453" y="1086" width="299" height="82"/>
+                                        <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="次のページ">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="23" name="HiraKakuProN-W3"/>
+                                                        <font key="NSOriginalFont" size="28" name="HiraKakuProN-W3"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment>
+                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                    <attributes>
+                                                        <font key="NSFont" size="28" name="HiraKakuProN-W3"/>
+                                                        <font key="NSOriginalFont" size="28" name="HiraKakuProN-W3"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="病院で求められること">
+                                                    <attributes>
+                                                        <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="28" name="HiraKakuProN-W3"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -494,7 +564,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="病院で役に立つ情報" id="Ysr-Hk-VkX"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="768" height="1150"/>
+                    <size key="freeformSize" width="768" height="1280"/>
                     <connections>
                         <outlet property="checkBtn" destination="nhL-ad-Ftp" id="PCI-Qg-HX8"/>
                         <outlet property="exampleBtn" destination="fyw-gK-5z5" id="sbz-bV-qan"/>
@@ -558,6 +628,38 @@
                                 <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZV7-5N-Rbp">
+                                <rect key="frame" x="464" y="659" width="288" height="82"/>
+                                <color key="backgroundColor" red="0.20784313725490194" green="0.59999999999999998" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="次のページ">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="23" name="HiraKakuProN-W3"/>
+                                                <font key="NSOriginalFont" size="28" name="HiraKakuProN-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="28" name="HiraKakuProN-W3"/>
+                                                <font key="NSOriginalFont" size="28" name="HiraKakuProN-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="医師との話し合い">
+                                            <attributes>
+                                                <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="28" name="HiraKakuProN-W3"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -672,11 +774,11 @@
                         <viewControllerLayoutGuide type="bottom" id="oHA-Sv-ZD7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zn2-l8-ilE">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rD0-4T-fuT">
-                                <rect key="frame" x="0.0" y="60" width="768" height="1700"/>
+                                <rect key="frame" x="0.0" y="60" width="768" height="1753"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="患者の家族は、このような経験をすることがあります。" translatesAutoresizingMaskIntoConstraints="NO" id="oLT-6e-X5E">
                                         <rect key="frame" x="16" y="36" width="736" height="53"/>
@@ -819,6 +921,38 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2KI-t7-Yqc">
+                                        <rect key="frame" x="464" y="1603" width="288" height="82"/>
+                                        <color key="backgroundColor" red="0.20784313730000001" green="0.59999999999999998" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="次のページ">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="23" name="HiraKakuProN-W3"/>
+                                                        <font key="NSOriginalFont" size="28" name="HiraKakuProN-W3"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment>
+                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                    <attributes>
+                                                        <font key="NSFont" size="28" name="HiraKakuProN-W3"/>
+                                                        <font key="NSOriginalFont" size="28" name="HiraKakuProN-W3"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="家族のそれから">
+                                                    <attributes>
+                                                        <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="28" name="HiraKakuProN-W3"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -826,7 +960,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="医師との話し合い" id="J66-hy-Zjb"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="768" height="1700"/>
+                    <size key="freeformSize" width="768" height="1813"/>
                     <connections>
                         <outlet property="case1headline" destination="nLS-YM-ks7" id="W3N-DS-6lF"/>
                         <outlet property="case1result" destination="jCx-Th-Pfv" id="15u-JF-ihW"/>
@@ -847,7 +981,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75M-DA-CnZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1709" y="-163"/>
+            <point key="canvasLocation" x="1709" y="-163.5"/>
         </scene>
         <!--Com4-->
         <scene sceneID="TwP-66-Cdt">
