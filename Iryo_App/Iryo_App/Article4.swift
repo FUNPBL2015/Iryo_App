@@ -45,7 +45,7 @@ class Article4: BaseArticleViewController {
         talkingPointsView.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.5).CGColor
         
         /* Button layout */
-        myBtn.setTitle("例えば...", forState: UIControlState.Normal)
+        myBtn.setTitle("医師との会話の一例", forState: UIControlState.Normal)
         myBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 28)
         myBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         myBtn.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 0.5)

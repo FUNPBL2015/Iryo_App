@@ -358,6 +358,58 @@ Cg
                                     </attributedString>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Jj-wk-GhS">
+                                <rect key="frame" x="453" y="690" width="116" height="27"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.68627450980392157" blue="1" alpha="0.70000000000000007" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="このページへ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7B-Bb-sig">
+                                <rect key="frame" x="453" y="734" width="116" height="27"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.68627450980000004" blue="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="このページへ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5b-Ir-Ss2">
+                                <rect key="frame" x="453" y="778" width="116" height="27"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.68627450980000004" blue="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="このページへ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9A-ZI-TpL">
+                                <rect key="frame" x="453" y="823" width="116" height="27"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.68627450980000004" blue="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="このページへ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -516,18 +568,9 @@ Cg
                                         <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="30"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyw-gK-5z5">
-                                        <rect key="frame" x="188" y="701" width="393" height="55"/>
-                                        <state key="normal" title="例えば...">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="2as-ts-lUA" kind="presentation" id="LMB-8B-IuP"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xiv-Yn-sAN">
                                         <rect key="frame" x="453" y="1086" width="299" height="82"/>
-                                        <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="次のページ">
@@ -556,6 +599,15 @@ Cg
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyw-gK-5z5">
+                                        <rect key="frame" x="188" y="701" width="393" height="55"/>
+                                        <state key="normal" title="例えば...">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="2as-ts-lUA" kind="presentation" id="LMB-8B-IuP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </scrollView>
@@ -815,7 +867,7 @@ Cg
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="saW-xf-qB2" userLabel="Case2">
-                                        <rect key="frame" x="16" y="718" width="736" height="340"/>
+                                        <rect key="frame" x="16" y="686" width="736" height="340"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYf-Qc-9aq">
                                                 <rect key="frame" x="10" y="30" width="726" height="313"/>
@@ -835,66 +887,30 @@ Cg
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ケース２: ９０代女性、アルツハイマー症" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZrB-18-1Nf">
-                                        <rect key="frame" x="19" y="691" width="554" height="47"/>
+                                        <rect key="frame" x="19" y="659" width="554" height="47"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="30"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aUk-eV-a73" userLabel="talkingPoints">
-                                        <rect key="frame" x="16" y="1337" width="736" height="140"/>
-                                        <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9D-eo-jS4">
-                                                <rect key="frame" x="10" y="30" width="726" height="120"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <string key="text"> ⚫︎家族や本人の気持ちを伝える
- ⚫︎退院後の生活も視野に入れて話す</string>
-                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="3"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="話し合いのコツ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S17-hW-eRF">
-                                        <rect key="frame" x="48" y="1324" width="260" height="35"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUq-Jp-qbo">
-                                        <rect key="frame" x="180" y="1509" width="393" height="55"/>
-                                        <state key="normal" title="例えば...">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="zJY-jh-7ZQ" kind="presentation" id="oYw-3P-Xoz"/>
-                                        </connections>
-                                    </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="→ 医師に質問をし、十分な説明を受けて医療行為を 　 決断した" translatesAutoresizingMaskIntoConstraints="NO" id="jCx-Th-Pfv">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="ポイント：医師に質問をし、十分な説明を受けて医療 　　　　　行為を決断した" translatesAutoresizingMaskIntoConstraints="NO" id="jCx-Th-Pfv">
                                         <rect key="frame" x="16" y="542" width="736" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.0" green="0.50196078430000002" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="→ 家族から医師に希望を出し、医療行為を決断した" translatesAutoresizingMaskIntoConstraints="NO" id="1mG-pJ-yWG">
-                                        <rect key="frame" x="16" y="1077" width="736" height="61"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mG-pJ-yWG">
+                                        <rect key="frame" x="16" y="1045" width="736" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">ポイント：家族から医師に希望を出し、医療行為を
+　　　　　決断した</string>
                                         <color key="textColor" red="0.0" green="0.50196078431372548" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="732" translatesAutoresizingMaskIntoConstraints="NO" id="DJc-pT-TlE" userLabel="医師とよく話し合うことは、納得のいく医療につながります！">
-                                        <rect key="frame" x="52" y="1176" width="649" height="120"/>
+                                        <rect key="frame" x="52" y="1144" width="649" height="120"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <attributedString key="attributedText">
                                             <fragment content="医師とよく話し合うことは、納得のいく医療に ">
@@ -921,8 +937,46 @@ Cg
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aUk-eV-a73" userLabel="talkingPoints">
+                                        <rect key="frame" x="16" y="1301" width="736" height="140"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9D-eo-jS4">
+                                                <rect key="frame" x="10" y="30" width="726" height="120"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <string key="text"> ⚫︎家族や本人の気持ちを伝える
+ ⚫︎退院後の生活も視野に入れて話す</string>
+                                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="話し合いのコツ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S17-hW-eRF">
+                                        <rect key="frame" x="48" y="1288" width="260" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="28"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUq-Jp-qbo">
+                                        <rect key="frame" x="180" y="1473" width="393" height="55"/>
+                                        <state key="normal" title="例えば...">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="zJY-jh-7ZQ" kind="presentation" id="oYw-3P-Xoz"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2KI-t7-Yqc">
-                                        <rect key="frame" x="464" y="1603" width="288" height="82"/>
+                                        <rect key="frame" x="464" y="1567" width="288" height="82"/>
                                         <color key="backgroundColor" red="0.20784313730000001" green="0.59999999999999998" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
