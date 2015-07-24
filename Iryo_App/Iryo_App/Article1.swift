@@ -80,12 +80,25 @@ class Article1:BaseArticleViewController{
         let text5: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height+text3s.height+text4s.height, self.view.frame.width - 32, 0))
         
         /* 文字列装飾 */
-        let attrText = NSMutableAttributedString(string: "このアプリは、本人と家族が納得のいく医療を受けられるように…")
-        attrText.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: (attrText.string as NSString).rangeOfString("納得のいく医療"))
-        text5.attributedText = attrText
-
+        /*
+        let at = NSMutableAttributedString(string: "このアプリは、本人と家族が納得のいく医療を受けられるように…")
+        at.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(14, 21))
+        text5.attributedText = at*/
+        
         text5.font = UIFont(name:"HiraKakuProN-W3", size:28)
         text5.textColor = UIColor.blackColor()
+        
+        let attrText = NSMutableAttributedString(string: "このアプリは、本人と家族が納得のいく医療を受けられるように…")
+        attrText.addAttribute(NSFontAttributeName, value: UIFont(name: "HiraKakuProN-W3", size: 28.0)!, range: NSMakeRange(0, 30))
+        attrText.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 0, green: 0.6, blue: 1, alpha: 1), range: NSMakeRange(13, 7))
+        //attrText.addAttributes([NSFontAttributeName: UIFont.boldSystemFontOfSize(28.0)], range: NSMakeRange(13, 7))
+        
+        attrText.addAttribute(NSFontAttributeName, value: UIFont(name: "HiraKakuProN-W6", size: 28.0)!, range: NSMakeRange(13, 7))
+        text5.attributedText = attrText
+        
+
+        //text5.font = UIFont(name:"HiraKakuProN-W3", size:28)
+        
         text5.editable = false         //編集禁止
         text5.scrollEnabled = false
         text5.sizeToFit()

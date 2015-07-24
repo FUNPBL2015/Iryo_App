@@ -47,8 +47,8 @@ class Article2 :BaseArticleViewController{
         checkBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         checkBtn.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 0.5)
         
-        text3.textContainerInset = UIEdgeInsetsMake(15, 22, 0, 10)
-        text3.layer.cornerRadius = 10
+        //text3.textContainerInset = UIEdgeInsetsMake(15, 22, 0, 10)
+        //text3.layer.cornerRadius = 10
         
     }
     

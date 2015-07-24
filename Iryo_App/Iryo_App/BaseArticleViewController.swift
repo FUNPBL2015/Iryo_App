@@ -38,7 +38,7 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
         speakBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         
             speakBtn.setImage(UIImage(named: "Speaker_play.png"), forState: .Normal)
-            self.speakBtn.setTitle("読み上げ", forState: UIControlState.Normal)
+            self.speakBtn.setTitle(" 音声再生", forState: UIControlState.Normal)
             speakBtn.layer.backgroundColor = UIColor(red: 0.12, green: 0.78, blue: 0, alpha: 1.0).CGColor
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: speakBtn)
@@ -52,14 +52,14 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
             UIView.animateWithDuration(0.25, animations: { () -> Void in
                 self.speakBtn.layer.backgroundColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1.0).CGColor
                 self.speakBtn.setImage(UIImage(named: "Speaker_mute.png"), forState: .Normal)
-                self.speakBtn.setTitle("一時停止", forState: UIControlState.Normal)
+                self.speakBtn.setTitle(" 一時停止", forState: UIControlState.Normal)
             })
             speakDelegate.toggle = false
         }else{
             UIView.animateWithDuration(0.25, animations: { () -> Void in
                 self.speakBtn.layer.backgroundColor = UIColor(red: 0.12, green: 0.78, blue: 0, alpha: 1.0).CGColor
                 self.speakBtn.setImage(UIImage(named: "Speaker_play.png"), forState: .Normal)
-                self.speakBtn.setTitle("読み上げ", forState: UIControlState.Normal)
+                self.speakBtn.setTitle(" 音声再生", forState: UIControlState.Normal)
             })
             speakDelegate.toggle = true
         }
