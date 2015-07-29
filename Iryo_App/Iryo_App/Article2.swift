@@ -52,6 +52,12 @@ class Article2 :BaseArticleViewController{
         
     }
     
+    
+    @IBAction func nextBtn(sender: AnyObject) {
+        let Article3View = self.storyboard!.instantiateViewControllerWithIdentifier("Article3") as! Article3
+        self.navigationController?.setViewControllers([rootViewController, MenuView, Article3View], animated:true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

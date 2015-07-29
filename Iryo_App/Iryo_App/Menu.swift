@@ -25,7 +25,6 @@ class Menu: UITableViewController {
         
         // 背景の色を変えたい。
         self.navigationController?.navigationBar.barTintColor = background2
-        
     }
     
     /** 境界線　左の余白を削除する */

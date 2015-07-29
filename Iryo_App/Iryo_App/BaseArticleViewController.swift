@@ -19,6 +19,11 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
     var voicerate :Float = 0.2 //速さ 0.1~1.0
     var voicepitch :Float = 1.1 //高さ 0.5~2.0
     var speaktext :String = "テキスト"; //読み上げるテキスト
+
+    /* nextBtn ルート設定 */
+    let rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Root") as! UIViewController
+    let MenuView = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Menu") as! Menu
+    
     
     override func viewWillDisappear(animated: Bool) {
         speakDelegate.speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)

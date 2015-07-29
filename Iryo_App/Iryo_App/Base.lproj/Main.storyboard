@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Root" id="BYZ-38-t0r" customClass="ViewController" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OIA-Hi-fAU"/>
                         <viewControllerLayoutGuide type="bottom" id="XD7-Mq-BwM"/>
@@ -201,7 +201,7 @@
         <!--Menu-->
         <scene sceneID="5Dz-Fq-XVE">
             <objects>
-                <tableViewController id="Q85-Tu-yh6" userLabel="Menu" customClass="Menu" customModule="Iryo_App" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Menu" id="Q85-Tu-yh6" userLabel="Menu" customClass="Menu" customModule="Iryo_App" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yY9-bI-fuk">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -325,7 +325,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LPS-kg-UDx">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LPS-kg-UDx" userLabel="次のページ 病院で役に立つ情報">
                                 <rect key="frame" x="453" y="922" width="299" height="82"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal">
@@ -357,6 +357,9 @@ Cg
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="nextBtn:" destination="gQP-tH-whj" eventType="touchUpInside" id="kIF-Lu-7WW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Jj-wk-GhS">
                                 <rect key="frame" x="453" y="690" width="116" height="27"/>
@@ -426,7 +429,7 @@ Cg
         <!--Article2-->
         <scene sceneID="7Md-Ls-pWj">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="QjT-Iz-vjA" userLabel="Article2" customClass="Article2" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Article2" automaticallyAdjustsScrollViewInsets="NO" id="QjT-Iz-vjA" userLabel="Article2" customClass="Article2" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Aap-xe-I5K"/>
                         <viewControllerLayoutGuide type="bottom" id="Kqe-Wb-YTb"/>
@@ -608,6 +611,9 @@ Cg
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="nextBtn:" destination="QjT-Iz-vjA" eventType="touchUpInside" id="sVc-pj-gkX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </scrollView>
@@ -635,7 +641,7 @@ Cg
         <!--Article3-->
         <scene sceneID="Qqz-AE-zBs">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="9Ml-AF-l5j" userLabel="Article3" customClass="Article3" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Article3" automaticallyAdjustsScrollViewInsets="NO" id="9Ml-AF-l5j" userLabel="Article3" customClass="Article3" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OiQ-yX-i4c"/>
                         <viewControllerLayoutGuide type="bottom" id="siZ-yL-tsD"/>
@@ -711,6 +717,9 @@ Cg
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="nextBtn:" destination="9Ml-AF-l5j" eventType="touchUpInside" id="Xlb-yO-DVi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -820,7 +829,7 @@ Cg
         <!--Article4-->
         <scene sceneID="MoV-6y-5bT">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="bXz-LU-gku" userLabel="Article4" customClass="Article4" customModule="Iryo_App" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Article4" automaticallyAdjustsScrollViewInsets="NO" id="bXz-LU-gku" userLabel="Article4" customClass="Article4" customModule="Iryo_App" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Ig-iI-03p"/>
                         <viewControllerLayoutGuide type="bottom" id="oHA-Sv-ZD7"/>
@@ -1006,6 +1015,9 @@ Cg
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="nextBtn:" destination="bXz-LU-gku" eventType="touchUpInside" id="IvH-Gb-hpO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </scrollView>
@@ -1204,7 +1216,7 @@ Cg
         <!--Article5-->
         <scene sceneID="dCJ-8V-ml6">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="RnS-H7-1FJ" userLabel="Article5" customClass="Article5" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Article5" automaticallyAdjustsScrollViewInsets="NO" id="RnS-H7-1FJ" userLabel="Article5" customClass="Article5" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nnk-y1-Hk3"/>
                         <viewControllerLayoutGuide type="bottom" id="sq5-qZ-ied"/>

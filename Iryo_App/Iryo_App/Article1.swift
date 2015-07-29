@@ -20,8 +20,8 @@ class Article1:BaseArticleViewController{
     
     /*
     override func viewDidLayoutSubviews() {
-        //ScrollViewのContentSizeを設定
-        self.scrollview.contentSize = self.text2.frame.size //contentSizeをtextViewに合わせる
+    //ScrollViewのContentSizeを設定
+    self.scrollview.contentSize = self.text2.frame.size //contentSizeをtextViewに合わせる
     }*/
     
     override func viewDidLoad() {
@@ -55,7 +55,7 @@ class Article1:BaseArticleViewController{
         text2.sizeToFit()
         self.view.addSubview(text2)    //viewに追加
         var text2s: CGSize = text2.sizeThatFits(maxSize)
-
+        
         
         let text3: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height, self.view.frame.width - 32, 0))
         text3.text = "ということがあります"
@@ -98,13 +98,13 @@ class Article1:BaseArticleViewController{
         attrText.addAttribute(NSFontAttributeName, value: UIFont(name: "HiraKakuProN-W6", size: 28.0)!, range: NSMakeRange(13, 7))
         text5.attributedText = attrText
         
-
+        
         //text5.font = UIFont(name:"HiraKakuProN-W3", size:28)
         
         text5.editable = false         //編集禁止
         text5.scrollEnabled = false
         text5.sizeToFit()
-
+        
         self.view.addSubview(text5)
         var text5s: CGSize = text5.sizeThatFits(maxSize)
         
@@ -138,15 +138,11 @@ class Article1:BaseArticleViewController{
         self.speaktext = text1.text + t + text2.text + t + text3.text + t + text4.text + t + text5.text + t + text6.text + t + text7.text //読み上げるテキスト
     }
     
-    /** Sliderの値が変化したときに実行 */
-    /*
-    @IBAction func voiceRateChanged(sender: UISlider) {
-        self.voicerate = voiceRateSlider.value //声の速さ
-    }
     
-    @IBAction func voicePitchChanged(sender: UISlider) {
-        self.voicepitch = voicePitchSlider.value //声の高さ
-    }*/
+    @IBAction func nextBtn(sender: AnyObject) {
+        let Article2View = self.storyboard!.instantiateViewControllerWithIdentifier("Article2") as! Article2
+        self.navigationController?.setViewControllers([rootViewController, MenuView, Article2View], animated:true)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -76,6 +76,11 @@ class Article3: BaseArticleViewController {
         self.speaktext = text1.text + t + text2.text + t + text3.text
     }
     
+    @IBAction func nextBtn(sender: AnyObject) {
+        let Article4View = self.storyboard!.instantiateViewControllerWithIdentifier("Article4") as! Article4
+        self.navigationController?.setViewControllers([rootViewController, MenuView, Article4View], animated:true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
