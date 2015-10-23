@@ -40,8 +40,8 @@ class Article1:BaseArticleViewController{
         text1.scrollEnabled = false
         text1.sizeToFit()
         self.view.addSubview(text1)
-        var maxSize: CGSize = CGSizeMake(self.view.bounds.width,self.view.bounds.height)
-        var text1s: CGSize = text1.sizeThatFits(maxSize)
+        let maxSize: CGSize = CGSizeMake(self.view.bounds.width,self.view.bounds.height)
+        let text1s: CGSize = text1.sizeThatFits(maxSize)
         
         let text2: UITextView = UITextView(frame: CGRectMake(48, navBarHeight!+32+text1s.height, self.view.frame.width - 32, 0))
         text2.text = "⚫︎本人の 同意 が得られない　\n⚫︎本人の 意思 がわからない　\n⚫︎家族の 同意 だけで医療行為が進められる　\n⚫︎場合によっては、本人の 同意 が得られないために、\n   必要な医療行為が受けられない　"
@@ -52,7 +52,7 @@ class Article1:BaseArticleViewController{
         text2.scrollEnabled = false   //スクロール禁止
         text2.sizeToFit()
         self.view.addSubview(text2)    //viewに追加
-        var text2s: CGSize = text2.sizeThatFits(maxSize)
+        let text2s: CGSize = text2.sizeThatFits(maxSize)
 
         
         let text3: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height, self.view.frame.width - 32, 0))
@@ -64,7 +64,7 @@ class Article1:BaseArticleViewController{
         text3.scrollEnabled = false   //スクロール禁止
         text3.sizeToFit()
         self.view.addSubview(text3)    //viewに追加
-        var text3s: CGSize = text3.sizeThatFits(maxSize)
+        let text3s: CGSize = text3.sizeThatFits(maxSize)
         
         let text4: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height+text3s.height, self.view.frame.width - 32, 0))
         text4.text = "ふだんから本人の意思や希望、気持ちを確認しておくことが大切です！"
@@ -75,7 +75,7 @@ class Article1:BaseArticleViewController{
         text4.scrollEnabled = false   //スクロール禁止
         text4.sizeToFit()
         self.view.addSubview(text4)    //viewに追加
-        var text4s: CGSize = text4.sizeThatFits(maxSize)
+        let text4s: CGSize = text4.sizeThatFits(maxSize)
         
         let text5: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height+text3s.height+text4s.height, self.view.frame.width - 32, 0))
         text5.text = "このアプリは、本人と家族が納得のいく医療を受けられるように…"
@@ -85,7 +85,7 @@ class Article1:BaseArticleViewController{
         text5.scrollEnabled = false
         text5.sizeToFit()
         self.view.addSubview(text5)
-        var text5s: CGSize = text5.sizeThatFits(maxSize)
+        let text5s: CGSize = text5.sizeThatFits(maxSize)
         
         let text6: UITextView = UITextView(frame: CGRectMake(48, navBarHeight!+32+text1s.height+text2s.height+text3s.height+text4s.height+text5s.height, self.view.frame.width - 32, 0))
         text6.text = "⚫︎病院で役に立つ情報　\n⚫︎病院できかれること　\n⚫︎医師との話し合いのコツ　\n⚫︎家族のそれから　"
@@ -96,7 +96,7 @@ class Article1:BaseArticleViewController{
         text6.scrollEnabled = false   //スクロール禁止
         text6.sizeToFit()
         self.view.addSubview(text6)    //viewに追加
-        var text6s: CGSize = text6.sizeThatFits(maxSize)
+        let text6s: CGSize = text6.sizeThatFits(maxSize)
         
         let text7: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height+text3s.height+text4s.height+text5s.height+text6s.height, self.view.frame.width - 32, 0))
         text7.text = "の4つについて、ご説明します！"

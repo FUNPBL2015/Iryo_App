@@ -23,7 +23,7 @@ class Menu3: UITableViewController {
         
         
         // 色を変数に用意しておく
-        var background1 = UIColor(red: 1, green: 0.8, blue: 0, alpha: 0.7)
+        let background1 = UIColor(red: 1, green: 0.8, blue: 0, alpha: 0.7)
         
         // 背景の色を変えたい。
         self.navigationController?.navigationBar.barTintColor = background1

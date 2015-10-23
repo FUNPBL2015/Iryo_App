@@ -1,0 +1,13 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, ‘8.2’
+# Uncomment this line if you're using Swift
+# use_frameworks!
+
+target 'Iryo_App' do
+   pod ‘ACEDrawingView’
+end
+
+target 'Iryo_AppTests' do
+
+end
+
