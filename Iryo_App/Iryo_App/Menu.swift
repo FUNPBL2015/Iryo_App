@@ -21,7 +21,7 @@ class Menu: UITableViewController {
         
         
         // 色を変数に用意しておく
-        var background2 = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.7)
+        let background2 = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.7)
         
         // 背景の色を変えたい。
         self.navigationController?.navigationBar.barTintColor = background2
@@ -30,10 +30,21 @@ class Menu: UITableViewController {
     /** 境界線　左の余白を削除する */
     func rmLeftMargin (cell:UITableViewCell){
         if cell.respondsToSelector("preservesSuperviewLayoutMargins") {
-            cell.preservesSuperviewLayoutMargins = false;
+            if #available(iOS 8.0, *) {
+                cell.preservesSuperviewLayoutMargins = false
+            } else {
+            if #available(iOS 8.0, *) {
+                cell.layoutMargins = UIEdgeInsetsZero
+            } else {
+                // Fallback on earlier versions
+            }           };
         }
         if cell.respondsToSelector("layoutMargins") {
-            cell.layoutMargins = UIEdgeInsetsZero;
+            if #available(iOS 8.0, *) {
+                cell.layoutMargins = UIEdgeInsetsZero
+            } else {
+                // Fallback on earlier versions
+            };
         }
     }
     

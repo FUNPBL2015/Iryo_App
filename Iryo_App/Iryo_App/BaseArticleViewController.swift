@@ -13,7 +13,7 @@ import AVFoundation
 class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
     
     var speakDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    let speakBtn:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+    let speakBtn:UIButton = UIButton(type: UIButtonType.System)
     
     /* 音声設定 */
     var voicerate :Float = 0.2 //速さ 0.1~1.0
@@ -21,7 +21,7 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
     var speaktext :String = "テキスト"; //読み上げるテキスト
 
     /* nextBtn ルート設定 */
-    let rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Root") as! UIViewController
+    let rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Root") 
     let MenuView = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Menu") as! Menu
     
     
@@ -91,7 +91,7 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
     }
     
     /** 再生終了時 */
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, didFinishSpeechUtterance utterance: AVSpeechUtterance!)
+    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance)
     {
         animateActionButtonAppearance(false)
     }

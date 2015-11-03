@@ -17,7 +17,7 @@ extension UIViewController {
     
     private func exclusiveTouches(view: UIView) { // 再帰関数
         for view in view.subviews {
-            let aView = view as! UIView
+            let aView = view 
             aView.exclusiveTouch = true
             self.exclusiveTouches(aView)
         }
