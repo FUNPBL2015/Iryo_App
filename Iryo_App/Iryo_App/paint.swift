@@ -8,17 +8,31 @@
 
 import UIKit
 
-class paint:  UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-   
+class paint:  UIViewController {
+    
+
+
+    @IBOutlet weak var pictureView: UIImageView!
+
+    @IBOutlet var drawingView: ACEDrawingView!
+    var pictureImage = NSData()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    }
+        
+        self.drawingView.loadImageData(pictureImage);
+ 
+//        self.drawingView.backgroundColor = UIColor.blueColor()
+        
+            }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     
 }

@@ -11,11 +11,12 @@ import AVFoundation
 
 class camera: UIViewController {
     
-    
     var mySession : AVCaptureSession!
     var myDevice : AVCaptureDevice!
     var myImageOutput : AVCaptureStillImageOutput!
     
+    @IBOutlet weak var mybutton1: UIButton!
+    @IBOutlet weak var mybutton: UIButton!
     var myImageView: UIImageView!
     
     internal var window: UIWindow?
@@ -96,40 +97,40 @@ class camera: UIViewController {
             
             
             // Labelを作成.
-            let mybutton: UIButton = UIButton(frame: CGRectMake(0,0,200,50))
-            let mybutton1: UIButton = UIButton(frame: CGRectMake(0, 0, 200, 50))
-            mybutton.backgroundColor = UIColor.greenColor()
-            mybutton1.backgroundColor = UIColor.redColor()
-            mybutton.layer.masksToBounds = true
-            mybutton1.layer.masksToBounds = true
-            mybutton.layer.cornerRadius = 20.0
-            mybutton1.layer.cornerRadius = 20.0
-            mybutton.setTitle("お絵描き", forState: .Normal)
-            mybutton1.setTitle("撮り直し", forState: .Normal)
-            mybutton.layer.position = CGPoint(x: self.view.bounds.width/4,y: self.view.bounds.height - 50)
-            mybutton1.layer.position = CGPoint(x: self.view.bounds.width*3/4,y: self.view.bounds.height - 50)
-            self.view.addSubview(mybutton)
-            self.view.addSubview(mybutton1)
+            self.mybutton.frame = CGRectMake(0,0,200,50)
+            self.mybutton1.frame = CGRectMake(0, 0, 200, 50)
+            self.mybutton.backgroundColor = UIColor.greenColor()
+            self.mybutton1.backgroundColor = UIColor.redColor()
+            self.mybutton.tintColor = UIColor.whiteColor()
+            self.mybutton1.tintColor = UIColor.whiteColor()
+            self.mybutton.layer.masksToBounds = true
+            self.mybutton1.layer.masksToBounds = true
+            self.mybutton.layer.cornerRadius = 10.0
+            self.mybutton1.layer.cornerRadius = 10.0
+            self.mybutton.setTitle("お絵描き", forState: .Normal)
+            self.mybutton1.setTitle("撮り直し", forState: .Normal)
+            self.mybutton.layer.position = CGPoint(x: self.view.bounds.width/4,y: self.view.bounds.height - 50)
+            self.mybutton1.layer.position = CGPoint(x: self.view.bounds.width*3/4,y: self.view.bounds.height - 50)
+            self.view.addSubview(self.mybutton)
+            self.view.addSubview(self.mybutton1)
             
-            mybutton1.addTarget(self, action: Selector("viewDidLoad"), forControlEvents: .TouchUpInside)
-            mybutton.addTarget(self, action: "chengeScene:", forControlEvents: .TouchUpInside)
+            self.mybutton1.addTarget(self, action: Selector("viewDidLoad"), forControlEvents: .TouchUpInside)
+            
             
             // アルバムに追加.
             // UIImageWriteToSavedPhotosAlbum(myImage, self, nil, nil)
             
+            func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+                if(segue.identifier == "mySegue") {
+                    let vc = segue.destinationViewController as! paint
+                    vc.pictureImage = myImageData
+                }
+            }
+
+            
         })
     }
     
-    internal func chengeScene (sender: UIButton){
-        // 遷移するViewを定義する.
-        let mypaint: UIViewController = paint()
-        
-        // アニメーションを設定する.
-        mypaint.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
-        
-        // Viewの移動する.
-        self.presentViewController(mypaint, animated: true, completion: nil)
-        
-    }
+
     
 }

@@ -12,6 +12,8 @@ class CustomCell: UICollectionViewCell {
     @IBOutlet var imgSample:UIImageView!
     @IBOutlet var titleSample:UILabel!
     
+    var cellID = ""
+    
     override init(frame: CGRect){
         super.init(frame: frame)
         

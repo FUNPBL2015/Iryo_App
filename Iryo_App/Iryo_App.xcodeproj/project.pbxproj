@@ -43,9 +43,11 @@
 		5EB9E31B1B2832A9005B7951 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9E31A1B2832A9005B7951 /* Images.xcassets */; };
 		5EB9E31E1B2832A9005B7951 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9E31C1B2832A9005B7951 /* LaunchScreen.xib */; };
 		5EB9E32A1B2832A9005B7951 /* Iryo_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9E3291B2832A9005B7951 /* Iryo_AppTests.swift */; };
+		5ED5DBE51BE0B4F40088E09A /* cc-library010009109zzavm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5ED5DBE41BE0B4F40088E09A /* cc-library010009109zzavm.jpg */; settings = {ASSET_TAGS = (); }; };
 		5EDBF0991BD7DA4C00973D30 /* TopPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDBF0981BD7DA4C00973D30 /* TopPage.swift */; settings = {ASSET_TAGS = (); }; };
 		5EDBF09D1BD7E34000973D30 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDBF09C1BD7E34000973D30 /* CustomCell.swift */; settings = {ASSET_TAGS = (); }; };
 		5EF3380A1BDA67350002F796 /* paint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF338091BDA67350002F796 /* paint.swift */; settings = {ASSET_TAGS = (); }; };
+		5EF6AEAD1BE65C4B009D8E60 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6AEAC1BE65C4B009D8E60 /* Top.swift */; settings = {ASSET_TAGS = (); }; };
 		9CE41DF91B3920CE00FEC8D4 /* Article2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE41DF81B3920CE00FEC8D4 /* Article2.swift */; };
 		F1B0B6F7F3245FEF5A00F1C7 /* libPods-Iryo_App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A08168D23703672654174D /* libPods-Iryo_App.a */; };
 /* End PBXBuildFile section */
@@ -103,9 +105,12 @@
 		5EB9E3231B2832A9005B7951 /* Iryo_AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Iryo_AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB9E3281B2832A9005B7951 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EB9E3291B2832A9005B7951 /* Iryo_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iryo_AppTests.swift; sourceTree = "<group>"; };
+		5ED5DBE21BE08B0B0088E09A /* Iryo_App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Iryo_App-Bridging-Header.h"; sourceTree = "<group>"; };
+		5ED5DBE41BE0B4F40088E09A /* cc-library010009109zzavm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "cc-library010009109zzavm.jpg"; path = "../../../../cc-library010009109zzavm.jpg"; sourceTree = "<group>"; };
 		5EDBF0981BD7DA4C00973D30 /* TopPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopPage.swift; sourceTree = "<group>"; };
 		5EDBF09C1BD7E34000973D30 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		5EF338091BDA67350002F796 /* paint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = paint.swift; sourceTree = "<group>"; };
+		5EF6AEAC1BE65C4B009D8E60 /* Top.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
 		9CE41DF81B3920CE00FEC8D4 /* Article2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article2.swift; sourceTree = "<group>"; };
 		E4A08168D23703672654174D /* libPods-Iryo_App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Iryo_App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -179,12 +184,13 @@
 			isa = PBXGroup;
 			children = (
 				5E8B69381B4B7604006E12B1 /* CustomBaseItem */,
-				5E7DADB51B38882800B9798D /* Menu3.swift */,
+				5E40CCD01B32E2B4007DE681 /* Menu.swift */,
 				5E7DADB31B3826B800B9798D /* Menu2.swift */,
+				5E7DADB51B38882800B9798D /* Menu3.swift */,
 				5EB9E3131B2832A9005B7951 /* AppDelegate.swift */,
+				5EF6AEAC1BE65C4B009D8E60 /* Top.swift */,
 				5EB9E3151B2832A9005B7951 /* ViewController.swift */,
 				5E232A571B3D607D004A34BD /* Checklist.swift */,
-				5E40CCD01B32E2B4007DE681 /* Menu.swift */,
 				5EDBF0981BD7DA4C00973D30 /* TopPage.swift */,
 				5EAE70781BD8CC0F00893373 /* talk.swift */,
 				5EAE707E1BD8CFF900893373 /* camera.swift */,
@@ -192,6 +198,7 @@
 				5EAE707A1BD8CC5700893373 /* album.swift */,
 				5EAE707C1BD8CC6D00893373 /* HowtoUse.swift */,
 				5EB9E3171B2832A9005B7951 /* Main.storyboard */,
+				5ED5DBE21BE08B0B0088E09A /* Iryo_App-Bridging-Header.h */,
 				5EB9E31A1B2832A9005B7951 /* Images.xcassets */,
 				5EB9E31C1B2832A9005B7951 /* LaunchScreen.xib */,
 				5EB9E3111B2832A9005B7951 /* Supporting Files */,
@@ -203,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				5E232A551B3D604D004A34BD /* b_simple_124_2L.png */,
+				5ED5DBE41BE0B4F40088E09A /* cc-library010009109zzavm.jpg */,
 				5E232A3F1B3D5427004A34BD /* b_simple_124_2M.png */,
 				5E232A401B3D5427004A34BD /* finger-icon05_r1_c4.png */,
 				5E232A411B3D5427004A34BD /* finger-icon05_r1_c42.png */,
@@ -346,6 +354,7 @@
 				5EB9E31E1B2832A9005B7951 /* LaunchScreen.xib in Resources */,
 				5E232A4A1B3D5427004A34BD /* おじいさん２.png in Resources */,
 				5E232A561B3D604D004A34BD /* b_simple_124_2L.png in Resources */,
+				5ED5DBE51BE0B4F40088E09A /* cc-library010009109zzavm.jpg in Resources */,
 				5E88AD411B3523BD007679A7 /* homeImg.png in Resources */,
 				5EAC1F3F1B3316C700473C38 /* ipaexm.ttf in Resources */,
 				5E232A491B3D5427004A34BD /* finger-icon05_r1_c42.png in Resources */,
@@ -436,6 +445,7 @@
 				5E69F2C71B3A6A82005877DC /* BaseArticleViewController.swift in Sources */,
 				5E232A581B3D607D004A34BD /* Checklist.swift in Sources */,
 				5E8B69371B4B42C2006E12B1 /* CustomNavigationBar.swift in Sources */,
+				5EF6AEAD1BE65C4B009D8E60 /* Top.swift in Sources */,
 				5EDBF0991BD7DA4C00973D30 /* TopPage.swift in Sources */,
 				5E232A521B3D5C95004A34BD /* Article4.swift in Sources */,
 				5EAC1F421B3339A500473C38 /* Article1.swift in Sources */,
@@ -581,6 +591,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Iryo_App/Iryo_App-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -597,6 +608,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Iryo_App/Iryo_App-Bridging-Header.h";
 			};
 			name = Release;
 		};
