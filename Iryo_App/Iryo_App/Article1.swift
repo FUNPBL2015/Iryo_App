@@ -108,6 +108,7 @@ class Article1:BaseArticleViewController{
         self.view.addSubview(text5)
         let text5s: CGSize = text5.sizeThatFits(maxSize)
         
+        
         let text6: UITextView = UITextView(frame: CGRectMake(48, navBarHeight!+32+text1s.height+text2s.height+text3s.height+text4s.height+text5s.height, self.view.frame.width - 32, 0))
         text6.text = "⚫︎病院で役に立つ情報　\n⚫︎病院できかれること　\n⚫︎医師との話し合いのコツ　\n⚫︎家族のそれから　"
         text6.font = UIFont(name:"HiraKakuProN-W3", size:28)           //フォント・サイズ設定
