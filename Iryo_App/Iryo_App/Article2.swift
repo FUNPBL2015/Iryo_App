@@ -21,7 +21,7 @@ class Article2 :BaseArticleViewController{
     
     override func viewDidLayoutSubviews() {
         //ScrollViewのContentSizeを設定
-        self.scrollview.contentSize = CGSizeMake(768,1350)
+        self.scrollview.contentSize = CGSizeMake(768,1450)
     }
     
     override func viewDidLoad() {
@@ -37,7 +37,7 @@ class Article2 :BaseArticleViewController{
         talkingPointsView.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.5).CGColor
         
         /* Button layout */
-        exampleBtn.setTitle("例えば...", forState: UIControlState.Normal)
+        exampleBtn.setTitle("話し合いの一例", forState: UIControlState.Normal)
         exampleBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 28)
         exampleBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         exampleBtn.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 0.5)
@@ -47,9 +47,15 @@ class Article2 :BaseArticleViewController{
         checkBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         checkBtn.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 0.5)
         
-        text3.textContainerInset = UIEdgeInsetsMake(15, 22, 0, 10)
-        text3.layer.cornerRadius = 10
+        //text3.textContainerInset = UIEdgeInsetsMake(15, 22, 0, 10)
+        //text3.layer.cornerRadius = 10
         
+    }
+    
+    
+    @IBAction func nextBtn(sender: AnyObject) {
+        let Article3View = self.storyboard!.instantiateViewControllerWithIdentifier("Article3") as! Article3
+        self.navigationController?.setViewControllers([rootViewController, MenuView, Article3View], animated:true)
     }
     
     override func didReceiveMemoryWarning() {

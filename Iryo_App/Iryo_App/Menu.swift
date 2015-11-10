@@ -25,7 +25,6 @@ class Menu: UITableViewController {
         
         // 背景の色を変えたい。
         self.navigationController?.navigationBar.barTintColor = background2
-        
     }
     
     /** 境界線　左の余白を削除する */
@@ -34,8 +33,11 @@ class Menu: UITableViewController {
             if #available(iOS 8.0, *) {
                 cell.preservesSuperviewLayoutMargins = false
             } else {
+            if #available(iOS 8.0, *) {
+                cell.layoutMargins = UIEdgeInsetsZero
+            } else {
                 // Fallback on earlier versions
-            };
+            }           };
         }
         if cell.respondsToSelector("layoutMargins") {
             if #available(iOS 8.0, *) {

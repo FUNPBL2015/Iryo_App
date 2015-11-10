@@ -33,8 +33,11 @@ class Menu2: UITableViewController {
             if #available(iOS 8.0, *) {
                 cell.preservesSuperviewLayoutMargins = false
             } else {
+            if #available(iOS 8.0, *) {
+                cell.layoutMargins = UIEdgeInsetsZero
+            } else {
                 // Fallback on earlier versions
-            };
+            }           };
         }
         if cell.respondsToSelector("layoutMargins") {
             if #available(iOS 8.0, *) {

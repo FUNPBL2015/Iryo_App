@@ -67,13 +67,18 @@ class Article3: BaseArticleViewController {
         self.view.addSubview(text3)    //viewに追加
         */
         
-        text3.textContainerInset = UIEdgeInsetsMake(15, 22, 0, 10)
+        //text3.textContainerInset = UIEdgeInsetsMake(15, 22, 0, 10)
         //text3.sizeToFit()
-        text3.layer.cornerRadius = 10
+        //text3.layer.cornerRadius = 10
         //text3.backgroundColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.5)
         
         let t: String = "。"
         self.speaktext = text1.text + t + text2.text + t + text3.text
+    }
+    
+    @IBAction func nextBtn(sender: AnyObject) {
+        let Article4View = self.storyboard!.instantiateViewControllerWithIdentifier("Article4") as! Article4
+        self.navigationController?.setViewControllers([rootViewController, MenuView, Article4View], animated:true)
     }
     
     override func didReceiveMemoryWarning() {

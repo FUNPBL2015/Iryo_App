@@ -16,10 +16,12 @@ class Article1:BaseArticleViewController{
     //@IBOutlet weak var voicePitchSlider: UISlider!
     //@IBOutlet weak var text2: UITextView!
     
+    @IBOutlet weak var nextBtn: UIButton!
+    
     /*
     override func viewDidLayoutSubviews() {
-        //ScrollViewのContentSizeを設定
-        self.scrollview.contentSize = self.text2.frame.size //contentSizeをtextViewに合わせる
+    //ScrollViewのContentSizeを設定
+    self.scrollview.contentSize = self.text2.frame.size //contentSizeをtextViewに合わせる
     }*/
     
     override func viewDidLoad() {
@@ -33,7 +35,7 @@ class Article1:BaseArticleViewController{
         let navBarHeight = self.navigationController?.navigationBar.frame.size.height
         
         let text1: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32, self.view.frame.width - 32, 0))
-        text1.text = "もし認知症のおじいちゃん、おばあちゃんが急に入院して検査や手術を受けることになったら…"
+        text1.text = "例えば、認知症のおじいちゃん、おばあちゃんが急に入院して検査や手術を受けることになったとき…"
         text1.font = UIFont(name:"HiraKakuProN-W3", size:28)
         text1.textColor = UIColor.blackColor()
         text1.editable = false         //編集禁止
@@ -53,10 +55,10 @@ class Article1:BaseArticleViewController{
         text2.sizeToFit()
         self.view.addSubview(text2)    //viewに追加
         let text2s: CGSize = text2.sizeThatFits(maxSize)
-
+        
         
         let text3: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height, self.view.frame.width - 32, 0))
-        text3.text = "ということもありえます"
+        text3.text = "ということがあります"
         text3.font = UIFont(name:"HiraKakuProN-W3", size:28)           //フォント・サイズ設定
         text3.textColor = UIColor.blackColor()
         text3.textAlignment = NSTextAlignment.Left         //左詰め
@@ -78,12 +80,31 @@ class Article1:BaseArticleViewController{
         let text4s: CGSize = text4.sizeThatFits(maxSize)
         
         let text5: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height+text3s.height+text4s.height, self.view.frame.width - 32, 0))
-        text5.text = "このアプリは、本人と家族が納得のいく医療を受けられるように…"
+        
+        /* 文字列装飾 */
+        /*
+        let at = NSMutableAttributedString(string: "このアプリは、本人と家族が納得のいく医療を受けられるように…")
+        at.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(14, 21))
+        text5.attributedText = at*/
+        
         text5.font = UIFont(name:"HiraKakuProN-W3", size:28)
         text5.textColor = UIColor.blackColor()
+        
+        let attrText = NSMutableAttributedString(string: "このアプリは、本人と家族が納得のいく医療を受けられるように…")
+        attrText.addAttribute(NSFontAttributeName, value: UIFont(name: "HiraKakuProN-W3", size: 28.0)!, range: NSMakeRange(0, 30))
+        attrText.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 0, green: 0.6, blue: 1, alpha: 1), range: NSMakeRange(13, 7))
+        //attrText.addAttributes([NSFontAttributeName: UIFont.boldSystemFontOfSize(28.0)], range: NSMakeRange(13, 7))
+        
+        attrText.addAttribute(NSFontAttributeName, value: UIFont(name: "HiraKakuProN-W6", size: 28.0)!, range: NSMakeRange(13, 7))
+        text5.attributedText = attrText
+        
+        
+        //text5.font = UIFont(name:"HiraKakuProN-W3", size:28)
+        
         text5.editable = false         //編集禁止
         text5.scrollEnabled = false
         text5.sizeToFit()
+        
         self.view.addSubview(text5)
         let text5s: CGSize = text5.sizeThatFits(maxSize)
         
@@ -99,7 +120,7 @@ class Article1:BaseArticleViewController{
         let text6s: CGSize = text6.sizeThatFits(maxSize)
         
         let text7: UITextView = UITextView(frame: CGRectMake(16, navBarHeight!+32+text1s.height+text2s.height+text3s.height+text4s.height+text5s.height+text6s.height, self.view.frame.width - 32, 0))
-        text7.text = "の4つについて、ご説明します！"
+        text7.text = "の4つについて、ご説明します"
         text7.font = UIFont(name:"HiraKakuProN-W3", size:28)
         text7.textColor = UIColor.blackColor()
         text7.editable = false         //編集禁止
@@ -107,21 +128,21 @@ class Article1:BaseArticleViewController{
         text7.sizeToFit()
         self.view.addSubview(text7)
         
+        nextBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 28)
+        nextBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        nextBtn.backgroundColor = UIColor(red: 0.2, green: 0.6, blue: 1.0, alpha: 0.8)
+        
         
         text2.layer.borderWidth = 0
         let t: String = "　"
         self.speaktext = text1.text + t + text2.text + t + text3.text + t + text4.text + t + text5.text + t + text6.text + t + text7.text //読み上げるテキスト
     }
     
-    /** Sliderの値が変化したときに実行 */
-    /*
-    @IBAction func voiceRateChanged(sender: UISlider) {
-        self.voicerate = voiceRateSlider.value //声の速さ
-    }
     
-    @IBAction func voicePitchChanged(sender: UISlider) {
-        self.voicepitch = voicePitchSlider.value //声の高さ
-    }*/
+    @IBAction func nextBtn(sender: AnyObject) {
+        let Article2View = self.storyboard!.instantiateViewControllerWithIdentifier("Article2") as! Article2
+        self.navigationController?.setViewControllers([rootViewController, MenuView, Article2View], animated:true)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

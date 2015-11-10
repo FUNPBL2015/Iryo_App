@@ -19,6 +19,11 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
     var voicerate :Float = 0.2 //速さ 0.1~1.0
     var voicepitch :Float = 1.1 //高さ 0.5~2.0
     var speaktext :String = "テキスト"; //読み上げるテキスト
+
+    /* nextBtn ルート設定 */
+    let rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Root") 
+    let MenuView = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Menu") as! Menu
+    
     
     override func viewWillDisappear(animated: Bool) {
         speakDelegate.speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
@@ -37,13 +42,9 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
         speakBtn.layer.cornerRadius = 5
         speakBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         
-        if speakDelegate.toggle{
-            speakBtn.setTitle("文章の読み上げ", forState: .Normal )
+            speakBtn.setImage(UIImage(named: "Speaker_play.png"), forState: .Normal)
+            self.speakBtn.setTitle(" 音声再生", forState: UIControlState.Normal)
             speakBtn.layer.backgroundColor = UIColor(red: 0.12, green: 0.78, blue: 0, alpha: 1.0).CGColor
-        }else{
-            speakBtn.layer.backgroundColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1.0).CGColor
-            speakBtn.setTitle("一時停止", forState: UIControlState.Normal)
-        }
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: speakBtn)
     }
@@ -55,13 +56,15 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
         if shouldHideSpeakButton {
             UIView.animateWithDuration(0.25, animations: { () -> Void in
                 self.speakBtn.layer.backgroundColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1.0).CGColor
-                self.speakBtn.setTitle("一時停止", forState: UIControlState.Normal)
+                self.speakBtn.setImage(UIImage(named: "Speaker_mute.png"), forState: .Normal)
+                self.speakBtn.setTitle(" 一時停止", forState: UIControlState.Normal)
             })
             speakDelegate.toggle = false
         }else{
             UIView.animateWithDuration(0.25, animations: { () -> Void in
                 self.speakBtn.layer.backgroundColor = UIColor(red: 0.12, green: 0.78, blue: 0, alpha: 1.0).CGColor
-                self.speakBtn.setTitle("文章の読み上げ", forState: UIControlState.Normal)
+                self.speakBtn.setImage(UIImage(named: "Speaker_play.png"), forState: .Normal)
+                self.speakBtn.setTitle(" 音声再生", forState: UIControlState.Normal)
             })
             speakDelegate.toggle = true
         }

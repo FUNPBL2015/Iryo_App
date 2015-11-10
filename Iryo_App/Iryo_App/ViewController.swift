@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         familyBtn.addTarget(self, action: "UpButton1:", forControlEvents: .TouchUpOutside)
         
         //支援者向け
-        supporterBtn.setTitle("在宅スタッフ", forState: UIControlState.Normal)
+        supporterBtn.setTitle("在宅ケアスタッフ", forState: UIControlState.Normal)
         supporterBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 30)
         supporterBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         supporterBtn.backgroundColor = UIColor(red: 0, green: 0.8, blue: 0.3, alpha: 0.7)
@@ -98,7 +98,7 @@ class ViewController: UIViewController {
         healthproBtn.addTarget(self, action: "UpButton3:", forControlEvents: .TouchUpOutside)
         
         //info
-        infoBtn.setTitle("このアプリについて", forState: UIControlState.Normal)
+        infoBtn.setTitle("このアプリの使い方", forState: UIControlState.Normal)
         infoBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 30)
         infoBtn.setTitleColor(UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.7), forState: UIControlState.Normal)
         infoBtn.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)

@@ -28,7 +28,7 @@ class Article4: BaseArticleViewController {
     
     override func viewDidLayoutSubviews() {
         //ScrollViewのContentSizeを設定
-        self.myScroll?.contentSize = CGSizeMake(768,2300)
+        self.myScroll?.contentSize = CGSizeMake(768,2550)
     }
     
     override func viewDidLoad() {
@@ -44,21 +44,17 @@ class Article4: BaseArticleViewController {
         case2view.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 1.0).CGColor
         talkingPointsView.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.5).CGColor
         
-        case1result.layer.borderWidth = 3
-        case1result.layer.cornerRadius = 10
-        case1result.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.5).CGColor
-        case1result.textContainerInset = UIEdgeInsetsMake(15, 10, 0, 10)
-        case2result.layer.borderWidth = 3
-        case2result.layer.cornerRadius = 10
-        case2result.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 1, alpha: 0.5).CGColor
-        case2result.textContainerInset = UIEdgeInsetsMake(15, 10, 0, 10)
-        
         /* Button layout */
-        myBtn.setTitle("例えば...", forState: UIControlState.Normal)
+        myBtn.setTitle("医師との会話の一例", forState: UIControlState.Normal)
         myBtn.titleLabel!.font = UIFont(name: "HiraKakuProN-W6",size: 28)
         myBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         myBtn.backgroundColor = UIColor(red: 0, green: 0.5, blue: 0.8, alpha: 0.5)
         
+    }
+    
+    @IBAction func nextBtn(sender: AnyObject) {
+        let Article5View = self.storyboard!.instantiateViewControllerWithIdentifier("Article5") as! Article5
+        self.navigationController?.setViewControllers([rootViewController, MenuView, Article5View], animated:true)
     }
     
     override func didReceiveMemoryWarning() {
