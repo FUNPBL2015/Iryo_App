@@ -18,8 +18,11 @@ class camera: UIViewController {
     @IBOutlet weak var mybutton1: UIButton!
     @IBOutlet weak var mybutton: UIButton!
     var myImageView: UIImageView!
+    private var imageView = UIImageView()
     
     internal var window: UIWindow?
+    var myImageData: NSData!
+    @IBOutlet var drawingView: ACEDrawingView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,16 +62,21 @@ class camera: UIViewController {
         mySession.startRunning()
         
         // UIボタンを作成.
-        let myButton = UIButton(frame: CGRectMake(0,0,120,50))
+        let myButton = UIButton(frame: CGRectMake(0,0,160,80))
         myButton.backgroundColor = UIColor.redColor();
         myButton.layer.masksToBounds = true
         myButton.setTitle("撮影", forState: .Normal)
         myButton.layer.cornerRadius = 20.0
         myButton.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-50)
         myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
-        
-        // UIボタンをViewに追加.
         self.view.addSubview(myButton);
+        
+        // 画像挿入
+        let image = UIImage(named: "医師.png")
+        imageView = UIImageView(image:image)
+        imageView.frame = CGRectMake(self.view.bounds.width/2, self.view.bounds.height-50, 50, 40)
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        self.view.addSubview(imageView)
 
     }
     
@@ -81,9 +89,9 @@ class camera: UIViewController {
         // 接続から画像を取得.
         self.myImageOutput.captureStillImageAsynchronouslyFromConnection(myVideoConnection, completionHandler: { (imageDataBuffer, error) -> Void in
             // 取得したImageのDataBufferをJpegに変換.
-            let myImageData : NSData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataBuffer)
+            self.myImageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataBuffer)
             // JpegからUIIMageを作成.
-            let myImage : UIImage = UIImage(data: myImageData)!
+            let myImage : UIImage = UIImage(data: self.myImageData)!
             // UIImageViewを作成する.
             self.myImageView = UIImageView(frame: CGRectMake(0,0,self.view.frame.size.width*2,self.view.frame.size.height*2))
             // 画像をUIImageViewに設定する.
@@ -115,22 +123,23 @@ class camera: UIViewController {
             self.view.addSubview(self.mybutton1)
             
             self.mybutton1.addTarget(self, action: Selector("viewDidLoad"), forControlEvents: .TouchUpInside)
-            
+            self.mybutton.addTarget(self, action: Selector("paints"), forControlEvents: .TouchUpInside)
             
             // アルバムに追加.
             // UIImageWriteToSavedPhotosAlbum(myImage, self, nil, nil)
             
-            func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-                if(segue.identifier == "mySegue") {
-                    let vc = segue.destinationViewController as! paint
-                    vc.pictureImage = myImageData
-                }
-            }
-
-            
         })
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // NSData to String
+//        let out: String = NSString(data: self.myImageData, encoding: NSUTF8StringEncoding)! as String
+        
+        if (segue.identifier == "mySegue") {
+            let VC: paint = (segue.destinationViewController as? paint)!
+            VC.pictureData = myImageData
+        }
+    }
 
     
 }

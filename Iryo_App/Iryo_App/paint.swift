@@ -10,22 +10,20 @@ import UIKit
 
 class paint:  UIViewController {
     
-
-
-    @IBOutlet weak var pictureView: UIImageView!
-
     @IBOutlet var drawingView: ACEDrawingView!
-    var pictureImage = NSData()
+    
+    var pictureData: NSData!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.drawingView.loadImageData(pictureImage);
- 
-//        self.drawingView.backgroundColor = UIColor.blueColor()
+        // String to NSData
+//        let data = pictureData.dataUsingEncoding(NSUTF8StringEncoding)
         
+        self.drawingView.loadImageData(pictureData);
+ 
             }
     
     override func didReceiveMemoryWarning() {
