@@ -6,6 +6,7 @@
 *~.nib
  
 build/
+Pod/
  
 # Xcode project files except for the project file
 #*.xcodeproj/*
