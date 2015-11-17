@@ -35,27 +35,33 @@ class Top: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let myLabel = UILabel(frame: CGRectMake(0,0,120,50))
-        myLabel.textColor = UIColor.blackColor()
-        myLabel.layer.masksToBounds = true
-        myLabel.text = "タイトル"
-        myLabel.textAlignment = NSTextAlignment.Center
-        myLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-924)
-        self.view.addSubview(myLabel)
+//        let myLabel = UILabel(frame: CGRectMake(0,0,120,50))
+//        myLabel.textColor = UIColor.blackColor()
+//        myLabel.layer.masksToBounds = true
+//        myLabel.text = "タイトル"
+//        myLabel.textAlignment = NSTextAlignment.Center
+//        myLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-924)
+//        self.view.addSubview(myLabel)
         
-        self.talkButton.backgroundColor = UIColorFromRGB(0xFF00FF)
-        self.albumButton.backgroundColor = UIColorFromRGB(0x00FF00)
-        self.manualButton.backgroundColor = UIColorFromRGB(0x0000FF)
-        self.useButton.backgroundColor = UIColorFromRGB(0xFF9900)
-        self.talkButton.tintColor = UIColorFromRGB(0x000000)
-        self.albumButton.tintColor = UIColorFromRGB(0x000000)
-        self.manualButton.tintColor = UIColorFromRGB(0x000000)
-        self.useButton.tintColor = UIColorFromRGB(0x000000)
+        self.talkButton.backgroundColor = UIColorFromRGB(0xFFFFFF)
+        self.albumButton.backgroundColor = UIColorFromRGB(0xFFFFFF)
+        self.manualButton.backgroundColor = UIColorFromRGB(0xFFFFFF)
+        self.useButton.backgroundColor = UIColorFromRGB(0xFFFFFF)
         
-        initImageView("cc-library010009109zzavm.jpg", pointX: 150, pointY: 350, pointW: 100, pointH: 100)
-        initImageView("cc-library010009109zzavm.jpg", pointX: 518, pointY: 350, pointW: 100, pointH: 100)
-        initImageView("cc-library010009109zzavm.jpg", pointX: 150, pointY: 718, pointW: 100, pointH: 100)
-        initImageView("cc-library010009109zzavm.jpg", pointX: 518, pointY: 718, pointW: 100, pointH: 100)
+        self.talkButton.layer.shadowOpacity = 0.8
+        self.talkButton.layer.shadowOffset = CGSizeMake(-10, 10)
+        self.albumButton.layer.shadowOpacity = 0.8
+        self.albumButton.layer.shadowOffset = CGSizeMake(-10, 10)
+        self.manualButton.layer.shadowOpacity = 0.8
+        self.manualButton.layer.shadowOffset = CGSizeMake(-10, 10)
+        self.useButton.layer.shadowOpacity = 0.8
+        self.useButton.layer.shadowOffset = CGSizeMake(-10, 10)
+        
+        initImageView("tabi_camera_nikki.png", pointX: 125, pointY: 350, pointW: 150, pointH: 150)
+        initImageView("album_photo.png", pointX: 493, pointY: 350, pointW: 150, pointH: 150)
+        initImageView("book_tate.png", pointX: 125, pointY: 718, pointW: 150, pointH: 150)
+        initImageView("roujin_TVdenwa.png", pointX: 493, pointY: 718, pointW: 150, pointH: 150)
+        initImageView("にこり.png", pointX: 84, pointY: 50, pointW: 600, pointH: 200)
         
         // UIImage インスタンスの生成
         let image = UIImage(named: "背景.png")
@@ -80,7 +86,7 @@ class Top: UIViewController {
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
             green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(0.9)
+            alpha: CGFloat(1.0)
         )
     }
     
