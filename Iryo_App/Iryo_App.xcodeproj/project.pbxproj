@@ -29,6 +29,13 @@
 		5E77311E1BF33DCD0036AE71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E77311C1BF33DCD0036AE71 /* Main.storyboard */; };
 		5E7DADB41B3826B800B9798D /* Menu2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7DADB31B3826B800B9798D /* Menu2.swift */; };
 		5E7DADB61B38882800B9798D /* Menu3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7DADB51B38882800B9798D /* Menu3.swift */; };
+		5E85887D1BFB5D8D00CC5269 /* book_tate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E85887C1BFB5D8D00CC5269 /* book_tate.png */; settings = {ASSET_TAGS = (); }; };
+		5E85887F1BFB5E1400CC5269 /* にこり.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E85887E1BFB5E1400CC5269 /* にこり.png */; settings = {ASSET_TAGS = (); }; };
+		5E8588811BFB5E2000CC5269 /* tabi_camera_nikki.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588801BFB5E2000CC5269 /* tabi_camera_nikki.png */; settings = {ASSET_TAGS = (); }; };
+		5E8588831BFB5E2C00CC5269 /* roujin_TVdenwa.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588821BFB5E2C00CC5269 /* roujin_TVdenwa.png */; settings = {ASSET_TAGS = (); }; };
+		5E8588851BFB5E3500CC5269 /* right11.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588841BFB5E3500CC5269 /* right11.png */; settings = {ASSET_TAGS = (); }; };
+		5E8588871BFB5E4200CC5269 /* left222.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588861BFB5E4200CC5269 /* left222.png */; settings = {ASSET_TAGS = (); }; };
+		5E8588891BFB5E5A00CC5269 /* album_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588881BFB5E5A00CC5269 /* album_photo.png */; settings = {ASSET_TAGS = (); }; };
 		5E88AD411B3523BD007679A7 /* homeImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E88AD401B3523BD007679A7 /* homeImg.png */; };
 		5E88AD431B352B66007679A7 /* pic_family.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E88AD421B352B66007679A7 /* pic_family.png */; };
 		5E8B69371B4B42C2006E12B1 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8B69361B4B42C2006E12B1 /* CustomNavigationBar.swift */; };
@@ -51,13 +58,6 @@
 		5EF3380A1BDA67350002F796 /* paint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF338091BDA67350002F796 /* paint.swift */; };
 		5EF6AEAD1BE65C4B009D8E60 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6AEAC1BE65C4B009D8E60 /* Top.swift */; };
 		5EF6AEB71BEB3A89009D8E60 /* picture2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6AEB61BEB3A88009D8E60 /* picture2.swift */; };
-		5EFF0C181BFAE2D400CC0DD6 /* にこり.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF0C171BFAE2D400CC0DD6 /* にこり.png */; settings = {ASSET_TAGS = (); }; };
-		5EFF0C1A1BFAE40900CC0DD6 /* roujin_TVdenwa.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF0C191BFAE40900CC0DD6 /* roujin_TVdenwa.png */; settings = {ASSET_TAGS = (); }; };
-		5EFF0C1C1BFAE40F00CC0DD6 /* album_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF0C1B1BFAE40F00CC0DD6 /* album_photo.png */; settings = {ASSET_TAGS = (); }; };
-		5EFF0C1E1BFAE41600CC0DD6 /* book_tate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF0C1D1BFAE41600CC0DD6 /* book_tate.png */; settings = {ASSET_TAGS = (); }; };
-		5EFF0C201BFAE41D00CC0DD6 /* tabi_camera_nikki.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF0C1F1BFAE41D00CC0DD6 /* tabi_camera_nikki.png */; settings = {ASSET_TAGS = (); }; };
-		5EFF0C221BFAFD8F00CC0DD6 /* left222.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF0C211BFAFD8F00CC0DD6 /* left222.png */; settings = {ASSET_TAGS = (); }; };
-		5EFF0C241BFAFDA100CC0DD6 /* right11.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF0C231BFAFDA100CC0DD6 /* right11.png */; settings = {ASSET_TAGS = (); }; };
 		9CE41DF91B3920CE00FEC8D4 /* Article2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE41DF81B3920CE00FEC8D4 /* Article2.swift */; };
 		F1B0B6F7F3245FEF5A00F1C7 /* libPods-Iryo_App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A08168D23703672654174D /* libPods-Iryo_App.a */; };
 /* End PBXBuildFile section */
@@ -97,6 +97,13 @@
 		5E77311D1BF33DCD0036AE71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E7DADB31B3826B800B9798D /* Menu2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu2.swift; sourceTree = "<group>"; };
 		5E7DADB51B38882800B9798D /* Menu3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu3.swift; sourceTree = "<group>"; };
+		5E85887C1BFB5D8D00CC5269 /* book_tate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_tate.png; sourceTree = "<group>"; };
+		5E85887E1BFB5E1400CC5269 /* にこり.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "にこり.png"; sourceTree = "<group>"; };
+		5E8588801BFB5E2000CC5269 /* tabi_camera_nikki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabi_camera_nikki.png; sourceTree = "<group>"; };
+		5E8588821BFB5E2C00CC5269 /* roujin_TVdenwa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roujin_TVdenwa.png; sourceTree = "<group>"; };
+		5E8588841BFB5E3500CC5269 /* right11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right11.png; sourceTree = "<group>"; };
+		5E8588861BFB5E4200CC5269 /* left222.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left222.png; sourceTree = "<group>"; };
+		5E8588881BFB5E5A00CC5269 /* album_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = album_photo.png; sourceTree = "<group>"; };
 		5E88AD401B3523BD007679A7 /* homeImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeImg.png; sourceTree = "<group>"; };
 		5E88AD421B352B66007679A7 /* pic_family.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic_family.png; sourceTree = "<group>"; };
 		5E8B69361B4B42C2006E12B1 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
@@ -124,13 +131,6 @@
 		5EF338091BDA67350002F796 /* paint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = paint.swift; sourceTree = "<group>"; };
 		5EF6AEAC1BE65C4B009D8E60 /* Top.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
 		5EF6AEB61BEB3A88009D8E60 /* picture2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = picture2.swift; sourceTree = "<group>"; };
-		5EFF0C171BFAE2D400CC0DD6 /* にこり.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "にこり.png"; path = "../../../../../Downloads/にこり.png"; sourceTree = "<group>"; };
-		5EFF0C191BFAE40900CC0DD6 /* roujin_TVdenwa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = roujin_TVdenwa.png; path = ../../../../../Downloads/roujin_TVdenwa.png; sourceTree = "<group>"; };
-		5EFF0C1B1BFAE40F00CC0DD6 /* album_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = album_photo.png; path = ../../../../../Downloads/album_photo.png; sourceTree = "<group>"; };
-		5EFF0C1D1BFAE41600CC0DD6 /* book_tate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = book_tate.png; path = ../../../../../Downloads/book_tate.png; sourceTree = "<group>"; };
-		5EFF0C1F1BFAE41D00CC0DD6 /* tabi_camera_nikki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabi_camera_nikki.png; path = ../../../../../Downloads/tabi_camera_nikki.png; sourceTree = "<group>"; };
-		5EFF0C211BFAFD8F00CC0DD6 /* left222.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = left222.png; path = ../../../../../Downloads/left222.png; sourceTree = "<group>"; };
-		5EFF0C231BFAFDA100CC0DD6 /* right11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right11.png; path = ../../../../../Downloads/right11.png; sourceTree = "<group>"; };
 		9CE41DF81B3920CE00FEC8D4 /* Article2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article2.swift; sourceTree = "<group>"; };
 		E4A08168D23703672654174D /* libPods-Iryo_App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Iryo_App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -229,13 +229,13 @@
 		5EB9E3111B2832A9005B7951 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5EFF0C231BFAFDA100CC0DD6 /* right11.png */,
-				5EFF0C211BFAFD8F00CC0DD6 /* left222.png */,
-				5EFF0C1F1BFAE41D00CC0DD6 /* tabi_camera_nikki.png */,
-				5EFF0C1D1BFAE41600CC0DD6 /* book_tate.png */,
-				5EFF0C1B1BFAE40F00CC0DD6 /* album_photo.png */,
-				5EFF0C191BFAE40900CC0DD6 /* roujin_TVdenwa.png */,
-				5EFF0C171BFAE2D400CC0DD6 /* にこり.png */,
+				5E8588841BFB5E3500CC5269 /* right11.png */,
+				5E8588861BFB5E4200CC5269 /* left222.png */,
+				5E8588801BFB5E2000CC5269 /* tabi_camera_nikki.png */,
+				5E85887C1BFB5D8D00CC5269 /* book_tate.png */,
+				5E8588881BFB5E5A00CC5269 /* album_photo.png */,
+				5E8588821BFB5E2C00CC5269 /* roujin_TVdenwa.png */,
+				5E85887E1BFB5E1400CC5269 /* にこり.png */,
 				5E36D23A1B612C520053FBD9 /* Speaker_mute.png */,
 				5E36D23B1B612C520053FBD9 /* Speaker_play.png */,
 				5E232A551B3D604D004A34BD /* b_simple_124_2L.png */,
@@ -378,33 +378,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EFF0C1C1BFAE40F00CC0DD6 /* album_photo.png in Resources */,
-				5EFF0C181BFAE2D400CC0DD6 /* にこり.png in Resources */,
 				5EBF6EE01BF32B1400295C7F /* 背景.png in Resources */,
 				5E88AD431B352B66007679A7 /* pic_family.png in Resources */,
 				5E232A4C1B3D5427004A34BD /* 奥さん.png in Resources */,
 				5EBF6EDE1BF32B0700295C7F /* cc-library010009109zzavm.jpg in Resources */,
+				5E8588891BFB5E5A00CC5269 /* album_photo.png in Resources */,
 				5EB9E31E1B2832A9005B7951 /* LaunchScreen.xib in Resources */,
+				5E85887F1BFB5E1400CC5269 /* にこり.png in Resources */,
+				5E8588871BFB5E4200CC5269 /* left222.png in Resources */,
 				5E232A4A1B3D5427004A34BD /* おじいさん２.png in Resources */,
-				5EFF0C1E1BFAE41600CC0DD6 /* book_tate.png in Resources */,
 				5E232A561B3D604D004A34BD /* b_simple_124_2L.png in Resources */,
 				5E88AD411B3523BD007679A7 /* homeImg.png in Resources */,
 				5E36D23D1B612C520053FBD9 /* Speaker_play.png in Resources */,
+				5E85887D1BFB5D8D00CC5269 /* book_tate.png in Resources */,
 				5EAC1F3F1B3316C700473C38 /* ipaexm.ttf in Resources */,
 				5E232A491B3D5427004A34BD /* finger-icon05_r1_c42.png in Resources */,
-				5EFF0C201BFAE41D00CC0DD6 /* tabi_camera_nikki.png in Resources */,
-				5EFF0C241BFAFDA100CC0DD6 /* right11.png in Resources */,
+				5E8588831BFB5E2C00CC5269 /* roujin_TVdenwa.png in Resources */,
 				5E77311E1BF33DCD0036AE71 /* Main.storyboard in Resources */,
 				5E232A4B1B3D5427004A34BD /* 医師.png in Resources */,
 				5E232A481B3D5427004A34BD /* finger-icon05_r1_c4.png in Resources */,
 				5E232A4E1B3D5427004A34BD /* 矢印２.png in Resources */,
-				5EFF0C221BFAFD8F00CC0DD6 /* left222.png in Resources */,
-				5EFF0C1A1BFAE40900CC0DD6 /* roujin_TVdenwa.png in Resources */,
 				5E232A471B3D5427004A34BD /* b_simple_124_2M.png in Resources */,
 				5E36D23C1B612C520053FBD9 /* Speaker_mute.png in Resources */,
 				5EAC1F3D1B33162400473C38 /* testFont1.ttf in Resources */,
 				5E232A4D1B3D5427004A34BD /* 奥さん2.png in Resources */,
 				5EB9E31B1B2832A9005B7951 /* Images.xcassets in Resources */,
+				5E8588851BFB5E3500CC5269 /* right11.png in Resources */,
+				5E8588811BFB5E2000CC5269 /* tabi_camera_nikki.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
