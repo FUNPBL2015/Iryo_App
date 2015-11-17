@@ -10,13 +10,14 @@ import UIKit
 
 class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var picture:[String] = []
+//    var picture:[String] = []
 //    let title1 = ["背景","医師"]
+    var picture = ["tabi_camera_nikki.png","book_tate.png","album_photo.png","roujin_TVdenwa.png","cc-library010009109zzavm.jpg"]
     
     @IBOutlet weak var nextMonthButton: UIButton!
     @IBOutlet weak var prevMonthButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
-    var Images: UIImage?
+    var numbar: Int?
     
     var currentYear: Int = 0
     var currentMonth: Int = 0
@@ -66,8 +67,8 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     // Cell が選択された場合
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath) {
-        Images = UIImage(named: picture[indexPath.row])
-        if Images != nil {
+        numbar = indexPath.row
+        if numbar != nil {
             performSegueWithIdentifier("Segues",sender: nil)
         }
     }
@@ -75,7 +76,8 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "Segues") {
             let VC: picture2 = (segue.destinationViewController as? picture2)!
-            VC.selectedImg = Images
+            VC.numbars = numbar
+            VC.pictures = picture
         }
     }
     

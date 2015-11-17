@@ -262,7 +262,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="evv-eb-Kba">
-                                <rect key="frame" x="0.0" y="125" width="768" height="1024"/>
+                                <rect key="frame" x="0.0" y="125" width="768" height="855"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="lZF-cE-jWQ">
                                     <size key="itemSize" width="200" height="200"/>
@@ -344,6 +344,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PVP-q1-59M">
+                                <rect key="frame" x="0.0" y="980" width="768" height="44"/>
+                                <items>
+                                    <barButtonItem title="時間" width="140" id="gkt-Bd-jCf"/>
+                                    <barButtonItem title="食事" width="140" id="2uF-Pa-jB5"/>
+                                    <barButtonItem title="家族" width="140" id="LhX-1N-s8S"/>
+                                    <barButtonItem title="趣味" width="140" id="xuK-D7-GTZ"/>
+                                    <barButtonItem title="その他" width="140" id="X2Y-A1-57c"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -371,22 +381,34 @@
                         <viewControllerLayoutGuide type="bottom" id="LD8-nM-fLG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cyo-TM-Jbg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YR8-Ts-fs4">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="50" y="0.0" width="668" height="1024"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pn-Sx-hEP">
+                                <rect key="frame" x="7" y="488" width="48" height="48"/>
+                                <state key="normal" image="left222.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g70-p7-z7N">
+                                <rect key="frame" x="714" y="488" width="48" height="48"/>
+                                <state key="normal" image="right11.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="1024"/>
                     <connections>
                         <outlet property="imageView" destination="YR8-Ts-fs4" id="dDf-JU-9Ve"/>
+                        <outlet property="nextPicture" destination="g70-p7-z7N" id="PJL-31-f8F"/>
+                        <outlet property="prevPicture" destination="7Pn-Sx-hEP" id="5io-pC-OaZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b7x-b5-RYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5662" y="-5357"/>
+            <point key="canvasLocation" x="5671" y="-5184"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="rOW-rN-AtR">
@@ -1738,7 +1760,9 @@ Cg
     </scenes>
     <resources>
         <image name="b_simple_124_2L.png" width="1098" height="11"/>
+        <image name="left222.png" width="64" height="64"/>
         <image name="pic_family.png" width="1154" height="448"/>
+        <image name="right11.png" width="64" height="64"/>
         <image name="おじいさん２.png" width="166" height="243"/>
         <image name="医師.png" width="90" height="101"/>
         <image name="奥さん.png" width="74" height="100"/>
