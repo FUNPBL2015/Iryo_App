@@ -30,21 +30,11 @@ class Menu: UITableViewController {
     /** 境界線　左の余白を削除する */
     func rmLeftMargin (cell:UITableViewCell){
         if cell.respondsToSelector("preservesSuperviewLayoutMargins") {
-            if #available(iOS 8.0, *) {
                 cell.preservesSuperviewLayoutMargins = false
-            } else {
-            if #available(iOS 8.0, *) {
                 cell.layoutMargins = UIEdgeInsetsZero
-            } else {
-                // Fallback on earlier versions
-            }           };
         }
         if cell.respondsToSelector("layoutMargins") {
-            if #available(iOS 8.0, *) {
                 cell.layoutMargins = UIEdgeInsetsZero
-            } else {
-                // Fallback on earlier versions
-            };
         }
     }
     
