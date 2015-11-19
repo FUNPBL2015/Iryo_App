@@ -389,10 +389,14 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         
         image = UIImage(CGImage: image.CGImage!, scale: image!.scale, orientation: rotate)
         
-        let Paint: PaintVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PaintVC") as? PaintVC
-        Paint!.image = image
+//        let Paint: PaintVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PaintVC") as? PaintVC
+//        Paint!.image = image
         
-        self.presentViewController(Paint!, animated: true, completion: nil)
+        let PostDetal: PostDetailVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PostDetail") as? PostDetailVC
+        PostDetal!.image = image
+        
+        self.navigationController?.pushViewController(PostDetal!, animated: true)
+        //self.presentViewController(PostDetal!, animated: true, completion: nil)
     }
     
     func shouldStartCameraController() -> Bool {

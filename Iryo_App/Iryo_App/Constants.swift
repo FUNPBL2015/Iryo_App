@@ -22,6 +22,8 @@ let myChatsClassKey = "chats"
 // Field-keys
 let myChatsGraphicFileKey = "graphicFile"
 let myChatsThumbnailKey = "thumbnail"
+let myChatsTagKey = "tag"
+
 
 // MARK: Activity-Class
 //Class-key

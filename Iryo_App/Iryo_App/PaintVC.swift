@@ -9,7 +9,14 @@
 import UIKit
 import AVFoundation
 
+
+protocol PaintVCDelegate{
+    func paintDidFinished(modalText: UIImage)
+}
+
 class PaintVC: UIViewController,UINavigationControllerDelegate{
+    
+    var delegate: PaintVCDelegate! = nil
     
     var image: UIImage?
     private var newData: PFObject?
@@ -62,6 +69,11 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         // MARK: カメラロールに保存
         //UIImageWriteToSavedPhotosAlbum(drawingVIew.image!, nil, nil, nil)
         
+        self.delegate.paintDidFinished(self.drawingView.image!)
+        //self.dismissViewControllerAnimated(true, completion: nil)
+        
+        
+        /*
         self.newData = PFObject(className: myChatsClassKey)
         
         let resizedImage: UIImage = drawingView.image.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(560.0, 560.0), interpolationQuality: CGInterpolationQuality.High)
@@ -88,7 +100,7 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         }catch{
             alert.showError("Warning", subTitle:"Couldn't post your photo", closeButtonTitle:"OK")
         }
-    
+    */
         
     }
     
