@@ -11,7 +11,7 @@ import AVFoundation
 
 
 protocol PaintVCDelegate{
-    func paintDidFinished(modalText: UIImage)
+    func paintDidFinished(paintImg: UIImage)
 }
 
 class PaintVC: UIViewController,UINavigationControllerDelegate{

@@ -67,6 +67,9 @@ class PostSegmentedControl : UISegmentedControl {
 
 class PostDetailVC: UIViewController, PaintVCDelegate{
     
+    //TODO: 描画の保存
+    // 現在はペイントを再読み込みするとUndo,Redo,Clearが出来ない
+    
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var postSegmented: PostSegmentedControl!
     
@@ -94,6 +97,7 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         self.postData = PFObject(className: myChatsClassKey)
     }
     
+    // ???: 一度タグ付けしてからタグなしにするには？
     @IBAction func didSelectTag(sender: UISegmentedControl) {
         
         let selectedTag = Tag(rawValue: sender.selectedSegmentIndex)!
@@ -118,10 +122,10 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         }
     }
 
-    func paintDidFinished(modalText: UIImage){
+    func paintDidFinished(paintImg: UIImage){
         
-        self.image = modalText
-        self.postImage.image = modalText
+        self.image = paintImg
+        self.postImage.image = paintImg
         self.paintView!.dismissViewControllerAnimated(true, completion: nil)
     }
     

@@ -32,15 +32,16 @@
 		5E7A88F01BF5D04D00CCC68B /* TalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7A88EF1BF5D04D00CCC68B /* TalkView.swift */; };
 		5E7A88F21BF5D07A00CCC68B /* PaintVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7A88F11BF5D07A00CCC68B /* PaintVC.swift */; };
 		5E7A88F51BF5D0BB00CCC68B /* BaseTalkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7A88F41BF5D0BB00CCC68B /* BaseTalkViewCell.swift */; };
+		5E7B8BBC1BFDF1F700BBBBF0 /* WelcomeTalkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7B8BBB1BFDF1F700BBBBF0 /* WelcomeTalkVC.swift */; };
 		5E7DADB41B3826B800B9798D /* Menu2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7DADB31B3826B800B9798D /* Menu2.swift */; };
 		5E7DADB61B38882800B9798D /* Menu3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7DADB51B38882800B9798D /* Menu3.swift */; };
-		5E85887D1BFB5D8D00CC5269 /* book_tate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E85887C1BFB5D8D00CC5269 /* book_tate.png */; settings = {ASSET_TAGS = (); }; };
-		5E85887F1BFB5E1400CC5269 /* にこり.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E85887E1BFB5E1400CC5269 /* にこり.png */; settings = {ASSET_TAGS = (); }; };
-		5E8588811BFB5E2000CC5269 /* tabi_camera_nikki.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588801BFB5E2000CC5269 /* tabi_camera_nikki.png */; settings = {ASSET_TAGS = (); }; };
-		5E8588831BFB5E2C00CC5269 /* roujin_TVdenwa.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588821BFB5E2C00CC5269 /* roujin_TVdenwa.png */; settings = {ASSET_TAGS = (); }; };
-		5E8588851BFB5E3500CC5269 /* right11.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588841BFB5E3500CC5269 /* right11.png */; settings = {ASSET_TAGS = (); }; };
-		5E8588871BFB5E4200CC5269 /* left222.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588861BFB5E4200CC5269 /* left222.png */; settings = {ASSET_TAGS = (); }; };
-		5E8588891BFB5E5A00CC5269 /* album_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588881BFB5E5A00CC5269 /* album_photo.png */; settings = {ASSET_TAGS = (); }; };
+		5E85887D1BFB5D8D00CC5269 /* book_tate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E85887C1BFB5D8D00CC5269 /* book_tate.png */; };
+		5E85887F1BFB5E1400CC5269 /* にこり.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E85887E1BFB5E1400CC5269 /* にこり.png */; };
+		5E8588811BFB5E2000CC5269 /* tabi_camera_nikki.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588801BFB5E2000CC5269 /* tabi_camera_nikki.png */; };
+		5E8588831BFB5E2C00CC5269 /* roujin_TVdenwa.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588821BFB5E2C00CC5269 /* roujin_TVdenwa.png */; };
+		5E8588851BFB5E3500CC5269 /* right11.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588841BFB5E3500CC5269 /* right11.png */; };
+		5E8588871BFB5E4200CC5269 /* left222.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588861BFB5E4200CC5269 /* left222.png */; };
+		5E8588891BFB5E5A00CC5269 /* album_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8588881BFB5E5A00CC5269 /* album_photo.png */; };
 		5E88AD411B3523BD007679A7 /* homeImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E88AD401B3523BD007679A7 /* homeImg.png */; };
 		5E88AD431B352B66007679A7 /* pic_family.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E88AD421B352B66007679A7 /* pic_family.png */; };
 		5E8B69371B4B42C2006E12B1 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8B69361B4B42C2006E12B1 /* CustomNavigationBar.swift */; };
@@ -106,6 +107,7 @@
 		5E7A88EF1BF5D04D00CCC68B /* TalkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkView.swift; sourceTree = "<group>"; };
 		5E7A88F11BF5D07A00CCC68B /* PaintVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintVC.swift; sourceTree = "<group>"; };
 		5E7A88F41BF5D0BB00CCC68B /* BaseTalkViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTalkViewCell.swift; sourceTree = "<group>"; };
+		5E7B8BBB1BFDF1F700BBBBF0 /* WelcomeTalkVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeTalkVC.swift; sourceTree = "<group>"; };
 		5E7DADB31B3826B800B9798D /* Menu2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu2.swift; sourceTree = "<group>"; };
 		5E7DADB51B38882800B9798D /* Menu3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu3.swift; sourceTree = "<group>"; };
 		5E85887C1BFB5D8D00CC5269 /* book_tate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_tate.png; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				5E7A88F31BF5D09600CCC68B /* TallkVIewCell */,
 				5E7A88EF1BF5D04D00CCC68B /* TalkView.swift */,
+				5E7B8BBB1BFDF1F700BBBBF0 /* WelcomeTalkVC.swift */,
 				5E94DA921BF5EA1D006D7A56 /* PhotoDetailVC.swift */,
 				5E94DA961BFC41D4006D7A56 /* PostDetailVC.swift */,
 				5E7A88F11BF5D07A00CCC68B /* PaintVC.swift */,
@@ -507,6 +510,7 @@
 				5E7A88EC1BF5D01500CCC68B /* Constants.swift in Sources */,
 				5EF6AEB71BEB3A89009D8E60 /* picture2.swift in Sources */,
 				5E7A88F21BF5D07A00CCC68B /* PaintVC.swift in Sources */,
+				5E7B8BBC1BFDF1F700BBBBF0 /* WelcomeTalkVC.swift in Sources */,
 				5E232A3E1B3D4ECC004A34BD /* Article3.swift in Sources */,
 				5E40CCD21B32E325007DE681 /* Menu.swift in Sources */,
 				5E7A88F01BF5D04D00CCC68B /* TalkView.swift in Sources */,

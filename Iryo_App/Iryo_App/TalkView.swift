@@ -13,10 +13,13 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     // debug
     private var shouldReloadOnAppear: Bool = false
     private var outstandingSectionHeaderQueries: [NSObject:AnyObject]
-    
+
+    // MARK: makeshift tabbar
     private let leftBtn: UIButton! = UIButton(frame: CGRectMake(0, myScreenHeight - 50, myScreenWidth / 2, 50))
     private let rightBtn: UIButton! = UIButton(frame: CGRectMake(myScreenWidth / 2, myScreenHeight - 50, myScreenWidth / 2, 50))
     private let emptyText: UILabel = UILabel(frame: CGRectMake(myScreenWidth / 2 - 50, myScreenHeight / 2 - 30, 100, 30))
+
+    private var postBtn: UIBarButtonItem!
     
     
     // MARK: makeshift navbar
@@ -78,10 +81,12 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         //let delegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         //delegate.window?.addSubview(leftBtn!)
         //delegate.window?.addSubview(rightBtn!)
+        
+        // MARK: makeshift tabbar
         leftBtn!.layer.borderWidth  = 3.0
         leftBtn!.layer.borderColor  = UIColor.redColor().CGColor
         leftBtn!.backgroundColor    = UIColor.whiteColor()
-        leftBtn!.addTarget(self, action: "showCamera:", forControlEvents: .TouchUpInside)
+        leftBtn!.addTarget(self, action: "didTapOnLogout:", forControlEvents: .TouchUpInside)
         self.view.addSubview(leftBtn!)
         self.view.bringSubviewToFront(leftBtn!)
         leftBtn!.setImage(UIImage(named: "camera3"), forState: UIControlState.Normal)
@@ -108,6 +113,10 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
         defaultNotificationCenter.addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         defaultNotificationCenter.addObserver(self, selector: Selector("userDidPublishPhoto:"), name: "TalkView.didFinishEditingPhoto", object: nil)
+        
+        //initial navbar
+        postBtn = UIBarButtonItem(title: "写真の投稿", style: .Plain, target: self, action: "didTapOnPostBtn")
+        self.navigationItem.rightBarButtonItem = postBtn
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -122,12 +131,47 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         // スクロール分フッターボタンを移動させ、見かけ上位置を固定する
+        // MARK: makeshift tabbar
         leftBtn!.frame = CGRectMake(0, myScreenHeight - 50 + scrollView.contentOffset.y, myScreenWidth / 2, 50)
         rightBtn!.frame = CGRectMake(myScreenWidth / 2, myScreenHeight - 50 + scrollView.contentOffset.y, myScreenWidth / 2, 50)
     }
     
     override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         scrollView.endEditing(true)
+    }
+    
+    func didTapOnLogout(sender: UIButton){
+        PFUser.logOut()
+        self.navigationController!.popToRootViewControllerAnimated(true)
+    }
+    
+    func didTapOnPostBtn(){
+        let cameraDeviceAvailable: Bool = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        let photoLibraryAvailable: Bool = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary)
+        
+        if cameraDeviceAvailable && photoLibraryAvailable {
+            let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+            
+            let takePhotoAction = UIAlertAction(title: NSLocalizedString("カメラで写真を撮る", comment: ""), style: UIAlertActionStyle.Default, handler: { _ in self.shouldStartCameraController() })
+            let choosePhotoAction = UIAlertAction(title: NSLocalizedString("保存している写真から選ぶ", comment: ""), style: UIAlertActionStyle.Default, handler: { _ in self.shouldStartPhotoLibraryPickerController() })
+            let cancelAction = UIAlertAction(title: NSLocalizedString("キャンセル", comment: ""), style: UIAlertActionStyle.Cancel, handler: nil)
+            
+            
+            // iPadではpopover指定する
+            if let popoverController = actionController.popoverPresentationController {
+                popoverController.sourceView = self.view
+                popoverController.barButtonItem = self.navigationItem.rightBarButtonItem
+                //popoverController.permittedArrowDirections = .Any
+            }
+            
+            actionController.addAction(takePhotoAction)
+            actionController.addAction(choosePhotoAction)
+            actionController.addAction(cancelAction)
+            
+            self.presentViewController(actionController, animated: true, completion: nil)
+        } else {
+            self.shouldPresentPhotoCaptureController()
+        }
     }
     
     func showAlbum(sender: UIButton){
@@ -206,8 +250,10 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         query.limit = 30
         query.orderByDescending("createdAt")
         
-        if self.objects!.count == 0 || (UIApplication.sharedApplication().delegate!.performSelector(Selector("isParseReachable")) == nil){
-            //query.cachePolicy = PFCachePolicy.CacheThenNetwork
+        query.cachePolicy = PFCachePolicy.NetworkOnly
+        
+        if (self.objects!.count == 0 || UIApplication.sharedApplication().delegate!.performSelector(Selector("isParseReachable")) == nil){
+           // query.cachePolicy = PFCachePolicy.CacheThenNetwork
         }
         return query
     }
@@ -274,6 +320,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             //            catch{ check = nil}
             
             //            if check != nil{
+
             activity.findObjectsInBackgroundWithBlock { (objects, error) in
                 if error == nil && objects!.count != 0{
                     for row: PFObject in objects! {
@@ -283,6 +330,8 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
                     cell?.comments!.text = "コメントがありません"
                 }
             }
+            
+            //cacheResult = true
             
             //            activity.countObjectsInBackgroundWithBlock{(number, error) in
             //                if error == nil && number > 0{
@@ -397,6 +446,17 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         
         self.navigationController?.pushViewController(PostDetal!, animated: true)
         //self.presentViewController(PostDetal!, animated: true, completion: nil)
+    }
+    
+    // カメラが使えなければアルバムを選択する
+    func shouldPresentPhotoCaptureController() -> Bool {
+        var presentedPhotoCaptureController: Bool = self.shouldStartCameraController()
+        
+        if !presentedPhotoCaptureController {
+            presentedPhotoCaptureController = self.shouldStartPhotoLibraryPickerController()
+        }
+        
+        return presentedPhotoCaptureController
     }
     
     func shouldStartCameraController() -> Bool {
