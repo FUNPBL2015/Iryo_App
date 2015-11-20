@@ -38,13 +38,13 @@ class Top: UIViewController {
         // NavBarを生成
         self.navigationController?.navigationBar
         
-        let myLabel = UILabel(frame: CGRectMake(0,0,120,50))
-        myLabel.textColor = UIColor.blackColor()
-        myLabel.layer.masksToBounds = true
-        myLabel.text = "タイトル"
-        myLabel.textAlignment = NSTextAlignment.Center
-        myLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-924)
-        self.view.addSubview(myLabel)
+//        let myLabel = UILabel(frame: CGRectMake(0,0,120,50))
+//        myLabel.textColor = UIColor.blackColor()
+//        myLabel.layer.masksToBounds = true
+//        myLabel.text = "タイトル"
+//        myLabel.textAlignment = NSTextAlignment.Center
+//        myLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-924)
+//        self.view.addSubview(myLabel)
         
         self.talkButton.backgroundColor = UIColorFromRGB(0xFFFFFF)
         self.albumButton.backgroundColor = UIColorFromRGB(0xFFFFFF)
@@ -85,9 +85,15 @@ class Top: UIViewController {
     }
     
     @IBAction func shouldTransportTalkView(sender: AnyObject) {
-        let talkViewControlloer: TalkView? = TalkView()
-        
-        self.navigationController?.pushViewController(talkViewControlloer!, animated: true)
+        if PFUser.currentUser() == nil{
+            let welcomeView: WelcomeTalkVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("WelcomeTalkVC") as? WelcomeTalkVC
+            
+            self.navigationController?.pushViewController(welcomeView!, animated: true)
+        }else{
+            let talkViewControlloer: TalkView? = TalkView()
+            
+            self.navigationController?.pushViewController(talkViewControlloer!, animated: true)
+        }
     }
     
     func UIColorFromRGB(rgbValue: Int) -> UIColor {

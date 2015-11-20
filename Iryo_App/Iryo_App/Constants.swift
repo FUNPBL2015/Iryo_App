@@ -33,3 +33,36 @@ let myActivityClassKey = "Activity_02"
 let myActivityContentKey = "content"
 let myActivityTypeKey = "type"
 let myActivityPhotoKey = "photo"
+
+// 正規表現
+class Regexp {
+    let internalRegexp: NSRegularExpression
+    let pattern: String
+    
+    init(_ pattern: String) {
+        self.pattern = pattern
+        do {
+            self.internalRegexp = try NSRegularExpression(pattern: pattern, options: [])
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            self.internalRegexp = NSRegularExpression()
+        }
+    }
+    
+    func isMatch(input: String) -> Bool {
+        let matches = self.internalRegexp.matchesInString(input, options:[], range:NSMakeRange(0, input.characters.count) )
+        return matches.count > 0
+    }
+    
+    func matches(input: String) -> [String]? {
+        if self.isMatch(input) {
+            let matches = self.internalRegexp.matchesInString( input, options: [], range:NSMakeRange(0, input.characters.count) )
+            var results: [String] = []
+            for i in 0 ..< matches.count {
+                results.append( (input as NSString).substringWithRange(matches[i].range) )
+            }
+            return results
+        }
+        return nil
+    }
+}
