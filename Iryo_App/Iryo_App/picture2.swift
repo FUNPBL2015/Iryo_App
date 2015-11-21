@@ -11,7 +11,7 @@ import UIKit
 class picture2: UIViewController{
     
     @IBOutlet weak var imageView: UIImageView!
-    var pictures: [String]!
+    var pictures: [AnyObject]!
     var numbars: Int!
 
     @IBOutlet weak var prevPicture: UIButton!
@@ -20,7 +20,13 @@ class picture2: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageView.image = UIImage(named: pictures[numbars])
+        let imageFile: PFFile? = self.pictures[numbars].objectForKey("graphicFile") as! PFFile?
+        imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
+            if(error == nil) {
+                self.imageView.image = UIImage(data: imageData!)!
+            }
+        })
+
         // 画像のアスペクト比を維持しUIImageViewサイズに収まるように表示
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.nextPicture.addTarget(self, action: Selector("nextPictures"), forControlEvents: .TouchUpInside)
@@ -30,14 +36,24 @@ class picture2: UIViewController{
     func nextPictures(){
         if(numbars < pictures.count - 1){
         numbars = numbars + 1
-        imageView.image = UIImage(named: pictures[numbars])
+            let imageFile: PFFile? = self.pictures[numbars].objectForKey("graphicFile") as! PFFile?
+            imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
+                if(error == nil) {
+                    self.imageView.image = UIImage(data: imageData!)!
+                }
+            })
         }
     }
     
     func prevPictures(){
         if(numbars > 0){
             numbars = numbars - 1
-        imageView.image = UIImage(named: pictures[numbars])
+            let imageFile: PFFile? = self.pictures[numbars].objectForKey("graphicFile") as! PFFile?
+            imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
+                if(error == nil) {
+                    self.imageView.image = UIImage(data: imageData!)!
+                }
+            })
         }
     }
         

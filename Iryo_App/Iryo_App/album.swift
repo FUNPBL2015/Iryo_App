@@ -1,5 +1,5 @@
 //
-//  TopPage.swift
+//  album.swift
 //  Iryo_App
 //
 //  Created by member on 2015/10/21.
@@ -7,12 +7,13 @@
 //
 
 import UIKit
+//import Parse
+
 
 class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-//    var picture:[String] = []
-//    let title1 = ["背景","医師"]
-    var picture = ["tabi_camera_nikki.png","book_tate.png","album_photo.png","roujin_TVdenwa.png","cc-library010009109zzavm.jpg"]
+    @IBOutlet weak var collectionView: UICollectionView!
+    var picture:[AnyObject] = []
     
     @IBOutlet weak var nextMonthButton: UIButton!
     @IBOutlet weak var prevMonthButton: UIButton!
@@ -27,18 +28,10 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     var dateString:String = ""
     var dates:[String] = []
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
-        
-//        for var n = 0 ; n < 2 ; n++ {
-//            // デバイスのDocumentsディレクトリのパスを取得
-//            let filePath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[n] as String
-//            // その中のimageの名前から最終的なパスを生成
-//            picture[n] = filePath + ".jpg"
-//        }
+        self.loadData()
         
         let dateFormatter:NSDateFormatter = NSDateFormatter();
         dateFormatter.locale = NSLocale(localeIdentifier: "ja")
@@ -47,6 +40,20 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         dates = dateString.componentsSeparatedByString("/")
 
         dateShow()
+    }
+    
+    func loadData()  {
+        let query: PFQuery = PFQuery(className: myChatsClassKey)
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if (error != nil){
+                // エラー処理
+                return
+            }
+            for row:PFObject in objects! {
+                self.picture.append(row)
+            }
+            self.collectionView.reloadData()
+        }
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -60,9 +67,18 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CustomCell
 //        cell.titleSample.text = title1[indexPath.row]
-        cell.imgSample.image = UIImage(named: picture[indexPath.row])
-        cell.backgroundColor = UIColor.whiteColor()
+//        cell.imgSample.image = UIImage(named: picture[indexPath.row])
+//        cell.backgroundColor = UIColor.whiteColor()
+//        return cell
+        
+        let imageFile: PFFile? = self.picture[indexPath.row].objectForKey("graphicFile") as! PFFile?
+        imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
+            if(error == nil) {
+                cell.imgSample.image = UIImage(data: imageData!)!
+            }
+        })
         return cell
+        
     }
     
     // Cell が選択された場合
