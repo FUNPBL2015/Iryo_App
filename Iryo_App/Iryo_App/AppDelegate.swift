@@ -8,22 +8,53 @@
 
 import UIKit
 import AVFoundation
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var networkStatus: Reachability.NetworkStatus?
-    
     let speechSynthesizer = AVSpeechSynthesizer()
     var toggle:Bool = true //speakBtnトグル true=Speak,false=Pause
+    var myTabBarController: UITabBarController!
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        
+        
+        if !NSUserDefaults.standardUserDefaults().boolForKey("firstLaunch"){
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstLaunch")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+            NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "firstTime")
+        }else{
+            // debug
+            //NSUserDefaults.standardUserDefaults().removeObjectForKey("firstTime")
+            //print("removed firstTime!")
+        }
         
         let MainViewController: Top? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainMenu") as? Top
         
         let myNavigationController: UINavigationController = UINavigationController(rootViewController: MainViewController!)
 
+        myTabBarController = UITabBarController()
+        
+        let talkView: TalkView? = TalkView()
+        let intentionView: IntentionView? = IntentionView()
+        let topicView: TopicView? = TopicView()
+        let tipsView: TipsView? = TipsView()
+        
+        talkView!.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Featured, tag: 1)
+        intentionView!.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Featured, tag: 2)
+        topicView!.tabBarItem =  UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Featured, tag: 3)
+        tipsView!.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Featured, tag: 4)
+        
+        let myTabs: NSArray = [talkView!, intentionView!, topicView!, tipsView!]
+        
+        myTabBarController.setViewControllers(myTabs as? [UIViewController], animated: false)
+        
+        myTabBarController.selectedViewController = myTabBarController.viewControllers![0]
+        
         self.window?.rootViewController = myNavigationController
         
         // MARK: Parse-setting
