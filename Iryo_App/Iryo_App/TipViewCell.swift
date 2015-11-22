@@ -8,11 +8,15 @@
 
 /*
 sato  2015/11/22
->メモ
+>メモ1
 sankaku : 吹き出しの◀︎を表現するため
 titleLabel : 「今日の豆知識」の部分
 BaseTalkViewの使わないと思われる部分はコメントアウトしてる
-ちょっと自分で試せないから、無茶苦茶な部分あるかもしれない！申し訳ない！
+
+>メモ2 
+autolayoutを設定するものに対して、
+xxxxx.translatesAutoresizingMaskIntoConstraints = false
+が必要っぽい(swift2.0)
 */
 
 import UIKit
@@ -74,11 +78,13 @@ class TipViewCell: PFTableViewCell{
         //self.comments!.textAlignment = NSTextAlignment.Center
         self.comments!.font = UIFont.systemFontOfSize(CGFloat(20))
         self.comments!.editable = false
+        self.comments!.translatesAutoresizingMaskIntoConstraints = false //autolayoutを使用するため
         self.contentView.addSubview(self.comments!)
         
         self.titleLabel = UILabel()
         self.titleLabel!.text = "今日の豆知識！"
         self.titleLabel!.font = UIFont.systemFontOfSize(CGFloat(26))
+        self.titleLabel!.translatesAutoresizingMaskIntoConstraints = false //autolayoutを使用するため
         self.contentView.addSubview(self.titleLabel!)
         
         self.sankaku = UILabel()
@@ -114,11 +120,19 @@ class TipViewCell: PFTableViewCell{
         super.layoutSubviews()
         self.contentView.frame = CGRectMake(myScreenWidth / 10, 30.0, myScreenWidth - myScreenWidth / 5, self.contentView.frame.height - 50)
         self.avatarImageView!.frame = CGRectMake(-40.0, 20.0, 50.0, 50.0)
+        self.sankaku!.frame = CGRectMake(-10.0, 20.0, 25.0, 25.0)
         self.timestanpLabel!.frame = CGRectMake(self.contentView.frame.width - timestanpLabel!.sizeThatFits(CGSizeMake(myScreenWidth / 2, 20)).width,
             -20, timestanpLabel!.sizeThatFits(CGSizeMake(myScreenWidth / 2, 20)).width, 20)
-        self.titleLabel!.frame = CGRectMake(30, 20, self.contentView.frame.width - 60, 80)
-        self.comments!.frame = CGRectMake(30, self.titleLabel!.frame.height + 20, self.contentView.frame.width - 60, 160)
-        self.sankaku!.frame = CGRectMake(-10.0, 20.0, 25.0, 25.0)
+        
+        //autolayout設定
+        let views = ["title":titleLabel, "comment":comments]
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[title]-20-|", options: [], metrics: nil, views: views))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[title]-20-[comment]-20-|", options: [], metrics: nil, views: views))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[comment]-20-|", options: [], metrics: nil, views: views))
+        
+        //self.titleLabel!.frame = CGRectMake(30, 20, self.contentView.frame.width - 60, 80)
+        //self.comments!.frame = CGRectMake(30, self.titleLabel!.frame.height + 20, self.contentView.frame.width - 60, 160)
+        
         
 //        self.imageView!.frame = CGRectMake(50.0, 20.0, self.contentView.frame.width - 100, self.contentView.frame.height * 3/5)
 //        self.photoButton!.frame = self.imageView!.frame
