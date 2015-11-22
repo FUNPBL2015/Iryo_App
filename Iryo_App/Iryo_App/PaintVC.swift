@@ -11,9 +11,9 @@ import AVFoundation
 
 
 protocol PaintVCDelegate{
-    func paintDidFinished(paintImg: UIImage)
+    func paintDidFinish(paintImg: UIImage)
+    func paintDidCancel(temp_draw: PaintVC)
 }
-
 class PaintVC: UIViewController,UINavigationControllerDelegate{
     
     var delegate: PaintVCDelegate! = nil
@@ -21,6 +21,15 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
     var image: UIImage?
     private var newData: PFObject?
     private let drawingView:ACEDrawingView! = ACEDrawingView(frame: CGRectMake(0, 20, myScreenWidth, myScreenHeight - 110))
+    private var first:Bool = true
+    // MARK: 複製テスト
+//    init(draw:ACEDrawingView){
+//        self.drawingView = draw
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -41,7 +50,19 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         //Retina対応
         self.drawingView.drawMode = ACEDrawingMode.Scale
         
-        self.drawingView.loadImage(self.image)
+        if first{
+            self.drawingView.loadImage(self.image)
+            first = false
+        }
+    }
+    
+    // MARK: 複製テスト
+//    func makeClone()->PaintVC{
+//        return PaintVC(draw: self.drawingView)
+//    }
+    
+    override func viewWillAppear(animated: Bool) {
+        temp_draw = paintView
     }
     
     override func viewDidLoad() {
@@ -57,6 +78,7 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
     }
     
     @IBAction func Cancel(sender: AnyObject) {
+        self.delegate.paintDidCancel(temp_draw!)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -69,38 +91,8 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         // MARK: カメラロールに保存
         //UIImageWriteToSavedPhotosAlbum(drawingVIew.image!, nil, nil, nil)
         
-        self.delegate.paintDidFinished(self.drawingView.image!)
+        self.delegate.paintDidFinish(self.drawingView.image!)
         //self.dismissViewControllerAnimated(true, completion: nil)
-        
-        
-        /*
-        self.newData = PFObject(className: myChatsClassKey)
-        
-        let resizedImage: UIImage = drawingView.image.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(560.0, 560.0), interpolationQuality: CGInterpolationQuality.High)
-        let thumbnailImage: UIImage = drawingView.image.thumbnailImage(256, transparentBorder: 0, cornerRadius: 10, interpolationQuality: CGInterpolationQuality.Medium)
-        let imageData: NSData = UIImageJPEGRepresentation(resizedImage, 0.8)!
-        let thumbnailImageData: NSData = UIImagePNGRepresentation(thumbnailImage)!
-        
-        let photoFile = PFFile(data: imageData)
-        let thumbnailFile = PFFile(data: thumbnailImageData)
-        
-        // Save image
-        self.newData!.setObject(photoFile!, forKey: myChatsGraphicFileKey)
-        self.newData!.setObject(thumbnailFile!, forKey: myChatsThumbnailKey)
-        
-        let alert = SCLAlertView()
-        alert.showCloseButton = false
-        alert.addButton("OK", action: { () -> Void in
-            self.dismissViewControllerAnimated(true, completion: nil)
-        })
-        do{
-            try self.newData!.save()
-            NSNotificationCenter.defaultCenter().postNotificationName("TalkView.didFinishEditingPhoto", object: newData)
-            alert.showSuccess("Success", subTitle:"Success")
-        }catch{
-            alert.showError("Warning", subTitle:"Couldn't post your photo", closeButtonTitle:"OK")
-        }
-    */
         
     }
     

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ParseUI
+import Parse
 
 @IBDesignable
 class PostBtn: UIButton{
@@ -67,15 +69,13 @@ class PostSegmentedControl : UISegmentedControl {
 
 class PostDetailVC: UIViewController, PaintVCDelegate{
     
-    //TODO: 描画の保存
-    // 現在はペイントを再読み込みするとUndo,Redo,Clearが出来ない
-    
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var postSegmented: PostSegmentedControl!
     
     private var postData: PFObject?
+    private var first: Bool = true
+    private var temp_paintView: PaintVC?
     var image: UIImage?
-    let paintView = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PaintVC") as? PaintVC
     
     private enum Tag: Int{
         case Meal
@@ -93,11 +93,11 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.paintView!.delegate = self
+        paintView!.delegate = self
         self.postData = PFObject(className: myChatsClassKey)
     }
     
-    // ???: 一度タグ付けしてからタグなしにするには？
+    //TODO: タグ付けを解除するボタンの設置
     @IBAction func didSelectTag(sender: UISegmentedControl) {
         
         let selectedTag = Tag(rawValue: sender.selectedSegmentIndex)!
@@ -122,20 +122,31 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         }
     }
 
-    func paintDidFinished(paintImg: UIImage){
-        
+    func paintDidFinish(paintImg: UIImage){
         self.image = paintImg
         self.postImage.image = paintImg
-        self.paintView!.dismissViewControllerAnimated(true, completion: nil)
+        paintView!.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //TODO: キャンセルした時にtemp_drawを適用する
+    // 参照型なので、複製する必要がある
+    func paintDidCancel(temp_draw: PaintVC){
+        paintView = temp_draw
     }
     
     @IBAction func didTapOnPaintBtn(sender: AnyObject) {
-        self.paintView!.image = self.image
-        
+        if first{
+            paintView!.image = self.image
+            first = false
+        }
+        temp_draw = paintView
         self.presentViewController(paintView!, animated: true, completion: nil)
     }
     
     @IBAction func didTapOnPostBtn(sender: AnyObject) {
+        
+        // 投稿する時にはpaintViewを初期化する
+        paintView = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PaintVC") as? PaintVC
         
         self.postData!.setObject(postSegmented.selectedSegmentIndex, forKey: myChatsTagKey)
         
