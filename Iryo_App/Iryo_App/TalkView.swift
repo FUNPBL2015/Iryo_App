@@ -155,7 +155,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.objects!.count + self.othercell // + (self.paginationEnabled ? 1 : 0)
+        return self.objects!.count // + (self.paginationEnabled ? 1 : 0)
     }
     
     // MARK: UITableViewDelegate

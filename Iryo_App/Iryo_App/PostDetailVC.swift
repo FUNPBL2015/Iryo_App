@@ -75,6 +75,7 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
     private var postData: PFObject?
     private var first: Bool = true
     private var temp_paintView: PaintVC?
+    var fileUploadBackgroundTaskId: UIBackgroundTaskIdentifier! = UIBackgroundTaskInvalid
     var image: UIImage?
     
     private enum Tag: Int{
@@ -169,10 +170,15 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
             self.dismissViewControllerAnimated(true, completion: nil)
         })
         do{
+            self.fileUploadBackgroundTaskId = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
+                UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
+            }
             try self.postData!.save()
+            UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
             NSNotificationCenter.defaultCenter().postNotificationName("TalkView.didFinishEditingPhoto", object: postData)
             alert.showSuccess("Success", subTitle:"Success")
         }catch{
+            UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
             alert.showError("Warning", subTitle:"Couldn't post your photo", closeButtonTitle:"OK")
         }
         

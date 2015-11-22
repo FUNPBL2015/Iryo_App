@@ -8,7 +8,7 @@
 
 import UIKit
 import AVFoundation
-
+import Parse
 
 protocol PaintVCDelegate{
     func paintDidFinish(paintImg: UIImage)
