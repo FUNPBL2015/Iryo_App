@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33C70E0DC961AD09313B5755 /* Pods_Iryo_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C00D3002AA8A8CE054F84DD /* Pods_Iryo_App.framework */; };
 		5E232A3E1B3D4ECC004A34BD /* Article3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E232A3D1B3D4ECC004A34BD /* Article3.swift */; };
 		5E232A471B3D5427004A34BD /* b_simple_124_2M.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E232A3F1B3D5427004A34BD /* b_simple_124_2M.png */; };
 		5E232A481B3D5427004A34BD /* finger-icon05_r1_c4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E232A401B3D5427004A34BD /* finger-icon05_r1_c4.png */; };
@@ -24,6 +25,13 @@
 		5E36D23C1B612C520053FBD9 /* Speaker_mute.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E36D23A1B612C520053FBD9 /* Speaker_mute.png */; };
 		5E36D23D1B612C520053FBD9 /* Speaker_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E36D23B1B612C520053FBD9 /* Speaker_play.png */; };
 		5E40CCD21B32E325007DE681 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E40CCD01B32E2B4007DE681 /* Menu.swift */; };
+		5E4E0BF01BFF6E0000297B18 /* IntentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0BEF1BFF6E0000297B18 /* IntentionView.swift */; };
+		5E4E0BF21BFF6EBA00297B18 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0BF11BFF6EBA00297B18 /* TopicView.swift */; };
+		5E4E0BF41BFF6ED700297B18 /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0BF31BFF6ED600297B18 /* TipsView.swift */; };
+		5E4E0C331C00BB0200297B18 /* IntentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0C321C00BB0200297B18 /* IntentionCell.swift */; };
+		5E4E0C351C00BB1000297B18 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0C341C00BB1000297B18 /* TopicCell.swift */; };
+		5E4E0C371C00BB1A00297B18 /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0C361C00BB1A00297B18 /* TipsCell.swift */; };
+		5E4E0C391C00F26500297B18 /* data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E0C381C00F26500297B18 /* data.csv */; };
 		5E69F2C71B3A6A82005877DC /* BaseArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */; };
 		5E69F2C91B3A85C6005877DC /* Article5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69F2C81B3A85C6005877DC /* Article5.swift */; };
 		5E77311E1BF33DCD0036AE71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E77311C1BF33DCD0036AE71 /* Main.storyboard */; };
@@ -66,7 +74,6 @@
 		5EF6AEAD1BE65C4B009D8E60 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6AEAC1BE65C4B009D8E60 /* Top.swift */; };
 		5EF6AEB71BEB3A89009D8E60 /* picture2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6AEB61BEB3A88009D8E60 /* picture2.swift */; };
 		9CE41DF91B3920CE00FEC8D4 /* Article2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE41DF81B3920CE00FEC8D4 /* Article2.swift */; };
-		F1B0B6F7F3245FEF5A00F1C7 /* libPods-Iryo_App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A08168D23703672654174D /* libPods-Iryo_App.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +106,13 @@
 		5E36D23A1B612C520053FBD9 /* Speaker_mute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Speaker_mute.png; sourceTree = "<group>"; };
 		5E36D23B1B612C520053FBD9 /* Speaker_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Speaker_play.png; sourceTree = "<group>"; };
 		5E40CCD01B32E2B4007DE681 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		5E4E0BEF1BFF6E0000297B18 /* IntentionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentionView.swift; sourceTree = "<group>"; };
+		5E4E0BF11BFF6EBA00297B18 /* TopicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
+		5E4E0BF31BFF6ED600297B18 /* TipsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
+		5E4E0C321C00BB0200297B18 /* IntentionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentionCell.swift; sourceTree = "<group>"; };
+		5E4E0C341C00BB1000297B18 /* TopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
+		5E4E0C361C00BB1A00297B18 /* TipsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
+		5E4E0C381C00F26500297B18 /* data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.csv; sourceTree = "<group>"; };
 		5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseArticleViewController.swift; sourceTree = "<group>"; };
 		5E69F2C81B3A85C6005877DC /* Article5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article5.swift; sourceTree = "<group>"; };
 		5E77311D1BF33DCD0036AE71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -145,8 +159,8 @@
 		5EDBF09C1BD7E34000973D30 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		5EF6AEAC1BE65C4B009D8E60 /* Top.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
 		5EF6AEB61BEB3A88009D8E60 /* picture2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = picture2.swift; sourceTree = "<group>"; };
+		6C00D3002AA8A8CE054F84DD /* Pods_Iryo_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Iryo_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE41DF81B3920CE00FEC8D4 /* Article2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article2.swift; sourceTree = "<group>"; };
-		E4A08168D23703672654174D /* libPods-Iryo_App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Iryo_App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1B0B6F7F3245FEF5A00F1C7 /* libPods-Iryo_App.a in Frameworks */,
+				33C70E0DC961AD09313B5755 /* Pods_Iryo_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,25 +182,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5E7A88EA1BF5CFA400CCC68B /* TalkView */ = {
+		5E4E0BF51BFF6EF100297B18 /* TalkViews */ = {
 			isa = PBXGroup;
 			children = (
-				5E7A88F31BF5D09600CCC68B /* TallkVIewCell */,
 				5E7A88EF1BF5D04D00CCC68B /* TalkView.swift */,
 				5E7B8BBB1BFDF1F700BBBBF0 /* WelcomeTalkVC.swift */,
 				5E94DA921BF5EA1D006D7A56 /* PhotoDetailVC.swift */,
 				5E94DA961BFC41D4006D7A56 /* PostDetailVC.swift */,
 				5E7A88F11BF5D07A00CCC68B /* PaintVC.swift */,
 			);
-			name = TalkView;
+			name = TalkViews;
 			sourceTree = "<group>";
 		};
-		5E7A88F31BF5D09600CCC68B /* TallkVIewCell */ = {
+		5E7A88EA1BF5CFA400CCC68B /* CommunicateVIews */ = {
+			isa = PBXGroup;
+			children = (
+				5E7A88F31BF5D09600CCC68B /* CommunicateVIewCells */,
+				5E4E0BF51BFF6EF100297B18 /* TalkViews */,
+				5E4E0BEF1BFF6E0000297B18 /* IntentionView.swift */,
+				5E4E0BF11BFF6EBA00297B18 /* TopicView.swift */,
+				5E4E0BF31BFF6ED600297B18 /* TipsView.swift */,
+			);
+			name = CommunicateVIews;
+			sourceTree = "<group>";
+		};
+		5E7A88F31BF5D09600CCC68B /* CommunicateVIewCells */ = {
 			isa = PBXGroup;
 			children = (
 				5E7A88F41BF5D0BB00CCC68B /* BaseTalkViewCell.swift */,
+				5E4E0C321C00BB0200297B18 /* IntentionCell.swift */,
+				5E4E0C341C00BB1000297B18 /* TopicCell.swift */,
+				5E4E0C361C00BB1A00297B18 /* TipsCell.swift */,
 			);
-			name = TallkVIewCell;
+			name = CommunicateVIewCells;
 			sourceTree = "<group>";
 		};
 		5E8B69381B4B7604006E12B1 /* CustomBaseItem */ = {
@@ -247,7 +275,7 @@
 				5E7DADB51B38882800B9798D /* Menu3.swift */,
 				5EB9E3131B2832A9005B7951 /* AppDelegate.swift */,
 				5EF6AEAC1BE65C4B009D8E60 /* Top.swift */,
-				5E7A88EA1BF5CFA400CCC68B /* TalkView */,
+				5E7A88EA1BF5CFA400CCC68B /* CommunicateVIews */,
 				5EB9E3151B2832A9005B7951 /* ViewController.swift */,
 				5E232A571B3D607D004A34BD /* Checklist.swift */,
 				5EAE707E1BD8CFF900893373 /* camera.swift */,
@@ -291,6 +319,7 @@
 				5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */,
 				5EAC1F3B1B33132400473C38 /* testFont1.ttf */,
 				5EB9E3121B2832A9005B7951 /* Info.plist */,
+				5E4E0C381C00F26500297B18 /* data.csv */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -324,7 +353,7 @@
 		7771F81A15CBDD107E68336A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E4A08168D23703672654174D /* libPods-Iryo_App.a */,
+				6C00D3002AA8A8CE054F84DD /* Pods_Iryo_App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -383,7 +412,7 @@
 				TargetAttributes = {
 					5EB9E30D1B2832A9005B7951 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = QY45QQ26SH;
+						DevelopmentTeam = K35M8WX89E;
 					};
 					5EB9E3221B2832A9005B7951 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -427,6 +456,7 @@
 				5E232A561B3D604D004A34BD /* b_simple_124_2L.png in Resources */,
 				5E88AD411B3523BD007679A7 /* homeImg.png in Resources */,
 				5E36D23D1B612C520053FBD9 /* Speaker_play.png in Resources */,
+				5E4E0C391C00F26500297B18 /* data.csv in Resources */,
 				5E85887D1BFB5D8D00CC5269 /* book_tate.png in Resources */,
 				5EAC1F3F1B3316C700473C38 /* ipaexm.ttf in Resources */,
 				5E232A491B3D5427004A34BD /* finger-icon05_r1_c42.png in Resources */,
@@ -508,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E7A88EC1BF5D01500CCC68B /* Constants.swift in Sources */,
+				5E4E0BF01BFF6E0000297B18 /* IntentionView.swift in Sources */,
 				5EF6AEB71BEB3A89009D8E60 /* picture2.swift in Sources */,
 				5E7A88F21BF5D07A00CCC68B /* PaintVC.swift in Sources */,
 				5E7B8BBC1BFDF1F700BBBBF0 /* WelcomeTalkVC.swift in Sources */,
@@ -518,8 +549,10 @@
 				5E94DA971BFC41D4006D7A56 /* PostDetailVC.swift in Sources */,
 				5E94DA951BFB591F006D7A56 /* Reachability.swift in Sources */,
 				5E232A501B3D5B6A004A34BD /* com3.swift in Sources */,
+				5E4E0C371C00BB1A00297B18 /* TipsCell.swift in Sources */,
 				5EDBF09D1BD7E34000973D30 /* CustomCell.swift in Sources */,
 				5EB9E3161B2832A9005B7951 /* ViewController.swift in Sources */,
+				5E4E0BF21BFF6EBA00297B18 /* TopicView.swift in Sources */,
 				9CE41DF91B3920CE00FEC8D4 /* Article2.swift in Sources */,
 				5E232A541B3D5CAB004A34BD /* com4.swift in Sources */,
 				5E7A88EE1BF5D02D00CCC68B /* SCLAlertView.swift in Sources */,
@@ -527,8 +560,10 @@
 				5EAE707F1BD8CFF900893373 /* camera.swift in Sources */,
 				5E69F2C71B3A6A82005877DC /* BaseArticleViewController.swift in Sources */,
 				5E232A581B3D607D004A34BD /* Checklist.swift in Sources */,
+				5E4E0C331C00BB0200297B18 /* IntentionCell.swift in Sources */,
 				5E8B69371B4B42C2006E12B1 /* CustomNavigationBar.swift in Sources */,
 				5EF6AEAD1BE65C4B009D8E60 /* Top.swift in Sources */,
+				5E4E0C351C00BB1000297B18 /* TopicCell.swift in Sources */,
 				5E232A521B3D5C95004A34BD /* Article4.swift in Sources */,
 				5EAC1F421B3339A500473C38 /* Article1.swift in Sources */,
 				5EB9E3141B2832A9005B7951 /* AppDelegate.swift in Sources */,
@@ -537,6 +572,7 @@
 				5E7A88F51BF5D0BB00CCC68B /* BaseTalkViewCell.swift in Sources */,
 				5E7DADB61B38882800B9798D /* Menu3.swift in Sources */,
 				5E7DADB41B3826B800B9798D /* Menu2.swift in Sources */,
+				5E4E0BF41BFF6ED700297B18 /* TipsView.swift in Sources */,
 				5EAE707B1BD8CC5700893373 /* album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,6 +632,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -675,7 +712,7 @@
 				INFOPLIST_FILE = Iryo_App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App--";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Iryo_App/Iryo_App-Bridging-Header.h";
@@ -692,7 +729,7 @@
 				INFOPLIST_FILE = Iryo_App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App--";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Iryo_App/Iryo_App-Bridging-Header.h";
