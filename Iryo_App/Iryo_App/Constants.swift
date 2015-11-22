@@ -15,6 +15,21 @@ func navigationBarHeight(callFrom: UIViewController) -> CGFloat? {
     return callFrom.navigationController?.navigationBar.frame.size.height ?? 44
 }
 
+//  MARK: Views
+// Storyboards
+let mainView: Top? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainMenu") as? Top
+//let welcomeTalkView: WelcomeTalkVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("WelcomeTalkVC") as? WelcomeTalkVC
+//let postDetailView: PostDetailVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PostDetailVC") as? PostDetailVC
+var paintView: PaintVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PaintVC") as? PaintVC
+var temp_draw: PaintVC?
+
+// CommunicateViews
+//let talkView: TalkView? = TalkView()
+//let intentionView: IntentionView? = IntentionView()
+//let topicView: TopicView? = TopicView()
+//let tipsView: TipsView? = TipsView()
+
+
 // MARK: Chats-Class
 // Class-key
 let myChatsClassKey = "chats"
@@ -33,6 +48,7 @@ let myActivityClassKey = "Activity_02"
 let myActivityContentKey = "content"
 let myActivityTypeKey = "type"
 let myActivityPhotoKey = "photo"
+let myActivityFromUserKey = "fromUser"
 
 // 正規表現
 class Regexp {

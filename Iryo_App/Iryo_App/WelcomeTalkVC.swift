@@ -1,3 +1,4 @@
+
 //
 //  WelcomeTalkVC.swift
 //  Iryo_App
@@ -7,26 +8,26 @@
 //
 
 import UIKit
+import Parse
 
 class WelcomeTalkVC: UIViewController{
-    
-    
     @IBOutlet weak var userNameTextfield: UITextField!
     @IBOutlet weak var userPasswordTextfield: UITextField!
+    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
     }
+    
+    //TODO: sign in/up の切り替え
+    //TODO: avater画像の設定
+    //TODO: textfield　ログイン中の処理
     
     func signIn(username:NSString, password:NSString) {
         PFUser.logInWithUsernameInBackground(username as String, password: password as String,
             block: {(user, error) in
             if user != nil{
-                let MainViewController: Top? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainMenu") as? Top
-                let talkViewControlloer: TalkView? = TalkView()
-                
-                self.navigationController?.setViewControllers([MainViewController!,talkViewControlloer!], animated: true)
+                self.navigationController?.setViewControllers([mainView!, self.delegate.myTabBarController], animated: true)
             }else{
                 SCLAlertView().showError("Incorrect Password", subTitle:"Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー ", closeButtonTitle:"OK")
             }
@@ -36,10 +37,7 @@ class WelcomeTalkVC: UIViewController{
     func signUp(user:PFUser) {
         user.signUpInBackgroundWithBlock{ (success, error) in
             if error == nil {
-                let MainViewController: Top? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainMenu") as? Top
-                let talkViewControlloer: TalkView? = TalkView()
-                
-                self.navigationController?.setViewControllers([MainViewController!,talkViewControlloer!], animated: true)
+                self.navigationController?.setViewControllers([mainView!, self.delegate.myTabBarController], animated: true)
             }else{
                 let errorString = error!.userInfo["error"] as! NSString
                 SCLAlertView().showError(errorString as String, subTitle:"Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー ", closeButtonTitle:"OK")

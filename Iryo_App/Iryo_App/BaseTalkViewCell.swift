@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+import ParseUI
 
 class TalkViewCell: PFTableViewCell{
     var avatarImageView: UIImageView?
@@ -27,15 +28,15 @@ class TalkViewCell: PFTableViewCell{
         
         self.backgroundColor = UIColor.clearColor()
         
-        self.contentView.layer.masksToBounds = true
-        self.contentView.layer.cornerRadius = 5.0
+//        self.contentView.layer.masksToBounds = true
+//        self.contentView.layer.cornerRadius = 5.0
         self.contentView.backgroundColor = UIColor.hexStr("FFB5F2", alpha: 1.0)
 //        self.contentView.layer.shadowOpacity = 0.5
 //        self.contentView.layer.shadowOffset = CGSizeMake(3.0, 3.0)
         
         self.avatarImageView = UIImageView()
-        self.avatarImageView!.layer.masksToBounds = true
-        self.avatarImageView!.layer.cornerRadius = 5.0
+//        self.avatarImageView!.layer.masksToBounds = true
+//        self.avatarImageView!.layer.cornerRadius = 5.0
         self.avatarImageView!.backgroundColor = UIColor.whiteColor()
         self.avatarImageView!.image = UIImage(named: "AvatarPlaceholder.png")
         self.avatarImageView!.contentMode = UIViewContentMode.ScaleAspectFill
@@ -46,8 +47,8 @@ class TalkViewCell: PFTableViewCell{
         self.timestanpLabel!.backgroundColor = UIColor.clearColor()
         self.contentView.addSubview(self.timestanpLabel!)
 
-        self.imageView!.layer.masksToBounds = true
-        self.imageView!.layer.cornerRadius = 5.0
+//        self.imageView!.layer.masksToBounds = true
+//        self.imageView!.layer.cornerRadius = 5.0
         self.imageView!.backgroundColor = UIColor.blackColor()
         self.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
         
@@ -57,8 +58,8 @@ class TalkViewCell: PFTableViewCell{
         self.contentView.addSubview(self.photoButton!)
         
         self.comments = UITextView()
-        self.comments!.layer.masksToBounds = true
-        self.comments!.layer.cornerRadius = 5.0
+//        self.comments!.layer.masksToBounds = true
+//        self.comments!.layer.cornerRadius = 5.0
         self.comments!.backgroundColor = UIColor.hexStr("FFDAFD", alpha: 1.0)
         //self.comments!.textAlignment = NSTextAlignment.Center
         self.comments!.font = UIFont.systemFontOfSize(CGFloat(20))
@@ -74,8 +75,8 @@ class TalkViewCell: PFTableViewCell{
         self.contentView.addSubview(self.commentField!)
         
         self.commentsReturn!.backgroundColor = UIColor.blueColor()
-        self.commentsReturn!.layer.masksToBounds = true
-        self.commentsReturn!.layer.cornerRadius = 5.0
+//        self.commentsReturn!.layer.masksToBounds = true
+//        self.commentsReturn!.layer.cornerRadius = 5.0
         self.commentsReturn!.setTitle("コメント", forState: UIControlState.Normal)
         self.commentsReturn!.titleLabel?.textColor = UIColor.whiteColor()
         self.contentView.addSubview(self.commentsReturn!)
@@ -105,7 +106,7 @@ class TalkViewCell: PFTableViewCell{
         super.prepareForReuse()
         //コメント欄を空にする
         self.commentField!.text = nil
-        self.comments!.text = ""
+        self.comments!.text = "読み込み中..."
     }
     
 }

@@ -9,7 +9,7 @@
         <!--Post DetailVC-->
         <scene sceneID="WHk-s4-fpO">
             <objects>
-                <viewController storyboardIdentifier="PostDetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AxJ-3Z-I4M" customClass="PostDetailVC" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AxJ-3Z-I4M" customClass="PostDetailVC" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="okg-qT-CTq"/>
                         <viewControllerLayoutGuide type="bottom" id="hiC-Cd-c4J"/>
@@ -165,7 +165,7 @@
         <!--Top-->
         <scene sceneID="fH5-jY-BJA">
             <objects>
-                <viewController storyboardIdentifier="MainMenu" id="wVS-Jx-Xbl" customClass="Top" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainMenu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wVS-Jx-Xbl" customClass="Top" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LGV-aJ-2h6"/>
                         <viewControllerLayoutGuide type="bottom" id="dEP-OU-cTh"/>
@@ -654,11 +654,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign UP / Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFE-kM-OwF">
-                                <rect key="frame" x="288" y="164" width="161" height="21"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W9y-aP-1mU">
                                 <rect key="frame" x="241" y="255" width="250" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
