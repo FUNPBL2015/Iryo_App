@@ -43,6 +43,9 @@ class Top: UIViewController {
 //        myLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-924)
 //        self.view.addSubview(myLabel)
         
+        //ボタンの同時押しを禁止する
+        self.exclusiveAllTouches()
+        
         self.talkButton.backgroundColor = UIColorFromRGB(0xFFFFFF)
         self.albumButton.backgroundColor = UIColorFromRGB(0xFFFFFF)
         self.manualButton.backgroundColor = UIColorFromRGB(0xFFFFFF)

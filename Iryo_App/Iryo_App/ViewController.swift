@@ -24,22 +24,19 @@ class ViewController: UIViewController {
         //画面が表示される直前
         
         // NavigationBarを非表示にする
-            self.navigationController?.setNavigationBarHidden(true, animated: false)
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillDisappear(animated: Bool) {
         //別の画面に遷移する直前
 
         // NavigationBarを表示する
-            self.navigationController?.setNavigationBarHidden(false, animated: false)
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //ボタンの同時押しを禁止する
-        self.exclusiveAllTouches()
         
         //背景画像表示
         let backImage: UIImage = UIImage(named: "homeImg.png")!
