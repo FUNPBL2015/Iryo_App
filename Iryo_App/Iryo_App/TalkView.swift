@@ -8,19 +8,16 @@
 
 import UIKit
 import MobileCoreServices
+import Parse
+import ParseUI
+import Synchronized
 
 class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate{
     // debug
     private var shouldReloadOnAppear: Bool = false
     private var outstandingSectionHeaderQueries: [NSObject:AnyObject]
-
-    // MARK: makeshift tabbar
-    private let leftBtn: UIButton! = UIButton(frame: CGRectMake(0, myScreenHeight - 50, myScreenWidth / 2, 50))
-    private let rightBtn: UIButton! = UIButton(frame: CGRectMake(myScreenWidth / 2, myScreenHeight - 50, myScreenWidth / 2, 50))
-    private let emptyText: UILabel = UILabel(frame: CGRectMake(myScreenWidth / 2 - 50, myScreenHeight / 2 - 30, 100, 30))
-
-    private var postBtn: UIBarButtonItem!
     
+    private let emptyText: UILabel = UILabel(frame: CGRectMake(myScreenWidth / 2 - 50, myScreenHeight / 2 - 30, 100, 30))
     
     // MARK: makeshift navbar
     //let _navbar: UILabel! = UILabel(frame: CGRectMake(0, -60, myScreenWidth, 60))
@@ -54,6 +51,9 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.tabBarController!.navigationItem.title = PFUser.currentUser()!.username
+        
+        self.loadObjects()
         // Navbar用top-margin
         //self.tableView.contentInset = UIEdgeInsetsMake(60.0, 0.0, 0.0, 0.0)
     }
@@ -75,29 +75,6 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         }else if emptyText.isDescendantOfView(self.view){
             emptyText.removeFromSuperview()
         }
-        
-        // Set up footerBtn
-        // other way
-        //let delegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        //delegate.window?.addSubview(leftBtn!)
-        //delegate.window?.addSubview(rightBtn!)
-        
-        // MARK: makeshift tabbar
-        leftBtn!.layer.borderWidth  = 3.0
-        leftBtn!.layer.borderColor  = UIColor.redColor().CGColor
-        leftBtn!.backgroundColor    = UIColor.whiteColor()
-        leftBtn!.addTarget(self, action: "didTapOnLogout:", forControlEvents: .TouchUpInside)
-        self.view.addSubview(leftBtn!)
-        self.view.bringSubviewToFront(leftBtn!)
-        leftBtn!.setImage(UIImage(named: "camera3"), forState: UIControlState.Normal)
-        
-        rightBtn!.layer.borderWidth = 3.0
-        rightBtn!.layer.borderColor = UIColor.redColor().CGColor
-        rightBtn!.backgroundColor   = UIColor.whiteColor()
-        rightBtn!.setImage(UIImage(named: "image78"), forState: UIControlState.Normal)
-        rightBtn!.addTarget(self, action: "showAlbum:", forControlEvents: .TouchUpInside)
-        self.view.addSubview(rightBtn!)
-        self.tableView.bringSubviewToFront(rightBtn!)
     }
     
     override func viewDidLoad() {
@@ -115,8 +92,11 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         defaultNotificationCenter.addObserver(self, selector: Selector("userDidPublishPhoto:"), name: "TalkView.didFinishEditingPhoto", object: nil)
         
         //initial navbar
-        postBtn = UIBarButtonItem(title: "写真の投稿", style: .Plain, target: self, action: "didTapOnPostBtn")
-        self.navigationItem.rightBarButtonItem = postBtn
+        let logoutBtn: UIBarButtonItem! = UIBarButtonItem(title: "ログアウト", style: .Plain, target: self, action: "didTapOnLogoutBtn")
+        let postBtn: UIBarButtonItem! = UIBarButtonItem(title: "写真の投稿", style: .Plain, target: self, action: "didTapOnPostBtn")
+        
+        let navRightBtns: NSArray = [postBtn, logoutBtn]
+        self.tabBarController!.navigationItem.setRightBarButtonItems(navRightBtns as? [UIBarButtonItem], animated: true)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -129,22 +109,17 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         //}
     }
     
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
-        // スクロール分フッターボタンを移動させ、見かけ上位置を固定する
-        // MARK: makeshift tabbar
-        leftBtn!.frame = CGRectMake(0, myScreenHeight - 50 + scrollView.contentOffset.y, myScreenWidth / 2, 50)
-        rightBtn!.frame = CGRectMake(myScreenWidth / 2, myScreenHeight - 50 + scrollView.contentOffset.y, myScreenWidth / 2, 50)
-    }
-    
     override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         scrollView.endEditing(true)
     }
     
-    func didTapOnLogout(sender: UIButton){
+    // ログアウト処理
+    func didTapOnLogoutBtn(){
         PFUser.logOut()
         self.navigationController!.popToRootViewControllerAnimated(true)
     }
     
+    // 投稿処理
     func didTapOnPostBtn(){
         let cameraDeviceAvailable: Bool = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         let photoLibraryAvailable: Bool = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary)
@@ -160,8 +135,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             // iPadではpopover指定する
             if let popoverController = actionController.popoverPresentationController {
                 popoverController.sourceView = self.view
-                popoverController.barButtonItem = self.navigationItem.rightBarButtonItem
-                //popoverController.permittedArrowDirections = .Any
+                popoverController.barButtonItem = self.tabBarController!.navigationItem.rightBarButtonItem
             }
             
             actionController.addAction(takePhotoAction)
@@ -174,26 +148,6 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         }
     }
     
-    func showAlbum(sender: UIButton){
-        let photoLibraryAvailable: Bool = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary)
-        
-        if photoLibraryAvailable {
-            self.shouldStartPhotoLibraryPickerController()
-        }else{
-            SCLAlertView().showError("Error", subTitle:"Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー ", closeButtonTitle:"OK")
-        }
-    }
-    
-    func showCamera(sender: UIButton){
-        let cameraDeviceAvailable: Bool = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        
-        if cameraDeviceAvailable {
-            self.shouldStartCameraController()
-        }else{
-            SCLAlertView().showError("Error", subTitle:"Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー ", closeButtonTitle:"OK")
-        }
-    }
-    
     // MARK: UITableViewDataSource
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -201,7 +155,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.objects!.count // + (self.paginationEnabled ? 1 : 0)
+        return self.objects!.count + self.othercell // + (self.paginationEnabled ? 1 : 0)
     }
     
     // MARK: UITableViewDelegate
@@ -253,7 +207,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         query.cachePolicy = PFCachePolicy.NetworkOnly
         
         if (self.objects!.count == 0 || UIApplication.sharedApplication().delegate!.performSelector(Selector("isParseReachable")) == nil){
-           // query.cachePolicy = PFCachePolicy.CacheThenNetwork
+            query.cachePolicy = PFCachePolicy.CacheThenNetwork
         }
         return query
     }
@@ -269,9 +223,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         let CellIdentifier = "Cell"
-        
-        let activity = PFQuery(className: myActivityClassKey)
-        activity.whereKey(myActivityPhotoKey, equalTo: object!)
+        let IntentionIdentifier = "Intention"
         
         let index = self.indexForObjectAtIndexPath(indexPath)
         
@@ -288,20 +240,16 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         cell!.commentField!.delegate = self
         
         cell!.commentsReturn!.tag = index
-        
+        cell!.comments!.tag = index
         cell!.photoButton!.tag = index
         cell!.imageView!.image = UIImage(named: "PlaceholderPhoto.png")
         
         //TODO: バックグラウンド時の挙動
         
-        
-        let outstandingSectionHeaderQueryStatus: Int? = self.outstandingSectionHeaderQueries[index] as? Int
-        
-        if object != nil && outstandingSectionHeaderQueryStatus == nil{
-            self.outstandingSectionHeaderQueries.removeValueForKey(index)
-            
+        if object != nil{
             cell!.imageView!.file = object!.objectForKey(myChatsGraphicFileKey) as? PFFile
             cell!.timestanpLabel!.text = TTTTimeIntervalFormatter().stringForTimeInterval(object!.createdAt!.timeIntervalSinceNow)
+            cell!.comments!.text = "読み込み中..."
             
             if cell!.imageView!.file!.isDataAvailable {
                 cell!.imageView!.loadInBackground()
@@ -310,44 +258,24 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             //FIXME: コメントがないときの処理
             // countObjects or getfirstobject or findobjects
             // cacheとnetwork分の2回読まれてしまう
-            // queryForTable()のcachethennetworkを消せばひとまず解消されます
+            // queryForTable()のcachethennetworkを消すか、nilを代入すれば解消されます
             
-            //            let _a = PFQuery(className: myActivityClassKey)
-            //            _a.whereKey(myActivityPhotoKey, equalTo: object!)
-            //              var check: PFObject?
-            //
-            //            do{ check = try _a.getFirstObject() }
-            //            catch{ check = nil}
-            
-            //            if check != nil{
-
-            activity.findObjectsInBackgroundWithBlock { (objects, error) in
-                if error == nil && objects!.count != 0{
-                    for row: PFObject in objects! {
-                        cell!.comments!.text =  cell!.comments!.text?.stringByAppendingString(row.objectForKey("content") as! String + "\n")
+            synchronized(self) {
+                let outstandingSectionHeaderQueryStatus: Int? = self.outstandingSectionHeaderQueries[index] as? Int
+                if outstandingSectionHeaderQueryStatus == nil {
+                    let activity = PFQuery(className: myActivityClassKey)
+                    activity.whereKey(myActivityPhotoKey, equalTo: object!)
+                    activity.includeKey(myActivityFromUserKey)
+                    activity.findObjectsInBackgroundWithBlock { (objects, error) in
+                        if error == nil && objects!.count > 0 {
+                            cell!.comments!.text = nil
+                            for row: PFObject in objects! {
+                                cell!.comments!.text = cell!.comments!.text!.stringByAppendingString((row.objectForKey(myActivityFromUserKey)!.username!)! + ": " + (row.objectForKey("content") as! String) + "\n")
+                            }
+                        }else{  cell?.comments!.text = "コメントがありません" }
                     }
-                }else{
-                    cell?.comments!.text = "コメントがありません"
                 }
             }
-            
-            //cacheResult = true
-            
-            //            activity.countObjectsInBackgroundWithBlock{(number, error) in
-            //                if error == nil && number > 0{
-            //                    activity.findObjectsInBackgroundWithBlock { (objects, error) in
-            //                        if(error == nil && Int(number) == objects!.count){
-            //                            for row: PFObject in objects! {
-            //                                cell!.comments!.text =  cell!.comments!.text?.stringByAppendingString(row.objectForKey("content") as! String + "\n")
-            //                            }
-            //                        }
-            //                    }
-            //                }else{
-            //                    cell?.comments!.text = "コメントがありません"
-            //                }
-            //            }
-            
-            
         }
         
         return cell
@@ -438,13 +366,10 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         
         image = UIImage(CGImage: image.CGImage!, scale: image!.scale, orientation: rotate)
         
-//        let Paint: PaintVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PaintVC") as? PaintVC
-//        Paint!.image = image
+        let postDetailView: PostDetailVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PostDetailVC") as? PostDetailVC
+        postDetailView!.image = image
         
-        let PostDetal: PostDetailVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PostDetail") as? PostDetailVC
-        PostDetal!.image = image
-        
-        self.navigationController?.pushViewController(PostDetal!, animated: true)
+        self.navigationController?.pushViewController(postDetailView!, animated: true)
         //self.presentViewController(PostDetal!, animated: true, completion: nil)
     }
     
@@ -540,7 +465,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             comment.setObject(trimmedComment, forKey: myActivityContentKey) // Set comment text
             comment.setObject("comment", forKey: myActivityTypeKey)
             comment.setObject(photo!, forKey: myActivityPhotoKey)
-            
+            comment.setObject(PFUser.currentUser()!, forKey: myActivityFromUserKey)
             
             let timer: NSTimer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("handleCommentTimeout:"), userInfo: ["comment": comment], repeats: false)
             
@@ -568,9 +493,9 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     
     //TODO: キーボードが表示される時、Viewを適切な位置にスクロールさせる
     func keyboardWillShow(note: NSNotification) {
-        let info = note.userInfo
-        let kbSize: CGSize = (info![UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size
-        self.tableView.setContentOffset(CGPointMake(0.0, self.tableView.contentSize.height-kbSize.height), animated: true)
+//        let info = note.userInfo
+//        let kbSize: CGSize = (info![UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size
+//        self.tableView.setContentOffset(CGPointMake(0.0, self.tableView.contentSize.height-kbSize.height), animated: true)
     }
     
 }
