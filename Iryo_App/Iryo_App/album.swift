@@ -33,6 +33,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     var pictureYear: Int = 0
     var pictureMonth: Int = 0
     var pictures:[AnyObject] = []
+    var dateNumber: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +57,9 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                 return
             }
             for row:PFObject in objects! {
-                var i: Int = 0
-                self.pictureDate.append(objects![i])
                 self.picture.append(row)
-                i++
+                self.pictureDate.append(objects![self.dateNumber])
+                self.dateNumber++
             }
             self.dateSet()
         }
@@ -72,7 +72,6 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         for (var i = 0; i < self.pictureDate.count; i++) {
             if let string = self.pictureDate[i].createdAt as NSDate! {
                 k.append(string)
-                print(k[0])
                         
                 self.pictureDateString = self.dateFormatter.stringFromDate(k[i]);
                 self.pictureDates = self.pictureDateString.componentsSeparatedByString("/")
@@ -81,6 +80,8 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                         
                 if (self.pictureMonth == self.currentMonth && self.pictureYear == self.currentYear){
                     self.pictures.append(self.picture[i])
+                    print(k[i])
+                    print(pictureDates)
                 }
                 self.collectionView.reloadData()
             }
@@ -97,9 +98,10 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CustomCell
+
         
-        print(pictureDates)
-        print(pictureMonth)
+        let imageTag: Int? = self.pictures[indexPath.row].objectForKey("tag") as! Int?
+        print(imageTag)
 
         let imageFile: PFFile? = self.pictures[indexPath.row].objectForKey("graphicFile") as! PFFile?
         imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
