@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import Parse
 
 
 class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -22,37 +21,69 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     var currentYear: Int = 0
     var currentMonth: Int = 0
-    var currentDay: Int = 0
     
     var now = NSDate() // 現在日時の取得
     var dateString:String = ""
     var dates:[String] = []
+    let dateFormatter:NSDateFormatter = NSDateFormatter();
+    
+    var pictureDate: [AnyObject] = []
+    var pictureDateString:String = ""
+    var pictureDates:[String] = []
+    var pictureYear: Int = 0
+    var pictureMonth: Int = 0
+    var pictures:[AnyObject] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.loadData()
         
-        let dateFormatter:NSDateFormatter = NSDateFormatter();
-        dateFormatter.locale = NSLocale(localeIdentifier: "ja")
-        dateFormatter.dateFormat = "yyyy/MM";
-        self.dateString = dateFormatter.stringFromDate(now);
+        self.dateFormatter.locale = NSLocale(localeIdentifier: "ja")
+        self.dateFormatter.dateFormat = "yyyy/MM";
+        self.dateString = self.dateFormatter.stringFromDate(now);
         dates = dateString.componentsSeparatedByString("/")
 
         dateShow()
+        loadData()
     }
     
+/* cellについて　*/
     func loadData()  {
         let query: PFQuery = PFQuery(className: myChatsClassKey)
+        query.orderByAscending("createdAt")
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if (error != nil){
                 // エラー処理
                 return
             }
             for row:PFObject in objects! {
+                var i: Int = 0
+                self.pictureDate.append(objects![i])
                 self.picture.append(row)
+                i++
             }
-            self.collectionView.reloadData()
+            self.dateSet()
+        }
+    }
+    
+    func dateSet() {
+        self.pictures = []
+        var k: [NSDate] = []
+        
+        for (var i = 0; i < self.pictureDate.count; i++) {
+            if let string = self.pictureDate[i].createdAt as NSDate! {
+                k.append(string)
+                print(k[0])
+                        
+                self.pictureDateString = self.dateFormatter.stringFromDate(k[i]);
+                self.pictureDates = self.pictureDateString.componentsSeparatedByString("/")
+                self.pictureYear  = Int(self.pictureDates[0])!
+                self.pictureMonth = Int(self.pictureDates[1])!
+                        
+                if (self.pictureMonth == self.currentMonth && self.pictureYear == self.currentYear){
+                    self.pictures.append(self.picture[i])
+                }
+                self.collectionView.reloadData()
+            }
         }
     }
     
@@ -61,24 +92,22 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return picture.count;
+        return pictures.count;
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CustomCell
-//        cell.titleSample.text = title1[indexPath.row]
-//        cell.imgSample.image = UIImage(named: picture[indexPath.row])
-//        cell.backgroundColor = UIColor.whiteColor()
-//        return cell
         
-        let imageFile: PFFile? = self.picture[indexPath.row].objectForKey("graphicFile") as! PFFile?
+        print(pictureDates)
+        print(pictureMonth)
+
+        let imageFile: PFFile? = self.pictures[indexPath.row].objectForKey("graphicFile") as! PFFile?
         imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
             if(error == nil) {
                 cell.imgSample.image = UIImage(data: imageData!)!
-            }
+                }
         })
         return cell
-        
     }
     
     // Cell が選択された場合
@@ -97,8 +126,15 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         }
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let width: CGFloat = view.frame.width / 5 - 3
+        let height: CGFloat = width
+        return CGSize(width: width, height: height)
+    }
+    
+    
+/* 日付について */
     func dateShow(){
-        
         currentYear  = Int(dates[0])!
         currentMonth = Int(dates[1])!
         timeLabel.text = (String(currentYear) + "年" + String(currentMonth) + "月")
@@ -131,6 +167,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         dates[0] = String(currentYear)
         dates[1] = String(currentMonth)
         dateShow()
+        dateSet()
     }
     
     func showPrevView () {
@@ -142,6 +179,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         dates[0] = String(currentYear)
         dates[1] = String(currentMonth)
         dateShow()
+        dateSet()
     }
     
     func getNextYearAndMonth () -> (year:Int,month:Int){
@@ -166,11 +204,4 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let width: CGFloat = view.frame.width / 5 - 3
-        let height: CGFloat = width
-        return CGSize(width: width, height: height)
-    }
-
 }
