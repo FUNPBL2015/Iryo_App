@@ -374,12 +374,7 @@
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="PVP-q1-59M">
                                 <rect key="frame" x="0.0" y="980" width="768" height="44"/>
-                                <items>
-                                    <barButtonItem title="食事" width="180" id="2uF-Pa-jB5"/>
-                                    <barButtonItem title="家族" width="180" id="LhX-1N-s8S"/>
-                                    <barButtonItem title="趣味" width="180" id="xuK-D7-GTZ"/>
-                                    <barButtonItem title="その他" width="180" id="X2Y-A1-57c"/>
-                                </items>
+                                <items/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -393,6 +388,7 @@
                         <outlet property="nextMonthButton" destination="U2Z-Z3-TFI" id="TXY-3H-U2t"/>
                         <outlet property="prevMonthButton" destination="UVD-RP-EiA" id="rk0-OK-kaX"/>
                         <outlet property="timeLabel" destination="A75-Wd-Bvs" id="Aw4-7k-PyT"/>
+                        <outlet property="toolbar" destination="PVP-q1-59M" id="p9H-w2-ve2"/>
                         <segue destination="970-FS-AEC" kind="presentation" identifier="Segues" id="O43-vP-Jan"/>
                     </connections>
                 </viewController>

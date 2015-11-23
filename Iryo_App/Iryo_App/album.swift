@@ -12,11 +12,12 @@ import UIKit
 class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var picture:[AnyObject] = []
+
     
     @IBOutlet weak var nextMonthButton: UIButton!
     @IBOutlet weak var prevMonthButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
+
     var numbar: Int?
     
     var currentYear: Int = 0
@@ -27,14 +28,27 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     var dates:[String] = []
     let dateFormatter:NSDateFormatter = NSDateFormatter();
     
+    var picture:[AnyObject] = []
     var pictureDate: [AnyObject] = []
     var pictureDateString:String = ""
     var pictureDates:[String] = []
     var pictureYear: Int = 0
     var pictureMonth: Int = 0
     var pictures:[AnyObject] = []
-    var dateNumber: Int = 0
+    var mealPicture:[AnyObject] = []
+    var familyPicture:[AnyObject] = []
+    var hobbyPicture:[AnyObject] = []
+    var otherPicture:[AnyObject] = []
+    
+    private var mealButton: UIBarButtonItem!
+    private var familyButton: UIBarButtonItem!
+    private var hobbyButton: UIBarButtonItem!
+    private var otherButton: UIBarButtonItem!
 
+    @IBOutlet weak var toolbar: UIToolbar!
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,10 +59,31 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
 
         dateShow()
         loadData()
+        
+        var myToolbar: UIToolbar!
+        myToolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 99, self.view.bounds.size.width, 40.0))
+        myToolbar.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height-20.0)
+        myToolbar.barStyle = UIBarStyle.BlackTranslucent
+        myToolbar.tintColor = UIColor.whiteColor()
+        myToolbar.backgroundColor = UIColor.blackColor()
+        
+        mealButton = UIBarButtonItem(title: "食事", style: .Plain, target: self, action: "selectTag:")
+        familyButton = UIBarButtonItem(title: "家族", style: .Plain, target: self, action: "selectTag:")
+        hobbyButton = UIBarButtonItem(title: "趣味", style: .Plain, target: self, action: "selectTag:")
+        otherButton = UIBarButtonItem(title: "その他", style: .Plain, target: self, action: "selectTag:")
+        
+        mealButton.tag = 0
+        familyButton.tag = 1
+        hobbyButton.tag = 2
+        otherButton.tag = 3
+        
+        myToolbar.items = [mealButton, familyButton, hobbyButton, otherButton]
+        self.view.addSubview(myToolbar)
     }
     
 /* cellについて　*/
     func loadData()  {
+        var i: Int = 0
         let query: PFQuery = PFQuery(className: myChatsClassKey)
         query.orderByAscending("createdAt")
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
@@ -58,8 +93,8 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             }
             for row:PFObject in objects! {
                 self.picture.append(row)
-                self.pictureDate.append(objects![self.dateNumber])
-                self.dateNumber++
+                self.pictureDate.append(objects![i])
+                i++
             }
             self.dateSet()
         }
@@ -67,6 +102,10 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     func dateSet() {
         self.pictures = []
+        self.mealPicture = []
+        self.familyPicture = []
+        self.hobbyPicture = []
+        self.otherPicture = []
         var k: [NSDate] = []
         
         for (var i = 0; i < self.pictureDate.count; i++) {
@@ -79,12 +118,46 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                 self.pictureMonth = Int(self.pictureDates[1])!
                         
                 if (self.pictureMonth == self.currentMonth && self.pictureYear == self.currentYear){
+                    
+                    let imageTag: Int = (self.picture[i].objectForKey("tag") as? Int)!
+                    print(imageTag)
+                    switch imageTag {
+                    case 0:
+                        self.mealPicture.append(self.picture[i])
+                    case 1:
+                        self.familyPicture.append(self.picture[i])
+                    case 2:
+                        self.hobbyPicture.append(self.picture[i])
+                    case 3:
+                        self.otherPicture.append(self.picture[i])
+                    case -1:
+                        break
+                    default:
+                        break // do nothing
+                    }
                     self.pictures.append(self.picture[i])
-                    print(k[i])
-                    print(pictureDates)
                 }
                 self.collectionView.reloadData()
             }
+        }
+    }
+    
+    func selectTag(sender: UIButton) {
+        switch(sender.tag) {
+        case 0:
+            self.pictures = self.mealPicture
+            self.collectionView.reloadData()
+        case 1:
+            self.pictures = self.familyPicture
+            self.collectionView.reloadData()
+        case 2:
+            self.pictures = self.hobbyPicture
+            self.collectionView.reloadData()
+        case 3:
+            self.pictures = self.otherPicture
+            self.collectionView.reloadData()
+        default:
+            break
         }
     }
     
@@ -98,10 +171,6 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CustomCell
-
-        
-        let imageTag: Int? = self.pictures[indexPath.row].objectForKey("tag") as! Int?
-        print(imageTag)
 
         let imageFile: PFFile? = self.pictures[indexPath.row].objectForKey("graphicFile") as! PFFile?
         imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
