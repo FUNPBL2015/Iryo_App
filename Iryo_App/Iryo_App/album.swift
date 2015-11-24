@@ -39,6 +39,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     var familyPicture:[AnyObject] = []
     var hobbyPicture:[AnyObject] = []
     var otherPicture:[AnyObject] = []
+    var tagNumber: Int = 0
     
     private var mealButton: UIBarButtonItem!
     private var familyButton: UIBarButtonItem!
@@ -61,23 +62,24 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         loadData()
         
         var myToolbar: UIToolbar!
-        myToolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 99, self.view.bounds.size.width, 40.0))
-        myToolbar.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height-20.0)
-        myToolbar.barStyle = UIBarStyle.BlackTranslucent
-        myToolbar.tintColor = UIColor.whiteColor()
+        myToolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 99, self.view.bounds.size.width, 99.0))
+        myToolbar.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height-49.5)
+        myToolbar.barStyle = UIBarStyle.Default
+        myToolbar.translucent = true
         myToolbar.backgroundColor = UIColor.blackColor()
         
-        mealButton = UIBarButtonItem(title: "食事", style: .Plain, target: self, action: "selectTag:")
-        familyButton = UIBarButtonItem(title: "家族", style: .Plain, target: self, action: "selectTag:")
-        hobbyButton = UIBarButtonItem(title: "趣味", style: .Plain, target: self, action: "selectTag:")
-        otherButton = UIBarButtonItem(title: "その他", style: .Plain, target: self, action: "selectTag:")
+        mealButton = UIBarButtonItem(title: "食事", style: .Done, target: self, action: "selectTag:")
+        familyButton = UIBarButtonItem(title: "家族", style: .Done, target: self, action: "selectTag:")
+        hobbyButton = UIBarButtonItem(title: "趣味", style: .Done, target: self, action: "selectTag:")
+        otherButton = UIBarButtonItem(title: "その他", style: .Done, target: self, action: "selectTag:")
+        let Blank: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         
         mealButton.tag = 0
         familyButton.tag = 1
         hobbyButton.tag = 2
         otherButton.tag = 3
         
-        myToolbar.items = [mealButton, familyButton, hobbyButton, otherButton]
+        myToolbar.items = [mealButton, Blank, familyButton, Blank, hobbyButton, Blank, otherButton]
         self.view.addSubview(myToolbar)
     }
     
@@ -136,6 +138,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                         break // do nothing
                     }
                     self.pictures.append(self.picture[i])
+                    pictureKeep(tagNumber)
                 }
                 self.collectionView.reloadData()
             }
@@ -147,15 +150,36 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         case 0:
             self.pictures = self.mealPicture
             self.collectionView.reloadData()
+            tagNumber = 1
         case 1:
             self.pictures = self.familyPicture
             self.collectionView.reloadData()
+            tagNumber = 2
         case 2:
             self.pictures = self.hobbyPicture
             self.collectionView.reloadData()
+            tagNumber = 3
         case 3:
             self.pictures = self.otherPicture
             self.collectionView.reloadData()
+            tagNumber = 4
+        default:
+            break
+        }
+    }
+    
+    func pictureKeep(number: Int) {
+        switch(number) {
+        case 0:
+            break
+        case 1:
+            self.pictures = self.mealPicture
+        case 2:
+            self.pictures = self.familyPicture
+        case 3:
+            self.pictures = self.hobbyPicture
+        case 4:
+            self.pictures = self.otherPicture
         default:
             break
         }
@@ -193,7 +217,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         if (segue.identifier == "Segues") {
             let VC: picture2 = (segue.destinationViewController as? picture2)!
             VC.numbars = numbar
-            VC.pictures = picture
+            VC.pictures = pictures
         }
     }
     
