@@ -14,6 +14,12 @@ class WelcomeTalkVC: UIViewController{
     @IBOutlet weak var userNameTextfield: UITextField!
     @IBOutlet weak var userPasswordTextfield: UITextField!
     let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    private var avater: UIImage?
+    
+    private enum Relationship: Int{
+        case aunt
+        case uncle
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +29,31 @@ class WelcomeTalkVC: UIViewController{
     //TODO: avater画像の設定
     //TODO: textfield　ログイン中の処理
     
+    @IBAction func didSelectTag(sender: UISegmentedControl) {
+        
+        let selectedTag = Relationship(rawValue: sender.selectedSegmentIndex)!
+        
+        switch selectedTag{
+        case .aunt:
+            self.avater = UIImage(named: "aunt.png")
+            print(self.avater)
+            print(selectedTag.rawValue)
+        case .uncle:
+            self.avater = UIImage(named: "uncle.png")
+            print(self.avater)
+            print(selectedTag.rawValue)
+        }
+    }
+    
     func signIn(username:NSString, password:NSString) {
         PFUser.logInWithUsernameInBackground(username as String, password: password as String,
             block: {(user, error) in
             if user != nil{
+                if let a = self.avater {
+                    let av = PFFile(data: UIImagePNGRepresentation(a)!)
+                    PFUser.currentUser()!.setObject(av!, forKey: myUserProfilePicSmallKey)
+                    PFUser.currentUser()!.saveInBackground()
+                }
                 self.navigationController?.setViewControllers([mainView!, self.delegate.myTabBarController], animated: true)
             }else{
                 SCLAlertView().showError("Incorrect Password", subTitle:"Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー ", closeButtonTitle:"OK")
@@ -38,6 +65,11 @@ class WelcomeTalkVC: UIViewController{
         user.signUpInBackgroundWithBlock{ (success, error) in
             if error == nil {
                 self.navigationController?.setViewControllers([mainView!, self.delegate.myTabBarController], animated: true)
+                if let a = self.avater {
+                    let av = PFFile(data: UIImagePNGRepresentation(a)!)
+                    PFUser.currentUser()!.setObject(av!, forKey: myUserProfilePicSmallKey)
+                    PFUser.currentUser()!.saveInBackground()
+                }
             }else{
                 let errorString = error!.userInfo["error"] as! NSString
                 SCLAlertView().showError(errorString as String, subTitle:"Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー Error エラー ", closeButtonTitle:"OK")

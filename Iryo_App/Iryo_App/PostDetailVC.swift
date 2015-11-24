@@ -150,6 +150,7 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         paintView = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PaintVC") as? PaintVC
         
         self.postData!.setObject(postSegmented.selectedSegmentIndex, forKey: myChatsTagKey)
+        self.postData!.setObject(PFUser.currentUser()!, forKey: myChatsUserKey)
         
         let resizedImage: UIImage = self.postImage.image!.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(560.0, 560.0), interpolationQuality: CGInterpolationQuality.High)
         let thumbnailImage: UIImage = self.postImage.image!.thumbnailImage(256, transparentBorder: 0, cornerRadius: 10, interpolationQuality: CGInterpolationQuality.Medium)

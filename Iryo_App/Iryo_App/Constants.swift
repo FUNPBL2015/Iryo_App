@@ -38,6 +38,7 @@ let myChatsClassKey = "chats"
 let myChatsGraphicFileKey = "graphicFile"
 let myChatsThumbnailKey = "thumbnail"
 let myChatsTagKey = "tag"
+let myChatsUserKey = "user"
 
 
 // MARK: Activity-Class
@@ -49,6 +50,10 @@ let myActivityContentKey = "content"
 let myActivityTypeKey = "type"
 let myActivityPhotoKey = "photo"
 let myActivityFromUserKey = "fromUser"
+
+// MARK: User-Class
+// User-keys
+let myUserProfilePicSmallKey = "profilePictureSmall"
 
 // 正規表現
 class Regexp {
