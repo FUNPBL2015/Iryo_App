@@ -13,14 +13,28 @@ import AVFoundation
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var networkStatus: Reachability.NetworkStatus?
     
     let speechSynthesizer = AVSpeechSynthesizer()
     var toggle:Bool = true //speakBtnトグル true=Speak,false=Pause
     
-//    var myNavigationController: UINavigationController?
-    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        
+        let MainViewController: Top? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainMenu") as? Top
+        
+        let myNavigationController: UINavigationController = UINavigationController(rootViewController: MainViewController!)
+
+        self.window?.rootViewController = myNavigationController
+        
+        // MARK: Parse-setting
+        Parse.setApplicationId("g3g8USyYIXZgFOOn2N56kVYNFm3mKjplKHg2vUzs",
+            clientKey: "Ty1zvkKZGrD5fKioNMMWlF4uh3dsUwKkFpNTbR6t")
+        
         return true
+    }
+    
+    func isParseReachable() -> Bool {
+        return self.networkStatus != .NotReachable
     }
     
     func applicationWillResignActive(application: UIApplication) {

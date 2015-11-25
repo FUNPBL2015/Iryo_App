@@ -27,6 +27,11 @@
 		5E69F2C71B3A6A82005877DC /* BaseArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */; };
 		5E69F2C91B3A85C6005877DC /* Article5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69F2C81B3A85C6005877DC /* Article5.swift */; };
 		5E77311E1BF33DCD0036AE71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E77311C1BF33DCD0036AE71 /* Main.storyboard */; };
+		5E7A88EC1BF5D01500CCC68B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7A88EB1BF5D01500CCC68B /* Constants.swift */; };
+		5E7A88EE1BF5D02D00CCC68B /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7A88ED1BF5D02D00CCC68B /* SCLAlertView.swift */; };
+		5E7A88F01BF5D04D00CCC68B /* TalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7A88EF1BF5D04D00CCC68B /* TalkView.swift */; };
+		5E7A88F21BF5D07A00CCC68B /* PaintVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7A88F11BF5D07A00CCC68B /* PaintVC.swift */; };
+		5E7A88F51BF5D0BB00CCC68B /* BaseTalkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7A88F41BF5D0BB00CCC68B /* BaseTalkViewCell.swift */; };
 		5E7DADB41B3826B800B9798D /* Menu2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7DADB31B3826B800B9798D /* Menu2.swift */; };
 		5E7DADB61B38882800B9798D /* Menu3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7DADB51B38882800B9798D /* Menu3.swift */; };
 		5E85887D1BFB5D8D00CC5269 /* book_tate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E85887C1BFB5D8D00CC5269 /* book_tate.png */; settings = {ASSET_TAGS = (); }; };
@@ -40,10 +45,12 @@
 		5E88AD431B352B66007679A7 /* pic_family.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E88AD421B352B66007679A7 /* pic_family.png */; };
 		5E8B69371B4B42C2006E12B1 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8B69361B4B42C2006E12B1 /* CustomNavigationBar.swift */; };
 		5E8B693A1B4B76B4006E12B1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8B69391B4B76B4006E12B1 /* Extension.swift */; };
+		5E94DA931BF5EA1D006D7A56 /* PhotoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94DA921BF5EA1D006D7A56 /* PhotoDetailVC.swift */; };
+		5E94DA951BFB591F006D7A56 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94DA941BFB591E006D7A56 /* Reachability.swift */; };
+		5E94DA971BFC41D4006D7A56 /* PostDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94DA961BFC41D4006D7A56 /* PostDetailVC.swift */; };
 		5EAC1F3D1B33162400473C38 /* testFont1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAC1F3B1B33132400473C38 /* testFont1.ttf */; };
 		5EAC1F3F1B3316C700473C38 /* ipaexm.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */; };
 		5EAC1F421B3339A500473C38 /* Article1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC1F411B3339A500473C38 /* Article1.swift */; };
-		5EAE70791BD8CC0F00893373 /* talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAE70781BD8CC0F00893373 /* talk.swift */; };
 		5EAE707B1BD8CC5700893373 /* album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAE707A1BD8CC5700893373 /* album.swift */; };
 		5EAE707D1BD8CC6D00893373 /* HowtoUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAE707C1BD8CC6D00893373 /* HowtoUse.swift */; };
 		5EAE707F1BD8CFF900893373 /* camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAE707E1BD8CFF900893373 /* camera.swift */; };
@@ -55,7 +62,6 @@
 		5EBF6EDE1BF32B0700295C7F /* cc-library010009109zzavm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5EBF6EDD1BF32B0700295C7F /* cc-library010009109zzavm.jpg */; };
 		5EBF6EE01BF32B1400295C7F /* 背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBF6EDF1BF32B1400295C7F /* 背景.png */; };
 		5EDBF09D1BD7E34000973D30 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDBF09C1BD7E34000973D30 /* CustomCell.swift */; };
-		5EF3380A1BDA67350002F796 /* paint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF338091BDA67350002F796 /* paint.swift */; };
 		5EF6AEAD1BE65C4B009D8E60 /* Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6AEAC1BE65C4B009D8E60 /* Top.swift */; };
 		5EF6AEB71BEB3A89009D8E60 /* picture2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6AEB61BEB3A88009D8E60 /* picture2.swift */; };
 		9CE41DF91B3920CE00FEC8D4 /* Article2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE41DF81B3920CE00FEC8D4 /* Article2.swift */; };
@@ -95,6 +101,11 @@
 		5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseArticleViewController.swift; sourceTree = "<group>"; };
 		5E69F2C81B3A85C6005877DC /* Article5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article5.swift; sourceTree = "<group>"; };
 		5E77311D1BF33DCD0036AE71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5E7A88EB1BF5D01500CCC68B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5E7A88ED1BF5D02D00CCC68B /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
+		5E7A88EF1BF5D04D00CCC68B /* TalkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkView.swift; sourceTree = "<group>"; };
+		5E7A88F11BF5D07A00CCC68B /* PaintVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintVC.swift; sourceTree = "<group>"; };
+		5E7A88F41BF5D0BB00CCC68B /* BaseTalkViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTalkViewCell.swift; sourceTree = "<group>"; };
 		5E7DADB31B3826B800B9798D /* Menu2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu2.swift; sourceTree = "<group>"; };
 		5E7DADB51B38882800B9798D /* Menu3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu3.swift; sourceTree = "<group>"; };
 		5E85887C1BFB5D8D00CC5269 /* book_tate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_tate.png; sourceTree = "<group>"; };
@@ -108,10 +119,12 @@
 		5E88AD421B352B66007679A7 /* pic_family.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic_family.png; sourceTree = "<group>"; };
 		5E8B69361B4B42C2006E12B1 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		5E8B69391B4B76B4006E12B1 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		5E94DA921BF5EA1D006D7A56 /* PhotoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailVC.swift; sourceTree = "<group>"; };
+		5E94DA941BFB591E006D7A56 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		5E94DA961BFC41D4006D7A56 /* PostDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailVC.swift; sourceTree = "<group>"; };
 		5EAC1F3B1B33132400473C38 /* testFont1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = testFont1.ttf; sourceTree = "<group>"; };
 		5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ipaexm.ttf; sourceTree = "<group>"; };
 		5EAC1F411B3339A500473C38 /* Article1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article1.swift; sourceTree = "<group>"; };
-		5EAE70781BD8CC0F00893373 /* talk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = talk.swift; sourceTree = "<group>"; };
 		5EAE707A1BD8CC5700893373 /* album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = album.swift; sourceTree = "<group>"; };
 		5EAE707C1BD8CC6D00893373 /* HowtoUse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowtoUse.swift; sourceTree = "<group>"; };
 		5EAE707E1BD8CFF900893373 /* camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = camera.swift; sourceTree = "<group>"; };
@@ -128,7 +141,6 @@
 		5EBF6EDF1BF32B1400295C7F /* 背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "背景.png"; sourceTree = "<group>"; };
 		5ED5DBE21BE08B0B0088E09A /* Iryo_App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Iryo_App-Bridging-Header.h"; sourceTree = "<group>"; };
 		5EDBF09C1BD7E34000973D30 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
-		5EF338091BDA67350002F796 /* paint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = paint.swift; sourceTree = "<group>"; };
 		5EF6AEAC1BE65C4B009D8E60 /* Top.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Top.swift; sourceTree = "<group>"; };
 		5EF6AEB61BEB3A88009D8E60 /* picture2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = picture2.swift; sourceTree = "<group>"; };
 		9CE41DF81B3920CE00FEC8D4 /* Article2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article2.swift; sourceTree = "<group>"; };
@@ -154,6 +166,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E7A88EA1BF5CFA400CCC68B /* TalkView */ = {
+			isa = PBXGroup;
+			children = (
+				5E7A88F31BF5D09600CCC68B /* TallkVIewCell */,
+				5E7A88EF1BF5D04D00CCC68B /* TalkView.swift */,
+				5E94DA921BF5EA1D006D7A56 /* PhotoDetailVC.swift */,
+				5E94DA961BFC41D4006D7A56 /* PostDetailVC.swift */,
+				5E7A88F11BF5D07A00CCC68B /* PaintVC.swift */,
+			);
+			name = TalkView;
+			sourceTree = "<group>";
+		};
+		5E7A88F31BF5D09600CCC68B /* TallkVIewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5E7A88F41BF5D0BB00CCC68B /* BaseTalkViewCell.swift */,
+			);
+			name = TallkVIewCell;
+			sourceTree = "<group>";
+		};
 		5E8B69381B4B7604006E12B1 /* CustomBaseItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +193,9 @@
 				5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */,
 				5E8B69361B4B42C2006E12B1 /* CustomNavigationBar.swift */,
 				5E8B69391B4B76B4006E12B1 /* Extension.swift */,
-				5EAC1F401B33387100473C38 /* Articles for ... */,
+				5E7A88EB1BF5D01500CCC68B /* Constants.swift */,
+				5E7A88ED1BF5D02D00CCC68B /* SCLAlertView.swift */,
+				5E94DA941BFB591E006D7A56 /* Reachability.swift */,
 			);
 			name = CustomBaseItem;
 			sourceTree = "<group>";
@@ -204,16 +238,16 @@
 			isa = PBXGroup;
 			children = (
 				5E8B69381B4B7604006E12B1 /* CustomBaseItem */,
+				5EAC1F401B33387100473C38 /* Articles for ... */,
 				5E40CCD01B32E2B4007DE681 /* Menu.swift */,
 				5E7DADB31B3826B800B9798D /* Menu2.swift */,
 				5E7DADB51B38882800B9798D /* Menu3.swift */,
 				5EB9E3131B2832A9005B7951 /* AppDelegate.swift */,
 				5EF6AEAC1BE65C4B009D8E60 /* Top.swift */,
+				5E7A88EA1BF5CFA400CCC68B /* TalkView */,
 				5EB9E3151B2832A9005B7951 /* ViewController.swift */,
 				5E232A571B3D607D004A34BD /* Checklist.swift */,
-				5EAE70781BD8CC0F00893373 /* talk.swift */,
 				5EAE707E1BD8CFF900893373 /* camera.swift */,
-				5EF338091BDA67350002F796 /* paint.swift */,
 				5EF6AEB61BEB3A88009D8E60 /* picture2.swift */,
 				5EAE707A1BD8CC5700893373 /* album.swift */,
 				5EAE707C1BD8CC6D00893373 /* HowtoUse.swift */,
@@ -341,12 +375,12 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "伊藤恵研究室メンバ";
 				TargetAttributes = {
 					5EB9E30D1B2832A9005B7951 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = U4AS42JF62;
+						DevelopmentTeam = QY45QQ26SH;
 					};
 					5EB9E3221B2832A9005B7951 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -470,17 +504,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E7A88EC1BF5D01500CCC68B /* Constants.swift in Sources */,
 				5EF6AEB71BEB3A89009D8E60 /* picture2.swift in Sources */,
+				5E7A88F21BF5D07A00CCC68B /* PaintVC.swift in Sources */,
 				5E232A3E1B3D4ECC004A34BD /* Article3.swift in Sources */,
 				5E40CCD21B32E325007DE681 /* Menu.swift in Sources */,
-				5EF3380A1BDA67350002F796 /* paint.swift in Sources */,
+				5E7A88F01BF5D04D00CCC68B /* TalkView.swift in Sources */,
 				5E8B693A1B4B76B4006E12B1 /* Extension.swift in Sources */,
+				5E94DA971BFC41D4006D7A56 /* PostDetailVC.swift in Sources */,
+				5E94DA951BFB591F006D7A56 /* Reachability.swift in Sources */,
 				5E232A501B3D5B6A004A34BD /* com3.swift in Sources */,
 				5EDBF09D1BD7E34000973D30 /* CustomCell.swift in Sources */,
 				5EB9E3161B2832A9005B7951 /* ViewController.swift in Sources */,
 				9CE41DF91B3920CE00FEC8D4 /* Article2.swift in Sources */,
 				5E232A541B3D5CAB004A34BD /* com4.swift in Sources */,
-				5EAE70791BD8CC0F00893373 /* talk.swift in Sources */,
+				5E7A88EE1BF5D02D00CCC68B /* SCLAlertView.swift in Sources */,
 				5E69F2C91B3A85C6005877DC /* Article5.swift in Sources */,
 				5EAE707F1BD8CFF900893373 /* camera.swift in Sources */,
 				5E69F2C71B3A6A82005877DC /* BaseArticleViewController.swift in Sources */,
@@ -491,6 +529,8 @@
 				5EAC1F421B3339A500473C38 /* Article1.swift in Sources */,
 				5EB9E3141B2832A9005B7951 /* AppDelegate.swift in Sources */,
 				5EAE707D1BD8CC6D00893373 /* HowtoUse.swift in Sources */,
+				5E94DA931BF5EA1D006D7A56 /* PhotoDetailVC.swift in Sources */,
+				5E7A88F51BF5D0BB00CCC68B /* BaseTalkViewCell.swift in Sources */,
 				5E7DADB61B38882800B9798D /* Menu3.swift in Sources */,
 				5E7DADB41B3826B800B9798D /* Menu2.swift in Sources */,
 				5EAE707B1BD8CC5700893373 /* album.swift in Sources */,
@@ -556,6 +596,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -571,7 +612,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PODS_ROOT = "${SRCROOT}/Pods";
@@ -611,7 +652,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PODS_ROOT = "${SRCROOT}/Pods";
 				SDKROOT = iphoneos;
@@ -628,9 +669,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Iryo_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App--";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Iryo_App/Iryo_App-Bridging-Header.h";
@@ -645,9 +686,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Iryo_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App--";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Iryo_App/Iryo_App-Bridging-Header.h";
@@ -668,6 +709,7 @@
 				);
 				INFOPLIST_FILE = Iryo_AppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.----------.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Iryo_App.app/Iryo_App";
 			};
@@ -683,6 +725,7 @@
 				);
 				INFOPLIST_FILE = Iryo_AppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.----------.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Iryo_App.app/Iryo_App";
 			};

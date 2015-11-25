@@ -136,8 +136,8 @@ class camera: UIViewController {
 //        let out: String = NSString(data: self.myImageData, encoding: NSUTF8StringEncoding)! as String
         
         if (segue.identifier == "mySegue") {
-            let VC: paint = (segue.destinationViewController as? paint)!
-            VC.pictureData = myImageData
+            //let VC: paint = (segue.destinationViewController as? paint)!
+            //VC.pictureData = myImageData
         }
     }
 
