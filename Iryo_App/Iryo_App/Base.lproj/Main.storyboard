@@ -9,7 +9,7 @@
         <!--Post DetailVC-->
         <scene sceneID="WHk-s4-fpO">
             <objects>
-                <viewController storyboardIdentifier="PostDetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AxJ-3Z-I4M" customClass="PostDetailVC" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AxJ-3Z-I4M" customClass="PostDetailVC" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="okg-qT-CTq"/>
                         <viewControllerLayoutGuide type="bottom" id="hiC-Cd-c4J"/>
@@ -632,6 +632,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cgi-A7-RWH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1987" y="-1732"/>
+        </scene>
+        <!--Welcome TalkVC-->
+        <scene sceneID="fhG-OA-YRh">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeTalkVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E1M-3A-n19" customClass="WelcomeTalkVC" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="28S-A5-h9R"/>
+                        <viewControllerLayoutGuide type="bottom" id="JH1-fX-F5Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ziA-lO-O0w">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W9y-aP-1mU">
+                                <rect key="frame" x="241" y="255" width="250" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4bN-rL-kj2">
+                                <rect key="frame" x="241" y="303" width="250" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sv2-Dd-PiH">
+                                <rect key="frame" x="347" y="372" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="didTapOnLogin:" destination="E1M-3A-n19" eventType="touchUpInside" id="Lwo-H6-GZU"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="t1D-Vt-b4O">
+                                <rect key="frame" x="274" y="437" width="185" height="29"/>
+                                <segments>
+                                    <segment title="おばあちゃん"/>
+                                    <segment title="おじいちゃん"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didSelectTag:" destination="E1M-3A-n19" eventType="valueChanged" id="Ght-5O-Q6p"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="userNameTextfield" destination="W9y-aP-1mU" id="SL4-Is-2v4"/>
+                        <outlet property="userPasswordTextfield" destination="4bN-rL-kj2" id="bdk-cQ-mep"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wga-Dd-89f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-209" y="-5384"/>
         </scene>
         <!--PaintVC-->
         <scene sceneID="4FL-HN-2Cd">

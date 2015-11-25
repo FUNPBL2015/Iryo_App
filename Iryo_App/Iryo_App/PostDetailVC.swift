@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ParseUI
+import Parse
 
 @IBDesignable
 class PostBtn: UIButton{
@@ -71,8 +73,10 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
     @IBOutlet weak var postSegmented: PostSegmentedControl!
     
     private var postData: PFObject?
+    private var first: Bool = true
+    private var temp_paintView: PaintVC?
+    var fileUploadBackgroundTaskId: UIBackgroundTaskIdentifier! = UIBackgroundTaskInvalid
     var image: UIImage?
-    let paintView = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PaintVC") as? PaintVC
     
     private enum Tag: Int{
         case Meal
@@ -90,10 +94,11 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.paintView!.delegate = self
+        paintView!.delegate = self
         self.postData = PFObject(className: myChatsClassKey)
     }
     
+    //TODO: タグ付けを解除するボタンの設置
     @IBAction func didSelectTag(sender: UISegmentedControl) {
         
         let selectedTag = Tag(rawValue: sender.selectedSegmentIndex)!
@@ -118,22 +123,34 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         }
     }
 
-    func paintDidFinished(modalText: UIImage){
-        
-        self.image = modalText
-        self.postImage.image = modalText
-        self.paintView!.dismissViewControllerAnimated(true, completion: nil)
+    func paintDidFinish(paintImg: UIImage){
+        self.image = paintImg
+        self.postImage.image = paintImg
+        paintView!.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //TODO: キャンセルした時にtemp_drawを適用する
+    // 参照型なので、複製する必要がある
+    func paintDidCancel(temp_draw: PaintVC){
+        paintView = temp_draw
     }
     
     @IBAction func didTapOnPaintBtn(sender: AnyObject) {
-        self.paintView!.image = self.image
-        
+        if first{
+            paintView!.image = self.image
+            first = false
+        }
+        temp_draw = paintView
         self.presentViewController(paintView!, animated: true, completion: nil)
     }
     
     @IBAction func didTapOnPostBtn(sender: AnyObject) {
         
+        // 投稿する時にはpaintViewを初期化する
+        paintView = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PaintVC") as? PaintVC
+        
         self.postData!.setObject(postSegmented.selectedSegmentIndex, forKey: myChatsTagKey)
+        self.postData!.setObject(PFUser.currentUser()!, forKey: myChatsUserKey)
         
         let resizedImage: UIImage = self.postImage.image!.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(560.0, 560.0), interpolationQuality: CGInterpolationQuality.High)
         let thumbnailImage: UIImage = self.postImage.image!.thumbnailImage(256, transparentBorder: 0, cornerRadius: 10, interpolationQuality: CGInterpolationQuality.Medium)
@@ -154,10 +171,15 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
             self.dismissViewControllerAnimated(true, completion: nil)
         })
         do{
+            self.fileUploadBackgroundTaskId = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
+                UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
+            }
             try self.postData!.save()
+            UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
             NSNotificationCenter.defaultCenter().postNotificationName("TalkView.didFinishEditingPhoto", object: postData)
             alert.showSuccess("Success", subTitle:"Success")
         }catch{
+            UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
             alert.showError("Warning", subTitle:"Couldn't post your photo", closeButtonTitle:"OK")
         }
         

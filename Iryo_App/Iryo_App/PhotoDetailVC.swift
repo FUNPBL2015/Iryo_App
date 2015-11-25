@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class PhotoDetailVC: UIViewController{
     private var photoView: PFImageView?

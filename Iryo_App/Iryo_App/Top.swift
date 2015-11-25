@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class Top: UIViewController {
     
@@ -21,14 +22,14 @@ class Top: UIViewController {
         //画面が表示される直前
         
         // NavigationBarを非表示にする
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillDisappear(animated: Bool) {
         //別の画面に遷移する直前
         
         // NavigationBarを表示する
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewDidLoad() {
@@ -38,13 +39,16 @@ class Top: UIViewController {
         // NavBarを生成
         self.navigationController?.navigationBar
         
-        let myLabel = UILabel(frame: CGRectMake(0,0,120,50))
-        myLabel.textColor = UIColor.blackColor()
-        myLabel.layer.masksToBounds = true
-        myLabel.text = "タイトル"
-        myLabel.textAlignment = NSTextAlignment.Center
-        myLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-924)
-        self.view.addSubview(myLabel)
+        //ボタンの同時押しを禁止する
+        self.exclusiveAllTouches()
+        
+//        let myLabel = UILabel(frame: CGRectMake(0,0,120,50))
+//        myLabel.textColor = UIColor.blackColor()
+//        myLabel.layer.masksToBounds = true
+//        myLabel.text = "タイトル"
+//        myLabel.textAlignment = NSTextAlignment.Center
+//        myLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-924)
+//        self.view.addSubview(myLabel)
         
         //ボタンの同時押しを禁止する
         self.exclusiveAllTouches()
@@ -88,9 +92,13 @@ class Top: UIViewController {
     }
     
     @IBAction func shouldTransportTalkView(sender: AnyObject) {
-        let talkViewControlloer: TalkView? = TalkView()
-        
-        self.navigationController?.pushViewController(talkViewControlloer!, animated: true)
+        if PFUser.currentUser() == nil{
+            let welcomeTalkView: WelcomeTalkVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("WelcomeTalkVC") as? WelcomeTalkVC
+            self.navigationController?.pushViewController(welcomeTalkView!, animated: true)
+        }else{
+            let delegate: AppDelegate? = UIApplication.sharedApplication().delegate as? AppDelegate
+            self.navigationController?.pushViewController(delegate!.myTabBarController, animated: true)
+        }
     }
     
     func UIColorFromRGB(rgbValue: Int) -> UIColor {

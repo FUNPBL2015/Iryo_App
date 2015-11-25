@@ -11,8 +11,6 @@
 
 #import "ACEDrawingView.h"
 #import "TTTTimeIntervalFormatter.h"
-#import "Parse.h"
-#import "ParseUI.h"
 #import "UIImage+AF+Additions.h"
 
 #endif /* Iryo_App_Bridging_Header_h */

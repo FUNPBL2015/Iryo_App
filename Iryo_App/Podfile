@@ -1,16 +1,17 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, ‘7.1’
+# platform :ios, '7.1'
 # Uncomment this line if you're using Swift
-# use_frameworks!
+use_frameworks!
 
 target 'Iryo_App' do
-   pod ‘ACEDrawingView’
+   pod 'ACEDrawingView'
    pod 'Parse'
    pod 'ParseUI'
    pod 'FormatterKit'
    pod 'UIImage+AF+Additions', :git => 'https://github.com/melvitax/UIImageAFAdditions.git' 
+   pod 'Synchronized'
 end
-
+   
 target 'Iryo_AppTests' do
 
 end
