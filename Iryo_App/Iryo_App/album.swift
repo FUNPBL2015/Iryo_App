@@ -8,47 +8,35 @@
 
 import UIKit
 
-
 class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
-
-    
     @IBOutlet weak var nextMonthButton: UIButton!
     @IBOutlet weak var prevMonthButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
-
-    var numbar: Int?
     
     var currentYear: Int = 0
     var currentMonth: Int = 0
+    var pictureYear: Int = 0
+    var pictureMonth: Int = 0
     
-    var now = NSDate() // 現在日時の取得
+    var now = NSDate()
     var dateString:String = ""
     var dates:[String] = []
+    var pictureDateString:String = ""
+    var pictureDates:[String] = []
     let dateFormatter:NSDateFormatter = NSDateFormatter();
     
     var picture:[AnyObject] = []
     var pictureDate: [AnyObject] = []
-    var pictureDateString:String = ""
-    var pictureDates:[String] = []
-    var pictureYear: Int = 0
-    var pictureMonth: Int = 0
     var pictures:[AnyObject] = []
     var mealPicture:[AnyObject] = []
     var familyPicture:[AnyObject] = []
     var hobbyPicture:[AnyObject] = []
     var otherPicture:[AnyObject] = []
+    
+    var numbar: Int?
     var tagNumber: Int = 0
-    
-    private var mealButton: UIBarButtonItem!
-    private var familyButton: UIBarButtonItem!
-    private var hobbyButton: UIBarButtonItem!
-    private var otherButton: UIBarButtonItem!
-
-    @IBOutlet weak var toolbar: UIToolbar!
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,16 +50,14 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         loadData()
         
         var myToolbar: UIToolbar!
-        myToolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 99, self.view.bounds.size.width, 99.0))
-        myToolbar.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height-49.5)
-        myToolbar.barStyle = UIBarStyle.Default
-        myToolbar.translucent = true
-        myToolbar.backgroundColor = UIColor.blackColor()
+        myToolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 44, self.view.bounds.size.width, 40.0))
+        myToolbar.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height-20)
+        myToolbar.tintColor = UIColor.grayColor()
         
-        mealButton = UIBarButtonItem(title: "食事", style: .Done, target: self, action: "selectTag:")
-        familyButton = UIBarButtonItem(title: "家族", style: .Done, target: self, action: "selectTag:")
-        hobbyButton = UIBarButtonItem(title: "趣味", style: .Done, target: self, action: "selectTag:")
-        otherButton = UIBarButtonItem(title: "その他", style: .Done, target: self, action: "selectTag:")
+        let mealButton = UIBarButtonItem(title: "食事", style: .Plain, target: self, action: "selectTag:")
+        let familyButton = UIBarButtonItem(title: "家族", style: .Plain, target: self, action: "selectTag:")
+        let hobbyButton = UIBarButtonItem(title: "趣味", style: .Plain, target: self, action: "selectTag:")
+        let otherButton = UIBarButtonItem(title: "その他", style: .Plain, target: self, action: "selectTag:")
         let Blank: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         
         mealButton.tag = 0
@@ -79,7 +65,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         hobbyButton.tag = 2
         otherButton.tag = 3
         
-        myToolbar.items = [mealButton, Blank, familyButton, Blank, hobbyButton, Blank, otherButton]
+        myToolbar.items = [Blank, mealButton, Blank, familyButton, Blank, hobbyButton, Blank, otherButton, Blank]
         self.view.addSubview(myToolbar)
     }
     
@@ -135,10 +121,10 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                     case -1:
                         break
                     default:
-                        break // do nothing
+                        break
                     }
                     self.pictures.append(self.picture[i])
-                    pictureKeep(tagNumber)
+                    tagKeep(tagNumber)
                 }
                 self.collectionView.reloadData()
             }
@@ -168,7 +154,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         }
     }
     
-    func pictureKeep(number: Int) {
+    func tagKeep(number: Int) {
         switch(number) {
         case 0:
             break

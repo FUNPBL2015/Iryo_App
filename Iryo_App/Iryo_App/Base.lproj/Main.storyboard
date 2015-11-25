@@ -372,10 +372,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="PVP-q1-59M">
-                                <rect key="frame" x="0.0" y="980" width="768" height="44"/>
-                                <items/>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -388,7 +384,6 @@
                         <outlet property="nextMonthButton" destination="U2Z-Z3-TFI" id="TXY-3H-U2t"/>
                         <outlet property="prevMonthButton" destination="UVD-RP-EiA" id="rk0-OK-kaX"/>
                         <outlet property="timeLabel" destination="A75-Wd-Bvs" id="Aw4-7k-PyT"/>
-                        <outlet property="toolbar" destination="PVP-q1-59M" id="p9H-w2-ve2"/>
                         <segue destination="970-FS-AEC" kind="presentation" identifier="Segues" id="O43-vP-Jan"/>
                     </connections>
                 </viewController>
