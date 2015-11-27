@@ -75,7 +75,7 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
     private var postData: PFObject?
     private var first: Bool = true
     private var temp_paintView: PaintVC?
-    var fileUploadBackgroundTaskId: UIBackgroundTaskIdentifier! = UIBackgroundTaskInvalid
+    private var fileUploadBackgroundTaskId: UIBackgroundTaskIdentifier! = UIBackgroundTaskInvalid
     var image: UIImage?
     
     private enum Tag: Int{
@@ -132,7 +132,7 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
     //TODO: キャンセルした時にtemp_drawを適用する
     // 参照型なので、複製する必要がある
     func paintDidCancel(temp_draw: PaintVC){
-        paintView = temp_draw
+        //paintView = temp_draw
     }
     
     @IBAction func didTapOnPaintBtn(sender: AnyObject) {
@@ -140,14 +140,11 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
             paintView!.image = self.image
             first = false
         }
-        temp_draw = paintView
+        //temp_draw = paintView
         self.presentViewController(paintView!, animated: true, completion: nil)
     }
     
     @IBAction func didTapOnPostBtn(sender: AnyObject) {
-        
-        // 投稿する時にはpaintViewを初期化する
-        paintView = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PaintVC") as? PaintVC
         
         self.postData!.setObject(postSegmented.selectedSegmentIndex, forKey: myChatsTagKey)
         self.postData!.setObject(PFUser.currentUser()!, forKey: myChatsUserKey)
@@ -168,8 +165,9 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         let alert = SCLAlertView()
         alert.showCloseButton = false
         alert.addButton("OK", action: { () -> Void in
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.navigationController?.popViewControllerAnimated(true)
         })
+        
         do{
             self.fileUploadBackgroundTaskId = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
                 UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
@@ -177,14 +175,13 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
             try self.postData!.save()
             UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
             NSNotificationCenter.defaultCenter().postNotificationName("TalkView.didFinishEditingPhoto", object: postData)
-            alert.showSuccess("Success", subTitle:"Success")
+            alert.showSuccess("Success", subTitle:"Success", closeButtonTitle: "OK")
         }catch{
             UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
             alert.showError("Warning", subTitle:"Couldn't post your photo", closeButtonTitle:"OK")
         }
         
-        self.navigationController?.popViewControllerAnimated(true)
-    }
+            }
     
     
 }

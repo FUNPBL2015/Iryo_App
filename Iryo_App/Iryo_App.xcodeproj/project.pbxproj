@@ -196,19 +196,19 @@
 			name = TalkViews;
 			sourceTree = "<group>";
 		};
-		5E7A88EA1BF5CFA400CCC68B /* CommunicateVIews */ = {
+		5E7A88EA1BF5CFA400CCC68B /* CommunicateViews */ = {
 			isa = PBXGroup;
 			children = (
-				5E7A88F31BF5D09600CCC68B /* CommunicateVIewCells */,
+				5E7A88F31BF5D09600CCC68B /* CommunicateViewCells */,
 				5E4E0BF51BFF6EF100297B18 /* TalkViews */,
 				5E4E0BEF1BFF6E0000297B18 /* IntentionView.swift */,
 				5E4E0BF11BFF6EBA00297B18 /* TopicView.swift */,
 				5E4E0BF31BFF6ED600297B18 /* TipsView.swift */,
 			);
-			name = CommunicateVIews;
+			name = CommunicateViews;
 			sourceTree = "<group>";
 		};
-		5E7A88F31BF5D09600CCC68B /* CommunicateVIewCells */ = {
+		5E7A88F31BF5D09600CCC68B /* CommunicateViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				5E7A88F41BF5D0BB00CCC68B /* BaseTalkViewCell.swift */,
@@ -216,7 +216,7 @@
 				5E4E0C341C00BB1000297B18 /* TopicCell.swift */,
 				5E4E0C361C00BB1A00297B18 /* TipsCell.swift */,
 			);
-			name = CommunicateVIewCells;
+			name = CommunicateViewCells;
 			sourceTree = "<group>";
 		};
 		5E8B69381B4B7604006E12B1 /* CustomBaseItem */ = {
@@ -277,7 +277,7 @@
 				5E7DADB51B38882800B9798D /* Menu3.swift */,
 				5EB9E3131B2832A9005B7951 /* AppDelegate.swift */,
 				5EF6AEAC1BE65C4B009D8E60 /* Top.swift */,
-				5E7A88EA1BF5CFA400CCC68B /* CommunicateVIews */,
+				5E7A88EA1BF5CFA400CCC68B /* CommunicateViews */,
 				5EB9E3151B2832A9005B7951 /* ViewController.swift */,
 				5E232A571B3D607D004A34BD /* Checklist.swift */,
 				5EAE707E1BD8CFF900893373 /* camera.swift */,

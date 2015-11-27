@@ -48,6 +48,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -55,7 +56,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         
         self.loadObjects()
         // Navbar用top-margin
-        self.tableView.contentInset = UIEdgeInsetsMake(70.0, 0.0, 0.0, 0.0)
+        //self.tableView.contentInset = UIEdgeInsetsMake(70.0, 0.0, 0.0, 0.0)
     }
     
     override func viewWillLayoutSubviews() {
@@ -121,6 +122,10 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     
     // 投稿処理
     func didTapOnPostBtn(){
+        
+        // 投稿するときにPaintViewを初期化する
+        paintView = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PaintVC") as? PaintVC
+        
         let cameraDeviceAvailable: Bool = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         let photoLibraryAvailable: Bool = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary)
         
@@ -256,7 +261,6 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             cell!.timestanpLabel!.text = TTTTimeIntervalFormatter().stringForTimeInterval(object!.createdAt!.timeIntervalSinceNow)
             
             if let p = object!.objectForKey(myChatsUserKey)?.objectForKey(myUserProfilePicSmallKey) as? PFFile{
-                print(index)
                 cell!.avatarImageView!.file = p
                 cell!.avatarImageView!.loadInBackground()
             }
