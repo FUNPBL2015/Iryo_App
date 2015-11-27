@@ -10,8 +10,13 @@ import UIKit
 
 class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSource{
     private var myTableView: UITableView!
-    private var data: [[String]]!
+    private var dataarray: [[String]]!
     private var count: Int! = 0
+    // セルを自動追加する間隔（秒）
+    private let interval: NSTimeInterval = 30.0
+    // 初回起動時間
+    private let firstTime: NSDate? = NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as? NSDate
+    private var displayLink: CADisplayLink? = CADisplayLink()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,55 +30,67 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         myTableView.delegate = self
         self.view.addSubview(myTableView)
         
-        // 表示できる残りセル数をカウント
-        if Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) / 30 >= 10{
-            self.count = 0
-        }else{
-            self.count = 10 - Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) / 30
-        }
-        
         // csvファイルの読み込み
         let path = NSBundle.mainBundle().pathForResource("data", ofType: "csv")
         let data = try! String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
-        var dataarray = [[String]]()
         
         let lines = data.componentsSeparatedByString("\n")
+        self.dataarray = [[String]]()
         for line in lines{
-            dataarray.append(line.componentsSeparatedByString(","))
+            self.dataarray.append(line.componentsSeparatedByString(","))
         }
         
-        // アニメーション処理
-        self.data = dataarray
+        // 表示できる残りセル数をカウント
+        if Int(NSDate().timeIntervalSinceDate(self.firstTime!)) / Int(self.interval) >= 10{
+            self.count = 0
+        }else{
+            self.count = 10 - Int(NSDate().timeIntervalSinceDate(self.firstTime!)) / Int(self.interval)
+        }
         
         // 10フレーム毎にupdateを呼び出す
-        let displayLink = CADisplayLink(target: self, selector: Selector("update:"))
-        displayLink.frameInterval = 10
-        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
+        self.displayLink = CADisplayLink(target: self, selector: Selector("update:"))
+        self.displayLink!.frameInterval = 10
+        self.displayLink!.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
+        
+        // debug：titleに経過時間を表示する
+        let displayLinkTest = CADisplayLink(target: self, selector: Selector("update_test:"))
+        displayLinkTest.frameInterval = 10
+        displayLinkTest.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
     }
     
-    func update(displayLink: CADisplayLink){
-        
+    func update_test(displayLink: CADisplayLink){
         // 初回起動からの経過時間をカウントする
-        if !(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate).isEqual(NSNull) {
-            self.tabBarController?.navigationItem.title = Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)).description
+        if !(self.firstTime)!.isEqual(NSNull) {
+            self.tabBarController?.navigationItem.title = Int(NSDate().timeIntervalSinceDate(self.firstTime!)).description
         }else{
             self.tabBarController?.navigationItem.title = "Nil"
         }
-        
+    }
+    
+    func update(displayLink: CADisplayLink){
         // セルが追加される時にupdateDataを呼び出す
-        if (Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) % 30) == 0 && Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) / 30 <= 10{
-            updateData()
+        if (Int(NSDate().timeIntervalSinceDate(self.firstTime!)) % Int(self.interval)) == 0 && Int(NSDate().timeIntervalSinceDate(self.firstTime!)) / Int(self.interval) <= self.dataarray.count{
+            var timer = NSTimer()
+            self.displayLink!.invalidate()
+            self.displayLink = nil
+            updateData(timer)
+            timer = NSTimer.scheduledTimerWithTimeInterval(self.interval, target: self, selector: Selector("updateData:"), userInfo: nil, repeats: true)
+            // 別スレッドでタイマー動作させる（スクロール中のタイマー停止回避）
+            NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
+        }else if Int(NSDate().timeIntervalSinceDate(self.firstTime!)) / Int(self.interval) > self.dataarray.count {
+            self.displayLink!.invalidate()
+            self.displayLink = nil
         }
     }
     
-    func updateData(){
-        if self.count >= 0{ self.count!-- }
-        
-        // TableViewの上からセルを追加していく
-        self.myTableView.beginUpdates()
-        self.myTableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
-        sleep(1) // ???: numberOfRowsInSectionが間に合っていない？　要検討
-        self.myTableView.endUpdates()
+    func updateData(timer: NSTimer){
+        if self.count > 0{
+            self.count!--
+            // TableViewの上からセルを追加していく
+            self.myTableView.beginUpdates()
+            self.myTableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
+            self.myTableView.endUpdates()
+        }else{ timer.invalidate() }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -81,10 +98,10 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) / 30 <= 10 {
-            return Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) / 30
+        if Int(NSDate().timeIntervalSinceDate(self.firstTime!)) / Int(self.interval) <= self.dataarray.count {
+            return self.dataarray.count - self.count
         }else{
-            return 10
+            return self.dataarray.count
         }
     }
     
@@ -107,10 +124,10 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             cell = IntentionViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
         }
         
-        if indexPath.row < self.data.count && (Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) / 30) > indexPath.row && self.count >= 0{
-            cell!.mylabel.text = self.data[self.data.count - self.count - indexPath.row - 1][0]
-            cell!.myTextView?.text = self.data[self.data.count - self.count - indexPath.row - 1][1]
-            cell!.myPhoto?.text = self.data[self.data.count - self.count - indexPath.row - 1][2]
+        if indexPath.row < self.dataarray.count && (Int(NSDate().timeIntervalSinceDate(self.firstTime!)) / Int(self.interval)) > indexPath.row && self.count >= 0{
+            cell!.mylabel.text = self.dataarray[self.dataarray.count - self.count - indexPath.row - 1][0]
+            cell!.myTextView?.text = self.dataarray[self.dataarray.count - self.count - indexPath.row - 1][1]
+            cell!.myPhoto?.text = self.dataarray[self.dataarray.count - self.count - indexPath.row - 1][2]
         }else{
             cell!.mylabel.text = nil
             cell!.myTextView?.text = nil
