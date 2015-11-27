@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class picture2: UIViewController{
     
@@ -56,8 +57,6 @@ class picture2: UIViewController{
             })
         }
     }
-        
-        
         
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

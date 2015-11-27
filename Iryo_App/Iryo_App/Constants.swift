@@ -52,6 +52,8 @@ let myActivityPhotoKey = "photo"
 let myActivityFromUserKey = "fromUser"
 
 // MARK: User-Class
+//Class-key
+let myUserClassKey = "User"
 // User-keys
 let myUserProfilePicSmallKey = "profilePictureSmall"
 

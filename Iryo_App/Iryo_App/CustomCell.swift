@@ -12,6 +12,7 @@ class CustomCell: UICollectionViewCell {
     
     @IBOutlet var imgSample:UIImageView!
 
+    @IBOutlet var userPicture: UIImageView!
     
     override init(frame: CGRect){
         super.init(frame: frame)

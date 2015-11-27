@@ -101,6 +101,11 @@ class Top: UIViewController {
         }
     }
     
+    @IBAction func shouldTransportAlbumView(sender: AnyObject) {
+            let albumView: albumlogin? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("albumlogin") as? albumlogin
+            self.navigationController?.pushViewController(albumView!, animated: true)
+           }
+    
     func UIColorFromRGB(rgbValue: Int) -> UIColor {
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,

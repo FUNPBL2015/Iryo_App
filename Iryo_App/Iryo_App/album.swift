@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -17,14 +18,9 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     var currentYear: Int = 0
     var currentMonth: Int = 0
-    var pictureYear: Int = 0
-    var pictureMonth: Int = 0
     
-    var now = NSDate()
     var dateString:String = ""
     var dates:[String] = []
-    var pictureDateString:String = ""
-    var pictureDates:[String] = []
     let dateFormatter:NSDateFormatter = NSDateFormatter();
     
     var picture:[AnyObject] = []
@@ -34,12 +30,24 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     var familyPicture:[AnyObject] = []
     var hobbyPicture:[AnyObject] = []
     var otherPicture:[AnyObject] = []
+    var allPicture:[AnyObject] = []
     
     var numbar: Int?
     var tagNumber: Int = 0
     
+    var usernames:[AnyObject]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "みんなのアルバム"
+        
+        timeLabel.textAlignment = NSTextAlignment.Center
+        timeLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-924)
+        nextMonthButton.layer.position = CGPoint(x: self.view.bounds.width/4, y:self.view.bounds.height-924)
+        prevMonthButton.layer.position = CGPoint(x: self.view.bounds.width*3/4, y:self.view.bounds.height-824)
+        
+        let now = NSDate()
         
         self.dateFormatter.locale = NSLocale(localeIdentifier: "ja")
         self.dateFormatter.dateFormat = "yyyy/MM";
@@ -54,6 +62,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         myToolbar.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height-20)
         myToolbar.tintColor = UIColor.grayColor()
         
+        let allButton = UIBarButtonItem(title: "時間", style: .Plain, target: self, action: "selectTag:")
         let mealButton = UIBarButtonItem(title: "食事", style: .Plain, target: self, action: "selectTag:")
         let familyButton = UIBarButtonItem(title: "家族", style: .Plain, target: self, action: "selectTag:")
         let hobbyButton = UIBarButtonItem(title: "趣味", style: .Plain, target: self, action: "selectTag:")
@@ -64,13 +73,15 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         familyButton.tag = 1
         hobbyButton.tag = 2
         otherButton.tag = 3
+        allButton.tag = 4
         
-        myToolbar.items = [Blank, mealButton, Blank, familyButton, Blank, hobbyButton, Blank, otherButton, Blank]
+        myToolbar.items = [Blank, allButton, Blank, mealButton, Blank, familyButton, Blank, hobbyButton, Blank, otherButton, Blank]
         self.view.addSubview(myToolbar)
     }
     
 /* cellについて　*/
     func loadData()  {
+                print(usernames)
         var i: Int = 0
         let query: PFQuery = PFQuery(className: myChatsClassKey)
         query.orderByAscending("createdAt")
@@ -89,66 +100,75 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func dateSet() {
-        self.pictures = []
-        self.mealPicture = []
-        self.familyPicture = []
-        self.hobbyPicture = []
-        self.otherPicture = []
+        var pictureYear: Int = 0
+        var pictureMonth: Int = 0
+        var pictureDateString:String = ""
+        var pictureDates:[String] = []
+        pictures = []
+        mealPicture = []
+        familyPicture = []
+        hobbyPicture = []
+        otherPicture = []
+        allPicture = []
         var k: [NSDate] = []
         
         for (var i = 0; i < self.pictureDate.count; i++) {
             if let string = self.pictureDate[i].createdAt as NSDate! {
                 k.append(string)
                         
-                self.pictureDateString = self.dateFormatter.stringFromDate(k[i]);
-                self.pictureDates = self.pictureDateString.componentsSeparatedByString("/")
-                self.pictureYear  = Int(self.pictureDates[0])!
-                self.pictureMonth = Int(self.pictureDates[1])!
+                pictureDateString = self.dateFormatter.stringFromDate(k[i]);
+                pictureDates = pictureDateString.componentsSeparatedByString("/")
+                pictureYear  = Int(pictureDates[0])!
+                pictureMonth = Int(pictureDates[1])!
                         
-                if (self.pictureMonth == self.currentMonth && self.pictureYear == self.currentYear){
+                if (pictureMonth == self.currentMonth && pictureYear == self.currentYear){
                     
-                    let imageTag: Int = (self.picture[i].objectForKey("tag") as? Int)!
-                    print(imageTag)
+                    let imageTag: Int = (picture[i].objectForKey("tag") as? Int)!
                     switch imageTag {
                     case 0:
-                        self.mealPicture.append(self.picture[i])
+                        mealPicture.append(picture[i])
                     case 1:
-                        self.familyPicture.append(self.picture[i])
+                        familyPicture.append(picture[i])
                     case 2:
-                        self.hobbyPicture.append(self.picture[i])
+                        hobbyPicture.append(picture[i])
                     case 3:
-                        self.otherPicture.append(self.picture[i])
+                        otherPicture.append(picture[i])
                     case -1:
                         break
                     default:
                         break
                     }
-                    self.pictures.append(self.picture[i])
+                    pictures.append(picture[i])
+                    allPicture.append(picture[i])
                     tagKeep(tagNumber)
                 }
-                self.collectionView.reloadData()
             }
+            self.collectionView.reloadData()
         }
     }
     
     func selectTag(sender: UIButton) {
         switch(sender.tag) {
         case 0:
-            self.pictures = self.mealPicture
-            self.collectionView.reloadData()
+            pictures = mealPicture
+            collectionView.reloadData()
             tagNumber = 1
         case 1:
-            self.pictures = self.familyPicture
-            self.collectionView.reloadData()
+            pictures = familyPicture
+            collectionView.reloadData()
             tagNumber = 2
         case 2:
-            self.pictures = self.hobbyPicture
-            self.collectionView.reloadData()
+            pictures = hobbyPicture
+            collectionView.reloadData()
             tagNumber = 3
         case 3:
-            self.pictures = self.otherPicture
-            self.collectionView.reloadData()
+            pictures = otherPicture
+            collectionView.reloadData()
             tagNumber = 4
+        case 4:
+            pictures = allPicture
+            collectionView.reloadData()
+            tagNumber = 5
         default:
             break
         }
@@ -159,13 +179,15 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         case 0:
             break
         case 1:
-            self.pictures = self.mealPicture
+            pictures = mealPicture
         case 2:
-            self.pictures = self.familyPicture
+            pictures = familyPicture
         case 3:
-            self.pictures = self.hobbyPicture
+            pictures = hobbyPicture
         case 4:
-            self.pictures = self.otherPicture
+            pictures = otherPicture
+        case 5:
+            pictures = allPicture
         default:
             break
         }
@@ -181,8 +203,9 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CustomCell
+//        print(pictures[indexPath.row])
 
-        let imageFile: PFFile? = self.pictures[indexPath.row].objectForKey("graphicFile") as! PFFile?
+        let imageFile: PFFile? = pictures[indexPath.row].objectForKey("graphicFile") as! PFFile?
         imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
             if(error == nil) {
                 cell.imgSample.image = UIImage(data: imageData!)!
@@ -199,16 +222,17 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Segues") {
-            let VC: picture2 = (segue.destinationViewController as? picture2)!
+            let VC = segue.destinationViewController as! picture2
             VC.numbars = numbar
             VC.pictures = pictures
+            VC.navigationItem.title = ""
         }
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let width: CGFloat = view.frame.width / 5 - 3
+        let width: CGFloat = view.frame.width / 4
         let height: CGFloat = width
         return CGSize(width: width, height: height)
     }
@@ -280,9 +304,5 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             prev_year--
         }
         return (prev_year,prev_month)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
