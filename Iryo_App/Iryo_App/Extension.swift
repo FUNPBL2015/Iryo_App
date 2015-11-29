@@ -8,6 +8,20 @@
 
 import UIKit
 
+
+extension UIView {
+    // UIViewをキャプチャ、UIImageとして出力する
+    func screenCapture() -> UIImage{
+        let rect = self.bounds
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        let context: CGContextRef = UIGraphicsGetCurrentContext()!
+        self.layer.renderInContext(context)
+        let capturedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return capturedImage
+    }
+}
+
 extension UIViewController {
     
     /** UIButtonの同時押しを禁止する */

@@ -6,6 +6,9 @@
 //  Copyright © 2015年 b1013075. All rights reserved.
 //
 
+import UIKit
+import ACEDrawingView
+
 // MARK: Device-Info
 let myScreenWidth = UIScreen.mainScreen().bounds.width
 let myScreenHeight = UIScreen.mainScreen().bounds.height
@@ -21,7 +24,8 @@ let mainView: Top? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).i
 //let welcomeTalkView: WelcomeTalkVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("WelcomeTalkVC") as? WelcomeTalkVC
 //let postDetailView: PostDetailVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PostDetailVC") as? PostDetailVC
 var paintView: PaintVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PaintVC") as? PaintVC
-var temp_draw: PaintVC?
+var temp_undo: UInt?
+var temp_redo: UInt?
 
 // CommunicateViews
 //let talkView: TalkView? = TalkView()

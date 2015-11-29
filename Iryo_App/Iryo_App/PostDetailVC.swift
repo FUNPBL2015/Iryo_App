@@ -9,6 +9,9 @@
 import UIKit
 import ParseUI
 import Parse
+import FormatterKit
+import ACEDrawingView
+import UIImage_AF_Additions
 
 @IBDesignable
 class PostBtn: UIButton{
@@ -74,7 +77,6 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
     
     private var postData: PFObject?
     private var first: Bool = true
-    private var temp_paintView: PaintVC?
     private var fileUploadBackgroundTaskId: UIBackgroundTaskIdentifier! = UIBackgroundTaskInvalid
     var image: UIImage?
     
@@ -126,13 +128,7 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
     func paintDidFinish(paintImg: UIImage){
         self.image = paintImg
         self.postImage.image = paintImg
-        paintView!.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    //TODO: キャンセルした時にtemp_drawを適用する
-    // 参照型なので、複製する必要がある
-    func paintDidCancel(temp_draw: PaintVC){
-        //paintView = temp_draw
+        paintView!.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func didTapOnPaintBtn(sender: AnyObject) {
@@ -140,8 +136,14 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
             paintView!.image = self.image
             first = false
         }
-        //temp_draw = paintView
-        self.presentViewController(paintView!, animated: true, completion: nil)
+        
+        // view deep copy, subclassが削除される？
+        //temp_draw = NSKeyedUnarchiver.unarchiveObjectWithData(NSKeyedArchiver.archivedDataWithRootObject(paintView!.drawingView)) as? ACEDrawingView
+        
+        temp_undo = paintView!.drawingView.undoSteps
+        temp_redo = paintView!.drawingView.redoSteps
+        
+        self.navigationController?.pushViewController(paintView!, animated: true)
     }
     
     @IBAction func didTapOnPostBtn(sender: AnyObject) {
@@ -149,10 +151,11 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         self.postData!.setObject(postSegmented.selectedSegmentIndex, forKey: myChatsTagKey)
         self.postData!.setObject(PFUser.currentUser()!, forKey: myChatsUserKey)
         
-        let resizedImage: UIImage = self.postImage.image!.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(560.0, 560.0), interpolationQuality: CGInterpolationQuality.High)
-        let thumbnailImage: UIImage = self.postImage.image!.thumbnailImage(256, transparentBorder: 0, cornerRadius: 10, interpolationQuality: CGInterpolationQuality.Medium)
+        let resizedImgge: UIImage = self.postImage.image!.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(self.postImage.image!.size.width , self.postImage.image!.size.height), interpolationQuality: CGInterpolationQuality.High)
+        let thumbnailImage: UIImage = self.postImage.image!.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(self.postImage.frame.width, self.postImage.frame.height), interpolationQuality: CGInterpolationQuality.Default)
+        //let thumbnailImage: UIImage = self.postImage.image!.thumbnailImage(256, transparentBorder: 0, cornerRadius: 10, interpolationQuality: CGInterpolationQuality.Medium)
         
-        let imageData: NSData = UIImageJPEGRepresentation(resizedImage, 0.8)!
+        let imageData: NSData = UIImagePNGRepresentation(resizedImgge)!
         let thumbnailImageData: NSData = UIImagePNGRepresentation(thumbnailImage)!
         
         let photoFile = PFFile(data: imageData)
