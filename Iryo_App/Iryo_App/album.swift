@@ -25,7 +25,6 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     var picture:[AnyObject] = []
     var allPicture:[AnyObject] = []
-//    var pictureDate: [AnyObject] = []
     var pictures:[AnyObject] = []
     var mealPicture:[AnyObject] = []
     var familyPicture:[AnyObject] = []
@@ -92,7 +91,6 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                 return
             }
             for row:PFObject in objects! {
-//                self.pictureDate.append(objects![i])
                 self.allPicture.append(row)
                 i++
             }
@@ -114,10 +112,10 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         var k: [NSDate] = []
         
         for(var n = 0 ; n < allPicture.count ; n++){
-            if(self.allPicture[n].objectForKey("user")?.objectForKey("username") != nil){
-                let check: String? = self.allPicture[n].objectForKey("user")?.objectForKey("username") as! String?
+            if(allPicture[n].objectForKey("user")?.objectForKey("username") != nil){
+                let check: String? = allPicture[n].objectForKey("user")?.objectForKey("username") as! String?
                 for(var m = 0 ; m < usernames.count ; m++){
-                    if(check == self.usernames[m] as? String){
+                    if(check == usernames[m] as? String){
                         picture.append(allPicture[n])
                         print(allPicture[n])
                     }
@@ -125,8 +123,8 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             }
         }
         
-        for (var i = 0; i < self.picture.count; i++) {
-            if let string = self.picture[i].createdAt as NSDate! {
+        for (var i = 0; i < picture.count; i++) {
+            if let string = picture[i].createdAt as NSDate! {
                 k.append(string)
                         
                 pictureDateString = self.dateFormatter.stringFromDate(k[i]);
@@ -216,11 +214,6 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CustomCell
-        
-//        print(usernames[1])
-//        if(pictures[indexPath.row].objectForKey("user")?.objectForKey("username") != nil){
-//        print(pictures[indexPath.row].objectForKey("user")?.objectForKey("username") as! String)
-//        }
 
         let imageFile: PFFile? = pictures[indexPath.row].objectForKey("graphicFile") as! PFFile?
         imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in

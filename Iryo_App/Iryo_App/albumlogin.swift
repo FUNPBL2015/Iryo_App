@@ -13,6 +13,7 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     
     @IBOutlet weak var loginView: UICollectionView!
     @IBOutlet weak var decide: UIButton!
+    @IBOutlet weak var allButton: UIButton!
     var user:[AnyObject] = []
     var number:[AnyObject] = []
     var username:[AnyObject] = []
@@ -32,6 +33,7 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         self.view.addSubview(myLabel)
         
         decide.addTarget(self, action: "clickDecideButton:", forControlEvents: .TouchUpInside)
+        allButton.addTarget(self, action: "allSelect:", forControlEvents: .TouchUpInside)
         
         loadData()
 
@@ -96,6 +98,17 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     func clickDecideButton(sender: UIButton){
         performSegueWithIdentifier("albumsegue",sender: nil)
         username = []
+    }
+    
+    func allSelect(sender: UIButton){
+        var n = username.count
+        for(n ; n > 0 ; n--){
+            username.removeAtIndex(n-1)
+        }
+        for(var i = 0 ; i < user.count ; i++){
+        username.append(user[i].objectForKey("username") as! String)
+        }
+        print(username)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
