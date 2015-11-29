@@ -9,8 +9,8 @@
 #ifndef Iryo_App_Bridging_Header_h
 #define Iryo_App_Bridging_Header_h
 
-#import "ACEDrawingView.h"
-#import "TTTTimeIntervalFormatter.h"
-#import "UIImage+AF+Additions.h"
+//#import "ACEDrawingView.h"
+//#import "TTTTimeIntervalFormatter.h"
+//#import "UIImage+AF+Additions.h"
 
 #endif /* Iryo_App_Bridging_Header_h */

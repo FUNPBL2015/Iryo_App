@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import ACEDrawingView
 
 class camera: UIViewController {
     
