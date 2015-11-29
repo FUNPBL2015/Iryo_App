@@ -11,6 +11,7 @@ import MobileCoreServices
 import Parse
 import ParseUI
 import Synchronized
+import FormatterKit
 
 class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate{
     // debug
@@ -257,7 +258,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         
         
         if object != nil {
-            cell!.imageView!.file = object!.objectForKey(myChatsGraphicFileKey) as? PFFile
+            cell!.imageView!.file = object!.objectForKey(myChatsThumbnailKey) as? PFFile
             cell!.timestanpLabel!.text = TTTTimeIntervalFormatter().stringForTimeInterval(object!.createdAt!.timeIntervalSinceNow)
             
             if let p = object!.objectForKey(myChatsUserKey)?.objectForKey(myUserProfilePicSmallKey) as? PFFile{
