@@ -62,6 +62,8 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("usercell", forIndexPath: indexPath) as! CustomCell
+        
+//        print(user[indexPath.row].objectForKey("username"))
     
         let imageFile: PFFile? = user[indexPath.row].objectForKey("profilePictureSmall") as! PFFile?
         imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in

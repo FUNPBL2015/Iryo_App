@@ -24,13 +24,14 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     let dateFormatter:NSDateFormatter = NSDateFormatter();
     
     var picture:[AnyObject] = []
-    var pictureDate: [AnyObject] = []
+    var allPicture:[AnyObject] = []
+//    var pictureDate: [AnyObject] = []
     var pictures:[AnyObject] = []
     var mealPicture:[AnyObject] = []
     var familyPicture:[AnyObject] = []
     var hobbyPicture:[AnyObject] = []
     var otherPicture:[AnyObject] = []
-    var allPicture:[AnyObject] = []
+    var timePicture:[AnyObject] = []
     
     var numbar: Int?
     var tagNumber: Int = 0
@@ -62,7 +63,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         myToolbar.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height-20)
         myToolbar.tintColor = UIColor.grayColor()
         
-        let allButton = UIBarButtonItem(title: "時間", style: .Plain, target: self, action: "selectTag:")
+        let timeButton = UIBarButtonItem(title: "時間", style: .Plain, target: self, action: "selectTag:")
         let mealButton = UIBarButtonItem(title: "食事", style: .Plain, target: self, action: "selectTag:")
         let familyButton = UIBarButtonItem(title: "家族", style: .Plain, target: self, action: "selectTag:")
         let hobbyButton = UIBarButtonItem(title: "趣味", style: .Plain, target: self, action: "selectTag:")
@@ -73,26 +74,26 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         familyButton.tag = 1
         hobbyButton.tag = 2
         otherButton.tag = 3
-        allButton.tag = 4
+        timeButton.tag = 4
         
-        myToolbar.items = [Blank, allButton, Blank, mealButton, Blank, familyButton, Blank, hobbyButton, Blank, otherButton, Blank]
+        myToolbar.items = [Blank, timeButton, Blank, mealButton, Blank, familyButton, Blank, hobbyButton, Blank, otherButton, Blank]
         self.view.addSubview(myToolbar)
     }
     
 /* cellについて　*/
     func loadData()  {
-                print(usernames)
         var i: Int = 0
         let query: PFQuery = PFQuery(className: myChatsClassKey)
         query.orderByAscending("createdAt")
+        query.includeKey(myChatsUserKey)
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if (error != nil){
                 // エラー処理
                 return
             }
             for row:PFObject in objects! {
-                self.picture.append(row)
-                self.pictureDate.append(objects![i])
+//                self.pictureDate.append(objects![i])
+                self.allPicture.append(row)
                 i++
             }
             self.dateSet()
@@ -109,11 +110,23 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         familyPicture = []
         hobbyPicture = []
         otherPicture = []
-        allPicture = []
+        timePicture = []
         var k: [NSDate] = []
         
-        for (var i = 0; i < self.pictureDate.count; i++) {
-            if let string = self.pictureDate[i].createdAt as NSDate! {
+        for(var n = 0 ; n < allPicture.count ; n++){
+            if(self.allPicture[n].objectForKey("user")?.objectForKey("username") != nil){
+                let check: String? = self.allPicture[n].objectForKey("user")?.objectForKey("username") as! String?
+                for(var m = 0 ; m < usernames.count ; m++){
+                    if(check == self.usernames[m] as? String){
+                        picture.append(allPicture[n])
+                        print(allPicture[n])
+                    }
+                }
+            }
+        }
+        
+        for (var i = 0; i < self.picture.count; i++) {
+            if let string = self.picture[i].createdAt as NSDate! {
                 k.append(string)
                         
                 pictureDateString = self.dateFormatter.stringFromDate(k[i]);
@@ -139,7 +152,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                         break
                     }
                     pictures.append(picture[i])
-                    allPicture.append(picture[i])
+                    timePicture.append(picture[i])
                     tagKeep(tagNumber)
                 }
             }
@@ -166,7 +179,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             collectionView.reloadData()
             tagNumber = 4
         case 4:
-            pictures = allPicture
+            pictures = timePicture
             collectionView.reloadData()
             tagNumber = 5
         default:
@@ -187,7 +200,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         case 4:
             pictures = otherPicture
         case 5:
-            pictures = allPicture
+            pictures = timePicture
         default:
             break
         }
@@ -203,7 +216,11 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CustomCell
-//        print(pictures[indexPath.row])
+        
+//        print(usernames[1])
+//        if(pictures[indexPath.row].objectForKey("user")?.objectForKey("username") != nil){
+//        print(pictures[indexPath.row].objectForKey("user")?.objectForKey("username") as! String)
+//        }
 
         let imageFile: PFFile? = pictures[indexPath.row].objectForKey("graphicFile") as! PFFile?
         imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
