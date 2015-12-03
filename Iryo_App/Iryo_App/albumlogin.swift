@@ -17,13 +17,14 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     var user:[AnyObject] = []
     var number:[AnyObject] = []
     var username:[AnyObject] = []
+    let myLabel = UILabel(frame: CGRectMake(0,0,500,100))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.title = "ユーザー選択"
         
-        let myLabel = UILabel(frame: CGRectMake(0,0,500,100))
+        
         myLabel.textColor = UIColor.blackColor()
         myLabel.layer.masksToBounds = true
         myLabel.text = "見たい人を選んでください"
@@ -34,6 +35,8 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         
         decide.addTarget(self, action: "clickDecideButton:", forControlEvents: .TouchUpInside)
         allButton.addTarget(self, action: "allSelect:", forControlEvents: .TouchUpInside)
+        
+        allButton.tag = 100
         
         loadData()
 
@@ -79,25 +82,28 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath) {
         var m = 0
         var location:[Int] = []
-//        print(String(user[indexPath.row].objectForKey("username")))
+        
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)!
+        
         username.append(user[indexPath.row].objectForKey("username") as! String)
         let check: String = user[indexPath.row].objectForKey("username") as! String
         for(var i = 0 ; i < username.count ; i++){
             if(check == username[i] as! String){
                 m++
                 location.append(i)
-                if(m / 2 == 1){
-                username.removeAtIndex(location[1])
-                username.removeAtIndex(location[0])
+                if(m % 2 == 0){
+                    username.removeAtIndex(location[1])
+                    username.removeAtIndex(location[0])
+                    cell.selected = false
                     print(username)
                 }
             }
         }
-    }
-    
-    func clickDecideButton(sender: UIButton){
-        performSegueWithIdentifier("albumsegue",sender: nil)
-        username = []
+        if cell.selected == true {
+            cell.backgroundColor = UIColor.redColor()
+        } else if cell.selected == false {
+            cell.backgroundColor = UIColor.clearColor()
+        }
     }
     
     func allSelect(sender: UIButton){
@@ -106,9 +112,21 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             username.removeAtIndex(n-1)
         }
         for(var i = 0 ; i < user.count ; i++){
-        username.append(user[i].objectForKey("username") as! String)
+            username.append(user[i].objectForKey("username") as! String)
         }
+        performSegueWithIdentifier("albumsegue",sender: nil)
         print(username)
+        username = []
+    }
+    
+    func clickDecideButton(sender: UIButton){
+        if(username.count != 0){
+            performSegueWithIdentifier("albumsegue",sender: nil)
+            username = []
+            myLabel.textColor = UIColor.blackColor()
+        }else{
+            myLabel.textColor = UIColor.redColor()
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

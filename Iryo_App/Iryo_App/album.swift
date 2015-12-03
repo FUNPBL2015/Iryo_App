@@ -37,6 +37,14 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     var usernames:[AnyObject]!
     
+    var slidePicture:[NSData] = []
+    var slideNumber = 0
+    var displayWidth: CGFloat = 0.0
+    var displayHeight: CGFloat = 0.0
+    var imageView: UIImageView!
+    var timer: NSTimer!
+    var stopButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,6 +85,9 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         
         myToolbar.items = [Blank, timeButton, Blank, mealButton, Blank, familyButton, Blank, hobbyButton, Blank, otherButton, Blank]
         self.view.addSubview(myToolbar)
+        
+        let myBarButton = UIBarButtonItem(title: "スライドショー", style: .Plain, target: self, action: "slide:")
+        self.navigationItem.setRightBarButtonItem(myBarButton, animated: true)
     }
     
 /* cellについて　*/
@@ -117,7 +128,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                 for(var m = 0 ; m < usernames.count ; m++){
                     if(check == usernames[m] as? String){
                         picture.append(allPicture[n])
-                        print(allPicture[n])
+//                       print(allPicture[n])
                     }
                 }
             }
@@ -154,35 +165,34 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                     tagKeep(tagNumber)
                 }
             }
-            self.collectionView.reloadData()
         }
+        slidePicture = []
+        self.collectionView.reloadData()
+        allPicture = []
     }
     
     func selectTag(sender: UIButton) {
         switch(sender.tag) {
         case 0:
             pictures = mealPicture
-            collectionView.reloadData()
             tagNumber = 1
         case 1:
             pictures = familyPicture
-            collectionView.reloadData()
             tagNumber = 2
         case 2:
             pictures = hobbyPicture
-            collectionView.reloadData()
             tagNumber = 3
         case 3:
             pictures = otherPicture
-            collectionView.reloadData()
             tagNumber = 4
         case 4:
             pictures = timePicture
-            collectionView.reloadData()
             tagNumber = 5
         default:
             break
         }
+        slidePicture = []
+        collectionView.reloadData()
     }
     
     func tagKeep(number: Int) {
@@ -219,13 +229,15 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
             if(error == nil) {
                 cell.imgSample.image = UIImage(data: imageData!)!
+                self.slidePicture.append(imageData!)
+//                print(imageData)
                 }
         })
         return cell
     }
     
     // Cell が選択された場合
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         numbar = indexPath.row
         if numbar != nil {
             performSegueWithIdentifier("Segues",sender: nil)
@@ -315,4 +327,70 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         }
         return (prev_year,prev_month)
     }
+    
+    
+    
+    func slide(sender: UIButton) {
+        collectionView.hidden = true
+        nextMonthButton.hidden = true
+        prevMonthButton.hidden = true
+        timeLabel.hidden = true
+        
+        displayWidth = self.view.frame.width
+        displayHeight = self.view.frame.height
+        
+        let image:UIImage! = UIImage(data: slidePicture[0])
+        imageView = UIImageView(frame: CGRect(x: 0, y: 75, width: displayWidth, height: displayWidth))
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        imageView.image = image;
+        self.view.addSubview(imageView)
+        
+        stopButton = UIButton(frame: CGRectMake(0, 0, 200, 50))
+        stopButton.backgroundColor = UIColor.redColor()
+        stopButton.layer.masksToBounds = true
+        stopButton.layer.cornerRadius = 20.0
+        stopButton.setTitle("停止", forState: UIControlState.Normal)
+        stopButton.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-124)
+
+        stopButton.addTarget(self, action: "slideStop:", forControlEvents: .TouchUpInside)
+        self.view.addSubview(stopButton)
+        
+        timerInitialized()
+    }
+    
+    func timerInitialized () {
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("nextPage"), userInfo: nil, repeats: true)
+    }
+    
+    func nextPage (){
+        slideNumber++
+        if(slideNumber < slidePicture.count){
+            imageView.image = UIImage(data: slidePicture[slideNumber])
+        }else {
+            imageView.removeFromSuperview()
+            stopButton.removeFromSuperview()
+            collectionView.hidden = false
+            nextMonthButton.hidden = false
+            prevMonthButton.hidden = false
+            timeLabel.hidden = false
+            dateShow()
+            dateSet()
+            timer.invalidate()
+            slideNumber = 0
+        }
+    }
+    
+    func slideStop(sender: UIButton){
+        imageView.removeFromSuperview()
+        stopButton.removeFromSuperview()
+        collectionView.hidden = false
+        nextMonthButton.hidden = false
+        prevMonthButton.hidden = false
+        timeLabel.hidden = false
+        dateShow()
+        dateSet()
+        timer.invalidate()
+        slideNumber = 0
+    }
+
 }

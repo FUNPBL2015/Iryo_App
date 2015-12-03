@@ -300,14 +300,21 @@
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tCo-fo-oEl">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sZC-Wl-HEi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="sZC-Wl-HEi" secondAttribute="trailing" id="4k8-JM-wtF"/>
                                             <constraint firstItem="tCo-fo-oEl" firstAttribute="leading" secondItem="MGC-CV-kaW" secondAttribute="leadingMargin" id="Gw3-bk-ASl"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="tCo-fo-oEl" secondAttribute="trailing" id="PQh-8u-DMV"/>
                                             <constraint firstItem="tCo-fo-oEl" firstAttribute="top" secondItem="MGC-CV-kaW" secondAttribute="topMargin" id="QVD-6W-aRx"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="tCo-fo-oEl" secondAttribute="bottom" id="cfp-8R-myb"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="sZC-Wl-HEi" secondAttribute="bottom" id="ffh-qq-Rq8"/>
+                                            <constraint firstItem="sZC-Wl-HEi" firstAttribute="top" secondItem="MGC-CV-kaW" secondAttribute="topMargin" id="hVc-Hk-yQP"/>
+                                            <constraint firstItem="sZC-Wl-HEi" firstAttribute="leading" secondItem="MGC-CV-kaW" secondAttribute="leadingMargin" id="rMW-XT-xmp"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="userPicture" destination="tCo-fo-oEl" id="4ff-tH-yMi"/>
