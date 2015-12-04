@@ -39,8 +39,6 @@ class TalkViewCell: PFTableViewCell{
         self.contentView.layer.shadowRadius = 3.0
         
         self.avatarImageView = PFImageView()
-//        self.avatarImageView!.layer.masksToBounds = true
-//        self.avatarImageView!.layer.cornerRadius = 5.0
         self.avatarImageView!.backgroundColor = UIColor.clearColor()
         self.avatarImageView!.contentMode = UIViewContentMode.ScaleAspectFill
         self.contentView.addSubview(self.avatarImageView!)
@@ -52,12 +50,12 @@ class TalkViewCell: PFTableViewCell{
 
         self.imageView!.layer.masksToBounds = true
         self.imageView!.layer.cornerRadius = 5.0
-        self.imageView!.backgroundColor = UIColor.blackColor()
+        self.imageView!.backgroundColor = UIColor.clearColor()
         self.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
         
         // MARK: Testing - to the detail screen by tapping
         self.photoButton = UIButton(type: UIButtonType.Custom)
-        self.photoButton!.backgroundColor = UIColor.clearColor()
+        self.photoButton!.backgroundColor = UIColor.blackColor()
         self.contentView.addSubview(self.photoButton!)
         
         self.comments = UITextView()

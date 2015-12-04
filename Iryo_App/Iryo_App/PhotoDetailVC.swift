@@ -30,12 +30,17 @@ class PhotoDetailVC: UIViewController{
         self.view.backgroundColor = UIColor.blackColor()
         
         let imageFile: PFFile? = self.image!.objectForKey(myChatsGraphicFileKey) as? PFFile
-        let img = UIImage(data: try! imageFile!.getData())
+        var img = UIImage()
+        if imageFile != nil {
+            img = UIImage(data: try! imageFile!.getData())!
+        }else{
+            img = UIImage(named: "PlaceholderPhoto.png")!
+        }
         
         self.photoView = PFImageView(frame: CGRectMake(0, navigationBarHeight(self)! + myStatusBarHeight, myScreenWidth, myScreenHeight - (navigationBarHeight(self)! + myStatusBarHeight)))
         
-        if((img!.size.width <= myScreenWidth)&&(img!.size.height <= myScreenHeight)){
-            self.photoView!.frame = CGRectMake(0, 0, img!.size.width, img!.size.height)
+        if((img.size.width <= myScreenWidth)&&(img.size.height <= myScreenHeight)){
+            self.photoView!.frame = CGRectMake(0, 0, img.size.width, img.size.height)
             self.photoView!.center = CGPointMake(myScreenWidth / 2 , ((myScreenHeight + (navigationBarHeight(self)! + myStatusBarHeight)) / 2))
         }
         
