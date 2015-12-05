@@ -132,18 +132,23 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
     }
     
     @IBAction func didTapOnPaintBtn(sender: AnyObject) {
+        
+        (sender as! UIButton).enabled = false
+        
         if first{
             paintView!.image = self.image
             first = false
         }
         
-        // view deep copy, subclassが削除される？
+        // deep copy, subclassが削除される？
         //temp_draw = NSKeyedUnarchiver.unarchiveObjectWithData(NSKeyedArchiver.archivedDataWithRootObject(paintView!.drawingView)) as? ACEDrawingView
         
         temp_undo = paintView!.drawingView.undoSteps
         temp_redo = paintView!.drawingView.redoSteps
         
         self.navigationController?.pushViewController(paintView!, animated: true)
+        
+        (sender as! UIButton).enabled = true
     }
     
     @IBAction func didTapOnPostBtn(sender: AnyObject) {

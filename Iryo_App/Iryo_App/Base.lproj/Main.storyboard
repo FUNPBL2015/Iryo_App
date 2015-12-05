@@ -796,20 +796,24 @@
                                     </barButtonItem>
                                     <barButtonItem width="41" systemItem="fixedSpace" id="oFy-Av-syj"/>
                                     <barButtonItem style="plain" id="Ek3-6q-LuN">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tdb-Hd-bRP">
+                                        <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tdb-Hd-bRP">
                                             <rect key="frame" x="411" y="5" width="110" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" backgroundImage="pen"/>
+                                            <state key="normal" backgroundImage="pen_selected"/>
+                                            <state key="highlighted" backgroundImage="pen_selected"/>
                                             <connections>
                                                 <action selector="didTapPen:" destination="dx4-6o-4Uq" eventType="touchUpInside" id="lgh-xZ-fQf"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="Nqq-6e-nec">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dnX-5e-khd">
+                                        <button key="customView" opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dnX-5e-khd">
                                             <rect key="frame" x="531" y="5" width="110" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" backgroundImage="eraser"/>
+                                            <state key="selected" backgroundImage="eraser_selected"/>
+                                            <state key="highlighted" backgroundImage="eraser_selected"/>
+                                            <state key="focused" backgroundImage="eraser_selected"/>
                                             <connections>
                                                 <action selector="didTapEraser:" destination="dx4-6o-4Uq" eventType="touchUpInside" id="q5U-mf-w7J"/>
                                             </connections>
@@ -834,7 +838,9 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="eraserTool" destination="dnX-5e-khd" id="cTl-E1-hNM"/>
                         <outlet property="paintToolbar" destination="5X9-ub-RQC" id="oJA-eD-fEb"/>
+                        <outlet property="penTool" destination="tdb-Hd-bRP" id="f3y-D3-7a4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4o-YM-cnx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1988,9 +1994,10 @@ Cg
     <resources>
         <image name="b_simple_124_2L.png" width="1098" height="11"/>
         <image name="clear" width="114" height="94"/>
-        <image name="eraser" width="114" height="94"/>
+        <image name="eraser" width="256" height="256"/>
+        <image name="eraser_selected" width="256" height="256"/>
         <image name="left222.png" width="64" height="64"/>
-        <image name="pen" width="115" height="94"/>
+        <image name="pen_selected" width="256" height="256"/>
         <image name="pic_family.png" width="1154" height="448"/>
         <image name="right11.png" width="64" height="64"/>
         <image name="おじいさん２.png" width="166" height="243"/>

@@ -100,7 +100,7 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         saveBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         saveBtn.setTitle("保存する", forState: UIControlState.Normal)
         saveBtn.layer.backgroundColor = UIColor.hexStr("ff9933", alpha: 1.0).CGColor
-        
+
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveBtn)
     }
     
@@ -127,6 +127,9 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
     
     // MARK: enumとswitch
     
+    private var toolToggle = true
+    @IBOutlet weak var eraserTool: UIButton!
+    @IBOutlet weak var penTool: UIButton!
     @IBAction func didTapWhite(sender: AnyObject) {
         self.drawingView.lineColor = UIColor.whiteColor()
     }
@@ -148,32 +151,31 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
     }
     
     @IBAction func didTapPen(sender: AnyObject) {
+        if self.toolToggle == false{
         self.drawingView.drawTool = ACEDrawingToolTypePen
+            penTool.setBackgroundImage(UIImage(named: "pen_selected.png"), forState: .Normal)
+            eraserTool.setBackgroundImage(UIImage(named: "eraser.png"), forState: .Normal)
+            self.toolToggle = true
+        }
     }
     
     @IBAction func didTapEraser(sender: AnyObject) {
+        if self.toolToggle == true{
         self.drawingView.drawTool = ACEDrawingToolTypeEraser
+            (sender as! UIButton).setBackgroundImage(UIImage(named: "eraser_selected.png"), forState: .Normal)
+            penTool.setBackgroundImage(UIImage(named: "pen.png"), forState: .Normal)
+            self.toolToggle = false
+        }
     }
     
     @IBAction func didTapClear(sender: AnyObject) {
-        for _ in 1 ... self.drawingView.undoSteps {
-            self.drawingView.undoLatestStep()
+        if self.drawingView.undoSteps > 0 {
+            for _ in 1 ... self.drawingView.undoSteps {
+                self.drawingView.undoLatestStep()
+            }
+            // redo, undo stepsもリセットされるため、clearは使用しない
+            //self.drawingView.clear()
         }
-        // redo, undo stepsもリセットされるため、clearは使用しない
-        //self.drawingView.clear()
-    }
-    
-    @IBAction func UndoBtn(sender: AnyObject) {
-        self.drawingView.undoLatestStep()
-    }
-    
-    @IBAction func Cancel(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBAction func Clean(sender: AnyObject) {
-        self.drawingView.clear()
-        self.drawingView.loadImage(image)
     }
     
     func didTapSaveBtn(){
@@ -181,13 +183,6 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         //UIImageWriteToSavedPhotosAlbum(self.paintView.screenCapture(), nil, nil, nil)
         self.isBack = false
         self.delegate.paintDidFinish(self.paintView.screenCapture())
-    }
-    
-    @IBAction func Save(sender: AnyObject) {
-        
-        self.delegate.paintDidFinish(self.drawingView.image!)
-        //self.dismissViewControllerAnimated(true, completion: nil)
-        
     }
     
 }
