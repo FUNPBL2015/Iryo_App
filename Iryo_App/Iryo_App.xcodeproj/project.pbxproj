@@ -33,6 +33,7 @@
 		5E4E0C351C00BB1000297B18 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0C341C00BB1000297B18 /* TopicCell.swift */; };
 		5E4E0C371C00BB1A00297B18 /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0C361C00BB1A00297B18 /* TipsCell.swift */; };
 		5E4E0C391C00F26500297B18 /* data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E0C381C00F26500297B18 /* data.csv */; };
+		5E6516081C11C10100BE048B /* Manual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6516071C11C10100BE048B /* Manual.swift */; settings = {ASSET_TAGS = (); }; };
 		5E69F2C71B3A6A82005877DC /* BaseArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */; };
 		5E69F2C91B3A85C6005877DC /* Article5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69F2C81B3A85C6005877DC /* Article5.swift */; };
 		5E77311E1BF33DCD0036AE71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E77311C1BF33DCD0036AE71 /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		5E94DA931BF5EA1D006D7A56 /* PhotoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94DA921BF5EA1D006D7A56 /* PhotoDetailVC.swift */; };
 		5E94DA951BFB591F006D7A56 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94DA941BFB591E006D7A56 /* Reachability.swift */; };
 		5E94DA971BFC41D4006D7A56 /* PostDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94DA961BFC41D4006D7A56 /* PostDetailVC.swift */; };
+		5E9ECA5C1C11D16B00BDFB6E /* manualHTML in Resources */ = {isa = PBXBuildFile; fileRef = 5E9ECA5B1C11D16B00BDFB6E /* manualHTML */; settings = {ASSET_TAGS = (); }; };
 		5EAC1F3D1B33162400473C38 /* testFont1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAC1F3B1B33132400473C38 /* testFont1.ttf */; };
 		5EAC1F3F1B3316C700473C38 /* ipaexm.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */; };
 		5EAC1F421B3339A500473C38 /* Article1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC1F411B3339A500473C38 /* Article1.swift */; };
@@ -115,6 +117,7 @@
 		5E4E0C341C00BB1000297B18 /* TopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 		5E4E0C361C00BB1A00297B18 /* TipsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
 		5E4E0C381C00F26500297B18 /* data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.csv; sourceTree = "<group>"; };
+		5E6516071C11C10100BE048B /* Manual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manual.swift; sourceTree = "<group>"; };
 		5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseArticleViewController.swift; sourceTree = "<group>"; };
 		5E69F2C81B3A85C6005877DC /* Article5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article5.swift; sourceTree = "<group>"; };
 		5E77311D1BF33DCD0036AE71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 		5E94DA921BF5EA1D006D7A56 /* PhotoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailVC.swift; sourceTree = "<group>"; };
 		5E94DA941BFB591E006D7A56 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		5E94DA961BFC41D4006D7A56 /* PostDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailVC.swift; sourceTree = "<group>"; };
+		5E9ECA5B1C11D16B00BDFB6E /* manualHTML */ = {isa = PBXFileReference; lastKnownFileType = folder; path = manualHTML; sourceTree = "<group>"; };
 		5EAC1F3B1B33132400473C38 /* testFont1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = testFont1.ttf; sourceTree = "<group>"; };
 		5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ipaexm.ttf; sourceTree = "<group>"; };
 		5EAC1F411B3339A500473C38 /* Article1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article1.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				5E232A511B3D5C95004A34BD /* Article4.swift */,
 				5E232A531B3D5CAB004A34BD /* com4.swift */,
 				5E69F2C81B3A85C6005877DC /* Article5.swift */,
+				5E6516071C11C10100BE048B /* Manual.swift */,
 			);
 			name = "Articles for ...";
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 		5EB9E3111B2832A9005B7951 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5E9ECA5B1C11D16B00BDFB6E /* manualHTML */,
 				5E1965661C037E0100D3D3BC /* kind.ttf */,
 				5E8588841BFB5E3500CC5269 /* right11.png */,
 				5E8588861BFB5E4200CC5269 /* left222.png */,
@@ -451,6 +457,7 @@
 				5E88AD431B352B66007679A7 /* pic_family.png in Resources */,
 				5E232A4C1B3D5427004A34BD /* 奥さん.png in Resources */,
 				5EBF6EDE1BF32B0700295C7F /* cc-library010009109zzavm.jpg in Resources */,
+				5E9ECA5C1C11D16B00BDFB6E /* manualHTML in Resources */,
 				5E8588891BFB5E5A00CC5269 /* album_photo.png in Resources */,
 				5EB9E31E1B2832A9005B7951 /* LaunchScreen.xib in Resources */,
 				5E85887F1BFB5E1400CC5269 /* にこり.png in Resources */,
@@ -570,6 +577,7 @@
 				5E4E0C351C00BB1000297B18 /* TopicCell.swift in Sources */,
 				5E232A521B3D5C95004A34BD /* Article4.swift in Sources */,
 				5EAC1F421B3339A500473C38 /* Article1.swift in Sources */,
+				5E6516081C11C10100BE048B /* Manual.swift in Sources */,
 				5EB9E3141B2832A9005B7951 /* AppDelegate.swift in Sources */,
 				5EAE707D1BD8CC6D00893373 /* HowtoUse.swift in Sources */,
 				5E94DA931BF5EA1D006D7A56 /* PhotoDetailVC.swift in Sources */,

@@ -222,7 +222,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="GYb-JK-McM" kind="presentation" id="4gL-RL-90U"/>
+                                    <segue destination="DS0-3n-gB5" kind="show" id="UyX-mn-7V9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5c-g6-Q2W">
@@ -258,6 +258,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZaW-o7-t2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4010" y="-4142"/>
+        </scene>
+        <!--Manual View-->
+        <scene sceneID="wrn-Dq-R9N">
+            <objects>
+                <viewController id="DS0-3n-gB5" customClass="ManualView" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ydV-fL-0KH"/>
+                        <viewControllerLayoutGuide type="bottom" id="jHv-zs-30k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4d1-7M-vfq">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MsP-GZ-cKl">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c8r-mT-hEg" customClass="KYCircularProgress" customModule="KYCircularProgress">
+                                <rect key="frame" x="280" y="410" width="206" height="206"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="guideLineWidth">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressGuideColor">
+                                        <color key="value" red="0.090196078430000007" green="0.68235294120000001" blue="0.7843137255" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showProgressGuide" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="myWebView" destination="MsP-GZ-cKl" id="l7Q-ex-SJI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z84-ZZ-yEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3257" y="-3167"/>
         </scene>
         <!--Howto Use-->
         <scene sceneID="CLW-DX-Cxb">
