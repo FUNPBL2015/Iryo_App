@@ -57,10 +57,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tipsimg = UIImage(named: "Tips.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
         let font:UIFont! = UIFont(name:"07YasashisaGothic",size:16)
-        let selectedAttributes:NSDictionary! = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.grayColor()]
+        let normalAttributes:NSDictionary! = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.grayColor()]
+        let selectedAttributes:NSDictionary! = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.hexStr("005AD9", alpha: 1.0)]
         
-        UITabBarItem.appearance().setTitleTextAttributes(selectedAttributes as? [String: AnyObject], forState: .Normal)
-        UITabBar.appearance().tintColor = UIColor.grayColor()
+        UITabBarItem.appearance().setTitleTextAttributes(normalAttributes as? [String: AnyObject], forState: .Normal)
+        UITabBarItem.appearance().setTitleTextAttributes(selectedAttributes as? [String: AnyObject], forState: .Selected)
+        UITabBar.appearance().tintColor = UIColor.hexStr("005AD9", alpha: 1.0)
         UITabBar.appearance().itemPositioning = .Fill
         UITabBar.appearance().backgroundColor = UIColor.whiteColor()
         
