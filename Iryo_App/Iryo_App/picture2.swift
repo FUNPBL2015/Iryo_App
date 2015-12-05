@@ -13,15 +13,29 @@ class picture2: UIViewController{
     
     @IBOutlet weak var imageView: UIImageView!
     var pictures: [AnyObject]!
-    var numbars: Int!
+    var numbers: Int!
 
     @IBOutlet weak var prevPicture: UIButton!
     @IBOutlet weak var nextPicture: UIButton!
     
+    override func viewWillAppear(animated: Bool) {
+        //画面が表示される直前
+        
+        // ToolBarを非表示にする
+        self.navigationController?.setToolbarHidden(true, animated: true)
+    }
+    override func viewWillDisappear(animated: Bool) {
+        //別の画面に遷移する直前
+        
+        // ToolBarを表示する
+        self.navigationController?.setToolbarHidden(false, animated: true)
+        self.navigationController?.toolbar.frame = CGRectMake(0, 924, 768, 100)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let imageFile: PFFile? = self.pictures[numbars].objectForKey("graphicFile") as! PFFile?
+        let imageFile: PFFile? = self.pictures[numbers].objectForKey("graphicFile") as! PFFile?
         imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
             if(error == nil) {
                 self.imageView.image = UIImage(data: imageData!)!
@@ -35,9 +49,9 @@ class picture2: UIViewController{
     }
     
     func nextPictures(){
-        if(numbars < pictures.count - 1){
-        numbars = numbars + 1
-            let imageFile: PFFile? = self.pictures[numbars].objectForKey("graphicFile") as! PFFile?
+        if(numbers < pictures.count - 1){
+        numbers = numbers + 1
+            let imageFile: PFFile? = self.pictures[numbers].objectForKey("graphicFile") as! PFFile?
             imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
                 if(error == nil) {
                     self.imageView.image = UIImage(data: imageData!)!
@@ -47,9 +61,9 @@ class picture2: UIViewController{
     }
     
     func prevPictures(){
-        if(numbars > 0){
-            numbars = numbars - 1
-            let imageFile: PFFile? = self.pictures[numbars].objectForKey("graphicFile") as! PFFile?
+        if(numbers > 0){
+            numbers = numbers - 1
+            let imageFile: PFFile? = self.pictures[numbers].objectForKey("graphicFile") as! PFFile?
             imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
                 if(error == nil) {
                     self.imageView.image = UIImage(data: imageData!)!

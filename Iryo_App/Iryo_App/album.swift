@@ -18,8 +18,6 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     var currentYear: Int = 0
     var currentMonth: Int = 0
-    
-    var dateString:String = ""
     var dates:[String] = []
     let dateFormatter:NSDateFormatter = NSDateFormatter();
     
@@ -31,22 +29,34 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     var hobbyPicture:[AnyObject] = []
     var otherPicture:[AnyObject] = []
     var timePicture:[AnyObject] = []
-    
-    var numbar: Int?
     var tagNumber: Int = 0
-    
     var usernames:[AnyObject]!
+    
+    var number: Int?
     
     var slidePicture:[NSData] = []
     var slideNumber = 0
-    var displayWidth: CGFloat = 0.0
-    var displayHeight: CGFloat = 0.0
     var imageView: UIImageView!
     var timer: NSTimer!
     var stopButton: UIButton!
     
+    var timeButton = UIBarButtonItem()
+    var mealButton = UIBarButtonItem()
+    var familyButton = UIBarButtonItem()
+    var hobbyButton = UIBarButtonItem()
+    var otherButton = UIBarButtonItem()
+    let btn: UIButton = UIButton(type: .System)
+    let btn2: UIButton = UIButton(type: .System)
+    let btn3: UIButton = UIButton(type: .System)
+    let btn4: UIButton = UIButton(type: .System)
+    let btn5: UIButton = UIButton(type: .System)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.navigationController!.toolbar.barStyle = self.navigationController!.navigationBar.barStyle
+//        self.navigationController!.toolbar.tintColor = self.navigationController!.navigationBar.tintColor
+        self.navigationController?.setToolbarHidden(false, animated: true)
+        self.navigationController?.toolbar.frame = CGRectMake(0, 924, 768, 100)
         
         navigationItem.title = "みんなのアルバム"
         
@@ -57,35 +67,53 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         
         let now = NSDate()
         
+        var dateString:String = ""
         self.dateFormatter.locale = NSLocale(localeIdentifier: "ja")
         self.dateFormatter.dateFormat = "yyyy/MM";
-        self.dateString = self.dateFormatter.stringFromDate(now);
+        dateString = self.dateFormatter.stringFromDate(now);
         dates = dateString.componentsSeparatedByString("/")
 
         dateShow()
         loadData()
         
-        var myToolbar: UIToolbar!
-        myToolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 44, self.view.bounds.size.width, 40.0))
-        myToolbar.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height-20)
-        myToolbar.tintColor = UIColor.grayColor()
+        btn.addTarget(self, action: "selectTag:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn.frame = CGRectMake(0, 0, 135, 50)
+        btn.setTitle("時間", forState: UIControlState.Normal)
+        btn.titleLabel?.font = UIFont.systemFontOfSize(26)
+        btn.tag = 4
         
-        let timeButton = UIBarButtonItem(title: "時間", style: .Plain, target: self, action: "selectTag:")
-        let mealButton = UIBarButtonItem(title: "食事", style: .Plain, target: self, action: "selectTag:")
-        let familyButton = UIBarButtonItem(title: "家族", style: .Plain, target: self, action: "selectTag:")
-        let hobbyButton = UIBarButtonItem(title: "趣味", style: .Plain, target: self, action: "selectTag:")
-        let otherButton = UIBarButtonItem(title: "その他", style: .Plain, target: self, action: "selectTag:")
-        let Blank: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        btn2.addTarget(self, action: "selectTag:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn2.frame = CGRectMake(0, 0, 135, 50)
+        btn2.setTitle("食事", forState: UIControlState.Normal)
+        btn2.titleLabel?.font = UIFont.systemFontOfSize(26)
+        btn2.tag = 0
         
-        mealButton.tag = 0
-        familyButton.tag = 1
-        hobbyButton.tag = 2
-        otherButton.tag = 3
-        timeButton.tag = 4
+        btn3.addTarget(self, action: "selectTag:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn3.frame = CGRectMake(0, 0, 135, 50)
+        btn3.setTitle("家族", forState: UIControlState.Normal)
+        btn3.titleLabel?.font = UIFont.systemFontOfSize(26)
+        btn3.tag = 1
+
+        btn4.addTarget(self, action: "selectTag:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn4.frame = CGRectMake(0, 0, 135, 50)
+        btn4.setTitle("趣味", forState: UIControlState.Normal)
+        btn4.titleLabel?.font = UIFont.systemFontOfSize(26)
+        btn4.tag = 2
+
+        btn5.addTarget(self, action: "selectTag:", forControlEvents: UIControlEvents.TouchUpInside)
+        btn5.frame = CGRectMake(0, 0, 135, 50)
+        btn5.setTitle("その他", forState: UIControlState.Normal)
+        btn5.titleLabel?.font = UIFont.systemFontOfSize(26)
+        btn5.tag = 3
         
-        myToolbar.items = [Blank, timeButton, Blank, mealButton, Blank, familyButton, Blank, hobbyButton, Blank, otherButton, Blank]
-        self.view.addSubview(myToolbar)
+        timeButton = UIBarButtonItem(customView: btn)
+        mealButton = UIBarButtonItem(customView: btn2)
+        familyButton = UIBarButtonItem(customView: btn3)
+        hobbyButton = UIBarButtonItem(customView: btn4)
+        otherButton = UIBarButtonItem(customView: btn5)
         
+        self.toolbarItems = [timeButton, mealButton, familyButton, hobbyButton, otherButton]
+
         let myBarButton = UIBarButtonItem(title: "スライドショー", style: .Plain, target: self, action: "slide:")
         self.navigationItem.setRightBarButtonItem(myBarButton, animated: true)
     }
@@ -128,7 +156,6 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                 for(var m = 0 ; m < usernames.count ; m++){
                     if(check == usernames[m] as? String){
                         picture.append(allPicture[n])
-//                       print(allPicture[n])
                     }
                 }
             }
@@ -176,18 +203,43 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         case 0:
             pictures = mealPicture
             tagNumber = 1
+            btn.layer.borderWidth = 0
+            btn2.layer.borderWidth = 1
+            btn3.layer.borderWidth = 0
+            btn4.layer.borderWidth = 0
+            btn5.layer.borderWidth = 0
         case 1:
             pictures = familyPicture
             tagNumber = 2
+            btn.layer.borderWidth = 0
+            btn2.layer.borderWidth = 0
+            btn3.layer.borderWidth = 1
+            btn4.layer.borderWidth = 0
+            btn5.layer.borderWidth = 0
         case 2:
             pictures = hobbyPicture
             tagNumber = 3
+            btn.layer.borderWidth = 0
+            btn2.layer.borderWidth = 0
+            btn3.layer.borderWidth = 0
+            btn4.layer.borderWidth = 1
+            btn5.layer.borderWidth = 0
         case 3:
             pictures = otherPicture
             tagNumber = 4
+            btn.layer.borderWidth = 0
+            btn2.layer.borderWidth = 0
+            btn3.layer.borderWidth = 0
+            btn4.layer.borderWidth = 0
+            btn5.layer.borderWidth = 1
         case 4:
             pictures = timePicture
             tagNumber = 5
+            btn.layer.borderWidth = 1
+            btn2.layer.borderWidth = 0
+            btn3.layer.borderWidth = 0
+            btn4.layer.borderWidth = 0
+            btn5.layer.borderWidth = 0
         default:
             break
         }
@@ -230,7 +282,6 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             if(error == nil) {
                 cell.imgSample.image = UIImage(data: imageData!)!
                 self.slidePicture.append(imageData!)
-//                print(imageData)
                 }
         })
         return cell
@@ -238,8 +289,8 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     // Cell が選択された場合
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        numbar = indexPath.row
-        if numbar != nil {
+        number = indexPath.row
+        if number != nil {
             performSegueWithIdentifier("Segues",sender: nil)
         }
     }
@@ -247,14 +298,14 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Segues") {
             let VC = segue.destinationViewController as! picture2
-            VC.numbars = numbar
+            VC.numbers = number
             VC.pictures = pictures
             VC.navigationItem.title = ""
         }
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let width: CGFloat = view.frame.width / 4
+        let width: CGFloat = view.frame.width / 4-3
         let height: CGFloat = width
         return CGSize(width: width, height: height)
     }
@@ -328,38 +379,37 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         return (prev_year,prev_month)
     }
     
-    
-    
+/* スライドショーについて */
     func slide(sender: UIButton) {
-        collectionView.hidden = true
-        nextMonthButton.hidden = true
-        prevMonthButton.hidden = true
-        timeLabel.hidden = true
+        if(slidePicture.count > 0){
+            collectionView.hidden = true
+            nextMonthButton.hidden = true
+            prevMonthButton.hidden = true
+            timeLabel.hidden = true
         
-        displayWidth = self.view.frame.width
-        displayHeight = self.view.frame.height
+            let image:UIImage! = UIImage(data: slidePicture[0])
+            imageView = UIImageView(frame: CGRect(x: 0, y: 75, width: self.view.frame.width, height: self.view.frame.width))
+            imageView.contentMode = UIViewContentMode.ScaleAspectFit
+            imageView.image = image;
+            self.view.addSubview(imageView)
         
-        let image:UIImage! = UIImage(data: slidePicture[0])
-        imageView = UIImageView(frame: CGRect(x: 0, y: 75, width: displayWidth, height: displayWidth))
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        imageView.image = image;
-        self.view.addSubview(imageView)
+            stopButton = UIButton(frame: CGRectMake(0, 0, 200, 60))
+            stopButton.backgroundColor = UIColor.redColor()
+            stopButton.layer.masksToBounds = true
+            stopButton.layer.cornerRadius = 10.0
+            stopButton.setTitle("停止", forState: UIControlState.Normal)
+            stopButton.titleLabel?.font = UIFont.systemFontOfSize(30)
+            stopButton.addTarget(self, action: "slideStop:", forControlEvents: .TouchUpInside)
+            let stop = UIBarButtonItem(customView: stopButton)
+            let Button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+            self.toolbarItems = [Button, stop, Button]
         
-        stopButton = UIButton(frame: CGRectMake(0, 0, 200, 50))
-        stopButton.backgroundColor = UIColor.redColor()
-        stopButton.layer.masksToBounds = true
-        stopButton.layer.cornerRadius = 20.0
-        stopButton.setTitle("停止", forState: UIControlState.Normal)
-        stopButton.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height-124)
-
-        stopButton.addTarget(self, action: "slideStop:", forControlEvents: .TouchUpInside)
-        self.view.addSubview(stopButton)
-        
-        timerInitialized()
+            timerInitialized()
+        }
     }
     
     func timerInitialized () {
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("nextPage"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("nextPage"), userInfo: nil, repeats: true)
     }
     
     func nextPage (){
@@ -377,6 +427,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             dateSet()
             timer.invalidate()
             slideNumber = 0
+            self.toolbarItems = [timeButton, mealButton, familyButton, hobbyButton, otherButton]
         }
     }
     
@@ -391,6 +442,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         dateSet()
         timer.invalidate()
         slideNumber = 0
+        self.toolbarItems = [timeButton, mealButton, familyButton, hobbyButton, otherButton]
     }
 
 }

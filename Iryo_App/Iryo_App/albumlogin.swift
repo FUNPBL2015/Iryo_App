@@ -19,6 +19,13 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     var username:[AnyObject] = []
     let myLabel = UILabel(frame: CGRectMake(0,0,500,100))
     
+    override func viewWillAppear(animated: Bool) {
+        //画面が表示される直前
+        
+        // ToolBarを非表示にする
+        self.navigationController?.setToolbarHidden(true, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -74,6 +81,7 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
             if(error == nil) {
                 cell.userPicture.image = UIImage(data: imageData!)!
+//                cell.layer.cornerRadius = 75
             }
         })
         return cell
@@ -100,9 +108,11 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             }
         }
         if cell.selected == true {
-            cell.backgroundColor = UIColor.redColor()
+            cell.layer.borderWidth = 5
+//            cell.layer.borderColor = UIColor.redColor() as! CGColor
         } else if cell.selected == false {
-            cell.backgroundColor = UIColor.clearColor()
+            cell.layer.borderWidth = 0
+//            cell.layer.borderColor = UIColor.clearColor() as! CGColor
         }
     }
     

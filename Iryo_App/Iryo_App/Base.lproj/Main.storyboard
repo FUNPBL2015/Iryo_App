@@ -262,7 +262,7 @@
         <!--Albumlogin-->
         <scene sceneID="Gj3-Lu-9W8">
             <objects>
-                <viewController storyboardIdentifier="albumlogin" id="zbz-Jx-ksQ" customClass="albumlogin" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="albumlogin" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zbz-Jx-ksQ" customClass="albumlogin" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="unI-dW-MTS"/>
                         <viewControllerLayoutGuide type="bottom" id="72U-FC-Wrt"/>
@@ -343,7 +343,7 @@
                         <outlet property="allButton" destination="X0l-Qh-Nzk" id="viV-2t-P8P"/>
                         <outlet property="decide" destination="aoG-0F-FLS" id="5da-io-Z60"/>
                         <outlet property="loginView" destination="D86-0Q-IHE" id="wbk-jm-PXd"/>
-                        <segue destination="IEj-rA-Oux" kind="show" identifier="albumsegue" id="RKA-M9-FZX"/>
+                        <segue destination="IEj-rA-Oux" kind="push" identifier="albumsegue" id="RKA-M9-FZX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1QD-ys-0cF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -467,6 +467,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="v8b-xp-02r"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
@@ -475,7 +476,7 @@
                         <outlet property="nextMonthButton" destination="U2Z-Z3-TFI" id="TXY-3H-U2t"/>
                         <outlet property="prevMonthButton" destination="UVD-RP-EiA" id="rk0-OK-kaX"/>
                         <outlet property="timeLabel" destination="A75-Wd-Bvs" id="Aw4-7k-PyT"/>
-                        <segue destination="970-FS-AEC" kind="show" identifier="Segues" id="O43-vP-Jan"/>
+                        <segue destination="970-FS-AEC" kind="push" identifier="Segues" id="O43-vP-Jan"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5b-TR-Gi9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -508,6 +509,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tKt-JQ-uBl"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
