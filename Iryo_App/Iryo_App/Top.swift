@@ -39,9 +39,6 @@ class Top: UIViewController {
         // NavBarを生成
         self.navigationController?.navigationBar
         
-        //ボタンの同時押しを禁止する
-        self.exclusiveAllTouches()
-        
 //        let myLabel = UILabel(frame: CGRectMake(0,0,120,50))
 //        myLabel.textColor = UIColor.blackColor()
 //        myLabel.layer.masksToBounds = true

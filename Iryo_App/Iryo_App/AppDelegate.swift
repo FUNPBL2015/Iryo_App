@@ -26,7 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstLaunch")
             NSUserDefaults.standardUserDefaults().synchronize()
             
+            // 初回起動時間
             NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "firstTime")
+            // talkView すべての要素の順序
+            let allObject: [NSString] = []
+            NSUserDefaults.standardUserDefaults().setObject(allObject, forKey: "talkViewAllObjects")
+            // talkview 投稿以外のセル数
+            NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "tipscellnum")
+            
         }else{
             // debug
             //NSUserDefaults.standardUserDefaults().removeObjectForKey("firstTime")
@@ -36,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let MainViewController: Top? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainMenu") as? Top
         
         let myNavigationController: UINavigationController = UINavigationController(rootViewController: MainViewController!)
-
+        
         myTabBarController = UITabBarController()
         
         let talkView: TalkView? = TalkView()
@@ -44,10 +51,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let topicView: TopicView? = TopicView()
         let tipsView: TipsView? = TipsView()
         
-        talkView!.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Featured, tag: 1)
-        intentionView!.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Featured, tag: 2)
-        topicView!.tabBarItem =  UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Featured, tag: 3)
-        tipsView!.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Featured, tag: 4)
+        let talkimg = UIImage(named: "Talk.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        let intentionimg = UIImage(named: "Intention.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        let topicimg = UIImage(named: "Topic.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        let tipsimg = UIImage(named: "Tips.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        
+        let font:UIFont! = UIFont(name:"07YasashisaGothic",size:16)
+        let selectedAttributes:NSDictionary! = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.grayColor()]
+        
+        UITabBarItem.appearance().setTitleTextAttributes(selectedAttributes as? [String: AnyObject], forState: .Normal)
+        UITabBar.appearance().tintColor = UIColor.grayColor()
+        UITabBar.appearance().itemPositioning = .Fill
+        UITabBar.appearance().backgroundColor = UIColor.whiteColor()
+        
+        talkView!.tabBarItem = UITabBarItem(title: "交換写真日記", image: talkimg.thumbnailImage(70, transparentBorder: 0, cornerRadius: 0, interpolationQuality: CGInterpolationQuality.High), tag: 1)
+        intentionView!.tabBarItem = UITabBarItem(title: "みんなの意思", image: intentionimg.thumbnailImage(70, transparentBorder: 0, cornerRadius: 0, interpolationQuality: CGInterpolationQuality.High), tag: 2)
+        topicView!.tabBarItem =  UITabBarItem(title: "医療トピック", image: topicimg.thumbnailImage(70, transparentBorder: 0, cornerRadius: 0, interpolationQuality: CGInterpolationQuality.High), tag: 3)
+        tipsView!.tabBarItem = UITabBarItem(title: "豆知識", image: tipsimg.thumbnailImage(70, transparentBorder: 0, cornerRadius: 0, interpolationQuality: CGInterpolationQuality.High), tag: 4)
         
         let myTabs: NSArray = [talkView!, intentionView!, topicView!, tipsView!]
         

@@ -38,7 +38,7 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
     var delegate: PaintVCDelegate! = nil
 
     var image: UIImage?
-    // 画像と描画を内包したview. 画像の合成処理は重いため、これのキャプチャを使用する
+    // 画像と描画を内包したview. 画像の合成処理は重いため、これのキャプチャをサムネイルに使用する
     private let paintView: UIView! = UIView()
     // Eraser対策 背面に画像を置くことで画像ごと消されるのを避ける
     private let backgroundView: UIImageView! = UIImageView()

@@ -8,6 +8,50 @@
 
 import UIKit
 
+extension UINavigationBar {
+    /** NavigationBarのサイズを設定する */
+    override public func sizeThatFits(size: CGSize)->CGSize{
+        super.sizeThatFits(size)
+        var navigationBarSize = super.sizeThatFits(size)
+        navigationBarSize.height = 60
+        return navigationBarSize
+    }
+}
+
+extension UITabBar {
+    // UITabbarのサイズを変更する
+    override public func sizeThatFits(size: CGSize) -> CGSize {
+        super.sizeThatFits(size)
+        var sizeThatFits = super.sizeThatFits(size)
+        sizeThatFits.height = 100
+        return sizeThatFits
+    }
+}
+
+extension Array {
+    // 配列から特定の要素を削除する
+    mutating func remove<T : Equatable>(obj : T) -> Array {
+        self = self.filter({$0 as? T != obj})
+        return self
+    }
+    
+    // 配列に特定の要素が含まれているかを確認する
+    func contains<T : Equatable>(obj : T) -> Bool {
+        return self.filter({$0 as? T == obj}).count > 0
+    }
+    
+    // ２配列間の差集合を求める
+    func except<T : Equatable>(obj: [T]) -> [T] {
+        var ret = [T]()
+        
+        for x in self {
+            if !obj.contains(x as! T) {
+                ret.append(x as! T)
+            }
+        }
+        return ret
+    }
+}
 
 extension UIView {
     // UIViewをキャプチャ、UIImageとして出力する
