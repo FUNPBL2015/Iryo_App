@@ -58,6 +58,7 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         displayLinkTest.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
     }
     
+    // debug
     func update_test(displayLink: CADisplayLink){
         // 初回起動からの経過時間をカウントする
         if !(self.firstTime)!.isEqual(NSNull) {

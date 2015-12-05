@@ -19,9 +19,8 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     private var outstandingSectionHeaderQueries: [NSObject:AnyObject]
     
     private let emptyText: UILabel = UILabel(frame: CGRectMake(myScreenWidth / 2 - 50, myScreenHeight / 2 - 30, 100, 30))
-    
-    // MARK: makeshift navbar
-    //let _navbar: UILabel! = UILabel(frame: CGRectMake(0, -60, myScreenWidth, 60))
+    private var allObjects: [NSString]
+    private var nonPostCellNum: Int
     
     deinit {
         let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
@@ -31,17 +30,19 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     
     override init(style: UITableViewStyle, className: String?) {
         self.outstandingSectionHeaderQueries = [NSObject:AnyObject]()
+        self.nonPostCellNum = 0
+        
+        if let t = NSUserDefaults.standardUserDefaults().objectForKey("talkViewAllObjects") as? [NSString]{
+            self.allObjects = t
+        }else{
+            self.allObjects = []
+        }
         
         super.init(style: style, className: myChatsClassKey)
-        
         self.parseClassName = myChatsClassKey
-        
         self.pullToRefreshEnabled = true
-        
         self.paginationEnabled = false
-        
         self.loadingViewEnabled = false
-        
         self.shouldReloadOnAppear = false
     }
     
@@ -49,28 +50,12 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.tabBarController!.navigationItem.title = PFUser.currentUser()!.username
-        
-        self.loadObjects()
-        // Navbar用top-margin
-        //self.tableView.contentInset = UIEdgeInsetsMake(70.0, 0.0, 0.0, 0.0)
-    }
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        // MARK: for makeshift navbar
-        //        _navbar.backgroundColor = UIColor.blueColor()
-        //        self.tableView.addSubview(_navbar)
-        //        self.view.bringSubviewToFront(_navbar)
-        
         // 投稿がない時の表示
         // FIXME: 初回起動時にプログレスバーと同時表示される
-        if self.objects!.count == 0{
+        if self.objects!.count + NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum") == 0{
             emptyText.text = "Nodata"
             emptyText.font = UIFont.systemFontOfSize(30)
             self.view.addSubview(emptyText)
@@ -96,23 +81,89 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         //initial navbar
         let logoutBtn: UIBarButtonItem! = UIBarButtonItem(title: "ログアウト", style: .Plain, target: self, action: "didTapOnLogoutBtn")
         let postBtn: UIBarButtonItem! = UIBarButtonItem(title: "写真の投稿", style: .Plain, target: self, action: "didTapOnPostBtn")
+        let addBtn: UIBarButtonItem! = UIBarButtonItem(title: "追加", style: .Plain, target: self, action: "didTapOnAddBtn")
         
-        let navRightBtns: NSArray = [postBtn, logoutBtn]
+        let navRightBtns: NSArray = [postBtn, logoutBtn, addBtn]
         self.tabBarController!.navigationItem.setRightBarButtonItems(navRightBtns as? [UIBarButtonItem], animated: true)
+        
+//        self.tabBarController?.tabBar.frame = CGRectMake(self.tabBarController!.tabBar.frame.origin.x,self.view.frame.size.height-300,self.tabBarController!.tabBar.frame.size.width,400)
+//        self.view.bounds = self.tabBarController!.tabBar.bounds
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBarController!.navigationItem.title = PFUser.currentUser()!.username
+        
+        self.loadObjects()
+        // Navbar用top-margin
+        //self.tableView.contentInset = UIEdgeInsetsMake(70.0, 0.0, 0.0, 0.0)
+    }
+    
+    // テーブルがリロードされる時
+    override func objectsDidLoad(error: NSError?) {
+        super.objectsDidLoad(error)
+        var newObjects: [NSString] = [], tempObjects: [NSString] = allObjects
+        
+        if  allObjects.count != 0 && self.objects!.count != 0{
+            tempObjects.remove("tips")
+            
+            for o in self.objects!{
+                if let _o: NSString = o.objectId { newObjects.append(_o) }
+            }
+            
+            // allObjectsを更新する
+            if  newObjects != tempObjects {
+                
+                let checker: Int = self.objects!.count - tempObjects.count
+                
+                switch checker{
+                    case let c where c > 0: // 投稿した時
+                        for x in newObjects.except(tempObjects) {
+                            allObjects.insert(x,atIndex: 0)
+                        }
+                    case let c where c < 0: // 削除した時
+                        for x in tempObjects.except(newObjects) {
+                            allObjects.remove(x)
+                        }
+                    case 0: //投稿と削除を同じ数だけ行った時
+                        for x in newObjects.except(tempObjects) {
+                            allObjects.insert(x,atIndex: 0)
+                        }
+                        for x in tempObjects.except(newObjects) {
+                            allObjects.remove(x)
+                        }
+                    default: break
+                }
+                
+                NSUserDefaults.standardUserDefaults().setObject(allObjects as NSArray, forKey: "talkViewAllObjects")
+                NSUserDefaults.standardUserDefaults().synchronize()
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        //debug
-        //if self.shouldReloadOnAppear {
-        //self.shouldReloadOnAppear = false
-        //self.loadObjects()
-        //}
     }
     
     override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         scrollView.endEditing(true)
+    }
+
+    // debug: セル追加処理
+    func didTapOnAddBtn(){
+        var setnum: Int = NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum")
+        
+        self.tableView.beginUpdates()
+        setnum++
+        NSUserDefaults.standardUserDefaults().setInteger(setnum, forKey: "tipscellnum")
+        allObjects.insert("tips", atIndex: 0)
+        
+        NSUserDefaults.standardUserDefaults().setObject(allObjects as NSArray, forKey: "talkViewAllObjects")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
+        self.tableView.endUpdates()
     }
     
     // ログアウト処理
@@ -137,7 +188,6 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             let choosePhotoAction = UIAlertAction(title: NSLocalizedString("保存している写真から選ぶ", comment: ""), style: UIAlertActionStyle.Default, handler: { _ in self.shouldStartPhotoLibraryPickerController() })
             let cancelAction = UIAlertAction(title: NSLocalizedString("キャンセル", comment: ""), style: UIAlertActionStyle.Cancel, handler: nil)
             
-            
             // iPadではpopover指定する
             if let popoverController = actionController.popoverPresentationController {
                 popoverController.sourceView = self.view
@@ -161,7 +211,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.objects!.count // + (self.paginationEnabled ? 1 : 0)
+        return self.objects!.count + NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum")// + (self.paginationEnabled ? 1 : 0)
     }
     
     // MARK: UITableViewDelegate
@@ -186,11 +236,6 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        // MARK: LoadMore用
-        //        if self.paginationEnabled && (self.objects!.count) == indexPath.row {
-        //            return 44.0
-        //        }
-        
         return 2 * myScreenHeight / 3
     }
     
@@ -213,15 +258,44 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         
         query.cachePolicy = PFCachePolicy.NetworkOnly
         
-        if (UIApplication.sharedApplication().delegate!.performSelector(Selector("isParseReachable")) == nil){
+        if (self.objects!.count == 0 ||  UIApplication.sharedApplication().delegate!.performSelector(Selector("isParseReachable")) == nil){
             query.cachePolicy = PFCachePolicy.CacheThenNetwork
         }
+        
         return query
     }
     
     override func objectAtIndexPath(indexPath: NSIndexPath?) -> PFObject? {
         let index = self.indexForObjectAtIndexPath(indexPath!)
-        if (index < self.objects!.count) {
+        
+        self.nonPostCellNum = 0
+        
+        // MARK: allObjects初期化
+        if !NSUserDefaults.standardUserDefaults().boolForKey("firstLaunchAtTalkView")  {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstLaunchAtTalkView")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+            if self.objects!.count != 0 {
+                for o in self.objects!{
+                    if let _o: NSString = o.objectId { allObjects.append(_o) }
+                }
+                NSUserDefaults.standardUserDefaults().setObject(allObjects as NSArray, forKey: "talkViewAllObjects")
+                NSUserDefaults.standardUserDefaults().synchronize()
+            }
+        }
+    
+        // 参照しているセルまでに、投稿以外のセルいくつあるのかをカウントする
+        for i in 0..<index{
+            if allObjects[i] == "tips"{
+                self.nonPostCellNum++
+            }
+        }
+
+        
+        // 投稿以外のセルがあれば、その分セルの順番をずらす
+        if self.nonPostCellNum > 0 && index < self.objects!.count + self.nonPostCellNum{
+            return self.objects![index - nonPostCellNum] as? PFObject
+        }else if index < self.objects!.count {
             return self.objects![index] as? PFObject
         }
         
@@ -231,69 +305,81 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         let CellIdentifier = "Cell"
         
-        let activity = PFQuery(className: myActivityClassKey)
-        activity.whereKey(myActivityPhotoKey, equalTo: object!)
-        activity.includeKey(myActivityFromUserKey)
-        activity.cachePolicy = .CacheThenNetwork
+        let index = self.indexForObjectAtIndexPath(indexPath) - self.nonPostCellNum
         
-        let index = self.indexForObjectAtIndexPath(indexPath)
-        
-        var cell: TalkViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? TalkViewCell
-        
-        if cell == nil {
-            cell = TalkViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+        if  allObjects[indexPath.row] == "tips" {
+            let CellIdentifier = "Cell02"
+            var cell: IntentionViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? IntentionViewCell
             
-            cell!.photoButton!.addTarget(self, action: Selector("didTapOnPhotoAction:"), forControlEvents: UIControlEvents.TouchUpInside)
-            cell!.commentsReturn!.addTarget(self, action: Selector("didTapOnReturnBtnAction:event:"), forControlEvents: .TouchUpInside)
-        }
-        
-        cell!.commentField!.tag = index
-        cell!.commentField!.delegate = self
-        
-        cell!.commentsReturn!.tag = index
-        cell!.comments!.tag = index
-        cell!.photoButton!.tag = index
-        cell!.imageView!.image = UIImage(named: "PlaceholderPhoto.png")
-        cell!.avatarImageView!.image = UIImage(named: "AvatarPlaceholder.png")
-        
-        
-        if object != nil {
-            cell!.imageView!.file = object!.objectForKey(myChatsThumbnailKey) as? PFFile
-            cell!.timestanpLabel!.text = TTTTimeIntervalFormatter().stringForTimeInterval(object!.createdAt!.timeIntervalSinceNow)
-            
-            if let p = object!.objectForKey(myChatsUserKey)?.objectForKey(myUserProfilePicSmallKey) as? PFFile{
-                cell!.avatarImageView!.file = p
-                cell!.avatarImageView!.loadInBackground()
+            if cell == nil {
+                cell = IntentionViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
             }
             
-            if cell!.imageView!.file!.isDataAvailable {
-                cell!.imageView!.loadInBackground()
+            return cell
+            
+        }else{
+            var cell: TalkViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? TalkViewCell
+            
+            if cell == nil {
+                cell = TalkViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+                
+                cell!.photoButton!.addTarget(self, action: Selector("didTapOnPhotoAction:"), forControlEvents: UIControlEvents.TouchUpInside)
+                cell!.commentsReturn!.addTarget(self, action: Selector("didTapOnReturnBtnAction:event:"), forControlEvents: .TouchUpInside)
             }
             
-            //FIXME: コメントがないときの処理
-            // countObjects or getfirstobject or findobjects
-            // cacheとnetwork分の2回読まれてしまう
-            // queryForTable()のcachethennetworkを消すか、nilを代入すれば解消されます
+            cell!.commentField!.tag = index
+            cell!.commentField!.delegate = self
             
-            // 同期処理を使って確実にコメントを取得する
-            synchronized(self) {
-                let outstandingSectionHeaderQueryStatus: Int? = self.outstandingSectionHeaderQueries[index] as? Int
-                if outstandingSectionHeaderQueryStatus == nil {
-                    activity.findObjectsInBackgroundWithBlock { (objects, error) in
-                        if error == nil && objects!.count > 0 {
-                            cell!.comments!.text = nil
-                            for row: PFObject in objects! {
-                                cell!.comments!.text = cell!.comments!.text!.stringByAppendingString((row.objectForKey(myActivityFromUserKey)!.username!)! + ": " + (row.objectForKey("content") as! String) + "\n")
+            cell!.commentsReturn!.tag = index
+            cell!.comments!.tag = index
+            cell!.photoButton!.tag = index
+            cell!.imageView!.image = UIImage(named: "PlaceholderPhoto.png")
+            cell!.avatarImageView!.image = UIImage(named: "AvatarPlaceholder.png")
+            
+            if object != nil {
+                
+                let activity = PFQuery(className: myActivityClassKey)
+                activity.whereKey(myActivityPhotoKey, equalTo: object!)
+                activity.includeKey(myActivityFromUserKey)
+                activity.cachePolicy = .CacheThenNetwork
+                
+                cell!.imageView!.file = object!.objectForKey(myChatsThumbnailKey) as? PFFile
+                cell!.timestanpLabel!.text = TTTTimeIntervalFormatter().stringForTimeInterval(object!.createdAt!.timeIntervalSinceNow)
+                
+                if let p = object!.objectForKey(myChatsUserKey)?.objectForKey(myUserProfilePicSmallKey) as? PFFile{
+                    cell!.avatarImageView!.file = p
+                    cell!.avatarImageView!.loadInBackground()
+                }
+                
+                if cell!.imageView!.file!.isDataAvailable {
+                    cell!.imageView!.loadInBackground()
+                }
+                
+                //FIXME: コメントがないときの処理
+                // countObjects or getfirstobject or findobjects
+                // cacheとnetwork分の2回読まれてしまう
+                // queryForTable()のcachethennetworkを消すか、nilを代入すれば解消されます
+                
+                // 同期処理を使って確実にコメントを取得する
+                synchronized(self) {
+                    let outstandingSectionHeaderQueryStatus: Int? = self.outstandingSectionHeaderQueries[index] as? Int
+                    if outstandingSectionHeaderQueryStatus == nil {
+                        activity.findObjectsInBackgroundWithBlock { (objects, error) in
+                            if error == nil && objects!.count > 0 {
+                                cell!.comments!.text = nil
+                                for row: PFObject in objects! {
+                                    cell!.comments!.text = cell!.comments!.text!.stringByAppendingString((row.objectForKey(myActivityFromUserKey)!.username!)! + ": " + (row.objectForKey("content") as! String) + "\n")
+                                }
+                            }else{
+                                if cell!.comments!.text != "コメントがありません" { cell!.comments!.text = "コメントがありません" }
                             }
-                        }else{
-                            if cell!.comments!.text != "コメントがありません" { cell!.comments!.text = "コメントがありません" }
                         }
                     }
                 }
             }
+            
+            return cell
         }
-        
-        return cell
     }
     
     //MARK: TalkView
