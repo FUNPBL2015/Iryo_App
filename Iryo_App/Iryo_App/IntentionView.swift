@@ -105,8 +105,6 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         var cell: IntentionViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as? IntentionViewCell
         
-        self.cellheight = cell!.cellheight!
-        
         if cell == nil {
             cell = IntentionViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
         }
@@ -125,10 +123,7 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
             let tipTextSize = NSString(string: self.data[self.data.count - self.count - indexPath.row - 1][1]).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
             cell!.tipTextSize = tipTextSize
-            
-            print("Height" + String(self.data.count - self.count - indexPath.row - 1) + ": " + String(cell!.tipTextSize.height) )
-            print("message: " + String(self.data[self.data.count - self.count - indexPath.row - 1][1]) )
-
+            self.cellheight = cell!.titleHeight + tipTextSize.height + cell!.margin*9
             cell!.titleLabel!.text = self.data[self.data.count - self.count - indexPath.row - 1][0]
             cell!.tipsLabel?.text = self.data[self.data.count - self.count - indexPath.row - 1][1]
         }else{

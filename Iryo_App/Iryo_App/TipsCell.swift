@@ -18,7 +18,7 @@ class TipViewCell: PFTableViewCell{
     var tipsLabel: UILabel?
     var cellheight: CGFloat?
     
-    let tipText:String = "最近しっかりと睡眠をとっていますか？認知症の原因物質は睡眠中に溶けます。15分程度の昼寝も効果的です。しかし、30分以上の昼寝は夜の睡眠に悪影響を及ぼしてしまうので気を付けてください。"
+    //let tipText:String = "最近しっかりと睡眠をとっていますか？認知症の原因物質は睡眠中に溶けます。15分程度の昼寝も効果的です。しかし、30分以上の昼寝は夜の睡眠に悪影響を及ぼしてしまうので気を付けてください。"
     
     var contentWidth = CGFloat()
     var contentHeight = CGFloat()
@@ -55,17 +55,16 @@ class TipViewCell: PFTableViewCell{
         self.timestanpLabel = UILabel()
         self.timestanpLabel!.textColor = UIColor.grayColor()
         self.timestanpLabel!.backgroundColor = UIColor.clearColor()
+        self.timestanpLabel!.text = "2015/00/00 00:00"
         self.contentView.addSubview(self.timestanpLabel!)
         
         self.tipsLabel = UILabel()
         self.tipsLabel!.font = UIFont.systemFontOfSize(CGFloat(20))
         self.tipsLabel!.numberOfLines = 0
-        self.tipsLabel!.text = tipText
         //self.tipsLabel!.backgroundColor = UIColor.yellowColor()
         self.contentView.addSubview(self.tipsLabel!)
         
         self.titleLabel = UILabel()
-        self.titleLabel!.text = "今日の豆知識！"
         //self.titleLabel!.backgroundColor = UIColor.whiteColor()
         self.titleLabel!.font = UIFont.systemFontOfSize(CGFloat(26))
         self.contentView.addSubview(self.titleLabel!)
@@ -76,28 +75,28 @@ class TipViewCell: PFTableViewCell{
         self.sankaku!.font = UIFont.systemFontOfSize(CGFloat(26))
         self.contentView.addSubview(self.sankaku!)
         
-        //以下はtextから高さを取得する処理
-        //改行を単語区切りに
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        //NSAttributedStringのAttributeを指定
-        let tipAttributeDict = [
-            NSFontAttributeName: UIFont.systemFontOfSize(20),
-            NSParagraphStyleAttributeName: paragraphStyle
-        ]
+//        //以下はtextから高さを取得する処理
+//        //改行を単語区切りに
+//        let paragraphStyle = NSMutableParagraphStyle()
+//        paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+//        //NSAttributedStringのAttributeを指定
+//        let tipAttributeDict = [
+//            NSFontAttributeName: UIFont.systemFontOfSize(20),
+//            NSParagraphStyleAttributeName: paragraphStyle
+//        ]
         
         //各要素の高さと幅の宣言
         margin = 15.0
         contentWidth = myScreenWidth - myScreenWidth / 5
-        let tipConstraintsSize = CGSizeMake(contentWidth - margin*4, 1000)
-        tipTextSize = NSString(string: tipText).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
+        //let tipConstraintsSize = CGSizeMake(contentWidth - margin*4, 1000)
+        //tipTextSize = NSString(string: tipText).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
         titleWidth = contentWidth - margin*2
         titleHeight = 40.0
         contentHeight = titleHeight + tipTextSize.height + margin*2
         tipWidth = contentWidth - margin*4
         tipHeight = tipTextSize.height
         
-        self.cellheight = contentHeight + margin*4
+        self.cellheight = contentHeight + margin*4 + 100
     }
     
     
@@ -114,13 +113,14 @@ class TipViewCell: PFTableViewCell{
         
         super.layoutSubviews()
         
-        self.contentView.frame = CGRectMake(myScreenWidth / 10, 30.0, contentWidth, contentHeight)
+        self.contentView.frame = CGRectMake(myScreenWidth / 10, 30.0, contentWidth, titleHeight + tipTextSize.height + margin*2)
+        self.cellheight = titleHeight + tipTextSize.height + margin*4 + margin*4
         self.avatarImageView!.frame = CGRectMake(-70.0, 20.0, 50.0, 50.0)
         self.sankaku!.frame = CGRectMake(-20.0, 20.0, 50.0, 50.0)
         self.timestanpLabel!.frame = CGRectMake(contentWidth - timestanpLabel!.sizeThatFits(CGSizeMake(myScreenWidth / 2, 20)).width,
             -20, timestanpLabel!.sizeThatFits(CGSizeMake(myScreenWidth / 2, 20)).width, 20)
         self.titleLabel!.frame = CGRectMake(margin, margin, titleWidth, titleHeight)
-        self.tipsLabel!.frame = CGRectMake(margin*2, self.titleLabel!.frame.height + margin, tipWidth, tipHeight)
+        self.tipsLabel!.frame = CGRectMake(margin*2, self.titleLabel!.frame.height + margin, tipWidth, tipTextSize.height)
         
     }
     
