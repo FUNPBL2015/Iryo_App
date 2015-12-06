@@ -18,11 +18,12 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     
     var currentYear: Int = 0
     var currentMonth: Int = 0
+    var nowYear: Int = 0
+    var nowMonth: Int = 0
     var dates:[String] = []
     let dateFormatter:NSDateFormatter = NSDateFormatter();
     
     var picture:[AnyObject] = []
-    var allPicture:[AnyObject] = []
     var pictures:[AnyObject] = []
     var mealPicture:[AnyObject] = []
     var familyPicture:[AnyObject] = []
@@ -72,6 +73,8 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         self.dateFormatter.dateFormat = "yyyy/MM";
         dateString = self.dateFormatter.stringFromDate(now);
         dates = dateString.componentsSeparatedByString("/")
+        nowYear = Int(dates[0])!
+        nowMonth = Int(dates[1])!
 
         dateShow()
         loadData()
@@ -81,6 +84,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         btn.setTitle("時間", forState: UIControlState.Normal)
         btn.titleLabel?.font = UIFont.systemFontOfSize(26)
         btn.tag = 4
+        btn.layer.borderWidth = 1
         
         btn2.addTarget(self, action: "selectTag:", forControlEvents: UIControlEvents.TouchUpInside)
         btn2.frame = CGRectMake(0, 0, 135, 50)
@@ -118,9 +122,82 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         self.navigationItem.setRightBarButtonItem(myBarButton, animated: true)
     }
     
+    /* 日付について */
+    func dateShow(){
+        currentYear  = Int(dates[0])!
+        currentMonth = Int(dates[1])!
+        timeLabel.text = (String(currentYear) + "年" + String(currentMonth) + "月")
+        
+        //翌月
+        let next = self.getNextYearAndMonth()
+        let nextYear = String(next.year)
+        let nextMonth = String(next.month)
+        if(Int(nextYear) >  nowYear || Int(nextMonth) > nowMonth){
+            nextMonthButton.hidden = true
+        }else{
+            nextMonthButton.hidden = false
+        }
+        let nextDate: String = (nextYear + "年" + nextMonth + "月")
+        self.nextMonthButton.setTitle(nextDate, forState: .Normal)
+        self.nextMonthButton.addTarget(self, action: Selector("showNextView"), forControlEvents: .TouchUpInside)
+        
+        //前月
+        let prev = self.getPrevYearAndMonth()
+        let prevYear = String(prev.year)
+        let prevMonth = String(prev.month)
+        let prevDate: String = (prevYear + "年" + prevMonth + "月")
+        self.prevMonthButton.setTitle(prevDate, forState: .Normal)
+        
+        self.prevMonthButton.addTarget(self, action: Selector("showPrevView"), forControlEvents: .TouchUpInside)
+    }
+    
+    func showNextView (){
+        currentMonth++;
+        if( currentMonth > 12 ){
+            currentMonth = 1;
+            currentYear++;
+        }
+        dates[0] = String(currentYear)
+        dates[1] = String(currentMonth)
+        dateShow()
+        dateSet()
+    }
+    
+    func showPrevView () {
+        currentMonth--
+        if( currentMonth == 0 ){
+            currentMonth = 12
+            currentYear--
+        }
+        dates[0] = String(currentYear)
+        dates[1] = String(currentMonth)
+        dateShow()
+        dateSet()
+    }
+    
+    func getNextYearAndMonth () -> (year:Int,month:Int){
+        var next_year:Int = currentYear
+        var next_month:Int = currentMonth + 1
+        if next_month > 12 {
+            next_month=1
+            next_year++
+        }
+        return (next_year,next_month)
+    }
+    func getPrevYearAndMonth () -> (year:Int,month:Int){
+        var prev_year:Int = currentYear
+        var prev_month:Int = currentMonth - 1
+        if prev_month == 0 {
+            prev_month = 12
+            prev_year--
+        }
+        return (prev_year,prev_month)
+    }
+    
 /* cellについて　*/
     func loadData()  {
         var i: Int = 0
+        var allPicture:[AnyObject] = []
         let query: PFQuery = PFQuery(className: myChatsClassKey)
         query.orderByAscending("createdAt")
         query.includeKey(myChatsUserKey)
@@ -130,8 +207,18 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                 return
             }
             for row:PFObject in objects! {
-                self.allPicture.append(row)
+                allPicture.append(row)
                 i++
+            }
+            for(var n = 0 ; n < allPicture.count ; n++){
+                if(allPicture[n].objectForKey("user")?.objectForKey("username") != nil){
+                    let check: String? = allPicture[n].objectForKey("user")?.objectForKey("username") as! String?
+                    for(var m = 0 ; m < self.usernames.count ; m++){
+                        if(check == self.usernames[m] as? String){
+                            self.picture.append(allPicture[n])
+                        }
+                    }
+                }
             }
             self.dateSet()
         }
@@ -149,17 +236,6 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         otherPicture = []
         timePicture = []
         var k: [NSDate] = []
-        
-        for(var n = 0 ; n < allPicture.count ; n++){
-            if(allPicture[n].objectForKey("user")?.objectForKey("username") != nil){
-                let check: String? = allPicture[n].objectForKey("user")?.objectForKey("username") as! String?
-                for(var m = 0 ; m < usernames.count ; m++){
-                    if(check == usernames[m] as? String){
-                        picture.append(allPicture[n])
-                    }
-                }
-            }
-        }
         
         for (var i = 0; i < picture.count; i++) {
             if let string = picture[i].createdAt as NSDate! {
@@ -195,7 +271,6 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         }
         slidePicture = []
         self.collectionView.reloadData()
-        allPicture = []
     }
     
     func selectTag(sender: UIButton) {
@@ -310,75 +385,6 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         return CGSize(width: width, height: height)
     }
     
-    
-/* 日付について */
-    func dateShow(){
-        currentYear  = Int(dates[0])!
-        currentMonth = Int(dates[1])!
-        timeLabel.text = (String(currentYear) + "年" + String(currentMonth) + "月")
-        
-        //翌月
-        let next = self.getNextYearAndMonth()
-        let nextYear = String(next.year)
-        let nextMonth = String(next.month)
-        let nextDate: String = (nextYear + "年" + nextMonth + "月")
-        self.nextMonthButton.setTitle(nextDate, forState: .Normal)
-        
-        self.nextMonthButton.addTarget(self, action: Selector("showNextView"), forControlEvents: .TouchUpInside)
-        
-        //前月
-        let prev = self.getPrevYearAndMonth()
-        let prevYear = String(prev.year)
-        let prevMonth = String(prev.month)
-        let prevDate: String = (prevYear + "年" + prevMonth + "月")
-        self.prevMonthButton.setTitle(prevDate, forState: .Normal)
-        
-        self.prevMonthButton.addTarget(self, action: Selector("showPrevView"), forControlEvents: .TouchUpInside)
-    }
-    
-    func showNextView (){
-        currentMonth++;
-        if( currentMonth > 12 ){
-            currentMonth = 1;
-            currentYear++;
-        }
-        dates[0] = String(currentYear)
-        dates[1] = String(currentMonth)
-        dateShow()
-        dateSet()
-    }
-    
-    func showPrevView () {
-        currentMonth--
-        if( currentMonth == 0 ){
-            currentMonth = 12
-            currentYear--
-        }
-        dates[0] = String(currentYear)
-        dates[1] = String(currentMonth)
-        dateShow()
-        dateSet()
-    }
-    
-    func getNextYearAndMonth () -> (year:Int,month:Int){
-        var next_year:Int = currentYear
-        var next_month:Int = currentMonth + 1
-        if next_month > 12 {
-            next_month=1
-            next_year++
-        }
-        return (next_year,next_month)
-    }
-    func getPrevYearAndMonth () -> (year:Int,month:Int){
-        var prev_year:Int = currentYear
-        var prev_month:Int = currentMonth - 1
-        if prev_month == 0 {
-            prev_month = 12
-            prev_year--
-        }
-        return (prev_year,prev_month)
-    }
-    
 /* スライドショーについて */
     func slide(sender: UIButton) {
         if(slidePicture.count > 0){
@@ -404,12 +410,8 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             let Button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
             self.toolbarItems = [Button, stop, Button]
         
-            timerInitialized()
+            timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("nextPage"), userInfo: nil, repeats: true)
         }
-    }
-    
-    func timerInitialized () {
-        timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("nextPage"), userInfo: nil, repeats: true)
     }
     
     func nextPage (){

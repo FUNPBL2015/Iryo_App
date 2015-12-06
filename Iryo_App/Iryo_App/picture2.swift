@@ -35,12 +35,7 @@ class picture2: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let imageFile: PFFile? = self.pictures[numbers].objectForKey("graphicFile") as! PFFile?
-        imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
-            if(error == nil) {
-                self.imageView.image = UIImage(data: imageData!)!
-            }
-        })
+        showPicture()
 
         // 画像のアスペクト比を維持しUIImageViewサイズに収まるように表示
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
@@ -50,28 +45,33 @@ class picture2: UIViewController{
     
     func nextPictures(){
         if(numbers < pictures.count - 1){
-        numbers = numbers + 1
-            let imageFile: PFFile? = self.pictures[numbers].objectForKey("graphicFile") as! PFFile?
-            imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
-                if(error == nil) {
-                    self.imageView.image = UIImage(data: imageData!)!
-                }
-            })
+            numbers = numbers + 1
+            showPicture()
+        }else{
+            numbers = 0
+           showPicture()
         }
     }
     
     func prevPictures(){
         if(numbers > 0){
             numbers = numbers - 1
-            let imageFile: PFFile? = self.pictures[numbers].objectForKey("graphicFile") as! PFFile?
-            imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
-                if(error == nil) {
-                    self.imageView.image = UIImage(data: imageData!)!
-                }
-            })
+            showPicture()
+        }else{
+            numbers = pictures.count - 1
+            showPicture()
         }
     }
-        
+    
+    func showPicture(){
+        let imageFile: PFFile? = self.pictures[numbers].objectForKey("graphicFile") as! PFFile?
+        imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
+            if(error == nil) {
+                self.imageView.image = UIImage(data: imageData!)!
+            }
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
