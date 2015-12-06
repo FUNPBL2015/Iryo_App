@@ -109,10 +109,8 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         }
         if cell.selected == true {
             cell.layer.borderWidth = 5
-//            cell.layer.borderColor = UIColor.redColor() as! CGColor
         } else if cell.selected == false {
             cell.layer.borderWidth = 0
-//            cell.layer.borderColor = UIColor.clearColor() as! CGColor
         }
     }
     

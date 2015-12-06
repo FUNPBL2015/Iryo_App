@@ -16,7 +16,6 @@ class CustomCell: UICollectionViewCell {
     
     override init(frame: CGRect){
         super.init(frame: frame)
-        imgSample.contentMode = UIViewContentMode.ScaleAspectFit
     }
     
     required init(coder aDecoder: NSCoder){
