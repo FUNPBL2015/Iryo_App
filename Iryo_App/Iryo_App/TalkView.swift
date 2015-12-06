@@ -185,7 +185,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         //            return 44.0
         //        }
         
-        return 2 * myScreenHeight / 3
+        return self.cellheight
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -222,6 +222,8 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         return nil
     }
     
+    var cellheight: CGFloat = 0
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         let CellIdentifier = "Cell"
         
@@ -233,13 +235,23 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         let index = self.indexForObjectAtIndexPath(indexPath)
         
         var cell: TalkViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? TalkViewCell
+        var cell02: TipViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? TipViewCell
+        var cell03: TopicViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? TopicViewCell
+        var cell04: IntentionViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? IntentionViewCell
+        
         
         if cell == nil {
             cell = TalkViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+            cell02 = TipViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+            cell03 = TopicViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+            cell04 = IntentionViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+
             
             cell!.photoButton!.addTarget(self, action: Selector("didTapOnPhotoAction:"), forControlEvents: UIControlEvents.TouchUpInside)
             cell!.commentsReturn!.addTarget(self, action: Selector("didTapOnReturnBtnAction:event:"), forControlEvents: .TouchUpInside)
         }
+        
+        self.cellheight = cell02!.cellheight!
         
         cell!.commentField!.tag = index
         cell!.commentField!.delegate = self
@@ -288,7 +300,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             }
         }
         
-        return cell
+        return cell02
     }
     
     //MARK: TalkView

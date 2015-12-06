@@ -33,17 +33,17 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         
         // csvファイルの読み込み
-        let path = NSBundle.mainBundle().pathForResource("data", ofType: "csv")
+        let path = NSBundle.mainBundle().pathForResource("IntentionData", ofType: "csv")
         let data = try! String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
-        var dataarray = [[String]]()
+        var dataArray = [[String]]()
         
         let lines = data.componentsSeparatedByString("\n")
         for line in lines{
-            dataarray.append(line.componentsSeparatedByString(","))
+            dataArray.append(line.componentsSeparatedByString(","))
         }
         
         // アニメーション処理
-        self.data = dataarray
+        self.data = dataArray
         
         // 10フレーム毎にupdateを呼び出す
         let displayLink = CADisplayLink(target: self, selector: Selector("update:"))
@@ -77,14 +77,14 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 2 * myScreenHeight / 3
+        return self.cellheight
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) / 30 <= 10 {
             return Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) / 30
         }else{
-            return 10
+            return 9 //self.data.count
         }
     }
     
@@ -98,23 +98,42 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return tableFooter
     }
     
+    var cellheight: CGFloat = 0;
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let CellIdentifier = "Intention"
         
         var cell: IntentionViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as? IntentionViewCell
+        
+        self.cellheight = cell!.cellheight!
         
         if cell == nil {
             cell = IntentionViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
         }
         
         if indexPath.row < self.data.count && (Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) / 30) > indexPath.row && self.count >= 0{
-            cell!.mylabel.text = self.data[self.data.count - self.count - indexPath.row - 1][0]
-            cell!.myTextView?.text = self.data[self.data.count - self.count - indexPath.row - 1][1]
-            cell!.myPhoto?.text = self.data[self.data.count - self.count - indexPath.row - 1][2]
+            
+            //以下はtextから高さを取得する処理
+            //改行を単語区切りに
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            //NSAttributedStringのAttributeを指定
+            let tipAttributeDict = [
+                NSFontAttributeName: UIFont.systemFontOfSize(20),
+                NSParagraphStyleAttributeName: paragraphStyle
+            ]
+            let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
+            let tipTextSize = NSString(string: self.data[self.data.count - self.count - indexPath.row - 1][1]).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
+            cell!.tipTextSize = tipTextSize
+            
+            print("Height" + String(self.data.count - self.count - indexPath.row - 1) + ": " + String(cell!.tipTextSize.height) )
+            print("message: " + String(self.data[self.data.count - self.count - indexPath.row - 1][1]) )
+
+            cell!.titleLabel!.text = self.data[self.data.count - self.count - indexPath.row - 1][0]
+            cell!.tipsLabel?.text = self.data[self.data.count - self.count - indexPath.row - 1][1]
         }else{
-            cell!.mylabel.text = nil
-            cell!.myTextView?.text = nil
-            cell!.myPhoto?.text = nil
+            cell!.titleLabel!.text = nil
+            cell!.tipsLabel!.text = nil
         }
         
         return cell!
