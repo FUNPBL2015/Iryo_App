@@ -19,6 +19,9 @@ class TipsView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         //initial tableView style
         myTableView = UITableView(frame: CGRectMake(0, navigationBarHeight(self)! + myStatusBarHeight, myScreenWidth, myScreenHeight - (navigationBarHeight(self)! + myStatusBarHeight)))
         myTableView.separatorColor = UIColor.clearColor()
+        let texturedBackgroundView = UIView(frame: self.view.bounds)
+        texturedBackgroundView.backgroundColor = UIColor.hexStr("FFEBCD", alpha: 0.5)
+        myTableView.backgroundView = texturedBackgroundView
         myTableView.registerClass(TipViewCell.self, forCellReuseIdentifier: "Tip")
         myTableView.showsVerticalScrollIndicator = false
         myTableView.dataSource = self
@@ -84,7 +87,7 @@ class TipsView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         if Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) / 30 <= 10 {
             return Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) / 30
         }else{
-            return 9 //self.data.count
+            return 10 //self.data.count
         }
     }
     

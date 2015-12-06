@@ -19,6 +19,9 @@ class TopicView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         //initial tableView style
         myTableView = UITableView(frame: CGRectMake(0, navigationBarHeight(self)! + myStatusBarHeight, myScreenWidth, myScreenHeight - (navigationBarHeight(self)! + myStatusBarHeight)))
         myTableView.separatorColor = UIColor.clearColor()
+        let texturedBackgroundView = UIView(frame: self.view.bounds)
+        texturedBackgroundView.backgroundColor = UIColor.hexStr("FFEBCD", alpha: 0.5)
+        myTableView.backgroundView = texturedBackgroundView
         myTableView.registerClass(TipViewCell.self, forCellReuseIdentifier: "Tip")
         myTableView.showsVerticalScrollIndicator = false
         myTableView.dataSource = self
@@ -33,7 +36,7 @@ class TopicView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
         
         // csvファイルの読み込み
-        let path = NSBundle.mainBundle().pathForResource("TipData", ofType: "csv")
+        let path = NSBundle.mainBundle().pathForResource("TopicData", ofType: "csv")
         let data = try! String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
         var dataArray = [[String]]()
         
@@ -84,7 +87,7 @@ class TopicView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         if Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) / 30 <= 10 {
             return Int(NSDate().timeIntervalSinceDate(NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as! NSDate)) / 30
         }else{
-            return 9 //self.data.count
+            return 10 //self.data.count
         }
     }
     

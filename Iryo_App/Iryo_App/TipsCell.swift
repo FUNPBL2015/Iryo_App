@@ -18,8 +18,6 @@ class TipViewCell: PFTableViewCell{
     var tipsLabel: UILabel?
     var cellheight: CGFloat?
     
-    //let tipText:String = "最近しっかりと睡眠をとっていますか？認知症の原因物質は睡眠中に溶けます。15分程度の昼寝も効果的です。しかし、30分以上の昼寝は夜の睡眠に悪影響を及ぼしてしまうので気を付けてください。"
-    
     var contentWidth = CGFloat()
     var contentHeight = CGFloat()
     var titleWidth = CGFloat()
@@ -75,21 +73,9 @@ class TipViewCell: PFTableViewCell{
         self.sankaku!.font = UIFont.systemFontOfSize(CGFloat(26))
         self.contentView.addSubview(self.sankaku!)
         
-//        //以下はtextから高さを取得する処理
-//        //改行を単語区切りに
-//        let paragraphStyle = NSMutableParagraphStyle()
-//        paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
-//        //NSAttributedStringのAttributeを指定
-//        let tipAttributeDict = [
-//            NSFontAttributeName: UIFont.systemFontOfSize(20),
-//            NSParagraphStyleAttributeName: paragraphStyle
-//        ]
-        
         //各要素の高さと幅の宣言
         margin = 15.0
         contentWidth = myScreenWidth - myScreenWidth / 5
-        //let tipConstraintsSize = CGSizeMake(contentWidth - margin*4, 1000)
-        //tipTextSize = NSString(string: tipText).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
         titleWidth = contentWidth - margin*2
         titleHeight = 40.0
         contentHeight = titleHeight + tipTextSize.height + margin*2

@@ -251,7 +251,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             cell!.commentsReturn!.addTarget(self, action: Selector("didTapOnReturnBtnAction:event:"), forControlEvents: .TouchUpInside)
         }
         
-        self.cellheight = cell02!.cellheight!
+        self.cellheight = cell04!.cellheight!
         
         cell!.commentField!.tag = index
         cell!.commentField!.delegate = self
@@ -300,7 +300,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             }
         }
         
-        return cell02
+        return cell04
     }
     
     //MARK: TalkView
