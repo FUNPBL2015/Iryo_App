@@ -98,6 +98,8 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         
         paintView!.delegate = self
         self.postData = PFObject(className: myChatsClassKey)
+        
+        self.navigationItem.title = "投稿"
     }
     
     //TODO: タグ付けを解除するボタンの設置

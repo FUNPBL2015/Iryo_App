@@ -13,7 +13,7 @@ extension UINavigationBar {
     override public func sizeThatFits(size: CGSize)->CGSize{
         super.sizeThatFits(size)
         var navigationBarSize = super.sizeThatFits(size)
-        navigationBarSize.height = 60
+        navigationBarSize.height = 70
         return navigationBarSize
     }
 }

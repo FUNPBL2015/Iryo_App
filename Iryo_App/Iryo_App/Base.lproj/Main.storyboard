@@ -19,12 +19,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hRn-0i-cIb">
-                                <rect key="frame" x="144" y="133" width="480" height="360"/>
+                                <rect key="frame" x="139" y="133" width="500" height="360"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTQ-78-TYh" customClass="PostBtn" customModule="Iryo_App" customModuleProvider="target">
-                                <rect key="frame" x="154" y="545" width="470" height="50"/>
+                                <rect key="frame" x="154" y="545" width="470" height="90"/>
                                 <color key="backgroundColor" red="0.94119957009999999" green="0.59669108010000005" blue="0.1712244587" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="28"/>
                                 <state key="normal" title="お絵描きする">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="fZD-QS-uGg" customClass="PostSegmentedControl" customModule="Iryo_App" customModuleProvider="target">
-                                <rect key="frame" x="154" y="777" width="470" height="29"/>
+                                <rect key="frame" x="154" y="762" width="470" height="29"/>
                                 <segments>
                                     <segment title="食事"/>
                                     <segment title="家族"/>
@@ -51,7 +51,7 @@
                                         <real key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="size" keyPath="segmentPadding">
-                                        <size key="value" width="0.0" height="10"/>
+                                        <size key="value" width="0.0" height="20"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleFontName" value="HiraginoSans-W6"/>
                                 </userDefinedRuntimeAttributes>
@@ -59,22 +59,22 @@
                                     <action selector="didSelectTag:" destination="AxJ-3Z-I4M" eventType="valueChanged" id="i7H-Ye-eO2"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="これは...." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjq-h5-X0M">
-                                <rect key="frame" x="154" y="742" width="70" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="これは...." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjq-h5-X0M">
+                                <rect key="frame" x="154" y="719" width="123" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="27"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="の写真です！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thM-ET-LAd">
-                                <rect key="frame" x="522" y="833" width="102" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="447" y="825" width="177" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAl-8d-aXi" customClass="PostBtn" customModule="Iryo_App" customModuleProvider="target">
-                                <rect key="frame" x="154" y="887" width="470" height="50"/>
+                                <rect key="frame" x="154" y="887" width="470" height="90"/>
                                 <color key="backgroundColor" red="0.94119957009999999" green="0.59669108010000005" blue="0.1712244587" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="28"/>
                                 <state key="normal" title="投稿する">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -708,7 +708,7 @@
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4UC-f3-gzB" customClass="PotBtn" customModule="Iryo_App" customModuleProvider="target">
                                             <rect key="frame" x="20" y="20" width="60" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="30"/>
@@ -794,10 +794,10 @@
                                             </connections>
                                         </button>
                                     </barButtonItem>
-                                    <barButtonItem width="41" systemItem="fixedSpace" id="oFy-Av-syj"/>
+                                    <barButtonItem width="70" systemItem="fixedSpace" id="oFy-Av-syj"/>
                                     <barButtonItem style="plain" id="Ek3-6q-LuN">
                                         <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tdb-Hd-bRP">
-                                            <rect key="frame" x="411" y="5" width="110" height="90"/>
+                                            <rect key="frame" x="440" y="5" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" backgroundImage="pen_selected"/>
                                             <state key="highlighted" backgroundImage="pen_selected"/>
@@ -808,7 +808,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="Nqq-6e-nec">
                                         <button key="customView" opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dnX-5e-khd">
-                                            <rect key="frame" x="531" y="5" width="110" height="90"/>
+                                            <rect key="frame" x="540" y="5" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" backgroundImage="eraser"/>
                                             <state key="selected" backgroundImage="eraser_selected"/>
@@ -821,7 +821,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="fqH-U0-a8o">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xWr-QT-sLR">
-                                            <rect key="frame" x="651" y="5" width="110" height="90"/>
+                                            <rect key="frame" x="640" y="5" width="110" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" backgroundImage="clear"/>
                                             <connections>

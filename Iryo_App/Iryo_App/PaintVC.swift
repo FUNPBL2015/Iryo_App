@@ -95,13 +95,16 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         
         let saveBtn: UIButton = UIButton(type: .System)
         saveBtn.addTarget(self, action: "didTapSaveBtn", forControlEvents: UIControlEvents.TouchUpInside)
-        saveBtn.frame = CGRectMake(0, 0, 100, 30)
+        saveBtn.frame = CGRectMake(0, -10, 120, 40)
         saveBtn.layer.cornerRadius = 8
         saveBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         saveBtn.setTitle("保存する", forState: UIControlState.Normal)
-        saveBtn.layer.backgroundColor = UIColor.hexStr("ff9933", alpha: 1.0).CGColor
+        saveBtn.titleLabel!.font = UIFont(name: "07YasashisaGothic", size: 20)
+        saveBtn.layer.backgroundColor = UIColor.hexStr("FF9933", alpha: 1.0).CGColor
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveBtn)
+        
+        self.navigationItem.title = "お絵描き"
     }
     
     override func viewDidDisappear(animated: Bool) {
