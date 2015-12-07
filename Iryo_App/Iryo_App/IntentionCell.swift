@@ -53,11 +53,4 @@ class IntentionViewCell: PFTableViewCell{
         self.myPhoto!.frame = CGRectMake(100, 200, 100, 20)
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        //コメント欄を空にする
-//        self.mylabel.text = nil
-//        self.myTextView!.text = nil
-    }
-    
 }

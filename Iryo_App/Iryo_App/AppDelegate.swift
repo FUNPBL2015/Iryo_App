@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().setObject(allObject, forKey: "talkViewAllObjects")
             // talkview 投稿以外のセル数
             NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "tipscellnum")
+            NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "topiccellnum")
+            NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "intentioncellnum")
             
         }else{
             // debug
@@ -44,12 +46,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let myNavigationController: UINavigationController = UINavigationController(rootViewController: MainViewController!)
         
+        let navfont:UIFont! = UIFont(name:"07YasashisaGothic",size:24)
+        let navNormalAttributes:NSDictionary! = [NSFontAttributeName : navfont]
+        
+        UIBarButtonItem.appearance().setTitleTextAttributes(navNormalAttributes as? [String: AnyObject], forState: .Normal)
+        // FIXME: ButtonItemだけ高さ調整が効かない？
+        //UIBarButtonItem.appearance().setTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -5.0), forBarMetrics: UIBarMetrics.Default)
+        //UINavigationBar.appearance().setTitleVerticalPositionAdjustment(-5.0, forBarMetrics: .Default)
+        UINavigationBar.appearance().titleTextAttributes = [ NSFontAttributeName: UIFont(name: "07YasashisaGothic", size: 24)!]
+        
+        
         myTabBarController = UITabBarController()
         
-        let talkView: TalkView? = TalkView()
-        let intentionView: IntentionView? = IntentionView()
-        let topicView: TopicView? = TopicView()
-        let tipsView: TipsView? = TipsView()
+//        let talkView: TalkView? = TalkView()
+//        let intentionView: IntentionView? = IntentionView()
+//        let topicView: TopicView? = TopicView()
+//        let tipsView: TipsView? = TipsView()
         
         let talkimg = UIImage(named: "Talk.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         let intentionimg = UIImage(named: "Intention.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)

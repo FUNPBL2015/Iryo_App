@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ACEDrawingView
 
 // MARK: Device-Info
 let myScreenWidth = UIScreen.mainScreen().bounds.width
@@ -28,10 +27,10 @@ var temp_undo: UInt?
 var temp_redo: UInt?
 
 // CommunicateViews
-//let talkView: TalkView? = TalkView()
-//let intentionView: IntentionView? = IntentionView()
-//let topicView: TopicView? = TopicView()
-//let tipsView: TipsView? = TipsView()
+let talkView: TalkView? = TalkView()
+let intentionView: IntentionView? = IntentionView()
+let topicView: TopicView? = TopicView()
+let tipsView: TipsView? = TipsView()
 
 
 // MARK: Chats-Class
@@ -58,6 +57,29 @@ let myActivityFromUserKey = "fromUser"
 // MARK: User-Class
 // User-keys
 let myUserProfilePicSmallKey = "profilePictureSmall"
+
+
+// 初回起動時間
+// TODO: 端末ではなく、ユーザに絹付ける
+var firstTime: NSDate? = NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as? NSDate
+
+// MARK: IntentionView
+var intentionDisplayLink: CADisplayLink? = CADisplayLink()
+var intentionDataarray: [[String]]! = [[String]]()
+var intentionCount: Int! = 0
+let intentionInterval: NSTimeInterval = 15.0 // セルを自動追加する間隔（秒）
+
+// MARK: TopicView
+var topicDisplayLink: CADisplayLink? = CADisplayLink()
+var topicDataarray: [[String]]! = [[String]]()
+var topicCount: Int! = 0
+let topicInterval: NSTimeInterval = 20.0 // セルを自動追加する間隔（秒）
+
+// MARK: TipsView
+var tipsDisplayLink: CADisplayLink? = CADisplayLink()
+var tipsDataarray: [[String]]! = [[String]]()
+var tipsCount: Int! = 0
+let tipsInterval: NSTimeInterval = 30.0 // セルを自動追加する間隔（秒）
 
 // 正規表現
 class Regexp {
