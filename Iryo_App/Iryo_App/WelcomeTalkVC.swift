@@ -18,7 +18,7 @@ class WelcomeTalkVC: UIViewController{
     
     private enum Relationship: Int{
         case aunt
-        case uncle
+        case mother
     }
     
     override func viewDidLoad() {
@@ -36,12 +36,8 @@ class WelcomeTalkVC: UIViewController{
         switch selectedTag{
         case .aunt:
             self.avater = UIImage(named: "aunt.png")
-            print(self.avater)
-            print(selectedTag.rawValue)
-        case .uncle:
-            self.avater = UIImage(named: "uncle.png")
-            print(self.avater)
-            print(selectedTag.rawValue)
+        case .mother:
+            self.avater = UIImage(named: "mother.png")
         }
     }
     

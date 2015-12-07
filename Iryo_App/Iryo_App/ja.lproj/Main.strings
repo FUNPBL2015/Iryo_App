@@ -1,0 +1,291 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "020-cQ-ULf"; */
+"020-cQ-ULf.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "このページへ"; ObjectID = "0Nx-mt-gdL"; */
+"0Nx-mt-gdL.normalTitle" = "このページへ";
+
+/* Class = "UITextView"; text = "それでも悲しい気持ちのときは、\n相談機関や精神保健センターに相談しましょう"; ObjectID = "0bL-hR-uqZ"; */
+"0bL-hR-uqZ.text" = "それでも悲しい気持ちのときは、\n相談機関や精神保健センターに相談しましょう";
+
+/* Class = "UIButton"; normalTitle = "例えば..."; ObjectID = "0sZ-sD-UUT"; */
+"0sZ-sD-UUT.normalTitle" = "例えば...";
+
+/* Class = "UILabel"; text = "⚫︎"; ObjectID = "2bs-Y1-p97"; */
+"2bs-Y1-p97.text" = "⚫︎";
+
+/* Class = "UILabel"; text = "話し合いのコツ"; ObjectID = "2mA-yg-eMM"; */
+"2mA-yg-eMM.text" = "話し合いのコツ";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "3XN-3E-gFV"; */
+"3XN-3E-gFV.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "4Yz-3V-NL1"; */
+"4Yz-3V-NL1.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UITextField"; placeholder = "Your Password"; ObjectID = "4bN-rL-kj2"; */
+"4bN-rL-kj2.placeholder" = "Your Password";
+
+/* Class = "UITextView"; text = "家族は本人が亡くなられたあと… \n ⚫︎「死を早めてしまったのではないか」\n ⚫︎「苦しみをなびかせたのではないか」 \nと悩むことが多くあります\n\nそんなときは… \n ⚫︎「穏やかな最期を迎えられた」\n ⚫︎「本人の希望に沿うことができた」\n と肯定的に考えましょう"; ObjectID = "5Ia-bo-aJp"; */
+"5Ia-bo-aJp.text" = "家族は本人が亡くなられたあと… \n ⚫︎「死を早めてしまったのではないか」\n ⚫︎「苦しみをなびかせたのではないか」 \nと悩むことが多くあります\n\nそんなときは… \n ⚫︎「穏やかな最期を迎えられた」\n ⚫︎「本人の希望に沿うことができた」\n と肯定的に考えましょう";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5Pi-SK-54V"; */
+"5Pi-SK-54V.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "75K-fa-F76"; */
+"75K-fa-F76.text" = "Label";
+
+/* Class = "UILabel"; text = "⚫︎"; ObjectID = "8JE-M1-glZ"; */
+"8JE-M1-glZ.text" = "⚫︎";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "A75-Wd-Bvs"; */
+"A75-Wd-Bvs.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "AeY-xK-khJ"; */
+"AeY-xK-khJ.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BCh-oo-IHu"; */
+"BCh-oo-IHu.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "例えば..."; ObjectID = "BF5-3a-7MP"; */
+"BF5-3a-7MP.normalTitle" = "例えば...";
+
+/* Class = "UITextView"; text = "話し合いの内容や、患者のふだんの生活や症状を 記録しておくと、変化を確認したり、病院や家族 と情報を共有することができます。 チェックリストを活用してください。"; ObjectID = "BIn-L2-1uz"; */
+"BIn-L2-1uz.text" = "話し合いの内容や、患者のふだんの生活や症状を 記録しておくと、変化を確認したり、病院や家族 と情報を共有することができます。 チェックリストを活用してください。";
+
+/* Class = "UITextView"; text = "家族だけで重大な医療行為を決めるのはとても難しい です。ふだんからよく話し合い、本人の意思や希望を 確認しておきましょう"; ObjectID = "BNt-kh-z60"; */
+"BNt-kh-z60.text" = "家族だけで重大な医療行為を決めるのはとても難しい です。ふだんからよく話し合い、本人の意思や希望を 確認しておきましょう";
+
+/* Class = "UIButton"; normalTitle = "このページへ"; ObjectID = "Bt6-Oj-i8W"; */
+"Bt6-Oj-i8W.normalTitle" = "このページへ";
+
+/* Class = "UINavigationItem"; title = "医師との話し合い"; ObjectID = "Bzl-6v-jn1"; */
+"Bzl-6v-jn1.title" = "医師との話し合い";
+
+/* Class = "UITextView"; text = "ポイント：医師に質問をし、十分な説明を受けて医療 　　　　　行為を決断した"; ObjectID = "CZj-y0-iYb"; */
+"CZj-y0-iYb.text" = "ポイント：医師に質問をし、十分な説明を受けて医療 　　　　　行為を決断した";
+
+/* Class = "UITextView"; text = " ⚫︎家族や本人の気持ちを伝える\n ⚫︎退院後の生活も視野に入れて話す"; ObjectID = "CdB-sp-kJM"; */
+"CdB-sp-kJM.text" = " ⚫︎家族や本人の気持ちを伝える\n ⚫︎退院後の生活も視野に入れて話す";
+
+/* Class = "UIButton"; normalTitle = "投稿する"; ObjectID = "DAl-8d-aXi"; */
+"DAl-8d-aXi.normalTitle" = "投稿する";
+
+/* Class = "UIBarButtonItem"; title = "Home"; ObjectID = "DY1-DD-ofy"; */
+"DY1-DD-ofy.title" = "Home";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "DZl-lF-ha1"; */
+"DZl-lF-ha1.text" = "Label";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "EW2-4r-o0d"; */
+"EW2-4r-o0d.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "ケース１: ６０代男性、若年性認知症"; ObjectID = "EXK-78-eW8"; */
+"EXK-78-eW8.text" = "ケース１: ６０代男性、若年性認知症";
+
+/* Class = "UIButton"; normalTitle = "チェックリスト"; ObjectID = "F3l-bT-Jrh"; */
+"F3l-bT-Jrh.normalTitle" = "チェックリスト";
+
+/* Class = "UILabel"; text = "病院で役に立つ情報"; ObjectID = "FLp-O9-icZ"; */
+"FLp-O9-icZ.text" = "病院で役に立つ情報";
+
+/* Class = "UINavigationItem"; title = "在宅スタッフ向け"; ObjectID = "FUw-fU-kMZ"; */
+"FUw-fU-kMZ.title" = "在宅スタッフ向け";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FjL-2C-bu0"; */
+"FjL-2C-bu0.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FwZ-fP-nHG"; */
+"FwZ-fP-nHG.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "チェックリスト"; ObjectID = "HvY-wr-wwI"; */
+"HvY-wr-wwI.title" = "チェックリスト";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "JGK-MU-wE5"; */
+"JGK-MU-wE5.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "K7M-5A-dns"; */
+"K7M-5A-dns.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "お絵描きする"; ObjectID = "KTQ-78-TYh"; */
+"KTQ-78-TYh.normalTitle" = "お絵描きする";
+
+/* Class = "UIButton"; normalTitle = "交換写真日記"; ObjectID = "LIu-Pd-FQ7"; */
+"LIu-Pd-FQ7.normalTitle" = "交換写真日記";
+
+/* Class = "UILabel"; text = "⚫︎"; ObjectID = "LLz-uE-b12"; */
+"LLz-uE-b12.text" = "⚫︎";
+
+/* Class = "UITextView"; text = "【食事の楽しみか窒息の危険か】\n飲み込みが悪くなり、胃ろうを作るかどうかを検討しました。家族からは、本人がもともと食事を楽しみにしているところがあったため、できるだけ口から食べる楽しみを残してほしいという希望を出しました。\n医師は言語聴覚士と相談し、胃ろうはせず食事を継続することにしました。"; ObjectID = "M99-2g-CQQ"; */
+"M99-2g-CQQ.text" = "【食事の楽しみか窒息の危険か】\n飲み込みが悪くなり、胃ろうを作るかどうかを検討しました。家族からは、本人がもともと食事を楽しみにしているところがあったため、できるだけ口から食べる楽しみを残してほしいという希望を出しました。\n医師は言語聴覚士と相談し、胃ろうはせず食事を継続することにしました。";
+
+/* Class = "UILabel"; text = "家族のそれから"; ObjectID = "Mz7-Ta-NSw"; */
+"Mz7-Ta-NSw.text" = "家族のそれから";
+
+/* Class = "UINavigationItem"; title = "家族の\bそれから"; ObjectID = "QVl-by-7H1"; */
+"QVl-by-7H1.title" = "家族の\bそれから";
+
+/* Class = "UITextView"; text = "病院では、家族が医療行為について判断を求められることがあります。 例えば ..."; ObjectID = "QXi-ss-gfr"; */
+"QXi-ss-gfr.text" = "病院では、家族が医療行為について判断を求められることがあります。 例えば ...";
+
+/* Class = "UILabel"; text = "⚫︎"; ObjectID = "QZq-6T-MYX"; */
+"QZq-6T-MYX.text" = "⚫︎";
+
+/* Class = "UILabel"; text = "subtitle"; ObjectID = "Qbi-NI-pkK"; */
+"Qbi-NI-pkK.text" = "subtitle";
+
+/* Class = "UILabel"; text = "これは...."; ObjectID = "Qjq-h5-X0M"; */
+"Qjq-h5-X0M.text" = "これは....";
+
+/* Class = "UINavigationItem"; title = "病院で求められること"; ObjectID = "R0x-14-kXw"; */
+"R0x-14-kXw.title" = "病院で求められること";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "Sv2-Dd-PiH"; */
+"Sv2-Dd-PiH.normalTitle" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "SyD-bA-ARw"; */
+"SyD-bA-ARw.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "U2Z-Z3-TFI"; */
+"U2Z-Z3-TFI.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "UVD-RP-EiA"; */
+"UVD-RP-EiA.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "⚫︎"; ObjectID = "VnL-23-Zmf"; */
+"VnL-23-Zmf.text" = "⚫︎";
+
+/* Class = "UITextField"; placeholder = "Your Name"; ObjectID = "W9y-aP-1mU"; */
+"W9y-aP-1mU.placeholder" = "Your Name";
+
+/* Class = "UIButton"; normalTitle = "このページへ"; ObjectID = "XfR-Nn-O0j"; */
+"XfR-Nn-O0j.normalTitle" = "このページへ";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "YIg-Ih-gKO"; */
+"YIg-Ih-gKO.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "はじめに：納得のいく医療を受けるために"; ObjectID = "aeh-dZ-E4c"; */
+"aeh-dZ-E4c.text" = "はじめに：納得のいく医療を受けるために";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "bDL-zX-Ia4"; */
+"bDL-zX-Ia4.normalTitle" = "Button";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "bkx-hH-N1Z"; */
+"bkx-hH-N1Z.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "cnt-lb-Jus"; */
+"cnt-lb-Jus.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cw1-mb-ZNh"; */
+"cw1-mb-ZNh.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "医療従業者向け"; ObjectID = "dbJ-DN-4PF"; */
+"dbJ-DN-4PF.title" = "医療従業者向け";
+
+/* Class = "UILabel"; text = "医師との話し合い"; ObjectID = "dwS-ej-V59"; */
+"dwS-ej-V59.text" = "医師との話し合い";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "eeO-P1-ClC"; */
+"eeO-P1-ClC.normalTitle" = "Button";
+
+/* Class = "UITextView"; text = "患者の家族は、このような経験をすることがあります。"; ObjectID = "fDs-ca-4mn"; */
+"fDs-ca-4mn.text" = "患者の家族は、このような経験をすることがあります。";
+
+/* Class = "UISegmentedControl"; fZD-QS-uGg.segmentTitles[0] = "食事"; ObjectID = "fZD-QS-uGg"; */
+"fZD-QS-uGg.segmentTitles[0]" = "食事";
+
+/* Class = "UISegmentedControl"; fZD-QS-uGg.segmentTitles[1] = "家族"; ObjectID = "fZD-QS-uGg"; */
+"fZD-QS-uGg.segmentTitles[1]" = "家族";
+
+/* Class = "UISegmentedControl"; fZD-QS-uGg.segmentTitles[2] = "趣味"; ObjectID = "fZD-QS-uGg"; */
+"fZD-QS-uGg.segmentTitles[2]" = "趣味";
+
+/* Class = "UISegmentedControl"; fZD-QS-uGg.segmentTitles[3] = "その他"; ObjectID = "fZD-QS-uGg"; */
+"fZD-QS-uGg.segmentTitles[3]" = "その他";
+
+/* Class = "UIButton"; normalTitle = "使い方"; ObjectID = "g5c-g6-Q2W"; */
+"g5c-g6-Q2W.normalTitle" = "使い方";
+
+/* Class = "UILabel"; text = "⚫︎"; ObjectID = "iVP-Zf-v11"; */
+"iVP-Zf-v11.text" = "⚫︎";
+
+/* Class = "UIButton"; normalTitle = "このページへ"; ObjectID = "jOi-pQ-PHx"; */
+"jOi-pQ-PHx.normalTitle" = "このページへ";
+
+/* Class = "UINavigationItem"; title = "病院で役に立つ情報"; ObjectID = "m05-d7-VjC"; */
+"m05-d7-VjC.title" = "病院で役に立つ情報";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "m8S-SL-Uve"; */
+"m8S-SL-Uve.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "「家族の会」の相談窓口があります"; ObjectID = "me8-A9-K6z"; */
+"me8-A9-K6z.text" = "「家族の会」の相談窓口があります";
+
+/* Class = "UILabel"; text = "話し合いのコツ"; ObjectID = "nE1-AB-Xfc"; */
+"nE1-AB-Xfc.text" = "話し合いのコツ";
+
+/* Class = "UITextView"; text = "【足の切断の決定】\n糖尿病で左足を切断する必要が出てきました。\n本人は若年性認知症で意思確認ができないため、医師は妻に切断するか、切断する場合どこから切断するかを相談しました。\n「先生の家族だったらどうしますか？」と質問したりして、切断後のことも十分説明を受けながら膝上から切断することを決めました。"; ObjectID = "oWc-1l-GPs"; */
+"oWc-1l-GPs.text" = "【足の切断の決定】\n糖尿病で左足を切断する必要が出てきました。\n本人は若年性認知症で意思確認ができないため、医師は妻に切断するか、切断する場合どこから切断するかを相談しました。\n「先生の家族だったらどうしますか？」と質問したりして、切断後のことも十分説明を受けながら膝上から切断することを決めました。";
+
+/* Class = "UILabel"; text = "病院で求められること"; ObjectID = "oWe-Dv-wam"; */
+"oWe-Dv-wam.text" = "病院で求められること";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "ocU-AD-e4d"; */
+"ocU-AD-e4d.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UIButton"; normalTitle = "認知症マニュアル"; ObjectID = "pAa-rM-QpQ"; */
+"pAa-rM-QpQ.normalTitle" = "認知症マニュアル";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "qqa-wi-BvD"; */
+"qqa-wi-BvD.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "rGa-qG-tVq"; */
+"rGa-qG-tVq.normalTitle" = "Button";
+
+/* Class = "UITextView"; text = "急変したら，心臓マッサージ／血圧を上げる薬の投与／　人工呼吸などの救命措置 をしますか？ 口からものを食べられないときに，胃ろう／ 経鼻経管栄養／中心静脈栄養／点滴 をしますか？ 腎臓の働きが悪くなったときに，人工透析をしますか？"; ObjectID = "raK-lE-6hF"; */
+"raK-lE-6hF.text" = "急変したら，心臓マッサージ／血圧を上げる薬の投与／　人工呼吸などの救命措置 をしますか？ 口からものを食べられないときに，胃ろう／ 経鼻経管栄養／中心静脈栄養／点滴 をしますか？ 腎臓の働きが悪くなったときに，人工透析をしますか？";
+
+/* Class = "UITextView"; text = "ポイント：家族から医師に希望を出し、医療行為を\n　　　　　決断した"; ObjectID = "rgo-Sk-rJQ"; */
+"rgo-Sk-rJQ.text" = "ポイント：家族から医師に希望を出し、医療行為を\n　　　　　決断した";
+
+/* Class = "UISegmentedControl"; t1D-Vt-b4O.segmentTitles[0] = "おばあちゃん"; ObjectID = "t1D-Vt-b4O"; */
+"t1D-Vt-b4O.segmentTitles[0]" = "おばあちゃん";
+
+/* Class = "UISegmentedControl"; t1D-Vt-b4O.segmentTitles[1] = "おじいちゃん"; ObjectID = "t1D-Vt-b4O"; */
+"t1D-Vt-b4O.segmentTitles[1]" = "おじいちゃん";
+
+/* Class = "UIButton"; normalTitle = "みんなのアルバム"; ObjectID = "tNS-Ut-Vhf"; */
+"tNS-Ut-Vhf.normalTitle" = "みんなのアルバム";
+
+/* Class = "UILabel"; text = "の写真です！"; ObjectID = "thM-ET-LAd"; */
+"thM-ET-LAd.text" = "の写真です！";
+
+/* Class = "UITextView"; text = " 　公益社団法人 認知症の人と家族の会\n　〒602-8143 京都府京都市上京区堀川通\n　丸太町下ル 京都社会福祉会館内\n　Tel: 0120-294-456（無料）\n　　　　　　　　　（月～金 10:00～15:00）\n　*携帯、PHS から075-811-8418（有料）\n　　HP: http://www.alzheimer.or.jp/\n　　全国に支部があり、支部でも電話相談を実施 　　しています。\n　　詳しくは上記お問い合わせ先まで。"; ObjectID = "tzB-eA-eIx"; */
+"tzB-eA-eIx.text" = " 　公益社団法人 認知症の人と家族の会\n　〒602-8143 京都府京都市上京区堀川通\n　丸太町下ル 京都社会福祉会館内\n　Tel: 0120-294-456（無料）\n　　　　　　　　　（月～金 10:00～15:00）\n　*携帯、PHS から075-811-8418（有料）\n　　HP: http://www.alzheimer.or.jp/\n　　全国に支部があり、支部でも電話相談を実施 　　しています。\n　　詳しくは上記お問い合わせ先まで。";
+
+/* Class = "UILabel"; text = "⚫︎"; ObjectID = "ueb-aG-hVN"; */
+"ueb-aG-hVN.text" = "⚫︎";
+
+/* Class = "UITextView"; text = "テレビや身近な話題をきっかけにして、本人の意思や 希望を確認する\n本人の意思や希望は、そのつど記録しておく\n家族みんなで情報を共有する"; ObjectID = "utJ-jz-eSM"; */
+"utJ-jz-eSM.text" = "テレビや身近な話題をきっかけにして、本人の意思や 希望を確認する\n本人の意思や希望は、そのつど記録しておく\n家族みんなで情報を共有する";
+
+/* Class = "UINavigationItem"; title = "家族のみなさんへ"; ObjectID = "uvM-d9-6XO"; */
+"uvM-d9-6XO.title" = "家族のみなさんへ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vlr-cG-5lm"; */
+"vlr-cG-5lm.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "⚫︎"; ObjectID = "xVh-PM-q4s"; */
+"xVh-PM-q4s.text" = "⚫︎";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "xs3-yF-Bo0"; */
+"xs3-yF-Bo0.text" = "Label";
+
+/* Class = "UILabel"; text = "ケース２: ９０代女性、アルツハイマー症"; ObjectID = "yXf-6s-xWT"; */
+"yXf-6s-xWT.text" = "ケース２: ９０代女性、アルツハイマー症";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "z9l-ZL-edv"; */
+"z9l-ZL-edv.normalTitle" = "Button";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "zCt-DR-V5T"; */
+"zCt-DR-V5T.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";

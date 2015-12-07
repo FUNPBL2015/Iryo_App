@@ -12,6 +12,8 @@ import ParseUI
 
 class TalkViewCell: PFTableViewCell{
     var avatarImageView: PFImageView?
+    var avatarBackGroundView: UIView?
+    var userName: UILabel?
     var timestanpLabel: UILabel?
     var photoButton: UIButton?
     var comments: UITextView?
@@ -41,9 +43,21 @@ class TalkViewCell: PFTableViewCell{
         self.avatarImageView = PFImageView()
         self.avatarImageView!.backgroundColor = UIColor.clearColor()
         self.avatarImageView!.contentMode = UIViewContentMode.ScaleAspectFill
-        self.contentView.addSubview(self.avatarImageView!)
+        self.avatarImageView!.frame = CGRectMake(25.0, 5.0, 30.0, 70.0)
+        
+        self.userName = UILabel()
+        self.userName!.frame = CGRectMake(5.0, 80.0, 70, 16)
+        self.userName!.font = UIFont(name: "07YasashisaGothic", size: 14)
+        self.userName!.textAlignment = .Center
+        
+        self.avatarBackGroundView = UIView()
+        self.avatarBackGroundView!.backgroundColor = UIColor.hexStr("FF83A8", alpha: 1.0)
+        self.avatarBackGroundView!.addSubview(self.userName!)
+        self.avatarBackGroundView!.addSubview(self.avatarImageView!)
+        self.contentView.addSubview(self.avatarBackGroundView!)
         
         self.timestanpLabel = UILabel()
+        self.timestanpLabel!.font = UIFont(name: "07YasashisaGothic", size: 20)
         self.timestanpLabel!.textColor = UIColor.grayColor()
         self.timestanpLabel!.backgroundColor = UIColor.clearColor()
         self.contentView.addSubview(self.timestanpLabel!)
@@ -53,7 +67,6 @@ class TalkViewCell: PFTableViewCell{
         self.imageView!.backgroundColor = UIColor.clearColor()
         self.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
         
-        // MARK: Testing - to the detail screen by tapping
         self.photoButton = UIButton(type: UIButtonType.Custom)
         self.photoButton!.backgroundColor = UIColor.blackColor()
         self.contentView.addSubview(self.photoButton!)
@@ -77,7 +90,7 @@ class TalkViewCell: PFTableViewCell{
         self.commentField!.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
         self.contentView.addSubview(self.commentField!)
         
-        self.commentsReturn!.backgroundColor = UIColor.blueColor()
+        self.commentsReturn!.backgroundColor = UIColor.hexStr("4597F5", alpha: 1.0)
         self.commentsReturn!.layer.masksToBounds = true
         self.commentsReturn!.layer.cornerRadius = 5.0
         self.commentsReturn!.setTitle("コメント", forState: UIControlState.Normal)
@@ -94,10 +107,11 @@ class TalkViewCell: PFTableViewCell{
     // MARK:- UIView
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.contentView.frame = CGRectMake(myScreenWidth / 10, 30.0, myScreenWidth - myScreenWidth / 5, self.contentView.frame.height - 50)
-        self.avatarImageView!.frame = CGRectMake(-40.0, -30.0, 80.0, 80.0)
+        self.contentView.frame = CGRectMake(myScreenWidth / 10, 70.0, myScreenWidth - myScreenWidth / 5, self.contentView.frame.height - 70)
+        //self.avatarImageView!.frame = CGRectMake(-15.0, -35.0, 30.0, 70.0)
+        self.avatarBackGroundView!.frame = CGRectMake(-40.0, -40.0, 80.0, 100.0)
         self.timestanpLabel!.frame = CGRectMake(self.contentView.frame.width - timestanpLabel!.sizeThatFits(CGSizeMake(myScreenWidth / 2, 20)).width,
-            -20, timestanpLabel!.sizeThatFits(CGSizeMake(myScreenWidth / 2, 20)).width, 20)
+            -25.0, timestanpLabel!.sizeThatFits(CGSizeMake(myScreenWidth / 2, 20)).width, 20)
         self.imageView!.frame = CGRectMake(50.0, 20.0, self.contentView.frame.width - 100, self.contentView.frame.height * 3/5)
         self.photoButton!.frame = self.imageView!.frame
         self.comments!.frame = CGRectMake(50.0, self.imageView!.frame.height + 20 + 10, self.contentView.frame.width - 100, 160)
