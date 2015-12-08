@@ -17,6 +17,9 @@ class TipsView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         //initial tableView style
         myTableView = UITableView(frame: CGRectMake(0, navigationBarHeight(self)! + myStatusBarHeight, myScreenWidth, myScreenHeight - (navigationBarHeight(self)! + myStatusBarHeight)))
         myTableView.separatorColor = UIColor.clearColor()
+        let texturedBackgroundView = UIView(frame: self.view.bounds)
+        texturedBackgroundView.backgroundColor = UIColor.hexStr("FFEBCD", alpha: 0.5)
+        myTableView.backgroundView = texturedBackgroundView
         myTableView.registerClass(TipsViewCell.self, forCellReuseIdentifier: "Tips")
         myTableView.showsVerticalScrollIndicator = false
         myTableView.dataSource = self
@@ -24,23 +27,13 @@ class TipsView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         self.view.addSubview(myTableView)
     }
     
-    // debug
-    func update_test(displayLink: CADisplayLink){
-        // 初回起動からの経過時間をカウントする
-        if !(firstTime)!.isEqual(NSNull) {
-            self.tabBarController?.navigationItem.title = Int(NSDate().timeIntervalSinceDate(firstTime!)).description
-        }else{
-            self.tabBarController?.navigationItem.title = "Nil"
-        }
-    }
-    
     func update(displayLink: CADisplayLink){
         // セルが追加される時にupdateDataを呼び出す
-        if (Int(NSDate().timeIntervalSinceDate(firstTime!)) % Int(tipsInterval)) == 0 && Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(tipsInterval) <= tipsDataarray.count{
+        if (Int(NSDate().timeIntervalSinceDate(firstTime!)) % Int(tipsInterval)) == 0 && Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(tipsInterval) <= tipsDataarray.count && Int(NSDate().timeIntervalSinceDate(firstTime!)) != 0{
             var timer = NSTimer()
             tipsDisplayLink!.invalidate()
             tipsDisplayLink = nil
-            //updateData(timer)
+            updateData(timer)
             timer = NSTimer.scheduledTimerWithTimeInterval(tipsInterval, target: self, selector: Selector("updateData:"), userInfo: nil, repeats: true)
             // 別スレッドでタイマー動作させる（スクロール中のタイマー停止回避）
             NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
@@ -77,7 +70,7 @@ class TipsView: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 2 * myScreenHeight / 3
+        return self.cellheight
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -98,23 +91,39 @@ class TipsView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         return tableFooter
     }
     
+    var cellheight: CGFloat = 0;
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let CellIdentifier = "Tips"
         
         var cell: TipsViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as? TipsViewCell
+        
+        //self.cellheight = cell!.cellheight!
         
         if cell == nil {
             cell = TipsViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
         }
         
         if indexPath.row < tipsDataarray.count && (Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(tipsInterval)) > indexPath.row && tipsCount >= 0{
-            cell!.mylabel.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row - 1][0]
-            cell!.myTextView?.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row - 1][1]
-            cell!.myPhoto?.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row - 1][2]
+            
+            //以下はtextから高さを取得する処理
+            //改行を単語区切りに
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            //NSAttributedStringのAttributeを指定
+            let tipAttributeDict = [
+                NSFontAttributeName: UIFont.systemFontOfSize(20),
+                NSParagraphStyleAttributeName: paragraphStyle
+            ]
+            let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
+            let tipTextSize = NSString(string: tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row - 1][1]).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
+            cell!.tipTextSize = tipTextSize
+            self.cellheight = cell!.titleHeight + tipTextSize.height + cell!.margin*6
+            
+            cell!.titleLabel!.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row - 1][0]
+            cell!.tipsLabel?.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row - 1][1]
         }else{
-            cell!.mylabel.text = nil
-            cell!.myTextView?.text = nil
-            cell!.myPhoto?.text = nil
+            cell!.titleLabel!.text = nil
+            cell!.tipsLabel!.text = nil
         }
         
         return cell!

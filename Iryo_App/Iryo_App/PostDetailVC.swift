@@ -133,6 +133,7 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         paintView!.navigationController?.popViewControllerAnimated(true)
     }
     
+    // TODO: インジケーターの表示
     @IBAction func didTapOnPaintBtn(sender: AnyObject) {
         
         (sender as! UIButton).enabled = false
@@ -153,6 +154,8 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         (sender as! UIButton).enabled = true
     }
     
+    // TODO: インジケーターの表示
+    // TODO: ネットワーク切断時のタイマー設定　（デフォルトでは長時間なので短時間に、コメント投稿部分では実装済み）
     @IBAction func didTapOnPostBtn(sender: AnyObject) {
         
         self.postData!.setObject(postSegmented.selectedSegmentIndex, forKey: myChatsTagKey)

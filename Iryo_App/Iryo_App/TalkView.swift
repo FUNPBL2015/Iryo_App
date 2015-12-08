@@ -221,6 +221,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         if cameraDeviceAvailable && photoLibraryAvailable {
             let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
             
+            // TODO: フォントの統一
             let takePhotoAction = UIAlertAction(title: NSLocalizedString("カメラで写真を撮る", comment: ""), style: UIAlertActionStyle.Default, handler: { _ in self.shouldStartCameraController() })
             
             let choosePhotoAction = UIAlertAction(title: NSLocalizedString("保存している写真から選ぶ", comment: ""), style: UIAlertActionStyle.Default, handler: { _ in self.shouldStartPhotoLibraryPickerController() })
@@ -249,11 +250,6 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print("objectis......\(self.objects!.count)")
-//        print("tips......\(NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum"))")
-//        print("topic......\(NSUserDefaults.standardUserDefaults().integerForKey("topiccellnum"))")
-//        print("intention......\(NSUserDefaults.standardUserDefaults().integerForKey("intentioncellnum"))")
-//        print("all......\(self.objects!.count + NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum") + NSUserDefaults.standardUserDefaults().integerForKey("topiccellnum"))")
         return self.objects!.count + NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum") + NSUserDefaults.standardUserDefaults().integerForKey("topiccellnum") + NSUserDefaults.standardUserDefaults().integerForKey("intentioncellnum")// + (self.paginationEnabled ? 1 : 0)
     }
     
@@ -279,7 +275,21 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 2 * myScreenHeight / 3
+        //print(self.tableView.numberOfRowsInSection(0))
+        // TODO: コード整理
+        // TODO: 他テーブルを参照後に再表示すると高さが崩れる（topic,tips）
+        // TopicView,TipsViewも同様
+        let sum = self.objects!.count + NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum") + NSUserDefaults.standardUserDefaults().integerForKey("topiccellnum") + NSUserDefaults.standardUserDefaults().integerForKey("intentioncellnum")
+        if self.allObjects.count > 0 && sum == self.allObjects.count{
+            switch self.allObjects[indexPath.row]{
+            case "intention": return self.intentionheight
+            case "topic": return self.topicheight
+            case "tips": return self.tipsheight
+            default :return 2 * myScreenHeight / 3
+            }
+        }else{
+            return 2 * myScreenHeight / 3
+        }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -292,8 +302,9 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         }
     }
     
+    // TODO: UserFollow、２家族以上の対応
+    // DB設計済み　設定画面の追加とquery文の作成が必要です。
     override func queryForTable() -> PFQuery {
-        
         let query: PFQuery = PFQuery(className: self.parseClassName!)
         query.limit = 30
         query.includeKey(myChatsUserKey)
@@ -346,6 +357,10 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         return nil
     }
     
+    // TODO: コード整理
+    private var intentionheight: CGFloat = 0
+    private var topicheight: CGFloat = 0
+    private var tipsheight: CGFloat = 0
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         let CellIdentifier = "Cell01"
         var tipsPostCellNum = 0, topicPostCellNum = 0, intentionPostCellNum = 0
@@ -382,26 +397,48 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             
             let p = tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1
             if tipsCount != nil && tipsDataarray != nil && p >= 0{
-                cell!.mylabel.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][0]
-                cell!.myTextView?.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][1]
-                cell!.myPhoto?.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][2]
-            }
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+                let tipAttributeDict = [
+                    NSFontAttributeName: UIFont.systemFontOfSize(20),
+                    NSParagraphStyleAttributeName: paragraphStyle
+                ]
+                let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
+                let tipTextSize = NSString(string: tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][1]).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
+                cell!.tipTextSize = tipTextSize
+                
+                self.tipsheight = cell!.titleHeight + tipTextSize.height + cell!.margin*6
+                cell!.titleLabel!.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][0]
+                cell!.tipsLabel?.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][1]
+           }
             
             return cell
             
         }else if  allObjects[indexPath.row] == "topic" {
             let CellIdentifier = "Cell03"
-            var cell: TopicViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? TopicViewCell
+            var cell: TipsViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? TipsViewCell
             
             if cell == nil {
-                cell = TopicViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+                cell = TipsViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
             }
             
             let p = topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1
             if topicCount != nil && topicDataarray != nil && p >= 0{
-                cell!.mylabel.text = topicDataarray[topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1][0]
-                cell!.myTextView?.text = topicDataarray[topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1][1]
-                cell!.myPhoto?.text = topicDataarray[topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1][2]
+                let TEXT:String = topicDataarray[topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1][1].stringByReplacingOccurrencesOfString("br", withString: "\n")
+                
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+                let tipAttributeDict = [
+                    NSFontAttributeName: UIFont.systemFontOfSize(20),
+                    NSParagraphStyleAttributeName: paragraphStyle
+                ]
+                let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
+                let tipTextSize = NSString(string: TEXT).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
+                cell!.tipTextSize = tipTextSize
+                
+                self.topicheight = cell!.titleHeight + tipTextSize.height + cell!.margin*6
+                cell!.titleLabel!.text = topicDataarray[topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1][0]
+                cell!.tipsLabel?.text = TEXT
             }
             
             return cell
@@ -416,9 +453,19 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             
             let p = intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1
             if intentionCount != nil && intentionDataarray != nil && p >= 0{
-                cell!.mylabel.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][0]
-                cell!.myTextView?.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][1]
-                cell!.myPhoto?.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][2]
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+                let tipAttributeDict = [
+                    NSFontAttributeName: UIFont.systemFontOfSize(20),
+                    NSParagraphStyleAttributeName: paragraphStyle
+                ]
+                let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
+                let tipTextSize = NSString(string: intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][1]).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
+                cell!.tipTextSize = tipTextSize
+                
+                self.intentionheight = cell!.titleHeight + tipTextSize.height + cell!.margin*9
+                cell!.titleLabel!.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][0]
+                cell!.tipsLabel?.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][1]
             }
             
             return cell
@@ -499,12 +546,12 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     //MARK: TalkView
     
     // 豆知識や医療トピックなどのデータを読み込む
-    // TODO: 整理
+    // TODO: コード整理
     func loadNonPostCellData(){
         // csvファイルの読み込み
         
         var path: [String]! = [String]()
-        path.append((NSBundle.mainBundle().pathForResource("intentionData", ofType: "csv"))!)
+    path.append((NSBundle.mainBundle().pathForResource("intentionData", ofType: "csv"))!)
         path.append((NSBundle.mainBundle().pathForResource("topicData", ofType: "csv"))!)
         path.append((NSBundle.mainBundle().pathForResource("tipsData", ofType: "csv"))!)
         
@@ -552,6 +599,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     func didTapOnPhotoAction(sender: UIButton){
         let photo: PFObject? = self.objects![sender.tag] as? PFObject
         
+        // TODO: インジケーターの表示
         if photo != nil{
             let photoVC: PhotoDetailVC? = PhotoDetailVC(image: photo!)
             self.navigationController!.pushViewController(photoVC!, animated: true)
@@ -734,7 +782,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             
             let timer: NSTimer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("handleCommentTimeout:"), userInfo: ["comment": comment], repeats: false)
             
-            //TODO: バックグラウンド時の挙動
+            //TODO: バックグラウンド時の挙動 (投稿画面では実装済み)
             comment.saveEventually { (succeeded, error) in
                 timer.invalidate()
                 

@@ -11,52 +11,22 @@ import Synchronized
 
 class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSource{
     private var myTableView: UITableView!
-//    var dataarray: [[String]]!
-//    var count: Int! = 0
-//    // セルを自動追加する間隔（秒）
-//    private let interval: NSTimeInterval = 30.0
-//    // 初回起動時間
-//    private let firstTime: NSDate? = NSUserDefaults.standardUserDefaults().objectForKey("firstTime") as? NSDate
-//    private var displayLink: CADisplayLink? = CADisplayLink()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+        //TODO: Simulator時に余分なトップマージンが取られる
         //initial tableView style
         myTableView = UITableView(frame: CGRectMake(0, navigationBarHeight(self)! + myStatusBarHeight, myScreenWidth, myScreenHeight - (navigationBarHeight(self)! + myStatusBarHeight)))
         myTableView.separatorColor = UIColor.clearColor()
+        let texturedBackgroundView = UIView(frame: self.view.bounds)
+        texturedBackgroundView.backgroundColor = UIColor.hexStr("FFEBCD", alpha: 0.5)
+        myTableView.backgroundView = texturedBackgroundView
         myTableView.registerClass(IntentionViewCell.self, forCellReuseIdentifier: "Intention")
         myTableView.showsVerticalScrollIndicator = false
         myTableView.dataSource = self
         myTableView.delegate = self
         self.view.addSubview(myTableView)
-        
-//        // csvファイルの読み込み
-//        let path = NSBundle.mainBundle().pathForResource("data", ofType: "csv")
-//        let data = try! String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
-//        
-//        let lines = data.componentsSeparatedByString("\n")
-//        self.tipsDataarray = [[String]]()
-//        for line in lines{
-//            self.tipsDataarray.append(line.componentsSeparatedByString(","))
-//        }
-//        
-//        // 表示できる残りセル数をカウント
-//        if Int(NSDate().timeIntervalSinceDate(self.firstTime!)) / Int(self.interval) >= 10{
-//            self.count = 0
-//        }else{
-//            self.count = 10 - Int(NSDate().timeIntervalSinceDate(self.firstTime!)) / Int(self.interval)
-//        }
-        
-//        // 10フレーム毎にupdateを呼び出す
-//        self.displayLink = CADisplayLink(target: self, selector: Selector("update:"))
-//        self.displayLink!.frameInterval = 10
-//        self.displayLink!.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
-//        
-//        // debug：titleに経過時間を表示する
-//        let displayLinkTest = CADisplayLink(target: self, selector: Selector("update_test:"))
-//        displayLinkTest.frameInterval = 10
-//        displayLinkTest.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
     }
     
     // debug
@@ -71,20 +41,23 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     // MARK: TalkViewに入ったときをタイマー起点にするならこれを使用する
+    // FIXME: Simulatorと実機で挙動が異なる
+    // simulatorでは0秒で最初のセルが挿入されてしまう
     func update(displayLink: CADisplayLink){
         // セルが追加される時にupdateDataを呼び出す
         
+        //FIXME: 一度も投稿されない時に無駄な処理が加わる
         if talkView!.objects!.count == 0{
             synchronized(self){
                 talkView?.loadObjects()
             }
         }
         
-        if (Int(NSDate().timeIntervalSinceDate(firstTime!)) % Int(intentionInterval)) == 0 && Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(intentionInterval) <= intentionDataarray.count{
+        if (Int(NSDate().timeIntervalSinceDate(firstTime!)) % Int(intentionInterval)) == 0 && Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(intentionInterval) <= intentionDataarray.count && Int(NSDate().timeIntervalSinceDate(firstTime!)) != 0{
             var timer = NSTimer()
             intentionDisplayLink!.invalidate()
             intentionDisplayLink = nil
-            //updateData(timer)
+            updateData(timer)
             timer = NSTimer.scheduledTimerWithTimeInterval(intentionInterval, target: self, selector: Selector("updateData:"), userInfo: nil, repeats: true)
             // 別スレッドでタイマー動作させる（スクロール中のタイマー停止回避）
             NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
@@ -123,7 +96,7 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 2 * myScreenHeight / 3
+        return self.cellheight
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -144,6 +117,8 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return tableFooter
     }
     
+    var cellheight: CGFloat = 0
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let CellIdentifier = "Intention"
         
@@ -154,13 +129,25 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         
         if indexPath.row < intentionDataarray.count && (Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(intentionInterval)) > indexPath.row && intentionCount >= 0{
-            cell!.mylabel.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row - 1][0]
-            cell!.myTextView?.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row - 1][1]
-            cell!.myPhoto?.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row - 1][2]
+            
+            //以下はtextから高さを取得する処理
+            //改行を単語区切りに
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            //NSAttributedStringのAttributeを指定
+            let tipAttributeDict = [
+                NSFontAttributeName: UIFont.systemFontOfSize(20),
+                NSParagraphStyleAttributeName: paragraphStyle
+            ]
+            let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
+            let tipTextSize = NSString(string: intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row - 1][1]).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
+            cell!.tipTextSize = tipTextSize
+            self.cellheight = cell!.titleHeight + tipTextSize.height + cell!.margin*9
+            cell!.titleLabel!.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row - 1][0]
+            cell!.tipsLabel?.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row - 1][1]
         }else{
-            cell!.mylabel.text = nil
-            cell!.myTextView?.text = nil
-            cell!.myPhoto?.text = nil
+            cell!.titleLabel!.text = nil
+            cell!.tipsLabel!.text = nil
         }
         
         return cell!

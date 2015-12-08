@@ -26,8 +26,11 @@ class WelcomeTalkVC: UIViewController{
     }
     
     //TODO: sign in/up の切り替え
-    //TODO: avater画像の設定
+    //TODO: IDと表示名を分ける (DBカラム追加済み、設定機能のみ)
+    //TODO: avater画像の選択
     //TODO: textfield　ログイン中の処理
+    //TODO: エラー表示の修正
+    //TODO: ネットワーク非接続時の挙動
     
     @IBAction func didSelectTag(sender: UISegmentedControl) {
         

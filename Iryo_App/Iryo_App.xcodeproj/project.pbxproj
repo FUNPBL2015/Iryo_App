@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		33C70E0DC961AD09313B5755 /* Pods_Iryo_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C00D3002AA8A8CE054F84DD /* Pods_Iryo_App.framework */; };
+		5E16771E1C1170AC006B94CA /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E16771D1C1170AC006B94CA /* cat.png */; };
 		5E1965671C037E0100D3D3BC /* kind.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E1965661C037E0100D3D3BC /* kind.ttf */; };
 		5E232A3E1B3D4ECC004A34BD /* Article3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E232A3D1B3D4ECC004A34BD /* Article3.swift */; };
 		5E232A471B3D5427004A34BD /* b_simple_124_2M.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E232A3F1B3D5427004A34BD /* b_simple_124_2M.png */; };
@@ -92,6 +93,7 @@
 /* Begin PBXFileReference section */
 		26290DFC9D42914B8B1EA88B /* Pods-Iryo_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Iryo_App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Iryo_App/Pods-Iryo_App.release.xcconfig"; sourceTree = "<group>"; };
 		5319233DCDCB6E2EB52F1702 /* Pods-Iryo_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Iryo_App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Iryo_App/Pods-Iryo_App.debug.xcconfig"; sourceTree = "<group>"; };
+		5E16771D1C1170AC006B94CA /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
 		5E1965661C037E0100D3D3BC /* kind.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kind.ttf; sourceTree = "<group>"; };
 		5E232A3D1B3D4ECC004A34BD /* Article3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article3.swift; sourceTree = "<group>"; };
 		5E232A3F1B3D5427004A34BD /* b_simple_124_2M.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b_simple_124_2M.png; sourceTree = "<group>"; };
@@ -316,7 +318,6 @@
 				5EBF6EDD1BF32B0700295C7F /* cc-library010009109zzavm.jpg */,
 				5EBF6EDF1BF32B1400295C7F /* 背景.png */,
 				5E232A3F1B3D5427004A34BD /* b_simple_124_2M.png */,
-				5E232A401B3D5427004A34BD /* finger-icon05_r1_c4.png */,
 				5E232A411B3D5427004A34BD /* finger-icon05_r1_c42.png */,
 				5E232A421B3D5427004A34BD /* おじいさん２.png */,
 				5E232A431B3D5427004A34BD /* 医師.png */,
@@ -324,13 +325,15 @@
 				5E232A451B3D5427004A34BD /* 奥さん2.png */,
 				5E232A461B3D5427004A34BD /* 矢印２.png */,
 				5E88AD421B352B66007679A7 /* pic_family.png */,
+				5E232A401B3D5427004A34BD /* finger-icon05_r1_c4.png */,
 				5E88AD401B3523BD007679A7 /* homeImg.png */,
 				5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */,
 				5EAC1F3B1B33132400473C38 /* testFont1.ttf */,
+				5E16771D1C1170AC006B94CA /* cat.png */,
 				5EB9E3121B2832A9005B7951 /* Info.plist */,
-				5E4E0C381C00F26500297B18 /* intentionData.csv */,
 				5EBBC1B21C149FB0009D65B7 /* topicData.csv */,
 				5EBBC1B41C149FDC009D65B7 /* tipsData.csv */,
+				5E4E0C381C00F26500297B18 /* intentionData.csv */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E16771E1C1170AC006B94CA /* cat.png in Resources */,
 				5EBF6EE01BF32B1400295C7F /* 背景.png in Resources */,
 				5E88AD431B352B66007679A7 /* pic_family.png in Resources */,
 				5E232A4C1B3D5427004A34BD /* 奥さん.png in Resources */,

@@ -128,8 +128,8 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         }
     }
     
-    // MARK: enumとswitch
-    
+    // TODO: コード整理 (enumとswitch)
+    // paintBtn,eraserBtnの挙動変更　(同時押しhighlight)
     private var toolToggle = true
     @IBOutlet weak var eraserTool: UIButton!
     @IBOutlet weak var penTool: UIButton!

@@ -17,30 +17,24 @@ class TopicView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         //initial tableView style
         myTableView = UITableView(frame: CGRectMake(0, navigationBarHeight(self)! + myStatusBarHeight, myScreenWidth, myScreenHeight - (navigationBarHeight(self)! + myStatusBarHeight)))
         myTableView.separatorColor = UIColor.clearColor()
-        myTableView.registerClass(TopicViewCell.self, forCellReuseIdentifier: "Topic")
+
+        let texturedBackgroundView = UIView(frame: self.view.bounds)
+        texturedBackgroundView.backgroundColor = UIColor.hexStr("FFEBCD", alpha: 0.5)
+        myTableView.backgroundView = texturedBackgroundView
+        myTableView.registerClass(TipsViewCell.self, forCellReuseIdentifier: "Tips")
         myTableView.showsVerticalScrollIndicator = false
         myTableView.dataSource = self
         myTableView.delegate = self
         self.view.addSubview(myTableView)
     }
     
-    // debug
-    func update_test(displayLink: CADisplayLink){
-        // 初回起動からの経過時間をカウントする
-        if !(firstTime)!.isEqual(NSNull) {
-            self.tabBarController?.navigationItem.title = Int(NSDate().timeIntervalSinceDate(firstTime!)).description
-        }else{
-            self.tabBarController?.navigationItem.title = "Nil"
-        }
-    }
-    
     func update(displayLink: CADisplayLink){
         // セルが追加される時にupdateDataを呼び出す
-        if (Int(NSDate().timeIntervalSinceDate(firstTime!)) % Int(topicInterval)) == 0 && Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(topicInterval) <= topicDataarray.count{
+        if (Int(NSDate().timeIntervalSinceDate(firstTime!)) % Int(topicInterval)) == 0 && Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(topicInterval) <= topicDataarray.count && Int(NSDate().timeIntervalSinceDate(firstTime!)) != 0{
             var timer = NSTimer()
             topicDisplayLink!.invalidate()
             topicDisplayLink = nil
-            //updateData(timer)
+            updateData(timer)
             timer = NSTimer.scheduledTimerWithTimeInterval(topicInterval, target: self, selector: Selector("updateData:"), userInfo: nil, repeats: true)
             // 別スレッドでタイマー動作させる（スクロール中のタイマー停止回避）
             NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
@@ -77,7 +71,7 @@ class TopicView: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 2 * myScreenHeight / 3
+        return self.cellheight
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -98,23 +92,40 @@ class TopicView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         return tableFooter
     }
     
+    var cellheight: CGFloat = 0;
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let CellIdentifier = "Topic"
+        let CellIdentifier = "Tips"
         
-        var cell: TopicViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as? TopicViewCell
+        var cell: TipsViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as? TipsViewCell
+        
+        //self.cellheight = cell!.cellheight!
         
         if cell == nil {
-            cell = TopicViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+            cell = TipsViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
         }
         
         if indexPath.row < topicDataarray.count && (Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(topicInterval)) > indexPath.row && topicCount >= 0{
-            cell!.mylabel.text = topicDataarray[topicDataarray.count - topicCount - indexPath.row - 1][0]
-            cell!.myTextView?.text = topicDataarray[topicDataarray.count - topicCount - indexPath.row - 1][1]
-            cell!.myPhoto?.text = topicDataarray[topicDataarray.count - topicCount - indexPath.row - 1][2]
+            
+            //以下はtextから高さを取得する処理
+            //改行を単語区切りに
+            let TEXT:String = topicDataarray[topicDataarray.count - topicCount - indexPath.row - 1][1].stringByReplacingOccurrencesOfString("br", withString: "\n")
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            //NSAttributedStringのAttributeを指定
+            let tipAttributeDict = [
+                NSFontAttributeName: UIFont.systemFontOfSize(20),
+                NSParagraphStyleAttributeName: paragraphStyle
+            ]
+            let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
+            let tipTextSize = NSString(string: TEXT).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
+            cell!.tipTextSize = tipTextSize
+            self.cellheight = cell!.titleHeight + tipTextSize.height + cell!.margin*6
+            
+            cell!.titleLabel!.text = topicDataarray[topicDataarray.count - topicCount - indexPath.row - 1][0]
+            cell!.tipsLabel?.text = TEXT
         }else{
-            cell!.mylabel.text = nil
-            cell!.myTextView?.text = nil
-            cell!.myPhoto?.text = nil
+            cell!.titleLabel!.text = nil
+            cell!.tipsLabel!.text = nil
         }
         
         return cell!
