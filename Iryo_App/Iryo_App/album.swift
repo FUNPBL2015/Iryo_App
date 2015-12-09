@@ -21,7 +21,8 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     var nowYear: Int = 0
     var nowMonth: Int = 0
     var dates:[String] = []
-    let dateFormatter:NSDateFormatter = NSDateFormatter();
+    let dateFormatter = NSDateFormatter()
+
     
     var pictures:[AnyObject] = []
     var mealPicture:[AnyObject] = []
@@ -55,12 +56,16 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     let arrowLeft = UIImageView(frame: CGRectMake(0,0,170,100))
     let arrowRight = UIImageView(frame: CGRectMake(0,0,170,100))
     
+    override func viewDidAppear(animated: Bool) {
+        navigationItem.title = "みんなのアルバム"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setToolbarHidden(false, animated: true)
         self.navigationController?.toolbar.frame = CGRectMake(0, 924, 768, 100)
         
-        navigationItem.title = "みんなのアルバム"
+//        navigationItem.title = "みんなのアルバム"
         let backButtonItem = UIBarButtonItem(title: "戻る", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backButtonItem
                 
@@ -74,9 +79,9 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         let now = NSDate()
         
         var dateString:String = ""
-        self.dateFormatter.locale = NSLocale(localeIdentifier: "ja")
-        self.dateFormatter.dateFormat = "yyyy/MM";
-        dateString = self.dateFormatter.stringFromDate(now);
+        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP")
+        dateFormatter.dateFormat = "yyyy/MM";
+        dateString = dateFormatter.stringFromDate(now);
         dates = dateString.componentsSeparatedByString("/")
         nowYear = Int(dates[0])!
         nowMonth = Int(dates[1])!
@@ -246,15 +251,15 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
                 allPicture.append(objects![i])
                 if(allPicture[i].objectForKey("user")?.objectForKey("username") != nil){
                     let check: String? = allPicture[i].objectForKey("user")?.objectForKey("username") as! String?
+                    let string = allPicture[i].createdAt as NSDate!
+                    k.append(string)
+                    
+                    pictureDateString = self.dateFormatter.stringFromDate(k[i]);
+                    pictureDates = pictureDateString.componentsSeparatedByString("/")
+                    pictureYear  = Int(pictureDates[0])!
+                    pictureMonth = Int(pictureDates[1])!
                     for(var m = 0 ; m < self.usernames.count ; m++){
                         if(check == self.usernames[m] as? String){
-                            let string = allPicture[i].createdAt as NSDate!
-                            k.append(string)
-                            
-                            pictureDateString = self.dateFormatter.stringFromDate(k[i]);
-                            pictureDates = pictureDateString.componentsSeparatedByString("/")
-                            pictureYear  = Int(pictureDates[0])!
-                            pictureMonth = Int(pictureDates[1])!
                             
                             if (pictureMonth == self.currentMonth && pictureYear == self.currentYear){
                                 let imageTag: Int = (allPicture[i].objectForKey("tag") as? Int)!
