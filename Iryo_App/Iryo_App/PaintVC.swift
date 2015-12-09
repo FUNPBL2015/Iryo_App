@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MBProgressHUD
 import Parse
 import ACEDrawingView
 
@@ -85,6 +86,12 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController!.interactivePopGestureRecognizer!.enabled = false
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.isBack = true
@@ -103,8 +110,16 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         saveBtn.layer.backgroundColor = UIColor.hexStr("FF9933", alpha: 1.0).CGColor
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveBtn)
-        
         self.navigationItem.title = "お絵描き"
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController!.interactivePopGestureRecognizer!.enabled = true
+        
+        //インジケーターの非表示
+        MBProgressHUD.hideHUDForView(self.navigationController!.view, animated: true)
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -133,24 +148,17 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
     private var toolToggle = true
     @IBOutlet weak var eraserTool: UIButton!
     @IBOutlet weak var penTool: UIButton!
-    @IBAction func didTapWhite(sender: AnyObject) {
-        self.drawingView.lineColor = UIColor.whiteColor()
-    }
     
-    @IBAction func didTapBlack(sender: AnyObject) {
-        self.drawingView.lineColor = UIColor.blackColor()
-    }
     
-    @IBAction func didTapRed(sender: AnyObject) {
-        self.drawingView.lineColor = UIColor.redColor()
-    }
-    
-    @IBAction func didTapGreen(sender: AnyObject) {
-        self.drawingView.lineColor = UIColor.greenColor()
-    }
-    
-    @IBAction func didTapBlue(sender: AnyObject) {
-        self.drawingView.lineColor = UIColor.blueColor()
+    @IBAction func didTapColor(sender: UIButton) {
+        switch sender.tag{
+        case 0: self.drawingView.lineColor = UIColor.whiteColor()
+        case 1: self.drawingView.lineColor = UIColor.blackColor()
+        case 2: self.drawingView.lineColor = UIColor.redColor()
+        case 3: self.drawingView.lineColor = UIColor.greenColor()
+        case 4: self.drawingView.lineColor = UIColor.blueColor()
+        default: break
+        }
     }
     
     @IBAction func didTapPen(sender: AnyObject) {
@@ -172,6 +180,9 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
     }
     
     @IBAction func didTapClear(sender: AnyObject) {
+        let hud = MBProgressHUD.showHUDAddedTo(self.navigationController!.view, animated: true)
+        hud.dimBackground = true
+        
         if self.drawingView.undoSteps > 0 {
             for _ in 1 ... self.drawingView.undoSteps {
                 self.drawingView.undoLatestStep()
@@ -179,9 +190,14 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
             // redo, undo stepsもリセットされるため、clearは使用しない
             //self.drawingView.clear()
         }
+        
+        MBProgressHUD.hideHUDForView(self.navigationController!.view, animated: true)
     }
     
     func didTapSaveBtn(){
+        let hud = MBProgressHUD.showHUDAddedTo(self.navigationController!.view, animated: true)
+        hud.dimBackground = true
+        
         // MARK: カメラロールに保存
         //UIImageWriteToSavedPhotosAlbum(self.paintView.screenCapture(), nil, nil, nil)
         self.isBack = false

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 import MobileCoreServices
 import Parse
 import ParseUI
@@ -76,23 +77,12 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         texturedBackgroundView.backgroundColor = UIColor.hexStr("FFEBCD", alpha: 0.5)
         self.tableView.backgroundView = texturedBackgroundView
         self.tableView.separatorColor = UIColor.clearColor()
-        //self.tableView.showsVerticalScrollIndicator = false
         self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(
             0.0, 0.0, 100.0, 0.0)
         
         let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
         defaultNotificationCenter.addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         defaultNotificationCenter.addObserver(self, selector: Selector("userDidPublishPhoto:"), name: "TalkView.didFinishEditingPhoto", object: nil)
-        
-        //initial navbar
-        let logoutBtn: UIBarButtonItem! = UIBarButtonItem(title: "×", style: .Plain, target: self, action: "didTapOnLogoutBtn")
-        logoutBtn
-        let postBtn: UIBarButtonItem! = UIBarButtonItem(title: "写真の投稿", style: .Plain, target: self, action: "didTapOnPostBtn")
-        postBtn.setTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -15.0), forBarMetrics: .Default)
-        //let addBtn: UIBarButtonItem! = UIBarButtonItem(title: "追加", style: .Plain, target: self, action: "didTapOnAddBtn")
-        
-        let navRightBtns: NSArray = [postBtn, logoutBtn]
-        self.tabBarController!.navigationItem.setRightBarButtonItems(navRightBtns as? [UIBarButtonItem], animated: true)
 
         self.loadNonPostCellData()
         
@@ -102,9 +92,9 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         intentionDisplayLink!.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
         
         // debug：titleに経過時間を表示する
-        let displayLinkTest = CADisplayLink(target: intentionView!, selector: Selector("update_test:"))
-        displayLinkTest.frameInterval = 10
-        displayLinkTest.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
+//        let displayLinkTest = CADisplayLink(target: intentionView!, selector: Selector("update_test:"))
+//        displayLinkTest.frameInterval = 10
+//        displayLinkTest.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
         
         // MARK: topicView
         topicDisplayLink = CADisplayLink(target: topicView!, selector: Selector("update:"))
@@ -120,8 +110,18 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.tabBarController!.navigationItem.title = PFUser.currentUser()!.username
-
+        //self.tabBarController!.navigationItem.title = PFUser.currentUser()!.username
+        
+        //initial navbar
+        let logoutBtn: UIBarButtonItem! = UIBarButtonItem(title: "×", style: .Plain, target: self, action: "didTapOnLogoutBtn")
+        logoutBtn
+        let postBtn: UIBarButtonItem! = UIBarButtonItem(title: "写真の投稿", style: .Plain, target: self, action: "didTapOnPostBtn")
+        // let addBtn: UIBarButtonItem! = UIBarButtonItem(title: "追加", style: .Plain, target: self, action: "didTapOnAddBtn")
+        
+        let navRightBtns: NSArray = [postBtn, logoutBtn]
+        self.tabBarController!.navigationItem.setRightBarButtonItems(navRightBtns as? [UIBarButtonItem], animated: true)
+        self.tabBarController!.navigationItem.title = "交換写真日記"
+        
         // MARK: 画面外にいるときに追加された他セルを同期する
         // テスト段階
 //        if NSUserDefaults.standardUserDefaults().boolForKey("firstLaunchAtTalkView")  {
@@ -137,6 +137,13 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
 //                NSUserDefaults.standardUserDefaults().synchronize()
 //            }
 //        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //インジケーターの非表示
+        MBProgressHUD.hideHUDForView(self.navigationController!.view, animated: true)
     }
     
     // テーブルがリロードされる時
@@ -201,6 +208,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
 //        
 //        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
 //        self.tableView.endUpdates()
+//        MBProgressHUD.hideHUDForView(self.view, animated: true)
 //    }
     
     // ログアウト処理
@@ -275,7 +283,6 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        //print(self.tableView.numberOfRowsInSection(0))
         // TODO: コード整理
         // TODO: 他テーブルを参照後に再表示すると高さが崩れる（topic,tips）
         // TopicView,TipsViewも同様
@@ -388,7 +395,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         }
         
         if  allObjects[indexPath.row] == "tips" {
-            let CellIdentifier = "Cell02"
+            let CellIdentifier = "Tips"
             var cell: TipsViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? TipsViewCell
             
             if cell == nil {
@@ -415,7 +422,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             return cell
             
         }else if  allObjects[indexPath.row] == "topic" {
-            let CellIdentifier = "Cell03"
+            let CellIdentifier = "Tips"
             var cell: TipsViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? TipsViewCell
             
             if cell == nil {
@@ -444,7 +451,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             return cell
             
         }else if  allObjects[indexPath.row] == "intention" {
-            let CellIdentifier = "Cell04"
+            let CellIdentifier = "Intention"
             var cell: IntentionViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? IntentionViewCell
             
             if cell == nil {
@@ -529,7 +536,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
                             if error == nil && objects!.count > 0 {
                                 cell!.comments!.text = nil
                                 for row: PFObject in objects! {
-                                    cell!.comments!.text = cell!.comments!.text!.stringByAppendingString((row.objectForKey(myActivityFromUserKey)!.username!)! + ": " + (row.objectForKey("content") as! String) + "\n")
+                                    cell!.comments!.text = cell!.comments!.text!.stringByAppendingString((row.objectForKey(myActivityFromUserKey)!.objectForKey("displayName") as! String) + ": " + (row.objectForKey("content") as! String) + "\n")
                                 }
                             }else{
                                 if cell!.comments!.text != "コメントがありません" { cell!.comments!.text = "コメントがありません" }
@@ -597,9 +604,11 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     
     // 写真をタップした時
     func didTapOnPhotoAction(sender: UIButton){
+        let hud = MBProgressHUD.showHUDAddedTo(self.navigationController!.view, animated: true)
+        hud.dimBackground = true
+        
         let photo: PFObject? = self.objects![sender.tag] as? PFObject
         
-        // TODO: インジケーターの表示
         if photo != nil{
             let photoVC: PhotoDetailVC? = PhotoDetailVC(image: photo!)
             self.navigationController!.pushViewController(photoVC!, animated: true)
@@ -663,6 +672,9 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         self.dismissViewControllerAnimated(false, completion: nil)
         
+        let hud = MBProgressHUD.showHUDAddedTo(self.navigationController!.view, animated: true)
+        hud.dimBackground = true
+        
         var image: UIImage! = info[UIImagePickerControllerOriginalImage] as? UIImage
         var rotate: UIImageOrientation!
         
@@ -683,6 +695,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         postDetailView!.image = image
         
         self.navigationController?.pushViewController(postDetailView!, animated: true)
+        
         //self.presentViewController(PostDetal!, animated: true, completion: nil)
     }
     

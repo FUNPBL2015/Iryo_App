@@ -11,6 +11,7 @@ import ParseUI
 import Parse
 import FormatterKit
 import ACEDrawingView
+import MBProgressHUD
 import UIImage_AF_Additions
 
 @IBDesignable
@@ -102,6 +103,13 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         self.navigationItem.title = "投稿"
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //インジケーターの非表示
+        MBProgressHUD.hideHUDForView(self.navigationController!.view, animated: true)
+    }
+    
     //TODO: タグ付けを解除するボタンの設置
     @IBAction func didSelectTag(sender: UISegmentedControl) {
         
@@ -133,8 +141,10 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         paintView!.navigationController?.popViewControllerAnimated(true)
     }
     
-    // TODO: インジケーターの表示
     @IBAction func didTapOnPaintBtn(sender: AnyObject) {
+        // インジケーターの表示
+        let hud = MBProgressHUD.showHUDAddedTo(self.navigationController!.view, animated: true)
+        hud.dimBackground = true
         
         (sender as! UIButton).enabled = false
         
@@ -150,14 +160,15 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         temp_redo = paintView!.drawingView.redoSteps
         
         self.navigationController?.pushViewController(paintView!, animated: true)
+        hud.removeFromSuperview()
         
         (sender as! UIButton).enabled = true
+        
     }
-    
-    // TODO: インジケーターの表示
+
+    // TODO: インジケータの表示
     // TODO: ネットワーク切断時のタイマー設定　（デフォルトでは長時間なので短時間に、コメント投稿部分では実装済み）
     @IBAction func didTapOnPostBtn(sender: AnyObject) {
-        
         self.postData!.setObject(postSegmented.selectedSegmentIndex, forKey: myChatsTagKey)
         self.postData!.setObject(PFUser.currentUser()!, forKey: myChatsUserKey)
         
@@ -188,13 +199,13 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
             try self.postData!.save()
             UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
             NSNotificationCenter.defaultCenter().postNotificationName("TalkView.didFinishEditingPhoto", object: postData)
-            alert.showSuccess("Success", subTitle:"Success", closeButtonTitle: "OK")
+            alert.showSuccess("成功", subTitle:"投稿が完了しました！", closeButtonTitle: "OK")
         }catch{
+            MBProgressHUD.hideHUDForView(self.navigationController!.view, animated: true)
             UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
-            alert.showError("Warning", subTitle:"Couldn't post your photo", closeButtonTitle:"OK")
+            alert.showError("エラー", subTitle:"投稿に失敗しました。ネットワーク接続を確認してください。", closeButtonTitle:"OK")
         }
         
-            }
-    
+    }
     
 }

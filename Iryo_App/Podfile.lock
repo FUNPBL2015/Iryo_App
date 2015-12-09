@@ -20,6 +20,7 @@ PODS:
   - FormatterKit/TimeIntervalFormatter (1.8.0)
   - FormatterKit/UnitOfInformationFormatter (1.8.0)
   - FormatterKit/URLRequestFormatter (1.8.0)
+  - MBProgressHUD (0.9.1)
   - Parse (1.9.1):
     - Bolts/Tasks (>= 1.4.0)
   - ParseUI (1.1.6):
@@ -31,6 +32,7 @@ PODS:
 DEPENDENCIES:
   - ACEDrawingView
   - FormatterKit
+  - MBProgressHUD (~> 0.9.1)
   - Parse
   - ParseUI
   - Synchronized
@@ -49,6 +51,7 @@ SPEC CHECKSUMS:
   ACEDrawingView: 325b5cd00125766c6df9b30aa3a7b68866d2ce16
   Bolts: 0e9bce58b9b9f5e8a7a4d47b16d2fabec289072b
   FormatterKit: bddde83e054edf9d9ee14f9de3b3a5103db256f4
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   Parse: 54a965c8c19a6dde90284ab654dbcc77ef8c001b
   ParseUI: 8a22e448c03f825203d8c379c80523517f68baa3
   Synchronized: 576e9b6c148d49cbb5a60cbcb2a7569768f4ec79
