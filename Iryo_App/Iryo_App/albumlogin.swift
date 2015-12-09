@@ -73,23 +73,23 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         
         let displayName: String? = user[indexPath.row].objectForKey("displayName") as! String?
         cell.userName.text = displayName
-        cell.userName.textAlignment = NSTextAlignment.Center
 
-        if cell.alpha != 1.0{
+        if cell.alpha != 1.0 || cell.layer.borderWidth != 0{
             cell.alpha = 1.0
+            cell.layer.borderWidth = 0
         }
         
         let imageFile: PFFile? = user[indexPath.row].objectForKey("profilePictureSmall") as! PFFile?
         imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
             if(error == nil) {
                 cell.userPicture!.image = UIImage(data: imageData!)!
-                cell.layer.borderWidth = 2
             }
         })
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath) {
+        if(user.count != 0){
         var m = 0
         var location:[Int] = []
         
@@ -111,14 +111,13 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         }
         if cell.selected == true {
             cell.alpha = 0.5
-//            cell.layer.borderWidth = 2
+            cell.layer.borderWidth = 2
         } else if cell.selected == false {
             cell.alpha = 1.0
-//            cell.layer.borderWidth = 0
+            cell.layer.borderWidth = 0
+        }
         }
     }
-    
-    
     
     func allSelect(sender: UIButton){
         username = []
