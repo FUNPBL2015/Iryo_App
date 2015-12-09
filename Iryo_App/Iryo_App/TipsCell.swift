@@ -31,13 +31,9 @@ class TipsViewCell: PFTableViewCell{
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.opaque = false
-        self.selectionStyle = UITableViewCellSelectionStyle.Default
+        self.selectionStyle = UITableViewCellSelectionStyle.None
         self.accessoryType = UITableViewCellAccessoryType.None
         self.clipsToBounds = false
-        
-        let bg = UIView()
-        bg.backgroundColor = UIColor.redColor()
-        self.selectedBackgroundView = bg
         
         self.backgroundColor = UIColor.clearColor()
         
@@ -57,7 +53,7 @@ class TipsViewCell: PFTableViewCell{
         self.timestanpLabel = UILabel()
         self.timestanpLabel!.textColor = UIColor.grayColor()
         self.timestanpLabel!.backgroundColor = UIColor.clearColor()
-        self.timestanpLabel!.text = "2015/00/00 00:00"
+        self.timestanpLabel!.text = "2015/12/09 16:40"
         self.contentView.addSubview(self.timestanpLabel!)
         
         self.tipsLabel = UILabel()

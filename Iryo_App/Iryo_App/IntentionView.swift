@@ -12,8 +12,11 @@ import Synchronized
 class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSource{
     private var myTableView: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.automaticallyAdjustsScrollViewInsets = false
     
         //TODO: Simulator時に余分なトップマージンが取られる
         //initial tableView style
@@ -29,6 +32,19 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.view.addSubview(myTableView)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // セルがない時の表示
+        if intentionCount == intentionDataarray.count{
+            
+        }
+        
+        //initial navbar
+        self.tabBarController!.navigationItem.setRightBarButtonItems([], animated: true)
+        self.tabBarController!.navigationItem.title = "みんなのにっき"
+    }
+    
     // debug
     func update_test(displayLink: CADisplayLink){
         
@@ -41,8 +57,6 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     // MARK: TalkViewに入ったときをタイマー起点にするならこれを使用する
-    // FIXME: Simulatorと実機で挙動が異なる
-    // simulatorでは0秒で最初のセルが挿入されてしまう
     func update(displayLink: CADisplayLink){
         // セルが追加される時にupdateDataを呼び出す
         

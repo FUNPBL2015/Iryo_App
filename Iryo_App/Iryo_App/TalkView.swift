@@ -118,7 +118,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         let postBtn: UIBarButtonItem! = UIBarButtonItem(title: "写真の投稿", style: .Plain, target: self, action: "didTapOnPostBtn")
         // let addBtn: UIBarButtonItem! = UIBarButtonItem(title: "追加", style: .Plain, target: self, action: "didTapOnAddBtn")
         
-        let navRightBtns: NSArray = [postBtn, logoutBtn]
+        let navRightBtns: NSArray = [postBtn/*, logoutBtn*/]
         self.tabBarController!.navigationItem.setRightBarButtonItems(navRightBtns as? [UIBarButtonItem], animated: true)
         self.tabBarController!.navigationItem.title = "交換写真日記"
         

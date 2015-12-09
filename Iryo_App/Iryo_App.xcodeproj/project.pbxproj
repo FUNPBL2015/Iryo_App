@@ -119,6 +119,7 @@
 		5E4E0C341C00BB1000297B18 /* TopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 		5E4E0C361C00BB1A00297B18 /* TipsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
 		5E4E0C381C00F26500297B18 /* intentionData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = intentionData.csv; sourceTree = "<group>"; };
+		5E5AF2501C17269500698E67 /* kindbold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kindbold.ttf; sourceTree = "<group>"; };
 		5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseArticleViewController.swift; sourceTree = "<group>"; };
 		5E69F2C81B3A85C6005877DC /* Article5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article5.swift; sourceTree = "<group>"; };
 		5E77311D1BF33DCD0036AE71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -305,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				5E1965661C037E0100D3D3BC /* kind.ttf */,
+				5E5AF2501C17269500698E67 /* kindbold.ttf */,
 				5E8588841BFB5E3500CC5269 /* right11.png */,
 				5E8588861BFB5E4200CC5269 /* left222.png */,
 				5E8588801BFB5E2000CC5269 /* tabi_camera_nikki.png */,

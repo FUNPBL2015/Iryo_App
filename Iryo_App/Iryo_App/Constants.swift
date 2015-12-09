@@ -67,19 +67,19 @@ var firstTime: NSDate? = NSUserDefaults.standardUserDefaults().objectForKey("fir
 var intentionDisplayLink: CADisplayLink? = CADisplayLink()
 var intentionDataarray: [[String]]! = [[String]]()
 var intentionCount: Int! = 0
-let intentionInterval: NSTimeInterval = 10.0 // セルを自動追加する間隔（秒）
+let intentionInterval: NSTimeInterval = 5.0 * 60.0 // セルを自動追加する間隔（秒）
 
 // MARK: TopicView
 var topicDisplayLink: CADisplayLink? = CADisplayLink()
 var topicDataarray: [[String]]! = [[String]]()
 var topicCount: Int! = 0
-let topicInterval: NSTimeInterval = 15.0 // セルを自動追加する間隔（秒）
+let topicInterval: NSTimeInterval = 10.0 * 60.0 // セルを自動追加する間隔（秒）
 
 // MARK: TipsView
 var tipsDisplayLink: CADisplayLink? = CADisplayLink()
 var tipsDataarray: [[String]]! = [[String]]()
 var tipsCount: Int! = 0
-let tipsInterval: NSTimeInterval = 20.0 // セルを自動追加する間隔（秒）
+let tipsInterval: NSTimeInterval = 15.0 * 60.0 // セルを自動追加する間隔（秒）
 
 // 正規表現
 class Regexp {

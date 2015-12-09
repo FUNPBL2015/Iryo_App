@@ -25,7 +25,16 @@ class TopicView: UIViewController, UITableViewDelegate, UITableViewDataSource{
         myTableView.showsVerticalScrollIndicator = false
         myTableView.dataSource = self
         myTableView.delegate = self
+        self.automaticallyAdjustsScrollViewInsets = false
         self.view.addSubview(myTableView)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //initial navbar
+        self.tabBarController!.navigationItem.setRightBarButtonItems([], animated: true)
+        self.tabBarController!.navigationItem.title = "みんなのおきにいり"
     }
     
     func update(displayLink: CADisplayLink){

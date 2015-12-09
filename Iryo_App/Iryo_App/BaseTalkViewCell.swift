@@ -68,7 +68,7 @@ class TalkViewCell: PFTableViewCell{
         self.imageView!.contentMode = UIViewContentMode.ScaleAspectFit
         
         self.photoButton = UIButton(type: UIButtonType.Custom)
-        self.photoButton!.backgroundColor = UIColor.blackColor()
+        self.photoButton!.backgroundColor = UIColor.clearColor()
         self.contentView.addSubview(self.photoButton!)
         
         self.comments = UITextView()
@@ -115,8 +115,8 @@ class TalkViewCell: PFTableViewCell{
         self.imageView!.frame = CGRectMake(50.0, 20.0, self.contentView.frame.width - 100, self.contentView.frame.height * 3/5)
         self.photoButton!.frame = self.imageView!.frame
         self.comments!.frame = CGRectMake(50.0, self.imageView!.frame.height + 20 + 10, self.contentView.frame.width - 100, 160)
-        self.commentField!.frame = CGRectMake(50.0, self.contentView.frame.height - 30 - 20, self.contentView.frame.width - 100 - 100.0 - 30.0, 30.0 )
-        self.commentsReturn!.frame = CGRectMake(self.contentView.frame.width - 50.0 - 100.0 , self.contentView.frame.height - 30 - 20, 100.0, 30.0)
+        self.commentField!.frame = CGRectMake(50.0, self.contentView.frame.height - 30 - 15, self.contentView.frame.width - 100 - 100.0 - 30.0, 30.0 )
+        self.commentsReturn!.frame = CGRectMake(self.contentView.frame.width - 50.0 - 100.0 , self.contentView.frame.height - 30 - 15, 100.0, 30.0)
     }
     
     override func prepareForReuse() {

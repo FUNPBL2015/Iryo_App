@@ -19,14 +19,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hRn-0i-cIb">
-                                <rect key="frame" x="139" y="133" width="500" height="360"/>
+                                <rect key="frame" x="124" y="133" width="520" height="370"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTQ-78-TYh" customClass="PostBtn" customModule="Iryo_App" customModuleProvider="target">
-                                <rect key="frame" x="154" y="545" width="470" height="90"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KTQ-78-TYh" customClass="PostBtn" customModule="Iryo_App" customModuleProvider="target">
+                                <rect key="frame" x="149" y="541" width="470" height="70"/>
                                 <color key="backgroundColor" red="0.94119957009999999" green="0.59669108010000005" blue="0.1712244587" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="28"/>
-                                <state key="normal" title="お絵描きする">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="お絵描きする">
+                                            <attributes>
+                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="28" name="HiraKakuProN-W6"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -38,7 +44,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="fZD-QS-uGg" customClass="PostSegmentedControl" customModule="Iryo_App" customModuleProvider="target">
-                                <rect key="frame" x="154" y="762" width="470" height="29"/>
+                                <rect key="frame" x="154" y="710" width="470" height="69"/>
                                 <segments>
                                     <segment title="食事"/>
                                     <segment title="家族"/>
@@ -48,44 +54,48 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="titleFontSize">
-                                        <real key="value" value="30"/>
+                                        <real key="value" value="28"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="size" keyPath="segmentPadding">
                                         <size key="value" width="0.0" height="20"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleFontName" value="HiraginoSans-W6"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleFontName" value="ヒラギノ角ゴ ProN W6"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didSelectTag:" destination="AxJ-3Z-I4M" eventType="valueChanged" id="i7H-Ye-eO2"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="これは...." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjq-h5-X0M">
-                                <rect key="frame" x="154" y="719" width="123" height="34"/>
+                                <rect key="frame" x="154" y="668" width="123" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="27"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="の写真です！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thM-ET-LAd">
-                                <rect key="frame" x="447" y="825" width="177" height="50"/>
+                                <rect key="frame" x="447" y="786" width="177" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAl-8d-aXi" customClass="PostBtn" customModule="Iryo_App" customModuleProvider="target">
-                                <rect key="frame" x="154" y="887" width="470" height="90"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DAl-8d-aXi" customClass="PostBtn" customModule="Iryo_App" customModuleProvider="target">
+                                <rect key="frame" x="154" y="879" width="470" height="70"/>
                                 <color key="backgroundColor" red="0.94119957009999999" green="0.59669108010000005" blue="0.1712244587" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="28"/>
-                                <state key="normal" title="投稿する">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="投稿する">
+                                            <attributes>
+                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="28" name="HiraKakuProN-W6"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="didTapOnPostBtn:" destination="AxJ-3Z-I4M" eventType="touchUpInside" id="z50-kX-Xzb"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -721,12 +731,12 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="didTapWhite:" destination="dx4-6o-4Uq" eventType="touchUpInside" id="LDX-lo-fwU"/>
+                                                <action selector="didTapColor:" destination="dx4-6o-4Uq" eventType="touchUpInside" id="wTT-zv-IxF"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="2ZE-08-Li3">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Jt-5T-SGX" customClass="PotBtn" customModule="Iryo_App" customModuleProvider="target">
+                                        <button key="customView" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Jt-5T-SGX" customClass="PotBtn" customModule="Iryo_App" customModuleProvider="target">
                                             <rect key="frame" x="90" y="20" width="60" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -736,12 +746,12 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="didTapBlack:" destination="dx4-6o-4Uq" eventType="touchUpInside" id="zqu-EO-PxV"/>
+                                                <action selector="didTapColor:" destination="dx4-6o-4Uq" eventType="touchUpInside" id="FYY-k1-Hns"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="HVf-vX-sio">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dNN-na-g7m" customClass="PotBtn" customModule="Iryo_App" customModuleProvider="target">
+                                        <button key="customView" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dNN-na-g7m" customClass="PotBtn" customModule="Iryo_App" customModuleProvider="target">
                                             <rect key="frame" x="160" y="20" width="60" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -754,12 +764,12 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="didTapRed:" destination="dx4-6o-4Uq" eventType="touchUpInside" id="A9p-y4-kBW"/>
+                                                <action selector="didTapColor:" destination="dx4-6o-4Uq" eventType="touchUpInside" id="Mk1-dK-yVn"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="r0Z-5A-WqP">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yXj-gR-IQy" customClass="PotBtn" customModule="Iryo_App" customModuleProvider="target">
+                                        <button key="customView" opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yXj-gR-IQy" customClass="PotBtn" customModule="Iryo_App" customModuleProvider="target">
                                             <rect key="frame" x="230" y="20" width="60" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.35809640079999999" green="1" blue="0.08974403685" alpha="1" colorSpace="calibratedRGB"/>
@@ -772,12 +782,12 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="didTapGreen:" destination="dx4-6o-4Uq" eventType="touchUpInside" id="bpv-Qr-fLH"/>
+                                                <action selector="didTapColor:" destination="dx4-6o-4Uq" eventType="touchUpInside" id="YBC-ZN-KP6"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="t7K-Vv-XOi">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ABq-Tr-GVi" customClass="PotBtn" customModule="Iryo_App" customModuleProvider="target">
+                                        <button key="customView" opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ABq-Tr-GVi" customClass="PotBtn" customModule="Iryo_App" customModuleProvider="target">
                                             <rect key="frame" x="300" y="20" width="60" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -790,7 +800,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="didTapBlue:" destination="dx4-6o-4Uq" eventType="touchUpInside" id="kFy-4z-WbG"/>
+                                                <action selector="didTapColor:" destination="dx4-6o-4Uq" eventType="touchUpInside" id="M68-uz-xYB"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
