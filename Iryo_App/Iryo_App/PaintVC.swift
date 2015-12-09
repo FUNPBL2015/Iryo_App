@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import ACEDrawingView
+import MobileCoreServices
 import Parse
 import ACEDrawingView
 
@@ -29,6 +31,8 @@ class PotBtn: UIButton{
         }
     }
 }
+
+
 
 protocol PaintVCDelegate{
     func paintDidFinish(paintImg: UIImage)

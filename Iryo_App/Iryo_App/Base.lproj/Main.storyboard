@@ -191,23 +191,6 @@
                                     <action selector="shouldTransportTalkView:" destination="wVS-Jx-Xbl" eventType="touchUpInside" id="Xah-TL-lT6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNS-Ut-Vhf">
-                                <rect key="frame" x="414" y="300" width="300" height="300"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="200" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="みんなのアルバム">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds " value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="IEj-rA-Oux" kind="presentation" id="h1F-pX-fpw"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAa-rM-QpQ">
                                 <rect key="frame" x="54" y="660" width="300" height="300"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -242,6 +225,23 @@
                                     <segue destination="yI9-cX-svQ" kind="presentation" id="54k-iD-GwE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNS-Ut-Vhf">
+                                <rect key="frame" x="414" y="300" width="300" height="300"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="200" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="みんなのアルバム">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds " value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="shouldTransportAlbumView:" destination="wVS-Jx-Xbl" eventType="touchUpInside" id="kus-dl-bQn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -258,6 +258,91 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZaW-o7-t2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4010" y="-4142"/>
+        </scene>
+        <!--Albumlogin-->
+        <scene sceneID="Gj3-Lu-9W8">
+            <objects>
+                <viewController storyboardIdentifier="albumlogin" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zbz-Jx-ksQ" customClass="albumlogin" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="unI-dW-MTS"/>
+                        <viewControllerLayoutGuide type="bottom" id="72U-FC-Wrt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="albumVC" id="Cjr-dg-gem">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoG-0F-FLS">
+                                <rect key="frame" x="0.0" y="907" width="768" height="117"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="決 定">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D86-0Q-IHE">
+                                <rect key="frame" x="0.0" y="250" width="768" height="500"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KGc-rr-MUc">
+                                    <size key="itemSize" width="150" height="190"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="149" minY="0.0" maxX="149" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" restorationIdentifier="usercell" reuseIdentifier="usercell" id="MGC-CV-kaW" customClass="CustomCell" customModule="Iryo_App" customModuleProvider="target">
+                                        <rect key="frame" x="149" y="0.0" width="150" height="190"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tCo-fo-oEl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-4o-AKX">
+                                                    <rect key="frame" x="0.0" y="150" width="150" height="40"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="userName" destination="2Fg-4o-AKX" id="Oat-69-Kzr"/>
+                                            <outlet property="userPicture" destination="tCo-fo-oEl" id="4ff-tH-yMi"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="zbz-Jx-ksQ" id="EZP-Ww-Dtt"/>
+                                    <outlet property="delegate" destination="zbz-Jx-ksQ" id="fF7-HQ-pFR"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0l-Qh-Nzk">
+                                <rect key="frame" x="134" y="800" width="500" height="50"/>
+                                <color key="backgroundColor" red="0.33741440890000002" green="0.56047364310000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="みんな">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="1024"/>
+                    <connections>
+                        <outlet property="allButton" destination="X0l-Qh-Nzk" id="viV-2t-P8P"/>
+                        <outlet property="decide" destination="aoG-0F-FLS" id="5da-io-Z60"/>
+                        <outlet property="loginView" destination="D86-0Q-IHE" id="wbk-jm-PXd"/>
+                        <segue destination="IEj-rA-Oux" kind="push" identifier="albumsegue" id="RKA-M9-FZX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1QD-ys-0cF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5047" y="-4142"/>
         </scene>
         <!--Howto Use-->
         <scene sceneID="CLW-DX-Cxb">
@@ -280,7 +365,7 @@
         <!--Album-->
         <scene sceneID="uYb-Rt-Meb">
             <objects>
-                <viewController storyboardIdentifier="AlbumView" id="IEj-rA-Oux" customClass="album" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="album" id="IEj-rA-Oux" customClass="album" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W2y-AK-GhK"/>
                         <viewControllerLayoutGuide type="bottom" id="DWN-qD-e1v"/>
@@ -289,25 +374,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="evv-eb-Kba">
-                                <rect key="frame" x="0.0" y="180" width="768" height="800"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="7" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="evv-eb-Kba">
+                                <rect key="frame" x="0.0" y="200" width="768" height="724"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="lZF-cE-jWQ">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="lZF-cE-jWQ">
                                     <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="67" minY="0.0" maxX="67" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="8wB-Fp-dL2" customClass="CustomCell" customModule="Iryo_App" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="0.0" width="200" height="200"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" reuseIdentifier="cell" id="8wB-Fp-dL2" customClass="CustomCell" customModule="Iryo_App" customModuleProvider="target">
+                                        <rect key="frame" x="67" y="0.0" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4Z-UH-vhq">
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="q4Z-UH-vhq">
                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -356,26 +442,31 @@
                                     <outlet property="delegate" destination="IEj-rA-Oux" id="I47-60-PYl"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVD-RP-EiA">
+                                <rect key="frame" x="109" y="130" width="110" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.0" green="0.40392156862745099" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2Z-Z3-TFI">
+                                <rect key="frame" x="554" y="130" width="110" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="button">
+                                    <color key="titleColor" red="0.0" green="0.40392156862745099" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A75-Wd-Bvs">
-                                <rect key="frame" x="255" y="100" width="259" height="41"/>
+                                <rect key="frame" x="254" y="125" width="260" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVD-RP-EiA">
-                                <rect key="frame" x="109" y="106" width="145" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2Z-Z3-TFI">
-                                <rect key="frame" x="554" y="106" width="145" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="v8b-xp-02r"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
@@ -384,17 +475,17 @@
                         <outlet property="nextMonthButton" destination="U2Z-Z3-TFI" id="TXY-3H-U2t"/>
                         <outlet property="prevMonthButton" destination="UVD-RP-EiA" id="rk0-OK-kaX"/>
                         <outlet property="timeLabel" destination="A75-Wd-Bvs" id="Aw4-7k-PyT"/>
-                        <segue destination="970-FS-AEC" kind="presentation" identifier="Segues" id="O43-vP-Jan"/>
+                        <segue destination="970-FS-AEC" kind="push" identifier="Segues" id="O43-vP-Jan"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5b-TR-Gi9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4831" y="-5184"/>
+            <point key="canvasLocation" x="5047" y="-5348"/>
         </scene>
         <!--Picture2-->
         <scene sceneID="dAX-ib-20B">
             <objects>
-                <viewController id="970-FS-AEC" customClass="picture2" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="picture2" id="970-FS-AEC" customClass="picture2" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jLy-32-zW6"/>
                         <viewControllerLayoutGuide type="bottom" id="LD8-nM-fLG"/>
@@ -403,20 +494,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YR8-Ts-fs4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YR8-Ts-fs4">
                                 <rect key="frame" x="50" y="0.0" width="668" height="1024"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pn-Sx-hEP">
-                                <rect key="frame" x="0.0" y="488" width="48" height="48"/>
-                                <state key="normal" image="left222.png"/>
+                                <rect key="frame" x="0.0" y="488" width="50" height="50"/>
+                                <state key="normal" image="arrowLeft"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g70-p7-z7N">
-                                <rect key="frame" x="720" y="488" width="48" height="48"/>
-                                <state key="normal" image="right11.png"/>
+                                <rect key="frame" x="718" y="488" width="50" height="50"/>
+                                <state key="normal" image="arrowRight"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tKt-JQ-uBl"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
@@ -427,7 +519,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b7x-b5-RYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5671" y="-5184"/>
+            <point key="canvasLocation" x="5887" y="-5348"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="rOW-rN-AtR">
@@ -1986,13 +2078,14 @@ Cg
         </scene>
     </scenes>
     <resources>
+        <image name="arrowLeft" width="125" height="125"/>
+        <image name="arrowRight" width="125" height="125"/>
         <image name="b_simple_124_2L.png" width="1098" height="11"/>
         <image name="clear" width="114" height="94"/>
         <image name="eraser" width="114" height="94"/>
         <image name="left222.png" width="64" height="64"/>
         <image name="pen" width="115" height="94"/>
         <image name="pic_family.png" width="1154" height="448"/>
-        <image name="right11.png" width="64" height="64"/>
         <image name="おじいさん２.png" width="166" height="243"/>
         <image name="医師.png" width="90" height="101"/>
         <image name="奥さん.png" width="74" height="100"/>

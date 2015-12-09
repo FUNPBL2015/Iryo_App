@@ -26,6 +26,7 @@
 		5E36D23C1B612C520053FBD9 /* Speaker_mute.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E36D23A1B612C520053FBD9 /* Speaker_mute.png */; };
 		5E36D23D1B612C520053FBD9 /* Speaker_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E36D23B1B612C520053FBD9 /* Speaker_play.png */; };
 		5E40CCD21B32E325007DE681 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E40CCD01B32E2B4007DE681 /* Menu.swift */; };
+		5E4BD21C1C06CD9D0026D255 /* albumlogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BD21B1C06CD9D0026D255 /* albumlogin.swift */; settings = {ASSET_TAGS = (); }; };
 		5E4E0BF01BFF6E0000297B18 /* IntentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0BEF1BFF6E0000297B18 /* IntentionView.swift */; };
 		5E4E0BF21BFF6EBA00297B18 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0BF11BFF6EBA00297B18 /* TopicView.swift */; };
 		5E4E0BF41BFF6ED700297B18 /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0BF31BFF6ED600297B18 /* TipsView.swift */; };
@@ -108,6 +109,7 @@
 		5E36D23A1B612C520053FBD9 /* Speaker_mute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Speaker_mute.png; sourceTree = "<group>"; };
 		5E36D23B1B612C520053FBD9 /* Speaker_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Speaker_play.png; sourceTree = "<group>"; };
 		5E40CCD01B32E2B4007DE681 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		5E4BD21B1C06CD9D0026D255 /* albumlogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = albumlogin.swift; sourceTree = "<group>"; };
 		5E4E0BEF1BFF6E0000297B18 /* IntentionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentionView.swift; sourceTree = "<group>"; };
 		5E4E0BF11BFF6EBA00297B18 /* TopicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
 		5E4E0BF31BFF6ED600297B18 /* TipsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				5E232A571B3D607D004A34BD /* Checklist.swift */,
 				5EAE707E1BD8CFF900893373 /* camera.swift */,
 				5EF6AEB61BEB3A88009D8E60 /* picture2.swift */,
+				5E4BD21B1C06CD9D0026D255 /* albumlogin.swift */,
 				5EAE707A1BD8CC5700893373 /* album.swift */,
 				5EAE707C1BD8CC6D00893373 /* HowtoUse.swift */,
 				5ED5DBE21BE08B0B0088E09A /* Iryo_App-Bridging-Header.h */,
@@ -415,7 +418,7 @@
 				TargetAttributes = {
 					5EB9E30D1B2832A9005B7951 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = QY45QQ26SH;
+						DevelopmentTeam = U4AS42JF62;
 					};
 					5EB9E3221B2832A9005B7951 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -550,6 +553,7 @@
 				5E40CCD21B32E325007DE681 /* Menu.swift in Sources */,
 				5E7A88F01BF5D04D00CCC68B /* TalkView.swift in Sources */,
 				5E8B693A1B4B76B4006E12B1 /* Extension.swift in Sources */,
+				5E4BD21C1C06CD9D0026D255 /* albumlogin.swift in Sources */,
 				5E94DA971BFC41D4006D7A56 /* PostDetailVC.swift in Sources */,
 				5E94DA951BFB591F006D7A56 /* Reachability.swift in Sources */,
 				5E232A501B3D5B6A004A34BD /* com3.swift in Sources */,
@@ -717,7 +721,7 @@
 				INFOPLIST_FILE = Iryo_App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App--";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Iryo_App/Iryo_App-Bridging-Header.h";
@@ -735,7 +739,7 @@
 				INFOPLIST_FILE = Iryo_App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App--";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Iryo_App/Iryo_App-Bridging-Header.h";

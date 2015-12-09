@@ -9,6 +9,7 @@
 import UIKit
 import ACEDrawingView
 
+
 // MARK: Device-Info
 let myScreenWidth = UIScreen.mainScreen().bounds.width
 let myScreenHeight = UIScreen.mainScreen().bounds.height
@@ -56,6 +57,8 @@ let myActivityPhotoKey = "photo"
 let myActivityFromUserKey = "fromUser"
 
 // MARK: User-Class
+//Class-key
+let myUserClassKey = "User"
 // User-keys
 let myUserProfilePicSmallKey = "profilePictureSmall"
 

@@ -38,6 +38,7 @@ class Top: UIViewController {
 
         // NavBarを生成
         self.navigationController?.navigationBar
+        navigationItem.title = "ホーム"
         
 //        let myLabel = UILabel(frame: CGRectMake(0,0,120,50))
 //        myLabel.textColor = UIColor.blackColor()
@@ -97,6 +98,11 @@ class Top: UIViewController {
             self.navigationController?.pushViewController(delegate!.myTabBarController, animated: true)
         }
     }
+    
+    @IBAction func shouldTransportAlbumView(sender: AnyObject) {
+            let albumView: albumlogin? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("albumlogin") as? albumlogin
+            self.navigationController?.pushViewController(albumView!, animated: true)
+           }
     
     func UIColorFromRGB(rgbValue: Int) -> UIColor {
         return UIColor(
