@@ -59,7 +59,7 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         
         // widthまたはheightが画面サイズより大きければ、大きい方に合わせてリサイズ・中央表示
         // どちらも画面サイズ以下であれば、オリジナルサイズを維持して中央表示
-        if((image!.size.width <= myScreenWidth)&&(image!.size.height <= myScreenHeight)){
+        if((image!.size.width <= self.paintView.frame.width)&&(image!.size.height <= self.paintView.frame.height )){
             self.paintView.frame = CGRectMake(fitframe.origin.x,fitframe.origin.y , image!.size.width, image!.size.height)
             self.paintView.center = CGPointMake(myScreenWidth / 2 , ((myScreenHeight - (navigationBarHeight(self)! + myStatusBarHeight) - self.paintToolbar.frame.height + 20) / 2) + (navigationBarHeight(self)! + myStatusBarHeight))
         }else{
