@@ -418,7 +418,7 @@
 				TargetAttributes = {
 					5EB9E30D1B2832A9005B7951 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = QY45QQ26SH;
+						DevelopmentTeam = U4AS42JF62;
 					};
 					5EB9E3221B2832A9005B7951 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -721,7 +721,7 @@
 				INFOPLIST_FILE = Iryo_App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App--";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Iryo_App/Iryo_App-Bridging-Header.h";
@@ -739,7 +739,7 @@
 				INFOPLIST_FILE = Iryo_App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App--";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Iryo_App/Iryo_App-Bridging-Header.h";

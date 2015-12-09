@@ -8,7 +8,13 @@
 
 import UIKit
 import AVFoundation
+import ACEDrawingView
+import MobileCoreServices
 import Parse
+import ParseUI
+import Synchronized
+import FormatterKit
+
 
 protocol PaintVCDelegate{
     func paintDidFinish(paintImg: UIImage)

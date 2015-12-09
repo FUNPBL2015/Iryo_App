@@ -11,6 +11,7 @@ import MobileCoreServices
 import Parse
 import ParseUI
 import Synchronized
+import FormatterKit
 
 class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate{
     // debug

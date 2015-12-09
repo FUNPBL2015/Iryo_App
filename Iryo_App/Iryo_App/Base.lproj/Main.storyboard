@@ -284,39 +284,33 @@
                                 <rect key="frame" x="0.0" y="250" width="768" height="500"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KGc-rr-MUc">
-                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="itemSize" width="150" height="190"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="134" minY="0.0" maxX="134" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="149" minY="0.0" maxX="149" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" restorationIdentifier="usercell" reuseIdentifier="usercell" id="MGC-CV-kaW" customClass="CustomCell" customModule="Iryo_App" customModuleProvider="target">
-                                        <rect key="frame" x="134" y="0.0" width="100" height="100"/>
+                                        <rect key="frame" x="149" y="0.0" width="150" height="190"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tCo-fo-oEl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tCo-fo-oEl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sZC-Wl-HEi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-4o-AKX">
+                                                    <rect key="frame" x="0.0" y="150" width="150" height="40"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <constraints>
-                                            <constraint firstAttribute="trailingMargin" secondItem="sZC-Wl-HEi" secondAttribute="trailing" id="4k8-JM-wtF"/>
-                                            <constraint firstItem="tCo-fo-oEl" firstAttribute="leading" secondItem="MGC-CV-kaW" secondAttribute="leadingMargin" id="Gw3-bk-ASl"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="tCo-fo-oEl" secondAttribute="trailing" id="PQh-8u-DMV"/>
-                                            <constraint firstItem="tCo-fo-oEl" firstAttribute="top" secondItem="MGC-CV-kaW" secondAttribute="topMargin" id="QVD-6W-aRx"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="tCo-fo-oEl" secondAttribute="bottom" id="cfp-8R-myb"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="sZC-Wl-HEi" secondAttribute="bottom" id="ffh-qq-Rq8"/>
-                                            <constraint firstItem="sZC-Wl-HEi" firstAttribute="top" secondItem="MGC-CV-kaW" secondAttribute="topMargin" id="hVc-Hk-yQP"/>
-                                            <constraint firstItem="sZC-Wl-HEi" firstAttribute="leading" secondItem="MGC-CV-kaW" secondAttribute="leadingMargin" id="rMW-XT-xmp"/>
-                                        </constraints>
                                         <connections>
+                                            <outlet property="userName" destination="2Fg-4o-AKX" id="Oat-69-Kzr"/>
                                             <outlet property="userPicture" destination="tCo-fo-oEl" id="4ff-tH-yMi"/>
                                         </connections>
                                     </collectionViewCell>
@@ -380,18 +374,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="evv-eb-Kba">
-                                <rect key="frame" x="0.0" y="180" width="768" height="800"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="7" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="evv-eb-Kba">
+                                <rect key="frame" x="0.0" y="200" width="768" height="724"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="lZF-cE-jWQ">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="lZF-cE-jWQ">
                                     <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="67" minY="0.0" maxX="67" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="8wB-Fp-dL2" customClass="CustomCell" customModule="Iryo_App" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="0.0" width="200" height="200"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" reuseIdentifier="cell" id="8wB-Fp-dL2" customClass="CustomCell" customModule="Iryo_App" customModuleProvider="target">
+                                        <rect key="frame" x="67" y="0.0" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -448,22 +442,26 @@
                                     <outlet property="delegate" destination="IEj-rA-Oux" id="I47-60-PYl"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVD-RP-EiA">
+                                <rect key="frame" x="109" y="130" width="110" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.0" green="0.40392156862745099" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2Z-Z3-TFI">
+                                <rect key="frame" x="554" y="130" width="110" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="button">
+                                    <color key="titleColor" red="0.0" green="0.40392156862745099" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A75-Wd-Bvs">
-                                <rect key="frame" x="250" y="100" width="260" height="41"/>
+                                <rect key="frame" x="254" y="125" width="260" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVD-RP-EiA">
-                                <rect key="frame" x="109" y="106" width="110" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2Z-Z3-TFI">
-                                <rect key="frame" x="554" y="105" width="111" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -496,16 +494,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YR8-Ts-fs4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YR8-Ts-fs4">
                                 <rect key="frame" x="50" y="0.0" width="668" height="1024"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pn-Sx-hEP">
-                                <rect key="frame" x="0.0" y="488" width="48" height="48"/>
-                                <state key="normal" image="left222.png"/>
+                                <rect key="frame" x="0.0" y="488" width="50" height="50"/>
+                                <state key="normal" image="arrowLeft"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g70-p7-z7N">
-                                <rect key="frame" x="720" y="488" width="48" height="48"/>
-                                <state key="normal" image="right11.png"/>
+                                <rect key="frame" x="718" y="488" width="50" height="50"/>
+                                <state key="normal" image="arrowRight"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1998,10 +1996,10 @@ Cg
         </scene>
     </scenes>
     <resources>
+        <image name="arrowLeft" width="125" height="125"/>
+        <image name="arrowRight" width="125" height="125"/>
         <image name="b_simple_124_2L.png" width="1098" height="11"/>
-        <image name="left222.png" width="64" height="64"/>
         <image name="pic_family.png" width="1154" height="448"/>
-        <image name="right11.png" width="64" height="64"/>
         <image name="おじいさん２.png" width="166" height="243"/>
         <image name="医師.png" width="90" height="101"/>
         <image name="奥さん.png" width="74" height="100"/>

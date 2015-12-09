@@ -21,16 +21,20 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     
     override func viewWillAppear(animated: Bool) {
         //画面が表示される直前
-        
+        loadData()
         // ToolBarを非表示にする
         self.navigationController?.setToolbarHidden(true, animated: true)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        //別の画面に遷移した後
+        user = []
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.title = "ユーザー選択"
-        
         
         myLabel.textColor = UIColor.blackColor()
         myLabel.layer.masksToBounds = true
@@ -42,25 +46,17 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         
         decide.addTarget(self, action: "clickDecideButton:", forControlEvents: .TouchUpInside)
         allButton.addTarget(self, action: "allSelect:", forControlEvents: .TouchUpInside)
-        
-        allButton.tag = 100
-        
-        loadData()
-
     }
     
     func loadData()  {
         let query: PFQuery = PFUser.query()!
-//        query.includeKey(myChatsUserKey)
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if (error != nil){
-                // エラー処理
-                return
+            if (error == nil){
+                for row:PFObject in objects! {
+                    self.user.append(row)
+                }
+                self.loginView.reloadData()
             }
-            for row:PFObject in objects! {
-                self.user.append(row)
-            }
-            self.loginView.reloadData()
         }
     }
     
@@ -75,13 +71,19 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("usercell", forIndexPath: indexPath) as! CustomCell
         
-//        print(user[indexPath.row].objectForKey("username"))
-    
+        let displayName: String? = user[indexPath.row].objectForKey("displayName") as! String?
+        cell.userName.text = displayName
+        cell.userName.textAlignment = NSTextAlignment.Center
+
+        if cell.alpha != 1.0{
+            cell.alpha = 1.0
+        }
+        
         let imageFile: PFFile? = user[indexPath.row].objectForKey("profilePictureSmall") as! PFFile?
         imageFile?.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
             if(error == nil) {
-                cell.userPicture.image = UIImage(data: imageData!)!
-//                cell.layer.cornerRadius = 75
+                cell.userPicture!.image = UIImage(data: imageData!)!
+                cell.layer.borderWidth = 2
             }
         })
         return cell
@@ -108,17 +110,18 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             }
         }
         if cell.selected == true {
-            cell.layer.borderWidth = 5
+            cell.alpha = 0.5
+//            cell.layer.borderWidth = 2
         } else if cell.selected == false {
-            cell.layer.borderWidth = 0
+            cell.alpha = 1.0
+//            cell.layer.borderWidth = 0
         }
     }
     
+    
+    
     func allSelect(sender: UIButton){
-        var n = username.count
-        for(n ; n > 0 ; n--){
-            username.removeAtIndex(n-1)
-        }
+        username = []
         for(var i = 0 ; i < user.count ; i++){
             username.append(user[i].objectForKey("username") as! String)
         }
@@ -130,6 +133,7 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     func clickDecideButton(sender: UIButton){
         if(username.count != 0){
             performSegueWithIdentifier("albumsegue",sender: nil)
+            print(username)
             username = []
             myLabel.textColor = UIColor.blackColor()
         }else{
@@ -142,12 +146,6 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             let VC = segue.destinationViewController as! album
             VC.usernames = username
         }
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let width: CGFloat = view.frame.width / 5 - 2
-        let height: CGFloat = width
-        return CGSize(width: width, height: height)
     }
     
 }

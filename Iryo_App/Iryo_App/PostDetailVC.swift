@@ -9,6 +9,7 @@
 import UIKit
 import ParseUI
 import Parse
+import UIImage_AF_Additions
 
 @IBDesignable
 class PostBtn: UIButton{

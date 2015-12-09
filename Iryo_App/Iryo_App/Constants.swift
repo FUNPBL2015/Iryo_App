@@ -6,6 +6,8 @@
 //  Copyright © 2015年 b1013075. All rights reserved.
 //
 
+import UIKit
+
 // MARK: Device-Info
 let myScreenWidth = UIScreen.mainScreen().bounds.width
 let myScreenHeight = UIScreen.mainScreen().bounds.height

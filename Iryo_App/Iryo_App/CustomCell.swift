@@ -10,9 +10,10 @@ import UIKit
 
 class CustomCell: UICollectionViewCell {
     
-    @IBOutlet var imgSample:UIImageView!
+    @IBOutlet var imgSample:UIImageView?
 
-    @IBOutlet var userPicture: UIImageView!
+    @IBOutlet var userPicture: UIImageView?
+    @IBOutlet var userName: UILabel!
     
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -20,5 +21,14 @@ class CustomCell: UICollectionViewCell {
     
     required init(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)!
+    }
+    
+    override func prepareForReuse() {
+        if self.imgSample != nil {
+            self.imgSample!.image = nil
+        }
+        if self.userPicture != nil {
+            self.userPicture!.image = nil
+        }
     }
 }
