@@ -62,7 +62,7 @@ class ManualView: BaseArticleViewController, UIWebViewDelegate, WKNavigationDele
         self.view.addSubview(wkwv)
         
         // wkwebview バグ回避　~ iOS8
-        let urlopt = NSBundle.mainBundle().URLForResource("sample1", withExtension: "html", subdirectory: "manualHTML")
+        let urlopt = NSBundle.mainBundle().URLForResource("sample0", withExtension: "html", subdirectory: "manualHTML")
         if let url = urlopt {
             
             let directory = url.URLByDeletingLastPathComponent!
@@ -77,14 +77,13 @@ class ManualView: BaseArticleViewController, UIWebViewDelegate, WKNavigationDele
                     attributes: nil)
                 
                 let targetURL = temporaryDirectoryURL.URLByAppendingPathComponent("www")
-                let htmlURL = targetURL.URLByAppendingPathComponent("sample1.html")
+                let htmlURL = targetURL.URLByAppendingPathComponent("sample0.html")
                 do{
                     let htmlopt = try NSString(contentsOfURL: htmlURL, encoding: NSUTF8StringEncoding)
                     
                     if let html: NSString = htmlopt {
                         let originalHTML = try! NSString(contentsOfURL: url, encoding: NSUTF8StringEncoding)
                         if html != originalHTML {
-                            print("delete and copy.")
                             try! fileManager.removeItemAtURL(targetURL)
                             try! fileManager.copyItemAtURL(directory, toURL: targetURL)
                         }

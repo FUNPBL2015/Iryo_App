@@ -18,7 +18,7 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
     /* 音声設定 */
     var voicerate :Float = 0.2 //速さ 0.1~1.0
     var voicepitch :Float = 1.1 //高さ 0.5~2.0
-    var speaktext :String = "テキスト"; //読み上げるテキスト
+    var speaktext :String = "テキスト" //読み上げるテキスト
 
     /* nextBtn ルート設定 */
     let rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Root") 
@@ -45,6 +45,7 @@ class BaseArticleViewController: UIViewController, AVSpeechSynthesizerDelegate{
             speakBtn.setImage(UIImage(named: "Speaker_play.png"), forState: .Normal)
             self.speakBtn.setTitle(" 音声再生", forState: UIControlState.Normal)
             speakBtn.layer.backgroundColor = UIColor(red: 0.12, green: 0.78, blue: 0, alpha: 1.0).CGColor
+            speakBtn.tintColor = UIColor.whiteColor()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: speakBtn)
     }
