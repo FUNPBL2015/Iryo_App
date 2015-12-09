@@ -38,7 +38,7 @@ class Top: UIViewController {
 
         // NavBarを生成
         self.navigationController?.navigationBar
-        navigationItem.title = "ホーム"
+        navigationItem.title = "もどる"
         
         //ボタンの同時押しを禁止する
         self.exclusiveAllTouches()

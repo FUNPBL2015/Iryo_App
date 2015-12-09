@@ -372,7 +372,7 @@
         <!--Album-->
         <scene sceneID="uYb-Rt-Meb">
             <objects>
-                <viewController storyboardIdentifier="album" id="IEj-rA-Oux" customClass="album" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="album" automaticallyAdjustsScrollViewInsets="NO" id="IEj-rA-Oux" customClass="album" customModule="Iryo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W2y-AK-GhK"/>
                         <viewControllerLayoutGuide type="bottom" id="DWN-qD-e1v"/>

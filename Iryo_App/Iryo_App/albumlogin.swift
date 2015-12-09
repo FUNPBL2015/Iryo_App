@@ -36,6 +36,9 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.title = "ユーザー選択"
         
+        //ボタンの同時押しを禁止する
+        self.exclusiveAllTouches()
+        
         myLabel.textColor = UIColor.blackColor()
         myLabel.layer.masksToBounds = true
         myLabel.text = "見たい人を選んでください"

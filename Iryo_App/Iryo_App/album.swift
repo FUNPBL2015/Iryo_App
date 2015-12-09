@@ -56,18 +56,17 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     let arrowLeft = UIImageView(frame: CGRectMake(0,0,170,100))
     let arrowRight = UIImageView(frame: CGRectMake(0,0,170,100))
     
-    override func viewDidAppear(animated: Bool) {
-        navigationItem.title = "みんなのアルバム"
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setToolbarHidden(false, animated: true)
         self.navigationController?.toolbar.frame = CGRectMake(0, 924, 768, 100)
         
-//        navigationItem.title = "みんなのアルバム"
+        navigationItem.title = "みんなのアルバム"
         let backButtonItem = UIBarButtonItem(title: "戻る", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backButtonItem
+        
+        //ボタンの同時押しを禁止する
+        self.exclusiveAllTouches()
                 
         timeLabel.textAlignment = NSTextAlignment.Center
         timeLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y:self.view.bounds.height - 724)
