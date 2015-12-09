@@ -22,6 +22,7 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     override func viewWillAppear(animated: Bool) {
         //画面が表示される直前
         loadData()
+        allButton.enabled = true
         // ToolBarを非表示にする
         self.navigationController?.setToolbarHidden(true, animated: true)
     }
@@ -130,6 +131,7 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         performSegueWithIdentifier("albumsegue",sender: nil)
         print(username)
         username = []
+        allButton.enabled = false
     }
     
     func clickDecideButton(sender: UIButton){

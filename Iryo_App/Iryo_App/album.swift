@@ -406,6 +406,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             timeLabel.hidden = true
             arrowRight.hidden = true
             arrowLeft.hidden = true
+            slideBtn.enabled = false
         
             let image:UIImage! = UIImage(data: slidePicture[0])
             imageView = UIImageView(frame: CGRect(x: 0, y: 75, width: self.view.frame.width, height: self.view.frame.width))
@@ -445,6 +446,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             timer.invalidate()
             slideNumber = 0
             self.toolbarItems = [timeButton, mealButton, familyButton, hobbyButton, otherButton]
+            slideBtn.enabled = true
         }
     }
     
@@ -461,6 +463,7 @@ class album: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         timer.invalidate()
         slideNumber = 0
         self.toolbarItems = [timeButton, mealButton, familyButton, hobbyButton, otherButton]
+        slideBtn.enabled = true
     }
 
 }
