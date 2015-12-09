@@ -173,11 +173,11 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         self.postData!.setObject(PFUser.currentUser()!, forKey: myChatsUserKey)
         
         let resizedImgge: UIImage = self.postImage.image!.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(self.postImage.image!.size.width , self.postImage.image!.size.height), interpolationQuality: CGInterpolationQuality.High)
-        let thumbnailImage: UIImage = self.postImage.image!.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(self.postImage.frame.width, self.postImage.frame.height), interpolationQuality: CGInterpolationQuality.Default)
+        let thumbnailImage: UIImage = self.postImage.image!.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(self.postImage.image!.size.width , self.postImage.image!.size.height), interpolationQuality: CGInterpolationQuality.Low)
         //let thumbnailImage: UIImage = self.postImage.image!.thumbnailImage(256, transparentBorder: 0, cornerRadius: 10, interpolationQuality: CGInterpolationQuality.Medium)
         
-        let imageData: NSData = UIImagePNGRepresentation(resizedImgge)!
-        let thumbnailImageData: NSData = UIImagePNGRepresentation(thumbnailImage)!
+        let imageData: NSData = UIImageJPEGRepresentation(self.postImage.image!, 0.3)!//UIImagePNGRepresentation(self.postImage.image!)!
+        let thumbnailImageData: NSData = UIImageJPEGRepresentation(self.postImage.image!, 0.1)!//UIImagePNGRepresentation(self.postImage.image!)!
         
         let photoFile = PFFile(data: imageData)
         let thumbnailFile = PFFile(data: thumbnailImageData)

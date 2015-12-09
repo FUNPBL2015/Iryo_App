@@ -678,18 +678,18 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         var image: UIImage! = info[UIImagePickerControllerOriginalImage] as? UIImage
         var rotate: UIImageOrientation!
         
-        // 画像向きを整理
-        if image!.size.width < image!.size.height && image!.imageOrientation.rawValue == 3{
-            rotate = UIImageOrientation.Right
-        }else if image!.size.width < image!.size.height && image!.imageOrientation.rawValue == 2{
-            rotate = UIImageOrientation.Left
-        }else if image!.size.width < image!.size.height{
-            rotate = UIImageOrientation.Up
-        }else{
-            rotate = UIImageOrientation.Right
-        }
-        
-        image = UIImage(CGImage: image.CGImage!, scale: image!.scale, orientation: rotate)
+//        // 画像向きを整理
+//        if image!.size.width < image!.size.height && image!.imageOrientation.rawValue == 3{
+//            rotate = UIImageOrientation.Right
+//        }else if image!.size.width < image!.size.height && image!.imageOrientation.rawValue == 2{
+//            rotate = UIImageOrientation.Left
+//        }else if image!.size.width < image!.size.height{
+//            rotate = UIImageOrientation.Up
+//        }else{
+//            rotate = UIImageOrientation.Right
+//        }
+//        
+//        image = UIImage(CGImage: image.CGImage!, scale: image!.scale, orientation: rotate)
         
         let postDetailView: PostDetailVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PostDetailVC") as? PostDetailVC
         postDetailView!.image = image
