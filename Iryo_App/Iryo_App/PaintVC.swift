@@ -8,8 +8,7 @@
 
 import UIKit
 import AVFoundation
-import ACEDrawingView
-import MobileCoreServices
+import MBProgressHUD
 import Parse
 import ACEDrawingView
 
@@ -62,7 +61,7 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         
         // widthまたはheightが画面サイズより大きければ、大きい方に合わせてリサイズ・中央表示
         // どちらも画面サイズ以下であれば、オリジナルサイズを維持して中央表示
-        if((image!.size.width <= myScreenWidth)&&(image!.size.height <= myScreenHeight)){
+        if((image!.size.width <= self.paintView.frame.width)&&(image!.size.height <= self.paintView.frame.height )){
             self.paintView.frame = CGRectMake(fitframe.origin.x,fitframe.origin.y , image!.size.width, image!.size.height)
             self.paintView.center = CGPointMake(myScreenWidth / 2 , ((myScreenHeight - (navigationBarHeight(self)! + myStatusBarHeight) - self.paintToolbar.frame.height + 20) / 2) + (navigationBarHeight(self)! + myStatusBarHeight))
         }else{
@@ -89,6 +88,12 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController!.interactivePopGestureRecognizer!.enabled = false
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.isBack = true
@@ -99,13 +104,24 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         
         let saveBtn: UIButton = UIButton(type: .System)
         saveBtn.addTarget(self, action: "didTapSaveBtn", forControlEvents: UIControlEvents.TouchUpInside)
-        saveBtn.frame = CGRectMake(0, 0, 100, 30)
+        saveBtn.frame = CGRectMake(0, -10, 120, 40)
         saveBtn.layer.cornerRadius = 8
         saveBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         saveBtn.setTitle("保存する", forState: UIControlState.Normal)
-        saveBtn.layer.backgroundColor = UIColor.hexStr("ff9933", alpha: 1.0).CGColor
-        
+        saveBtn.titleLabel!.font = UIFont(name: "07YasashisaGothic", size: 20)
+        saveBtn.layer.backgroundColor = UIColor.hexStr("FF9933", alpha: 1.0).CGColor
+
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveBtn)
+        self.navigationItem.title = "お絵描き"
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController!.interactivePopGestureRecognizer!.enabled = true
+        
+        //インジケーターの非表示
+        MBProgressHUD.hideHUDForView(self.navigationController!.view, animated: true)
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -129,69 +145,65 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         }
     }
     
-    // MARK: enumとswitch
+    // TODO: コード整理 (enumとswitch)
+    // paintBtn,eraserBtnの挙動変更　(同時押しhighlight)
+    private var toolToggle = true
+    @IBOutlet weak var eraserTool: UIButton!
+    @IBOutlet weak var penTool: UIButton!
     
-    @IBAction func didTapWhite(sender: AnyObject) {
-        self.drawingView.lineColor = UIColor.whiteColor()
-    }
     
-    @IBAction func didTapBlack(sender: AnyObject) {
-        self.drawingView.lineColor = UIColor.blackColor()
-    }
-    
-    @IBAction func didTapRed(sender: AnyObject) {
-        self.drawingView.lineColor = UIColor.redColor()
-    }
-    
-    @IBAction func didTapGreen(sender: AnyObject) {
-        self.drawingView.lineColor = UIColor.greenColor()
-    }
-    
-    @IBAction func didTapBlue(sender: AnyObject) {
-        self.drawingView.lineColor = UIColor.blueColor()
+    @IBAction func didTapColor(sender: UIButton) {
+        switch sender.tag{
+        case 0: self.drawingView.lineColor = UIColor.whiteColor()
+        case 1: self.drawingView.lineColor = UIColor.blackColor()
+        case 2: self.drawingView.lineColor = UIColor.redColor()
+        case 3: self.drawingView.lineColor = UIColor.greenColor()
+        case 4: self.drawingView.lineColor = UIColor.blueColor()
+        default: break
+        }
     }
     
     @IBAction func didTapPen(sender: AnyObject) {
+        if self.toolToggle == false{
         self.drawingView.drawTool = ACEDrawingToolTypePen
+            penTool.setBackgroundImage(UIImage(named: "pen_selected.png"), forState: .Normal)
+            eraserTool.setBackgroundImage(UIImage(named: "eraser.png"), forState: .Normal)
+            self.toolToggle = true
+        }
     }
     
     @IBAction func didTapEraser(sender: AnyObject) {
+        if self.toolToggle == true{
         self.drawingView.drawTool = ACEDrawingToolTypeEraser
+            (sender as! UIButton).setBackgroundImage(UIImage(named: "eraser_selected.png"), forState: .Normal)
+            penTool.setBackgroundImage(UIImage(named: "pen.png"), forState: .Normal)
+            self.toolToggle = false
+        }
     }
     
     @IBAction func didTapClear(sender: AnyObject) {
-        for _ in 1 ... self.drawingView.undoSteps {
-            self.drawingView.undoLatestStep()
+        let hud = MBProgressHUD.showHUDAddedTo(self.navigationController!.view, animated: true)
+        hud.dimBackground = true
+        
+        if self.drawingView.undoSteps > 0 {
+            for _ in 1 ... self.drawingView.undoSteps {
+                self.drawingView.undoLatestStep()
+            }
+            // redo, undo stepsもリセットされるため、clearは使用しない
+            //self.drawingView.clear()
         }
-        // redo, undo stepsもリセットされるため、clearは使用しない
-        //self.drawingView.clear()
-    }
-    
-    @IBAction func UndoBtn(sender: AnyObject) {
-        self.drawingView.undoLatestStep()
-    }
-    
-    @IBAction func Cancel(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBAction func Clean(sender: AnyObject) {
-        self.drawingView.clear()
-        self.drawingView.loadImage(image)
+        
+        MBProgressHUD.hideHUDForView(self.navigationController!.view, animated: true)
     }
     
     func didTapSaveBtn(){
+        let hud = MBProgressHUD.showHUDAddedTo(self.navigationController!.view, animated: true)
+        hud.dimBackground = true
+        
         // MARK: カメラロールに保存
         //UIImageWriteToSavedPhotosAlbum(self.paintView.screenCapture(), nil, nil, nil)
         self.isBack = false
         self.delegate.paintDidFinish(self.paintView.screenCapture())
-    }
-    
-    @IBAction func Save(sender: AnyObject) {
-        
-        self.delegate.paintDidFinish(self.drawingView.image!)
-        //self.dismissViewControllerAnimated(true, completion: nil)
-        
     }
     
 }

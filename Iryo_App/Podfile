@@ -10,6 +10,7 @@ target 'Iryo_App' do
    pod 'FormatterKit'
    pod 'UIImage+AF+Additions', :git => 'https://github.com/melvitax/UIImageAFAdditions.git' 
    pod 'Synchronized'
+   pod 'MBProgressHUD', '~> 0.9.1'
 end
    
 target 'Iryo_AppTests' do

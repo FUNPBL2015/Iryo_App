@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 import MobileCoreServices
 import Parse
 import ParseUI
@@ -19,7 +20,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     private var outstandingSectionHeaderQueries: [NSObject:AnyObject]
     
     private let emptyText: UILabel = UILabel(frame: CGRectMake(myScreenWidth / 2 - 50, myScreenHeight / 2 - 30, 100, 30))
-    private var allObjects: [NSString]
+    var allObjects: [NSString]
     private var nonPostCellNum: Int
     
     deinit {
@@ -67,37 +68,82 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        synchronized(self){
+            self.loadObjects()
+        }
+        
         //initial tableView style
         let texturedBackgroundView = UIView(frame: self.view.bounds)
         texturedBackgroundView.backgroundColor = UIColor.hexStr("FFEBCD", alpha: 0.5)
         self.tableView.backgroundView = texturedBackgroundView
         self.tableView.separatorColor = UIColor.clearColor()
-        self.tableView.showsVerticalScrollIndicator = false
+        self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(
+            0.0, 0.0, 100.0, 0.0)
         
         let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
         defaultNotificationCenter.addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         defaultNotificationCenter.addObserver(self, selector: Selector("userDidPublishPhoto:"), name: "TalkView.didFinishEditingPhoto", object: nil)
+
+        self.loadNonPostCellData()
         
-        //initial navbar
-        let logoutBtn: UIBarButtonItem! = UIBarButtonItem(title: "ログアウト", style: .Plain, target: self, action: "didTapOnLogoutBtn")
-        let postBtn: UIBarButtonItem! = UIBarButtonItem(title: "写真の投稿", style: .Plain, target: self, action: "didTapOnPostBtn")
-        let addBtn: UIBarButtonItem! = UIBarButtonItem(title: "追加", style: .Plain, target: self, action: "didTapOnAddBtn")
+        // MARK: intentionView
+        intentionDisplayLink = CADisplayLink(target: intentionView!, selector: Selector("update:"))
+        intentionDisplayLink!.frameInterval = 10
+        intentionDisplayLink!.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
         
-        let navRightBtns: NSArray = [postBtn, logoutBtn, addBtn]
-        self.tabBarController!.navigationItem.setRightBarButtonItems(navRightBtns as? [UIBarButtonItem], animated: true)
+        // debug：titleに経過時間を表示する
+//        let displayLinkTest = CADisplayLink(target: intentionView!, selector: Selector("update_test:"))
+//        displayLinkTest.frameInterval = 10
+//        displayLinkTest.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
         
-//        self.tabBarController?.tabBar.frame = CGRectMake(self.tabBarController!.tabBar.frame.origin.x,self.view.frame.size.height-300,self.tabBarController!.tabBar.frame.size.width,400)
-//        self.view.bounds = self.tabBarController!.tabBar.bounds
+        // MARK: topicView
+        topicDisplayLink = CADisplayLink(target: topicView!, selector: Selector("update:"))
+        topicDisplayLink!.frameInterval = 10
+        topicDisplayLink!.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
+        
+        // MARK: tipsView
+        tipsDisplayLink = CADisplayLink(target: tipsView!, selector: Selector("update:"))
+        tipsDisplayLink!.frameInterval = 10
+        tipsDisplayLink!.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.tabBarController!.navigationItem.title = PFUser.currentUser()!.username
+        //self.tabBarController!.navigationItem.title = PFUser.currentUser()!.username
         
-        self.loadObjects()
-        // Navbar用top-margin
-        //self.tableView.contentInset = UIEdgeInsetsMake(70.0, 0.0, 0.0, 0.0)
+        //initial navbar
+        let logoutBtn: UIBarButtonItem! = UIBarButtonItem(title: "×", style: .Plain, target: self, action: "didTapOnLogoutBtn")
+        logoutBtn
+        let postBtn: UIBarButtonItem! = UIBarButtonItem(title: "写真の投稿", style: .Plain, target: self, action: "didTapOnPostBtn")
+        // let addBtn: UIBarButtonItem! = UIBarButtonItem(title: "追加", style: .Plain, target: self, action: "didTapOnAddBtn")
+        
+        let navRightBtns: NSArray = [postBtn/*, logoutBtn*/]
+        self.tabBarController!.navigationItem.setRightBarButtonItems(navRightBtns as? [UIBarButtonItem], animated: true)
+        self.tabBarController!.navigationItem.title = "交換写真日記"
+        
+        // MARK: 画面外にいるときに追加された他セルを同期する
+        // テスト段階
+//        if NSUserDefaults.standardUserDefaults().boolForKey("firstLaunchAtTalkView")  {
+//            var standnum: Int = NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum")
+//            if standnum != Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(tipsInterval){
+//                let standing = Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(tipsInterval) - standnum
+//                for _ in 0..<standing{
+//                    self.allObjects.insert("tips", atIndex: 0)
+//                    standnum++
+//                }
+//                NSUserDefaults.standardUserDefaults().setInteger(standnum, forKey: "tipscellnum")
+//                NSUserDefaults.standardUserDefaults().setObject(self.allObjects as NSArray, forKey: "talkViewAllObjects")
+//                NSUserDefaults.standardUserDefaults().synchronize()
+//            }
+//        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //インジケーターの非表示
+        MBProgressHUD.hideHUDForView(self.navigationController!.view, animated: true)
     }
     
     // テーブルがリロードされる時
@@ -107,6 +153,8 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         
         if  allObjects.count != 0 && self.objects!.count != 0{
             tempObjects.remove("tips")
+            tempObjects.remove("topic")
+            tempObjects.remove("intention")
             
             for o in self.objects!{
                 if let _o: NSString = o.objectId { newObjects.append(_o) }
@@ -141,30 +189,27 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             }
         }
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
+
     override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         scrollView.endEditing(true)
     }
 
     // debug: セル追加処理
-    func didTapOnAddBtn(){
-        var setnum: Int = NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum")
-        
-        self.tableView.beginUpdates()
-        setnum++
-        NSUserDefaults.standardUserDefaults().setInteger(setnum, forKey: "tipscellnum")
-        allObjects.insert("tips", atIndex: 0)
-        
-        NSUserDefaults.standardUserDefaults().setObject(allObjects as NSArray, forKey: "talkViewAllObjects")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        
-        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
-        self.tableView.endUpdates()
-    }
+//    func didTapOnAddBtn(){
+//        var setnum: Int = NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum")
+//        
+//        self.tableView.beginUpdates()
+//        setnum++
+//        NSUserDefaults.standardUserDefaults().setInteger(setnum, forKey: "tipscellnum")
+//        allObjects.insert("tips", atIndex: 0)
+//        
+//        NSUserDefaults.standardUserDefaults().setObject(allObjects as NSArray, forKey: "talkViewAllObjects")
+//        NSUserDefaults.standardUserDefaults().synchronize()
+//        
+//        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
+//        self.tableView.endUpdates()
+//        MBProgressHUD.hideHUDForView(self.view, animated: true)
+//    }
     
     // ログアウト処理
     func didTapOnLogoutBtn(){
@@ -184,7 +229,9 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         if cameraDeviceAvailable && photoLibraryAvailable {
             let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
             
+            // TODO: フォントの統一
             let takePhotoAction = UIAlertAction(title: NSLocalizedString("カメラで写真を撮る", comment: ""), style: UIAlertActionStyle.Default, handler: { _ in self.shouldStartCameraController() })
+            
             let choosePhotoAction = UIAlertAction(title: NSLocalizedString("保存している写真から選ぶ", comment: ""), style: UIAlertActionStyle.Default, handler: { _ in self.shouldStartPhotoLibraryPickerController() })
             let cancelAction = UIAlertAction(title: NSLocalizedString("キャンセル", comment: ""), style: UIAlertActionStyle.Cancel, handler: nil)
             
@@ -211,7 +258,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.objects!.count + NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum")// + (self.paginationEnabled ? 1 : 0)
+        return self.objects!.count + NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum") + NSUserDefaults.standardUserDefaults().integerForKey("topiccellnum") + NSUserDefaults.standardUserDefaults().integerForKey("intentioncellnum")// + (self.paginationEnabled ? 1 : 0)
     }
     
     // MARK: UITableViewDelegate
@@ -226,17 +273,30 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     
     override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         // Navbar用bottom-margin
-        return 50.0
+        return 120.0
     }
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         //フッターボタンにセルが隠れないようにbottom-marginを付ける
-        let tableFooter: UILabel    = UILabel(frame: CGRectMake(0.0, 0.0, self.view.frame.width, 50.0))
+        let tableFooter: UILabel    = UILabel(frame: CGRectMake(0.0, 0.0, self.view.frame.width, 120.0))
         tableFooter.backgroundColor = UIColor.clearColor()
         return tableFooter
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 2 * myScreenHeight / 3
+        // TODO: コード整理
+        // TODO: 他テーブルを参照後に再表示すると高さが崩れる（topic,tips）
+        // TopicView,TipsViewも同様
+        let sum = self.objects!.count + NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum") + NSUserDefaults.standardUserDefaults().integerForKey("topiccellnum") + NSUserDefaults.standardUserDefaults().integerForKey("intentioncellnum")
+        if self.allObjects.count > 0 && sum == self.allObjects.count{
+            switch self.allObjects[indexPath.row]{
+            case "intention": return self.intentionheight
+            case "topic": return self.topicheight
+            case "tips": return self.tipsheight
+            default :return 2 * myScreenHeight / 3
+            }
+        }else{
+            return 2 * myScreenHeight / 3
+        }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -249,8 +309,9 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         }
     }
     
+    // TODO: UserFollow、２家族以上の対応
+    // DB設計済み　設定画面の追加とquery文の作成が必要です。
     override func queryForTable() -> PFQuery {
-        
         let query: PFQuery = PFQuery(className: self.parseClassName!)
         query.limit = 30
         query.includeKey(myChatsUserKey)
@@ -279,6 +340,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
                 for o in self.objects!{
                     if let _o: NSString = o.objectId { allObjects.append(_o) }
                 }
+                
                 NSUserDefaults.standardUserDefaults().setObject(allObjects as NSArray, forKey: "talkViewAllObjects")
                 NSUserDefaults.standardUserDefaults().synchronize()
             }
@@ -286,7 +348,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     
         // 参照しているセルまでに、投稿以外のセルいくつあるのかをカウントする
         for i in 0..<index{
-            if allObjects[i] == "tips"{
+            if allObjects[i] == "tips" || allObjects[i] == "topic" || allObjects[i] == "intention"{
                 self.nonPostCellNum++
             }
         }
@@ -302,17 +364,115 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         return nil
     }
     
+    // TODO: コード整理
+    private var intentionheight: CGFloat = 0
+    private var topicheight: CGFloat = 0
+    private var tipsheight: CGFloat = 0
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
-        let CellIdentifier = "Cell"
+        let CellIdentifier = "Cell01"
+        var tipsPostCellNum = 0, topicPostCellNum = 0, intentionPostCellNum = 0
         
         let index = self.indexForObjectAtIndexPath(indexPath) - self.nonPostCellNum
         
+        synchronized(self){
+            for i in 0..<indexPath.row{
+                if allObjects[i] != "tips"{
+                    tipsPostCellNum++
+                }
+            }
+            
+            for i in 0..<indexPath.row{
+                if allObjects[i] != "topic"{
+                    topicPostCellNum++
+                }
+            }
+            
+            for i in 0..<indexPath.row{
+                if allObjects[i] != "intention"{
+                    intentionPostCellNum++
+                }
+            }
+        }
+        
         if  allObjects[indexPath.row] == "tips" {
-            let CellIdentifier = "Cell02"
+            let CellIdentifier = "Tips"
+            var cell: TipsViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? TipsViewCell
+            
+            if cell == nil {
+                cell = TipsViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+            }
+            
+            let p = tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1
+            if tipsCount != nil && tipsDataarray != nil && p >= 0{
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+                let tipAttributeDict = [
+                    NSFontAttributeName: UIFont.systemFontOfSize(20),
+                    NSParagraphStyleAttributeName: paragraphStyle
+                ]
+                let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
+                let tipTextSize = NSString(string: tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][1]).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
+                cell!.tipTextSize = tipTextSize
+                
+                self.tipsheight = cell!.titleHeight + tipTextSize.height + cell!.margin*6
+                cell!.titleLabel!.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][0]
+                cell!.tipsLabel?.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][1]
+           }
+            
+            return cell
+            
+        }else if  allObjects[indexPath.row] == "topic" {
+            let CellIdentifier = "Tips"
+            var cell: TipsViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? TipsViewCell
+            
+            if cell == nil {
+                cell = TipsViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+            }
+            
+            let p = topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1
+            if topicCount != nil && topicDataarray != nil && p >= 0{
+                let TEXT:String = topicDataarray[topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1][1].stringByReplacingOccurrencesOfString("br", withString: "\n")
+                
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+                let tipAttributeDict = [
+                    NSFontAttributeName: UIFont.systemFontOfSize(20),
+                    NSParagraphStyleAttributeName: paragraphStyle
+                ]
+                let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
+                let tipTextSize = NSString(string: TEXT).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
+                cell!.tipTextSize = tipTextSize
+                
+                self.topicheight = cell!.titleHeight + tipTextSize.height + cell!.margin*6
+                cell!.titleLabel!.text = topicDataarray[topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1][0]
+                cell!.tipsLabel?.text = TEXT
+            }
+            
+            return cell
+            
+        }else if  allObjects[indexPath.row] == "intention" {
+            let CellIdentifier = "Intention"
             var cell: IntentionViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? IntentionViewCell
             
             if cell == nil {
                 cell = IntentionViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+            }
+            
+            let p = intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1
+            if intentionCount != nil && intentionDataarray != nil && p >= 0{
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+                let tipAttributeDict = [
+                    NSFontAttributeName: UIFont.systemFontOfSize(20),
+                    NSParagraphStyleAttributeName: paragraphStyle
+                ]
+                let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
+                let tipTextSize = NSString(string: intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][1]).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
+                cell!.tipTextSize = tipTextSize
+                
+                self.intentionheight = cell!.titleHeight + tipTextSize.height + cell!.margin*9
+                cell!.titleLabel!.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][0]
+                cell!.tipsLabel?.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][1]
             }
             
             return cell
@@ -344,7 +504,15 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
                 activity.cachePolicy = .CacheThenNetwork
                 
                 cell!.imageView!.file = object!.objectForKey(myChatsThumbnailKey) as? PFFile
-                cell!.timestanpLabel!.text = TTTTimeIntervalFormatter().stringForTimeInterval(object!.createdAt!.timeIntervalSinceNow)
+                
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+                cell!.timestanpLabel!.text =  dateFormatter.stringFromDate(object!.createdAt!)//TTTTimeIntervalFormatter().stringForTimeInterval(object!.createdAt!.timeIntervalSinceNow)
+                
+                cell!.userName!.text = "匿名"
+                if let n = object!.objectForKey(myChatsUserKey)?.objectForKey("displayName") as? String{
+                    cell!.userName!.text = n
+                }
                 
                 if let p = object!.objectForKey(myChatsUserKey)?.objectForKey(myUserProfilePicSmallKey) as? PFFile{
                     cell!.avatarImageView!.file = p
@@ -368,7 +536,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
                             if error == nil && objects!.count > 0 {
                                 cell!.comments!.text = nil
                                 for row: PFObject in objects! {
-                                    cell!.comments!.text = cell!.comments!.text!.stringByAppendingString((row.objectForKey(myActivityFromUserKey)!.username!)! + ": " + (row.objectForKey("content") as! String) + "\n")
+                                    cell!.comments!.text = cell!.comments!.text!.stringByAppendingString((row.objectForKey(myActivityFromUserKey)!.objectForKey("displayName") as! String) + ": " + (row.objectForKey("content") as! String) + "\n")
                                 }
                             }else{
                                 if cell!.comments!.text != "コメントがありません" { cell!.comments!.text = "コメントがありません" }
@@ -384,8 +552,61 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     
     //MARK: TalkView
     
+    // 豆知識や医療トピックなどのデータを読み込む
+    // TODO: コード整理
+    func loadNonPostCellData(){
+        // csvファイルの読み込み
+        
+        var path: [String]! = [String]()
+    path.append((NSBundle.mainBundle().pathForResource("intentionData", ofType: "csv"))!)
+        path.append((NSBundle.mainBundle().pathForResource("topicData", ofType: "csv"))!)
+        path.append((NSBundle.mainBundle().pathForResource("tipsData", ofType: "csv"))!)
+        
+        // intentionView
+        var data = try! String(contentsOfFile: path[0], encoding: NSUTF8StringEncoding)
+        var lines = data.componentsSeparatedByString("\n")
+        for line in lines{
+            intentionDataarray.append(line.componentsSeparatedByString(","))
+        }
+        // 表示できる残りセル数をカウント
+        if Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(intentionInterval) >= intentionDataarray.count{
+            intentionCount = 0
+        }else{
+            intentionCount = intentionDataarray.count - Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(intentionInterval)
+        }
+        
+        // topicView
+        data = try! String(contentsOfFile: path[1], encoding: NSUTF8StringEncoding)
+        lines = data.componentsSeparatedByString("\n")
+        for line in lines{
+            topicDataarray.append(line.componentsSeparatedByString(","))
+        }
+        // 表示できる残りセル数をカウント
+        if Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(topicInterval) >= topicDataarray.count{
+            topicCount = 0
+        }else{
+            topicCount = topicDataarray.count - Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(topicInterval)
+        }
+        
+        // tipsView
+        data = try! String(contentsOfFile: path[2], encoding: NSUTF8StringEncoding)
+        lines = data.componentsSeparatedByString("\n")
+        for line in lines{
+            tipsDataarray.append(line.componentsSeparatedByString(","))
+        }
+        // 表示できる残りセル数をカウント
+        if Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(tipsInterval) >= tipsDataarray.count{
+            tipsCount = 0
+        }else{
+            tipsCount = tipsDataarray.count - Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(tipsInterval)
+        }
+    }
+    
     // 写真をタップした時
     func didTapOnPhotoAction(sender: UIButton){
+        let hud = MBProgressHUD.showHUDAddedTo(self.navigationController!.view, animated: true)
+        hud.dimBackground = true
+        
         let photo: PFObject? = self.objects![sender.tag] as? PFObject
         
         if photo != nil{
@@ -451,26 +672,30 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         self.dismissViewControllerAnimated(false, completion: nil)
         
+        let hud = MBProgressHUD.showHUDAddedTo(self.navigationController!.view, animated: true)
+        hud.dimBackground = true
+        
         var image: UIImage! = info[UIImagePickerControllerOriginalImage] as? UIImage
         var rotate: UIImageOrientation!
         
-        // 画像向きを整理
-        if image!.size.width < image!.size.height && image!.imageOrientation.rawValue == 3{
-            rotate = UIImageOrientation.Right
-        }else if image!.size.width < image!.size.height && image!.imageOrientation.rawValue == 2{
-            rotate = UIImageOrientation.Left
-        }else if image!.size.width < image!.size.height{
-            rotate = UIImageOrientation.Up
-        }else{
-            rotate = UIImageOrientation.Right
-        }
-        
-        image = UIImage(CGImage: image.CGImage!, scale: image!.scale, orientation: rotate)
+//        // 画像向きを整理
+//        if image!.size.width < image!.size.height && image!.imageOrientation.rawValue == 3{
+//            rotate = UIImageOrientation.Right
+//        }else if image!.size.width < image!.size.height && image!.imageOrientation.rawValue == 2{
+//            rotate = UIImageOrientation.Left
+//        }else if image!.size.width < image!.size.height{
+//            rotate = UIImageOrientation.Up
+//        }else{
+//            rotate = UIImageOrientation.Right
+//        }
+//        
+//        image = UIImage(CGImage: image.CGImage!, scale: image!.scale, orientation: rotate)
         
         let postDetailView: PostDetailVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PostDetailVC") as? PostDetailVC
         postDetailView!.image = image
         
         self.navigationController?.pushViewController(postDetailView!, animated: true)
+        
         //self.presentViewController(PostDetal!, animated: true, completion: nil)
     }
     
@@ -570,7 +795,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
             
             let timer: NSTimer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("handleCommentTimeout:"), userInfo: ["comment": comment], repeats: false)
             
-            //TODO: バックグラウンド時の挙動
+            //TODO: バックグラウンド時の挙動 (投稿画面では実装済み)
             comment.saveEventually { (succeeded, error) in
                 timer.invalidate()
                 

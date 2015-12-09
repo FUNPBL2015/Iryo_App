@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().setObject(allObject, forKey: "talkViewAllObjects")
             // talkview 投稿以外のセル数
             NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "tipscellnum")
+            NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "topiccellnum")
+            NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "intentioncellnum")
             
         }else{
             // debug
@@ -44,12 +46,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let myNavigationController: UINavigationController = UINavigationController(rootViewController: MainViewController!)
         
+        let navfont:UIFont! = UIFont(name:"07YasashisaGothic",size:24)
+        let navNormalAttributes:NSDictionary! = [NSFontAttributeName : navfont]
+        
+        UIBarButtonItem.appearance().setTitleTextAttributes(navNormalAttributes as? [String: AnyObject], forState: .Normal)
+        // FIXME: ButtonItemだけ高さ調整が効かない？
+        //UIBarButtonItem.appearance().setTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -5.0), forBarMetrics: UIBarMetrics.Default)
+        UINavigationBar.appearance().setTitleVerticalPositionAdjustment(-3.0, forBarMetrics: .Default)
+        UINavigationBar.appearance().titleTextAttributes = [ NSFontAttributeName: UIFont(name: "07YasashisaGothic", size: 26)!]
+        
+        
         myTabBarController = UITabBarController()
         
-        let talkView: TalkView? = TalkView()
-        let intentionView: IntentionView? = IntentionView()
-        let topicView: TopicView? = TopicView()
-        let tipsView: TipsView? = TipsView()
+//        let talkView: TalkView? = TalkView()
+//        let intentionView: IntentionView? = IntentionView()
+//        let topicView: TopicView? = TopicView()
+//        let tipsView: TipsView? = TipsView()
         
         let talkimg = UIImage(named: "Talk.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         let intentionimg = UIImage(named: "Intention.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
@@ -57,17 +69,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tipsimg = UIImage(named: "Tips.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
         let font:UIFont! = UIFont(name:"07YasashisaGothic",size:16)
-        let selectedAttributes:NSDictionary! = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.grayColor()]
+        let normalAttributes:NSDictionary! = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.grayColor()]
+        let selectedAttributes:NSDictionary! = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.hexStr("005AD9", alpha: 1.0)]
         
-        UITabBarItem.appearance().setTitleTextAttributes(selectedAttributes as? [String: AnyObject], forState: .Normal)
-        UITabBar.appearance().tintColor = UIColor.grayColor()
+        UITabBarItem.appearance().setTitleTextAttributes(normalAttributes as? [String: AnyObject], forState: .Normal)
+        UITabBarItem.appearance().setTitleTextAttributes(selectedAttributes as? [String: AnyObject], forState: .Selected)
+        UITabBar.appearance().tintColor = UIColor.hexStr("005AD9", alpha: 1.0)
         UITabBar.appearance().itemPositioning = .Fill
         UITabBar.appearance().backgroundColor = UIColor.whiteColor()
         
         talkView!.tabBarItem = UITabBarItem(title: "交換写真日記", image: talkimg.thumbnailImage(70, transparentBorder: 0, cornerRadius: 0, interpolationQuality: CGInterpolationQuality.High), tag: 1)
-        intentionView!.tabBarItem = UITabBarItem(title: "みんなの意思", image: intentionimg.thumbnailImage(70, transparentBorder: 0, cornerRadius: 0, interpolationQuality: CGInterpolationQuality.High), tag: 2)
-        topicView!.tabBarItem =  UITabBarItem(title: "医療トピック", image: topicimg.thumbnailImage(70, transparentBorder: 0, cornerRadius: 0, interpolationQuality: CGInterpolationQuality.High), tag: 3)
-        tipsView!.tabBarItem = UITabBarItem(title: "豆知識", image: tipsimg.thumbnailImage(70, transparentBorder: 0, cornerRadius: 0, interpolationQuality: CGInterpolationQuality.High), tag: 4)
+        intentionView!.tabBarItem = UITabBarItem(title: "みんなのにっき", image: intentionimg.thumbnailImage(70, transparentBorder: 0, cornerRadius: 0, interpolationQuality: CGInterpolationQuality.High), tag: 2)
+        topicView!.tabBarItem =  UITabBarItem(title: "みんなのおきにいり", image: topicimg.thumbnailImage(70, transparentBorder: 0, cornerRadius: 0, interpolationQuality: CGInterpolationQuality.High), tag: 3)
+        tipsView!.tabBarItem = UITabBarItem(title: "みんなのかわら版", image: tipsimg.thumbnailImage(70, transparentBorder: 0, cornerRadius: 0, interpolationQuality: CGInterpolationQuality.High), tag: 4)
         
         let myTabs: NSArray = [talkView!, intentionView!, topicView!, tipsView!]
         

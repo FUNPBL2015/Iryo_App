@@ -11,6 +11,7 @@ import ParseUI
 import Parse
 import FormatterKit
 import ACEDrawingView
+import MBProgressHUD
 import UIImage_AF_Additions
 
 @IBDesignable
@@ -98,6 +99,15 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         
         paintView!.delegate = self
         self.postData = PFObject(className: myChatsClassKey)
+        
+        self.navigationItem.title = "投稿"
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //インジケーターの非表示
+        MBProgressHUD.hideHUDForView(self.navigationController!.view, animated: true)
     }
     
     //TODO: タグ付けを解除するボタンの設置
@@ -132,31 +142,42 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
     }
     
     @IBAction func didTapOnPaintBtn(sender: AnyObject) {
+        // インジケーターの表示
+        let hud = MBProgressHUD.showHUDAddedTo(self.navigationController!.view, animated: true)
+        hud.dimBackground = true
+        
+        (sender as! UIButton).enabled = false
+        
         if first{
             paintView!.image = self.image
             first = false
         }
         
-        // view deep copy, subclassが削除される？
+        // deep copy, subclassが削除される？
         //temp_draw = NSKeyedUnarchiver.unarchiveObjectWithData(NSKeyedArchiver.archivedDataWithRootObject(paintView!.drawingView)) as? ACEDrawingView
         
         temp_undo = paintView!.drawingView.undoSteps
         temp_redo = paintView!.drawingView.redoSteps
         
         self.navigationController?.pushViewController(paintView!, animated: true)
-    }
-    
-    @IBAction func didTapOnPostBtn(sender: AnyObject) {
+        hud.removeFromSuperview()
         
+        (sender as! UIButton).enabled = true
+        
+    }
+
+    // TODO: インジケータの表示
+    // TODO: ネットワーク切断時のタイマー設定　（デフォルトでは長時間なので短時間に、コメント投稿部分では実装済み）
+    @IBAction func didTapOnPostBtn(sender: AnyObject) {
         self.postData!.setObject(postSegmented.selectedSegmentIndex, forKey: myChatsTagKey)
         self.postData!.setObject(PFUser.currentUser()!, forKey: myChatsUserKey)
         
         let resizedImgge: UIImage = self.postImage.image!.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(self.postImage.image!.size.width , self.postImage.image!.size.height), interpolationQuality: CGInterpolationQuality.High)
-        let thumbnailImage: UIImage = self.postImage.image!.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(self.postImage.frame.width, self.postImage.frame.height), interpolationQuality: CGInterpolationQuality.Default)
+        let thumbnailImage: UIImage = self.postImage.image!.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(self.postImage.image!.size.width , self.postImage.image!.size.height), interpolationQuality: CGInterpolationQuality.Low)
         //let thumbnailImage: UIImage = self.postImage.image!.thumbnailImage(256, transparentBorder: 0, cornerRadius: 10, interpolationQuality: CGInterpolationQuality.Medium)
         
-        let imageData: NSData = UIImagePNGRepresentation(resizedImgge)!
-        let thumbnailImageData: NSData = UIImagePNGRepresentation(thumbnailImage)!
+        let imageData: NSData = UIImageJPEGRepresentation(self.postImage.image!, 0.3)!//UIImagePNGRepresentation(self.postImage.image!)!
+        let thumbnailImageData: NSData = UIImageJPEGRepresentation(self.postImage.image!, 0.1)!//UIImagePNGRepresentation(self.postImage.image!)!
         
         let photoFile = PFFile(data: imageData)
         let thumbnailFile = PFFile(data: thumbnailImageData)
@@ -178,13 +199,13 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
             try self.postData!.save()
             UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
             NSNotificationCenter.defaultCenter().postNotificationName("TalkView.didFinishEditingPhoto", object: postData)
-            alert.showSuccess("Success", subTitle:"Success", closeButtonTitle: "OK")
+            alert.showSuccess("成功", subTitle:"投稿が完了しました！", closeButtonTitle: "OK")
         }catch{
+            MBProgressHUD.hideHUDForView(self.navigationController!.view, animated: true)
             UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
-            alert.showError("Warning", subTitle:"Couldn't post your photo", closeButtonTitle:"OK")
+            alert.showError("エラー", subTitle:"投稿に失敗しました。ネットワーク接続を確認してください。", closeButtonTitle:"OK")
         }
         
-            }
-    
+    }
     
 }
