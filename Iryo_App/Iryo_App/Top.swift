@@ -38,7 +38,7 @@ class Top: UIViewController {
 
         // NavBarを生成
         self.navigationController?.navigationBar
-        navigationItem.title = "ホーム"
+        navigationItem.title = "もどる"
         
 //        let myLabel = UILabel(frame: CGRectMake(0,0,120,50))
 //        myLabel.textColor = UIColor.blackColor()

@@ -36,6 +36,9 @@ class picture2: UIViewController{
         super.viewDidLoad()
         
         showPicture()
+        
+        //ボタンの同時押しを禁止する
+        self.exclusiveAllTouches()
 
         // 画像のアスペクト比を維持しUIImageViewサイズに収まるように表示
         imageView.contentMode = UIViewContentMode.ScaleAspectFit

@@ -22,6 +22,7 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     override func viewWillAppear(animated: Bool) {
         //画面が表示される直前
         loadData()
+        allButton.enabled = true
         // ToolBarを非表示にする
         self.navigationController?.setToolbarHidden(true, animated: true)
     }
@@ -35,6 +36,9 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.title = "ユーザー選択"
+        
+        //ボタンの同時押しを禁止する
+        self.exclusiveAllTouches()
         
         myLabel.textColor = UIColor.blackColor()
         myLabel.layer.masksToBounds = true
@@ -127,6 +131,7 @@ class albumlogin: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         performSegueWithIdentifier("albumsegue",sender: nil)
         print(username)
         username = []
+        allButton.enabled = false
     }
     
     func clickDecideButton(sender: UIButton){
