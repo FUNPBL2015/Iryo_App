@@ -140,7 +140,8 @@ class ManualView: BaseArticleViewController, UIWebViewDelegate, WKNavigationDele
             if error == nil{
                 // 正規表現を使ってHTMLタグと半角スペースを取り除く
                 // 読み上げたくないテキストはここで制御する
-                self.speaktext = Regexp("<(\"[^\"]*\"|'[^']*'|[^'\">])*>|&nbsp;").delMatches(String(html!))
+                self.speaktext = Regexp("<h2 class=\"nonSpk\">.+</h2>|<(\"[^\"]*\"|'[^']*'|[^'\">])*>|&nbsp;|閉じる|×|").delMatches(String(html!))
+                print(self.speaktext)
             }
         }
     }
