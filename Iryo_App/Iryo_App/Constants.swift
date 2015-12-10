@@ -15,7 +15,7 @@ let myScreenHeight = UIScreen.mainScreen().bounds.height
 let myStatusBarHeight = UIApplication.sharedApplication().statusBarFrame.size.height
 
 func navigationBarHeight(callFrom: UIViewController) -> CGFloat? {
-    return callFrom.navigationController?.navigationBar.frame.size.height ?? 44
+    return callFrom.navigationController?.navigationBar.frame.size.height ?? 60
 }
 
 //  MARK: Views
@@ -114,5 +114,16 @@ class Regexp {
             return results
         }
         return nil
+    }
+    
+    func delMatches(input:String) -> String {
+        var strRet:String = input
+        if self.isMatch(input) {
+            let matchList = self.matches(input)
+            for var i = 0; i < matchList!.count; i++ {
+                strRet = strRet.stringByReplacingOccurrencesOfString(matchList![i], withString: "", options: [], range: nil)
+            }
+        }
+        return strRet
     }
 }

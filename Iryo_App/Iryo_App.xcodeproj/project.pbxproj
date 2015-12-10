@@ -27,14 +27,15 @@
 		5E36D23C1B612C520053FBD9 /* Speaker_mute.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E36D23A1B612C520053FBD9 /* Speaker_mute.png */; };
 		5E36D23D1B612C520053FBD9 /* Speaker_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E36D23B1B612C520053FBD9 /* Speaker_play.png */; };
 		5E40CCD21B32E325007DE681 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E40CCD01B32E2B4007DE681 /* Menu.swift */; };
-		5E4BD21C1C06CD9D0026D255 /* albumlogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BD21B1C06CD9D0026D255 /* albumlogin.swift */; settings = {ASSET_TAGS = (); }; };
+		5E4BD21C1C06CD9D0026D255 /* albumlogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BD21B1C06CD9D0026D255 /* albumlogin.swift */; };
 		5E4E0BF01BFF6E0000297B18 /* IntentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0BEF1BFF6E0000297B18 /* IntentionView.swift */; };
 		5E4E0BF21BFF6EBA00297B18 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0BF11BFF6EBA00297B18 /* TopicView.swift */; };
 		5E4E0BF41BFF6ED700297B18 /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0BF31BFF6ED600297B18 /* TipsView.swift */; };
 		5E4E0C331C00BB0200297B18 /* IntentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0C321C00BB0200297B18 /* IntentionCell.swift */; };
 		5E4E0C351C00BB1000297B18 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0C341C00BB1000297B18 /* TopicCell.swift */; };
 		5E4E0C371C00BB1A00297B18 /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0C361C00BB1A00297B18 /* TipsCell.swift */; };
-		5E4E0C391C00F26500297B18 /* intentionData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E0C381C00F26500297B18 /* intentionData.csv */; };
+		5E5AF2581C19A9FB00698E67 /* intentionData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5E5AF2571C19A9FB00698E67 /* intentionData.csv */; };
+		5E6516081C11C10100BE048B /* Manual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6516071C11C10100BE048B /* Manual.swift */; };
 		5E69F2C71B3A6A82005877DC /* BaseArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */; };
 		5E69F2C91B3A85C6005877DC /* Article5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69F2C81B3A85C6005877DC /* Article5.swift */; };
 		5E77311E1BF33DCD0036AE71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E77311C1BF33DCD0036AE71 /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		5E94DA931BF5EA1D006D7A56 /* PhotoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94DA921BF5EA1D006D7A56 /* PhotoDetailVC.swift */; };
 		5E94DA951BFB591F006D7A56 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94DA941BFB591E006D7A56 /* Reachability.swift */; };
 		5E94DA971BFC41D4006D7A56 /* PostDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94DA961BFC41D4006D7A56 /* PostDetailVC.swift */; };
+		5E9ECA5C1C11D16B00BDFB6E /* manualHTML in Resources */ = {isa = PBXBuildFile; fileRef = 5E9ECA5B1C11D16B00BDFB6E /* manualHTML */; };
 		5EAC1F3D1B33162400473C38 /* testFont1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAC1F3B1B33132400473C38 /* testFont1.ttf */; };
 		5EAC1F3F1B3316C700473C38 /* ipaexm.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */; };
 		5EAC1F421B3339A500473C38 /* Article1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAC1F411B3339A500473C38 /* Article1.swift */; };
@@ -120,8 +122,9 @@
 		5E4E0C321C00BB0200297B18 /* IntentionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentionCell.swift; sourceTree = "<group>"; };
 		5E4E0C341C00BB1000297B18 /* TopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 		5E4E0C361C00BB1A00297B18 /* TipsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
-		5E4E0C381C00F26500297B18 /* intentionData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = intentionData.csv; sourceTree = "<group>"; };
 		5E5AF2501C17269500698E67 /* kindbold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kindbold.ttf; sourceTree = "<group>"; };
+		5E5AF2571C19A9FB00698E67 /* intentionData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = intentionData.csv; sourceTree = "<group>"; };
+		5E6516071C11C10100BE048B /* Manual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manual.swift; sourceTree = "<group>"; };
 		5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseArticleViewController.swift; sourceTree = "<group>"; };
 		5E69F2C81B3A85C6005877DC /* Article5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article5.swift; sourceTree = "<group>"; };
 		5E77311D1BF33DCD0036AE71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 		5E94DA921BF5EA1D006D7A56 /* PhotoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailVC.swift; sourceTree = "<group>"; };
 		5E94DA941BFB591E006D7A56 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		5E94DA961BFC41D4006D7A56 /* PostDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailVC.swift; sourceTree = "<group>"; };
+		5E9ECA5B1C11D16B00BDFB6E /* manualHTML */ = {isa = PBXFileReference; lastKnownFileType = folder; path = manualHTML; sourceTree = "<group>"; };
 		5EAC1F3B1B33132400473C38 /* testFont1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = testFont1.ttf; sourceTree = "<group>"; };
 		5EAC1F3E1B3316C700473C38 /* ipaexm.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ipaexm.ttf; sourceTree = "<group>"; };
 		5EAC1F411B3339A500473C38 /* Article1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article1.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 				5E232A511B3D5C95004A34BD /* Article4.swift */,
 				5E232A531B3D5CAB004A34BD /* com4.swift */,
 				5E69F2C81B3A85C6005877DC /* Article5.swift */,
+				5E6516071C11C10100BE048B /* Manual.swift */,
 			);
 			name = "Articles for ...";
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 		5EB9E3111B2832A9005B7951 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5E9ECA5B1C11D16B00BDFB6E /* manualHTML */,
 				5E1965661C037E0100D3D3BC /* kind.ttf */,
 				5E5AF2501C17269500698E67 /* kindbold.ttf */,
 				5E8588841BFB5E3500CC5269 /* right11.png */,
@@ -336,9 +342,9 @@
 				5EAC1F3B1B33132400473C38 /* testFont1.ttf */,
 				5E16771D1C1170AC006B94CA /* cat.png */,
 				5EB9E3121B2832A9005B7951 /* Info.plist */,
+				5E5AF2571C19A9FB00698E67 /* intentionData.csv */,
 				5EBBC1B21C149FB0009D65B7 /* topicData.csv */,
 				5EBBC1B41C149FDC009D65B7 /* tipsData.csv */,
-				5E4E0C381C00F26500297B18 /* intentionData.csv */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -431,7 +437,7 @@
 				TargetAttributes = {
 					5EB9E30D1B2832A9005B7951 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = U4AS42JF62;
+						DevelopmentTeam = QY45QQ26SH;
 					};
 					5EB9E3221B2832A9005B7951 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -467,7 +473,9 @@
 				5EBF6EE01BF32B1400295C7F /* 背景.png in Resources */,
 				5E88AD431B352B66007679A7 /* pic_family.png in Resources */,
 				5E232A4C1B3D5427004A34BD /* 奥さん.png in Resources */,
+				5E5AF2581C19A9FB00698E67 /* intentionData.csv in Resources */,
 				5EBF6EDE1BF32B0700295C7F /* cc-library010009109zzavm.jpg in Resources */,
+				5E9ECA5C1C11D16B00BDFB6E /* manualHTML in Resources */,
 				5E8588891BFB5E5A00CC5269 /* album_photo.png in Resources */,
 				5EBBC1B51C149FDC009D65B7 /* tipsData.csv in Resources */,
 				5EB9E31E1B2832A9005B7951 /* LaunchScreen.xib in Resources */,
@@ -477,7 +485,6 @@
 				5E232A561B3D604D004A34BD /* b_simple_124_2L.png in Resources */,
 				5E88AD411B3523BD007679A7 /* homeImg.png in Resources */,
 				5E36D23D1B612C520053FBD9 /* Speaker_play.png in Resources */,
-				5E4E0C391C00F26500297B18 /* intentionData.csv in Resources */,
 				5E85887D1BFB5D8D00CC5269 /* book_tate.png in Resources */,
 				5EAC1F3F1B3316C700473C38 /* ipaexm.ttf in Resources */,
 				5E1965671C037E0100D3D3BC /* kind.ttf in Resources */,
@@ -590,6 +597,7 @@
 				5E4E0C351C00BB1000297B18 /* TopicCell.swift in Sources */,
 				5E232A521B3D5C95004A34BD /* Article4.swift in Sources */,
 				5EAC1F421B3339A500473C38 /* Article1.swift in Sources */,
+				5E6516081C11C10100BE048B /* Manual.swift in Sources */,
 				5EB9E3141B2832A9005B7951 /* AppDelegate.swift in Sources */,
 				5EAE707D1BD8CC6D00893373 /* HowtoUse.swift in Sources */,
 				5E94DA931BF5EA1D006D7A56 /* PhotoDetailVC.swift in Sources */,
@@ -739,7 +747,7 @@
 				INFOPLIST_FILE = Iryo_App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App---";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App--";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Iryo_App/Iryo_App-Bridging-Header.h";
@@ -757,7 +765,7 @@
 				INFOPLIST_FILE = Iryo_App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App---";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sfn.Iryo-App--";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Iryo_App/Iryo_App-Bridging-Header.h";
