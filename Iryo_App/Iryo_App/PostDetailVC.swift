@@ -12,6 +12,7 @@ import Parse
 import FormatterKit
 import ACEDrawingView
 import MBProgressHUD
+import Synchronized
 import UIImage_AF_Additions
 
 @IBDesignable
@@ -75,11 +76,14 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
     
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var postSegmented: PostSegmentedControl!
+    @IBOutlet weak var postBtn: PostBtn!
     
+    private let alert: SCLAlertView = SCLAlertView()
     private var postData: PFObject?
     private var first: Bool = true
     private var fileUploadBackgroundTaskId: UIBackgroundTaskIdentifier! = UIBackgroundTaskInvalid
     var image: UIImage?
+
     
     private enum Tag: Int{
         case Meal
@@ -101,6 +105,15 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         self.postData = PFObject(className: myChatsClassKey)
         
         self.navigationItem.title = "投稿"
+        
+        //ボタンの同時押しを禁止する
+        self.exclusiveAllTouches()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.postBtn.enabled = true
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -161,23 +174,18 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         
         self.navigationController?.pushViewController(paintView!, animated: true)
         hud.removeFromSuperview()
-        
-        (sender as! UIButton).enabled = true
-        
     }
-
-    // TODO: インジケータの表示
-    // TODO: ネットワーク切断時のタイマー設定　（デフォルトでは長時間なので短時間に、コメント投稿部分では実装済み）
-    @IBAction func didTapOnPostBtn(sender: AnyObject) {
+    
+    @IBAction func showHud(sender: UITapGestureRecognizer){
+        // インジケーターの表示
+        let hud = MBProgressHUD.showHUDAddedTo(self.navigationController!.view, animated: true)
+        hud.dimBackground = true
+        
         self.postData!.setObject(postSegmented.selectedSegmentIndex, forKey: myChatsTagKey)
         self.postData!.setObject(PFUser.currentUser()!, forKey: myChatsUserKey)
         
-        let resizedImgge: UIImage = self.postImage.image!.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(self.postImage.image!.size.width , self.postImage.image!.size.height), interpolationQuality: CGInterpolationQuality.High)
-        let thumbnailImage: UIImage = self.postImage.image!.resizedImageWithContentMode(UIViewContentMode.ScaleAspectFit, bounds: CGSizeMake(self.postImage.image!.size.width , self.postImage.image!.size.height), interpolationQuality: CGInterpolationQuality.Low)
-        //let thumbnailImage: UIImage = self.postImage.image!.thumbnailImage(256, transparentBorder: 0, cornerRadius: 10, interpolationQuality: CGInterpolationQuality.Medium)
-        
-        let imageData: NSData = UIImageJPEGRepresentation(self.postImage.image!, 0.3)!//UIImagePNGRepresentation(self.postImage.image!)!
-        let thumbnailImageData: NSData = UIImageJPEGRepresentation(self.postImage.image!, 0.1)!//UIImagePNGRepresentation(self.postImage.image!)!
+        let imageData: NSData = UIImageJPEGRepresentation(self.postImage.image!, 0.5)!
+        let thumbnailImageData: NSData = UIImageJPEGRepresentation(self.postImage.image!, 0.3)!
         
         let photoFile = PFFile(data: imageData)
         let thumbnailFile = PFFile(data: thumbnailImageData)
@@ -186,26 +194,41 @@ class PostDetailVC: UIViewController, PaintVCDelegate{
         self.postData!.setObject(photoFile!, forKey: myChatsGraphicFileKey)
         self.postData!.setObject(thumbnailFile!, forKey: myChatsThumbnailKey)
         
-        let alert = SCLAlertView()
-        alert.showCloseButton = false
-        alert.addButton("OK", action: { () -> Void in
-            self.navigationController?.popViewControllerAnimated(true)
+        // MARK: カメラロールに保存
+        UIImageWriteToSavedPhotosAlbum(self.postImage.image!, nil, nil, nil)
+        
+        // アラート設定
+        self.alert.showCloseButton = false
+        self.alert.addButton("OK", action: { () -> Void in
+            MBProgressHUD.hideHUDForView(self.navigationController!.view, animated: true)
+            print(self.alert.title)
+            if self.alert.title == "成功"{
+                self.navigationController?.popViewControllerAnimated(true)
+            }
         })
         
-        do{
-            self.fileUploadBackgroundTaskId = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
-                UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
-            }
-            try self.postData!.save()
+        self.fileUploadBackgroundTaskId = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
             UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
-            NSNotificationCenter.defaultCenter().postNotificationName("TalkView.didFinishEditingPhoto", object: postData)
-            alert.showSuccess("成功", subTitle:"投稿が完了しました！", closeButtonTitle: "OK")
-        }catch{
-            MBProgressHUD.hideHUDForView(self.navigationController!.view, animated: true)
-            UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
-            alert.showError("エラー", subTitle:"投稿に失敗しました。ネットワーク接続を確認してください。", closeButtonTitle:"OK")
         }
         
+        // タイマーの設置　10秒経っても完了しなければエラー表記
+        let timer: NSTimer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: Selector("handlePostTimeout:"), userInfo: ["post": self.postData!], repeats: false)
+        
+        self.postData!.saveInBackgroundWithBlock{(succeeded, error) in
+            timer.invalidate()
+            if succeeded{
+                UIApplication.sharedApplication().endBackgroundTask(self.fileUploadBackgroundTaskId)
+                NSNotificationCenter.defaultCenter().postNotificationName("TalkView.didFinishEditingPhoto", object: self.postData)
+                self.alert.title = "成功"
+                self.alert.showSuccess("成功", subTitle:"投稿が完了しました！", closeButtonTitle: "OK")
+            }
+        }
     }
+    
+    func handlePostTimeout(aTimer: NSTimer) {
+        self.alert.title = "失敗"
+        self.alert.showError("エラー", subTitle:"投稿に失敗しました。\nネットワーク接続を確認してください。", closeButtonTitle:"OK")
+    }
+
     
 }

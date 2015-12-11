@@ -97,7 +97,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="didTapOnPostBtn:" destination="AxJ-3Z-I4M" eventType="touchUpInside" id="Wbf-og-ZQN"/>
+                                    <outletCollection property="gestureRecognizers" destination="PRa-I6-ZXc" appends="YES" id="Y2C-o3-UBs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -108,11 +108,17 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="postBtn" destination="KTQ-78-TYh" id="73g-Zj-fDD"/>
                         <outlet property="postImage" destination="hRn-0i-cIb" id="l55-9k-uEi"/>
                         <outlet property="postSegmented" destination="fZD-QS-uGg" id="X6m-wp-ELc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fkY-dX-mus" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="PRa-I6-ZXc">
+                    <connections>
+                        <action selector="showHud:" destination="AxJ-3Z-I4M" id="MxT-Pp-cvf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1622" y="-5384"/>
         </scene>

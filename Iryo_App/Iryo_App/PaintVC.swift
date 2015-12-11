@@ -200,8 +200,6 @@ class PaintVC: UIViewController,UINavigationControllerDelegate{
         let hud = MBProgressHUD.showHUDAddedTo(self.navigationController!.view, animated: true)
         hud.dimBackground = true
         
-        // MARK: カメラロールに保存
-        //UIImageWriteToSavedPhotosAlbum(self.paintView.screenCapture(), nil, nil, nil)
         self.isBack = false
         self.delegate.paintDidFinish(self.paintView.screenCapture())
     }

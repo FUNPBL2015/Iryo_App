@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 import AVFoundation
+import MBProgressHUD
 
 class ManualView: BaseArticleViewController, UIWebViewDelegate, WKNavigationDelegate{
     @IBOutlet weak var myWebView: UIWebView!
@@ -109,10 +110,12 @@ class ManualView: BaseArticleViewController, UIWebViewDelegate, WKNavigationDele
         if let _k = keyPath{
             switch _k {
             case "estimatedProgress":
-                if let progress = change?[NSKeyValueChangeNewKey] as? Double {
-                    // MARK: ここで読込の進捗率を取得できます
-                    // TODO: プログレスバーの表示
-                    print(progress)
+                let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+                hud.mode = MBProgressHUDMode.AnnularDeterminate
+                hud.progress = 0.0
+                hud.labelText = "読み込み中"
+                if let progress = change?[NSKeyValueChangeNewKey] as? Float {
+                    hud.progress = progress
                 }
             case "title":
                 if let title = change?[NSKeyValueChangeNewKey] as? NSString {
@@ -141,9 +144,9 @@ class ManualView: BaseArticleViewController, UIWebViewDelegate, WKNavigationDele
                 // 正規表現を使ってHTMLタグと半角スペースを取り除く
                 // 読み上げたくないテキストはここで制御する
                 self.speaktext = Regexp("<h2 class=\"nonSpk\">.+</h2>|<(\"[^\"]*\"|'[^']*'|[^'\">])*>|&nbsp;|閉じる|×|").delMatches(String(html!))
-                print(self.speaktext)
             }
         }
+        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
     }
     
 }
