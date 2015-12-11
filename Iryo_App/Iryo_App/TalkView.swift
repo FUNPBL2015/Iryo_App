@@ -19,7 +19,7 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     private var shouldReloadOnAppear: Bool = false
     private var outstandingSectionHeaderQueries: [NSObject:AnyObject]
     
-    private let emptyText: UILabel = UILabel(frame: CGRectMake(myScreenWidth / 2 - 50, myScreenHeight / 2 - 30, 100, 30))
+    let emptyText: UILabel = UILabel(frame: CGRectMake(myScreenWidth / 2 - 50, myScreenHeight / 2 - 100, 300, 30))
     var allObjects: [NSString]
     private var nonPostCellNum: Int
     
@@ -53,16 +53,6 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        
-        // 投稿がない時の表示
-        // FIXME: 初回起動時にプログレスバーと同時表示される
-        if self.objects!.count + NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum") == 0{
-            emptyText.text = "Nodata"
-            emptyText.font = UIFont.systemFontOfSize(30)
-            self.view.addSubview(emptyText)
-        }else if emptyText.isDescendantOfView(self.view){
-            emptyText.removeFromSuperview()
-        }
     }
     
     override func viewDidLoad() {
@@ -76,13 +66,17 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         let texturedBackgroundView = UIView(frame: self.view.bounds)
         texturedBackgroundView.backgroundColor = UIColor.hexStr("FFEBCD", alpha: 0.5)
         self.tableView.backgroundView = texturedBackgroundView
-        self.tableView.separatorColor = UIColor.clearColor()
+        self.tableView.separatorColor = UIColor.hexStr("FFEBCD", alpha: 0.5)
         self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(
             0.0, 0.0, 100.0, 0.0)
         
         let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
         defaultNotificationCenter.addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         defaultNotificationCenter.addObserver(self, selector: Selector("userDidPublishPhoto:"), name: "TalkView.didFinishEditingPhoto", object: nil)
+        
+        // セルの登録
+        self.tableView.registerNib(UINib(nibName: "IntentionCell", bundle: nil), forCellReuseIdentifier: "Intention")
+        self.tableView.registerNib(UINib(nibName: "TipsCell", bundle: nil), forCellReuseIdentifier: "Tips")
 
         self.loadNonPostCellData()
         
@@ -105,6 +99,11 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         tipsDisplayLink = CADisplayLink(target: tipsView!, selector: Selector("update:"))
         tipsDisplayLink!.frameInterval = 10
         tipsDisplayLink!.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
+        
+        self.tableView.estimatedRowHeight = 300
+        
+        //ボタンの同時押しを禁止する
+        self.exclusiveAllTouches()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -121,22 +120,6 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         let navRightBtns: NSArray = [postBtn/*, logoutBtn*/]
         self.tabBarController!.navigationItem.setRightBarButtonItems(navRightBtns as? [UIBarButtonItem], animated: true)
         self.tabBarController!.navigationItem.title = "交換写真日記"
-        
-        // MARK: 画面外にいるときに追加された他セルを同期する
-        // テスト段階
-//        if NSUserDefaults.standardUserDefaults().boolForKey("firstLaunchAtTalkView")  {
-//            var standnum: Int = NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum")
-//            if standnum != Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(tipsInterval){
-//                let standing = Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(tipsInterval) - standnum
-//                for _ in 0..<standing{
-//                    self.allObjects.insert("tips", atIndex: 0)
-//                    standnum++
-//                }
-//                NSUserDefaults.standardUserDefaults().setInteger(standnum, forKey: "tipscellnum")
-//                NSUserDefaults.standardUserDefaults().setObject(self.allObjects as NSArray, forKey: "talkViewAllObjects")
-//                NSUserDefaults.standardUserDefaults().synchronize()
-//            }
-//        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -149,9 +132,20 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     // テーブルがリロードされる時
     override func objectsDidLoad(error: NSError?) {
         super.objectsDidLoad(error)
+        
+        // 投稿がない時の表示
+        if self.objects!.count + NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum") == 0{
+            emptyText.text = "データがありません"
+            emptyText.font = UIFont.systemFontOfSize(30)
+            self.view.addSubview(emptyText)
+        }else if emptyText.isDescendantOfView(self.view){
+            emptyText.removeFromSuperview()
+        }
+        
         var newObjects: [NSString] = [], tempObjects: [NSString] = allObjects
         
         if  allObjects.count != 0 && self.objects!.count != 0{
+            
             tempObjects.remove("tips")
             tempObjects.remove("topic")
             tempObjects.remove("intention")
@@ -281,22 +275,41 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         tableFooter.backgroundColor = UIColor.clearColor()
         return tableFooter
     }
-    
+
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         // TODO: コード整理
-        // TODO: 他テーブルを参照後に再表示すると高さが崩れる（topic,tips）
-        // TopicView,TipsViewも同様
         let sum = self.objects!.count + NSUserDefaults.standardUserDefaults().integerForKey("tipscellnum") + NSUserDefaults.standardUserDefaults().integerForKey("topiccellnum") + NSUserDefaults.standardUserDefaults().integerForKey("intentioncellnum")
         if self.allObjects.count > 0 && sum == self.allObjects.count{
             switch self.allObjects[indexPath.row]{
-            case "intention": return self.intentionheight
-            case "topic": return self.topicheight
-            case "tips": return self.tipsheight
+            case "intention": return UITableViewAutomaticDimension
+            case "topic": return UITableViewAutomaticDimension
+            case "tips": return UITableViewAutomaticDimension
             default :return 2 * myScreenHeight / 3
             }
         }else{
             return 2 * myScreenHeight / 3
         }
+    }
+    
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let key: String = String(indexPath.row)
+        
+        if let height = self.cellheight[key]{
+            return height!
+        }
+        
+        return self.tableView.estimatedRowHeight
+    }
+    
+    // estimated height スクロール対策
+    // 一度表示したセルの高さを保持する
+    var cellheight: Dictionary<String, CGFloat?> = [String: CGFloat]()
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.updateConstraints()
+        
+        let key: String = String(indexPath.row)
+        
+        self.cellheight[key] = cell.frame.height
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -365,10 +378,11 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
     }
     
     // TODO: コード整理
-    private var intentionheight: CGFloat = 0
-    private var topicheight: CGFloat = 0
-    private var tipsheight: CGFloat = 0
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
+        
+        self.tableView.registerNib(UINib(nibName: "IntentionCell", bundle: nil), forCellReuseIdentifier: "Intention")
+        self.tableView.registerNib(UINib(nibName: "TipsCell", bundle: nil), forCellReuseIdentifier: "Tips")
+        
         let CellIdentifier = "Cell01"
         var tipsPostCellNum = 0, topicPostCellNum = 0, intentionPostCellNum = 0
         
@@ -395,85 +409,40 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         }
         
         if  allObjects[indexPath.row] == "tips" {
-            let CellIdentifier = "Tips"
-            var cell: TipsViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? TipsViewCell
-            
-            if cell == nil {
-                cell = TipsViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
-            }
-            
+            let cell: TestCell? = tableView.dequeueReusableCellWithIdentifier("Tips", forIndexPath: indexPath) as? TestCell
             let p = tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1
             if tipsCount != nil && tipsDataarray != nil && p >= 0{
-                let paragraphStyle = NSMutableParagraphStyle()
-                paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
-                let tipAttributeDict = [
-                    NSFontAttributeName: UIFont.systemFontOfSize(20),
-                    NSParagraphStyleAttributeName: paragraphStyle
-                ]
-                let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
-                let tipTextSize = NSString(string: tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][1]).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
-                cell!.tipTextSize = tipTextSize
-                
-                self.tipsheight = cell!.titleHeight + tipTextSize.height + cell!.margin*6
-                cell!.titleLabel!.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][0]
-                cell!.tipsLabel?.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][1]
+                cell!.title.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][0]
+                cell!.content.text = tipsDataarray[tipsDataarray.count - tipsCount - indexPath.row + tipsPostCellNum - 1][1]
            }
+            
+            cell!.layoutIfNeeded()
             
             return cell
             
         }else if  allObjects[indexPath.row] == "topic" {
-            let CellIdentifier = "Tips"
-            var cell: TipsViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? TipsViewCell
-            
-            if cell == nil {
-                cell = TipsViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
-            }
+            let cell: TestCell? = tableView.dequeueReusableCellWithIdentifier("Tips", forIndexPath: indexPath) as? TestCell
             
             let p = topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1
             if topicCount != nil && topicDataarray != nil && p >= 0{
-                let TEXT:String = topicDataarray[topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1][1].stringByReplacingOccurrencesOfString("br", withString: "\n")
-                
-                let paragraphStyle = NSMutableParagraphStyle()
-                paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
-                let tipAttributeDict = [
-                    NSFontAttributeName: UIFont.systemFontOfSize(20),
-                    NSParagraphStyleAttributeName: paragraphStyle
-                ]
-                let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
-                let tipTextSize = NSString(string: TEXT).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
-                cell!.tipTextSize = tipTextSize
-                
-                self.topicheight = cell!.titleHeight + tipTextSize.height + cell!.margin*6
-                cell!.titleLabel!.text = topicDataarray[topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1][0]
-                cell!.tipsLabel?.text = TEXT
+                cell!.title.text = topicDataarray[topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1][0]
+                cell!.content.text = topicDataarray[topicDataarray.count - topicCount - indexPath.row + topicPostCellNum - 1][1].stringByReplacingOccurrencesOfString("br", withString: "\n")
             }
+            
+            cell!.layoutIfNeeded()
             
             return cell
             
         }else if  allObjects[indexPath.row] == "intention" {
-            let CellIdentifier = "Intention"
-            var cell: IntentionViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? IntentionViewCell
-            
-            if cell == nil {
-                cell = IntentionViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
-            }
+            let cell: TestCell? = tableView.dequeueReusableCellWithIdentifier("Intention", forIndexPath: indexPath) as? TestCell
             
             let p = intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1
             if intentionCount != nil && intentionDataarray != nil && p >= 0{
-                let paragraphStyle = NSMutableParagraphStyle()
-                paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
-                let tipAttributeDict = [
-                    NSFontAttributeName: UIFont.systemFontOfSize(20),
-                    NSParagraphStyleAttributeName: paragraphStyle
-                ]
-                let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
-                let tipTextSize = NSString(string: intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][1]).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
-                cell!.tipTextSize = tipTextSize
-                
-                self.intentionheight = cell!.titleHeight + tipTextSize.height + cell!.margin*9
-                cell!.titleLabel!.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][0]
-                cell!.tipsLabel?.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][1]
+                cell!.title.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][0]
+                cell!.content.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row + intentionPostCellNum - 1][1]
             }
+            
+            cell!.layoutIfNeeded()
             
             return cell
             
@@ -675,28 +644,12 @@ class TalkView: PFQueryTableViewController,UIImagePickerControllerDelegate,UINav
         let hud = MBProgressHUD.showHUDAddedTo(self.navigationController!.view, animated: true)
         hud.dimBackground = true
         
-        var image: UIImage! = info[UIImagePickerControllerOriginalImage] as? UIImage
-        var rotate: UIImageOrientation!
-        
-//        // 画像向きを整理
-//        if image!.size.width < image!.size.height && image!.imageOrientation.rawValue == 3{
-//            rotate = UIImageOrientation.Right
-//        }else if image!.size.width < image!.size.height && image!.imageOrientation.rawValue == 2{
-//            rotate = UIImageOrientation.Left
-//        }else if image!.size.width < image!.size.height{
-//            rotate = UIImageOrientation.Up
-//        }else{
-//            rotate = UIImageOrientation.Right
-//        }
-//        
-//        image = UIImage(CGImage: image.CGImage!, scale: image!.scale, orientation: rotate)
+        let image: UIImage! = info[UIImagePickerControllerOriginalImage] as? UIImage
         
         let postDetailView: PostDetailVC? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("PostDetailVC") as? PostDetailVC
         postDetailView!.image = image
         
         self.navigationController?.pushViewController(postDetailView!, animated: true)
-        
-        //self.presentViewController(PostDetal!, animated: true, completion: nil)
     }
     
     // カメラが使えなければアルバムを選択する

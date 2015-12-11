@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Tips" rowHeight="228" id="uji-zQ-lH8" customClass="TestCell" customModule="Iryo_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="223"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uji-zQ-lH8" id="eVK-dr-EqX">
+                <rect key="frame" x="0.0" y="0.0" width="768" height="222"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fr2-Bc-MZp">
+                        <rect key="frame" x="8" y="42" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="cMj-fS-Yvj"/>
+                            <constraint firstAttribute="width" constant="60" id="oU9-KS-ETN"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6q-OQ-svo" customClass="CellView" customModule="Iryo_App" customModuleProvider="target">
+                        <rect key="frame" x="88" y="42" width="615" height="164"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrN-q6-qEn">
+                                <rect key="frame" x="31" y="54" width="556" height="91"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" minimumLineHeight="21" maximumLineHeight="21"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqI-8p-CkG">
+                                <rect key="frame" x="16" y="15" width="599" height="26"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="タイトル">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="26" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.49803921568627452" green="1" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="sqI-8p-CkG" firstAttribute="top" secondItem="w6q-OQ-svo" secondAttribute="top" constant="15" id="5TV-FK-MWd"/>
+                            <constraint firstAttribute="trailing" secondItem="sqI-8p-CkG" secondAttribute="trailing" id="Dfl-T4-icJ"/>
+                            <constraint firstItem="vrN-q6-qEn" firstAttribute="leading" secondItem="w6q-OQ-svo" secondAttribute="leading" constant="31" id="JxN-HU-0g0"/>
+                            <constraint firstAttribute="trailing" secondItem="vrN-q6-qEn" secondAttribute="trailing" constant="28" id="YqZ-aa-Rqw"/>
+                            <constraint firstItem="sqI-8p-CkG" firstAttribute="leading" secondItem="w6q-OQ-svo" secondAttribute="leading" constant="16" id="ZXw-5g-63X"/>
+                            <constraint firstAttribute="bottom" secondItem="vrN-q6-qEn" secondAttribute="bottom" constant="19" id="bou-kI-rdk"/>
+                            <constraint firstItem="vrN-q6-qEn" firstAttribute="top" secondItem="sqI-8p-CkG" secondAttribute="bottom" constant="13" id="k0I-Me-152"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="3" height="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="◀︎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJV-2w-D0G">
+                        <rect key="frame" x="65" y="54" width="35" height="35"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                        <color key="textColor" red="0.49803921569999998" green="1" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="1" green="0.92156862750000001" blue="0.80392156859999997" alpha="0.5" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="Fr2-Bc-MZp" firstAttribute="leading" secondItem="eVK-dr-EqX" secondAttribute="leadingMargin" id="0mE-TO-KJ8"/>
+                    <constraint firstItem="w6q-OQ-svo" firstAttribute="leading" secondItem="Fr2-Bc-MZp" secondAttribute="trailing" constant="20" id="39x-AF-QBq"/>
+                    <constraint firstItem="w6q-OQ-svo" firstAttribute="trailing" secondItem="eVK-dr-EqX" secondAttribute="trailingMargin" constant="-57" id="7Ne-tt-YMQ"/>
+                    <constraint firstItem="Fr2-Bc-MZp" firstAttribute="top" secondItem="eVK-dr-EqX" secondAttribute="topMargin" constant="34" id="Hhm-T5-82k"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Fr2-Bc-MZp" secondAttribute="bottom" id="SBb-pW-TIR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="w6q-OQ-svo" secondAttribute="bottom" constant="8" id="cMC-DC-gQb"/>
+                    <constraint firstItem="w6q-OQ-svo" firstAttribute="top" secondItem="eVK-dr-EqX" secondAttribute="topMargin" constant="34" id="vHt-B6-Dk8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="content" destination="vrN-q6-qEn" id="B4E-Ez-Hdf"/>
+                <outlet property="title" destination="sqI-8p-CkG" id="Htr-DS-7Yz"/>
+            </connections>
+            <point key="canvasLocation" x="270" y="241.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cat.png" width="236" height="236"/>
+    </resources>
+</document>

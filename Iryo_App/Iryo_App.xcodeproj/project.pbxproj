@@ -34,7 +34,10 @@
 		5E4E0C331C00BB0200297B18 /* IntentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0C321C00BB0200297B18 /* IntentionCell.swift */; };
 		5E4E0C351C00BB1000297B18 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0C341C00BB1000297B18 /* TopicCell.swift */; };
 		5E4E0C371C00BB1A00297B18 /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0C361C00BB1A00297B18 /* TipsCell.swift */; };
-		5E5AF2581C19A9FB00698E67 /* intentionData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5E5AF2571C19A9FB00698E67 /* intentionData.csv */; };
+		5E5AF2521C18C84200698E67 /* IntentionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5AF2511C18C84200698E67 /* IntentionCell.xib */; };
+		5E5AF2541C18CA6600698E67 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5AF2531C18CA6600698E67 /* TestCell.swift */; };
+		5E5AF2561C18E39400698E67 /* TipsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5AF2551C18E39400698E67 /* TipsCell.xib */; };
+		5E5AF2591C19B38D00698E67 /* intentionData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5E5AF2571C19A9FB00698E67 /* intentionData.csv */; };
 		5E6516081C11C10100BE048B /* Manual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6516071C11C10100BE048B /* Manual.swift */; };
 		5E69F2C71B3A6A82005877DC /* BaseArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */; };
 		5E69F2C91B3A85C6005877DC /* Article5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E69F2C81B3A85C6005877DC /* Article5.swift */; };
@@ -123,6 +126,9 @@
 		5E4E0C341C00BB1000297B18 /* TopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 		5E4E0C361C00BB1A00297B18 /* TipsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
 		5E5AF2501C17269500698E67 /* kindbold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kindbold.ttf; sourceTree = "<group>"; };
+		5E5AF2511C18C84200698E67 /* IntentionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntentionCell.xib; sourceTree = "<group>"; };
+		5E5AF2531C18CA6600698E67 /* TestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
+		5E5AF2551C18E39400698E67 /* TipsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipsCell.xib; sourceTree = "<group>"; };
 		5E5AF2571C19A9FB00698E67 /* intentionData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = intentionData.csv; sourceTree = "<group>"; };
 		5E6516071C11C10100BE048B /* Manual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manual.swift; sourceTree = "<group>"; };
 		5E69F2C61B3A6A82005877DC /* BaseArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseArticleViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +236,9 @@
 				5E4E0C321C00BB0200297B18 /* IntentionCell.swift */,
 				5E4E0C341C00BB1000297B18 /* TopicCell.swift */,
 				5E4E0C361C00BB1A00297B18 /* TipsCell.swift */,
+				5E5AF2531C18CA6600698E67 /* TestCell.swift */,
+				5E5AF2511C18C84200698E67 /* IntentionCell.xib */,
+				5E5AF2551C18E39400698E67 /* TipsCell.xib */,
 			);
 			name = CommunicateViewCells;
 			sourceTree = "<group>";
@@ -473,16 +482,17 @@
 				5EBF6EE01BF32B1400295C7F /* 背景.png in Resources */,
 				5E88AD431B352B66007679A7 /* pic_family.png in Resources */,
 				5E232A4C1B3D5427004A34BD /* 奥さん.png in Resources */,
-				5E5AF2581C19A9FB00698E67 /* intentionData.csv in Resources */,
 				5EBF6EDE1BF32B0700295C7F /* cc-library010009109zzavm.jpg in Resources */,
 				5E9ECA5C1C11D16B00BDFB6E /* manualHTML in Resources */,
 				5E8588891BFB5E5A00CC5269 /* album_photo.png in Resources */,
 				5EBBC1B51C149FDC009D65B7 /* tipsData.csv in Resources */,
 				5EB9E31E1B2832A9005B7951 /* LaunchScreen.xib in Resources */,
 				5E85887F1BFB5E1400CC5269 /* にこり.png in Resources */,
+				5E5AF2521C18C84200698E67 /* IntentionCell.xib in Resources */,
 				5E8588871BFB5E4200CC5269 /* left222.png in Resources */,
 				5E232A4A1B3D5427004A34BD /* おじいさん２.png in Resources */,
 				5E232A561B3D604D004A34BD /* b_simple_124_2L.png in Resources */,
+				5E5AF2561C18E39400698E67 /* TipsCell.xib in Resources */,
 				5E88AD411B3523BD007679A7 /* homeImg.png in Resources */,
 				5E36D23D1B612C520053FBD9 /* Speaker_play.png in Resources */,
 				5E85887D1BFB5D8D00CC5269 /* book_tate.png in Resources */,
@@ -499,6 +509,7 @@
 				5E36D23C1B612C520053FBD9 /* Speaker_mute.png in Resources */,
 				5EAC1F3D1B33162400473C38 /* testFont1.ttf in Resources */,
 				5E232A4D1B3D5427004A34BD /* 奥さん2.png in Resources */,
+				5E5AF2591C19B38D00698E67 /* intentionData.csv in Resources */,
 				5EB9E31B1B2832A9005B7951 /* Images.xcassets in Resources */,
 				5E8588851BFB5E3500CC5269 /* right11.png in Resources */,
 				5E8588811BFB5E2000CC5269 /* tabi_camera_nikki.png in Resources */,
@@ -595,6 +606,7 @@
 				5E8B69371B4B42C2006E12B1 /* CustomNavigationBar.swift in Sources */,
 				5EF6AEAD1BE65C4B009D8E60 /* Top.swift in Sources */,
 				5E4E0C351C00BB1000297B18 /* TopicCell.swift in Sources */,
+				5E5AF2541C18CA6600698E67 /* TestCell.swift in Sources */,
 				5E232A521B3D5C95004A34BD /* Article4.swift in Sources */,
 				5EAC1F421B3339A500473C38 /* Article1.swift in Sources */,
 				5E6516081C11C10100BE048B /* Manual.swift in Sources */,

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Intention" rowHeight="310" id="U4o-2G-dKR" customClass="TestCell" customModule="Iryo_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="305"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U4o-2G-dKR" id="1v0-65-UVW">
+                <rect key="frame" x="0.0" y="0.0" width="768" height="304"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat.png" translatesAutoresizingMaskIntoConstraints="NO" id="7km-n3-66j">
+                        <rect key="frame" x="8" y="42" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="6tC-bq-Kxq"/>
+                            <constraint firstAttribute="width" constant="60" id="JyQ-AB-swE"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmp-Yx-kx0" customClass="CellView" customModule="Iryo_App" customModuleProvider="target">
+                        <rect key="frame" x="88" y="42" width="615" height="246"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68X-HH-D1k">
+                                <rect key="frame" x="31" y="54" width="556" height="91"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HM6-pi-ndT">
+                                <rect key="frame" x="16" y="15" width="599" height="26"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="タイトル">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="26" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vKO-cF-u4F" customClass="PostBtn" customModule="Iryo_App" customModuleProvider="target">
+                                <rect key="frame" x="45" y="177" width="215" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.26666666666666666" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0fX-f2-r5S"/>
+                                    <constraint firstAttribute="width" constant="215" id="7D0-wl-h14"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="はい">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="20" name="HiraKakuProN-W3"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dus-df-Ueg" customClass="PostBtn" customModule="Iryo_App" customModuleProvider="target">
+                                <rect key="frame" x="372" y="177" width="215" height="40"/>
+                                <color key="backgroundColor" red="0.11764705882352941" green="0.56470588235294117" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="V01-Zw-YhD"/>
+                                    <constraint firstAttribute="width" constant="215" id="V0e-NI-Coh"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="いいえ">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="20" name="HiraKakuProN-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.49803921569999998" green="1" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="68X-HH-D1k" firstAttribute="leading" secondItem="rmp-Yx-kx0" secondAttribute="leading" constant="31" id="3mx-10-haa"/>
+                            <constraint firstItem="Dus-df-Ueg" firstAttribute="top" secondItem="68X-HH-D1k" secondAttribute="bottom" constant="32" id="GpB-uG-FOQ"/>
+                            <constraint firstAttribute="trailing" secondItem="HM6-pi-ndT" secondAttribute="trailing" id="Ha7-yt-rUA"/>
+                            <constraint firstItem="68X-HH-D1k" firstAttribute="top" secondItem="HM6-pi-ndT" secondAttribute="bottom" constant="13" id="IqI-FH-gbV"/>
+                            <constraint firstItem="Dus-df-Ueg" firstAttribute="leading" secondItem="vKO-cF-u4F" secondAttribute="trailing" constant="112" id="PhC-lg-tZ7"/>
+                            <constraint firstItem="HM6-pi-ndT" firstAttribute="leading" secondItem="rmp-Yx-kx0" secondAttribute="leading" constant="16" id="Uyp-CH-rs5"/>
+                            <constraint firstAttribute="trailing" secondItem="Dus-df-Ueg" secondAttribute="trailing" constant="28" id="aY1-dj-CrH"/>
+                            <constraint firstItem="vKO-cF-u4F" firstAttribute="leading" secondItem="rmp-Yx-kx0" secondAttribute="leading" constant="45" id="au5-2R-7dN"/>
+                            <constraint firstAttribute="bottom" secondItem="vKO-cF-u4F" secondAttribute="bottom" constant="29" id="euM-MN-1nG"/>
+                            <constraint firstItem="vKO-cF-u4F" firstAttribute="top" secondItem="68X-HH-D1k" secondAttribute="bottom" constant="32" id="p2c-Nz-QeT"/>
+                            <constraint firstItem="HM6-pi-ndT" firstAttribute="top" secondItem="rmp-Yx-kx0" secondAttribute="top" constant="15" id="q6f-M1-X2E"/>
+                            <constraint firstAttribute="bottom" secondItem="Dus-df-Ueg" secondAttribute="bottom" constant="29" id="vE4-ZM-2bH"/>
+                            <constraint firstAttribute="trailing" secondItem="68X-HH-D1k" secondAttribute="trailing" constant="28" id="vZ7-X4-wPZ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="3" height="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="◀︎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCy-8W-yu4">
+                        <rect key="frame" x="65" y="54" width="35" height="35"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                        <color key="textColor" red="0.49803921569999998" green="1" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="1" green="0.92156862750000001" blue="0.80392156859999997" alpha="0.5" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="7km-n3-66j" secondAttribute="bottom" id="12v-Fa-cFs"/>
+                    <constraint firstItem="rmp-Yx-kx0" firstAttribute="leading" secondItem="7km-n3-66j" secondAttribute="trailing" constant="20" id="6Bn-C1-O7I"/>
+                    <constraint firstItem="rmp-Yx-kx0" firstAttribute="trailing" secondItem="1v0-65-UVW" secondAttribute="trailingMargin" constant="-57" id="eWi-97-oPX"/>
+                    <constraint firstItem="rmp-Yx-kx0" firstAttribute="top" secondItem="1v0-65-UVW" secondAttribute="topMargin" constant="34" id="fCi-y0-Wfr"/>
+                    <constraint firstItem="7km-n3-66j" firstAttribute="top" secondItem="1v0-65-UVW" secondAttribute="topMargin" constant="34" id="kSI-tq-MWJ"/>
+                    <constraint firstItem="7km-n3-66j" firstAttribute="leading" secondItem="1v0-65-UVW" secondAttribute="leadingMargin" id="nUJ-gu-orU"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="rmp-Yx-kx0" secondAttribute="bottom" constant="8" id="pXd-Fu-dGg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="content" destination="68X-HH-D1k" id="MVN-Zh-y54"/>
+                <outlet property="title" destination="HM6-pi-ndT" id="OHT-uW-xzF"/>
+            </connections>
+            <point key="canvasLocation" x="270" y="282.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cat.png" width="236" height="236"/>
+    </resources>
+</document>

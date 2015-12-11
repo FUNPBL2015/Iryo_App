@@ -25,11 +25,18 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let texturedBackgroundView = UIView(frame: self.view.bounds)
         texturedBackgroundView.backgroundColor = UIColor.hexStr("FFEBCD", alpha: 0.5)
         myTableView.backgroundView = texturedBackgroundView
-        myTableView.registerClass(IntentionViewCell.self, forCellReuseIdentifier: "Intention")
-        myTableView.showsVerticalScrollIndicator = false
+        myTableView.separatorColor = UIColor.hexStr("FFEBCD", alpha: 0.5)
+        let cell = UINib(nibName: "IntentionCell", bundle: nil)
+        myTableView.registerNib(cell, forCellReuseIdentifier: "Intention")
+        myTableView.showsVerticalScrollIndicator = true
+        myTableView.scrollIndicatorInsets = UIEdgeInsetsMake(
+            0.0, 0.0, 100.0, 0.0)
         myTableView.dataSource = self
         myTableView.delegate = self
         self.view.addSubview(myTableView)
+        
+        myTableView.estimatedRowHeight = 300
+        myTableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -103,14 +110,17 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             NSUserDefaults.standardUserDefaults().synchronize()
             
             talkView!.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
-            talkView!.tableView.endUpdates()
            // }
+            talkView!.tableView.endUpdates()
+            
+            
+            // 投稿がない時の表示
+            if talkView!.emptyText.isDescendantOfView(talkView!.view){
+                talkView!.emptyText.hidden = true
+                talkView!.emptyText.removeFromSuperview()
+            }
             
         }else{ timer.invalidate() }
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return self.cellheight
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -131,38 +141,32 @@ class IntentionView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return tableFooter
     }
     
-    var cellheight: CGFloat = 0
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let key: String = String(indexPath.row)
+        
+        if let height = self.cellheight[key]{
+            return height!
+        }
+        
+        return self.myTableView.estimatedRowHeight
+    }
+    
+    // estimated height スクロール対策
+    // 一度表示したセルの高さを保持する
+    var cellheight: Dictionary<String, CGFloat?> = [String: CGFloat]()
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.updateConstraints()
+        
+        let key: String = String(indexPath.row)
+        
+        self.cellheight[key] = cell.frame.height
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let CellIdentifier = "Intention"
+        let cell: TestCell? = tableView.dequeueReusableCellWithIdentifier("Intention", forIndexPath: indexPath) as? TestCell
         
-        var cell: IntentionViewCell? = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as? IntentionViewCell
-        
-        if cell == nil {
-            cell = IntentionViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
-        }
-        
-        if indexPath.row < intentionDataarray.count && (Int(NSDate().timeIntervalSinceDate(firstTime!)) / Int(intentionInterval)) > indexPath.row && intentionCount >= 0{
-            
-            //以下はtextから高さを取得する処理
-            //改行を単語区切りに
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
-            //NSAttributedStringのAttributeを指定
-            let tipAttributeDict = [
-                NSFontAttributeName: UIFont.systemFontOfSize(20),
-                NSParagraphStyleAttributeName: paragraphStyle
-            ]
-            let tipConstraintsSize = CGSizeMake(myScreenWidth - myScreenWidth / 5 - 60, 500)
-            let tipTextSize = NSString(string: intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row - 1][1]).boundingRectWithSize(tipConstraintsSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tipAttributeDict, context: nil)
-            cell!.tipTextSize = tipTextSize
-            self.cellheight = cell!.titleHeight + tipTextSize.height + cell!.margin*9
-            cell!.titleLabel!.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row - 1][0]
-            cell!.tipsLabel?.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row - 1][1]
-        }else{
-            cell!.titleLabel!.text = nil
-            cell!.tipsLabel!.text = nil
-        }
+        cell?.content.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row - 1][1]
+        cell?.title.text = intentionDataarray[intentionDataarray.count - intentionCount - indexPath.row - 1][0]
         
         return cell!
     }

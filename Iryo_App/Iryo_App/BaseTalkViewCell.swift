@@ -107,14 +107,14 @@ class TalkViewCell: PFTableViewCell{
     // MARK:- UIView
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.contentView.frame = CGRectMake(myScreenWidth / 10, 70.0, myScreenWidth - myScreenWidth / 5, self.contentView.frame.height - 70)
+        self.contentView.frame = CGRectMake(myScreenWidth / 10, 70.0, myScreenWidth - myScreenWidth / 5, self.contentView.frame.height - 80)
         //self.avatarImageView!.frame = CGRectMake(-15.0, -35.0, 30.0, 70.0)
         self.avatarBackGroundView!.frame = CGRectMake(-40.0, -40.0, 80.0, 100.0)
         self.timestanpLabel!.frame = CGRectMake(self.contentView.frame.width - timestanpLabel!.sizeThatFits(CGSizeMake(myScreenWidth / 2, 20)).width,
             -25.0, timestanpLabel!.sizeThatFits(CGSizeMake(myScreenWidth / 2, 20)).width, 20)
         self.imageView!.frame = CGRectMake(50.0, 20.0, self.contentView.frame.width - 100, self.contentView.frame.height * 3/5)
         self.photoButton!.frame = self.imageView!.frame
-        self.comments!.frame = CGRectMake(50.0, self.imageView!.frame.height + 20 + 10, self.contentView.frame.width - 100, 160)
+        self.comments!.frame = CGRectMake(50.0, self.imageView!.frame.height + 20 + 10, self.contentView.frame.width - 100, 150)
         self.commentField!.frame = CGRectMake(50.0, self.contentView.frame.height - 30 - 15, self.contentView.frame.width - 100 - 100.0 - 30.0, 30.0 )
         self.commentsReturn!.frame = CGRectMake(self.contentView.frame.width - 50.0 - 100.0 , self.contentView.frame.height - 30 - 15, 100.0, 30.0)
     }
